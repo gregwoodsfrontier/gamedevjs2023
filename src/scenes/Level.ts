@@ -3,6 +3,8 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
 
 export default class Level extends Phaser.Scene {
 
@@ -16,15 +18,6 @@ export default class Level extends Phaser.Scene {
 
 	editorCreate(): void {
 
-		// text
-		const text = this.add.text(400, 436, "", {});
-		text.setOrigin(0.5, 0.5);
-		text.text = "Phaser 3 + Phaser Editor 2D\nVite + TypeScript";
-		text.setStyle({ "align": "center", "fontFamily": "Arial", "fontSize": "3em" });
-
-		// image
-		this.add.image(400, 243, "FufuSuperDino");
-
 		this.events.emit("scene-awake");
 	}
 
@@ -34,13 +27,103 @@ export default class Level extends Phaser.Scene {
 
 	preload()
 	{
-		//this.load.image("FufuSuperDino", '../../static/assets/FufuSuperDino.png')
+		// Load map
+		this.load.image("tilesBackground", "../assets/tilesets/Gray.png");
+		this.load.image("tilesFloor", "../assets/tilesets/Terrain (16x16).png");
+		this.load.tilemapTiledJSON("map", "../assets/tilemaps/Level1.json");
+
+		// Load character sprite sheets
+  		this.load.spritesheet("characterIdle", "../assets/player/Idle (32x32).png", { frameWidth: 32, frameHeight: 32 });
+  		this.load.spritesheet("characterRun", "../assets/player/Run (32x32).png", { frameWidth: 32, frameHeight: 32 });
+  		this.load.spritesheet("characterJump", "../assets/player/Jump (32x32).png", { frameWidth: 32, frameHeight: 32 });
+  		this.load.spritesheet("characterFall", "../assets/player/Fall (32x32).png", { frameWidth: 32, frameHeight: 32 });
+
 	}
 
 	create() {
+		const map = this.make.tilemap({ key: "map" });
+
+		const tilesetBackground = map.addTilesetImage("Gray", "tilesBackground");
+		const tilesetTerrian = map.addTilesetImage("Terrain (16x16)", "tilesFloor");
+
+		map.createLayer("Background", tilesetBackground, 0, 0);
+ 		const foregroundLayer = map.createLayer("Foreground", tilesetTerrian, 0, 0);
+		foregroundLayer.setCollisionByProperty({ collides: true });
+
+		// Create character sprite
+  		this.character = this.physics.add.sprite(100, 100, "characterIdle");
+
+		this.anims.create({
+			key: "idle",
+			frames: this.anims.generateFrameNumbers("characterIdle", { start: 0, end: 3 }),
+			frameRate: 10,
+			repeat: -1
+		});
+
+		this.anims.create({
+			key: "run",
+			frames: this.anims.generateFrameNumbers("characterRun", { start: 0, end: 7 }),
+			frameRate: 15,
+			repeat: -1
+		  });
+
+		this.anims.create({
+			key: "jump",
+			frames: this.anims.generateFrameNumbers("characterJump", { start: 0, end: 0 }),
+			frameRate: 10,
+			repeat: -1
+		});
+
+		this.anims.create({
+			key: "fall",
+			frames: this.anims.generateFrameNumbers("characterFall", { start: 0, end: 0 }),
+			frameRate: 10,
+			repeat: -1
+		});
+
+
+		// Create and store keyboard input
+   		this.cursors = this.input.keyboard.addKeys({
+		 up: Phaser.Input.Keyboard.KeyCodes.W,
+		 left: Phaser.Input.Keyboard.KeyCodes.A,
+		 right: Phaser.Input.Keyboard.KeyCodes.D,
+		});
+
+		// Play idle animation by default
+  		this.character.anims.play("idle");
+		this.physics.add.collider(this.character, foregroundLayer);
 
 		this.editorCreate();
 	}
+
+	update() {
+    	if (this.cursors.left.isDown) {
+        	this.character.setVelocityX(-200);
+        	this.character.anims.play("run", true);
+        	this.character.flipX = true;
+    	} else if (this.cursors.right.isDown) {
+			this.character.setVelocityX(200);
+			this.character.anims.play("run", true);
+			this.character.flipX = false;
+		} else {
+			this.character.setVelocityX(0);
+			this.character.anims.play("idle", true);
+		}
+
+		// Jumping
+		if (Phaser.Input.Keyboard.JustDown(this.cursors.up) && this.character.body.onFloor()) {
+			this.character.setVelocityY(-350);
+		}
+
+
+		// Jump and fall animations
+		if (this.character.body.velocity.y < 0) {
+			this.character.anims.play("jump", true);
+		} else if (this.character.body.velocity.y > 0 && !this.character.body.touching.down) {
+			this.character.anims.play("fall", true);
+		}
+	}
+
 
 	/* END-USER-CODE */
 }
