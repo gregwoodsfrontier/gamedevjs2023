@@ -41,12 +41,6 @@ export default class Level extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
-
-	preload()
-	{
-		this.load.pack('assetsPack', '../assets/asset-pack.json');
-	}
-
 	create() {
 		// const map = this.make.tilemap({ key: "map" });
 
@@ -100,7 +94,10 @@ export default class Level extends Phaser.Scene {
 		// this.physics.add.collider(this.character, foregroundLayer);
 
 		this.editorCreate();
+		
+		const theme = this.sound.add('menu-theme')
 
+		theme.play()
 	}
 
 	update() {

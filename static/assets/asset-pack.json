@@ -2,9 +2,19 @@
     "section1": {
         "files": [
             {
-                "url": "animations.json",
-                "type": "animation",
-                "key": "animations"
+                "url": "assets/buttons/Achievements.png",
+                "type": "image",
+                "key": "Achievements"
+            },
+            {
+                "url": "assets/buttons/Back.png",
+                "type": "image",
+                "key": "Back"
+            },
+            {
+                "url": "assets/buttons/Close.png",
+                "type": "image",
+                "key": "Close"
             },
             {
                 "url": "assets/FufuSuperDino.png",
@@ -12,9 +22,43 @@
                 "key": "FufuSuperDino"
             },
             {
-                "url": "assets/tilemaps/Level1.json",
-                "type": "tilemapTiledJSON",
-                "key": "map"
+                "url": "assets/buttons/Leaderboard.png",
+                "type": "image",
+                "key": "Leaderboard"
+            },
+            {
+                "url": "assets/buttons/Levels.png",
+                "type": "image",
+                "key": "Levels"
+            },
+            {
+                "url": [
+                    "assets/audio/Menu_Theme.wav"
+                ],
+                "type": "audio",
+                "key": "menu-theme"
+            },
+            {
+                "url": [
+                    "assets/audio/Menu_Theme_Orchestral.wav"
+                ],
+                "type": "audio",
+                "key": "Menu_Theme_Orchestral"
+            },
+            {
+                "url": "assets/buttons/Next.png",
+                "type": "image",
+                "key": "Next"
+            },
+            {
+                "url": "assets/buttons/Play.png",
+                "type": "image",
+                "key": "Play"
+            },
+            {
+                "url": "animations.json",
+                "type": "animation",
+                "key": "player-anims"
             },
             {
                 "url": "assets/player/Double Jump (32x32).png",
@@ -108,14 +152,42 @@
                 "key": "player-wall-jump"
             },
             {
+                "url": "assets/buttons/Previous.png",
+                "type": "image",
+                "key": "Previous"
+            },
+            {
+                "url": "assets/buttons/Restart.png",
+                "type": "image",
+                "key": "Restart"
+            },
+            {
+                "url": "assets/buttons/Settings.png",
+                "type": "image",
+                "key": "Settings"
+            },
+            {
+                "url": "assets/tilesets/Terrain (16x16).png",
+                "frameConfig": {
+                    "frameWidth": 16,
+                    "frameHeight": 16,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Terrain (16x16)"
+            },
+            {
                 "url": "assets/tilesets/Gray.png",
                 "type": "image",
                 "key": "tilesBackground"
             },
             {
-                "url": "assets/tilesets/Terrain (16x16).png",
+                "url": "assets/buttons/Volume.png",
                 "type": "image",
-                "key": "tilesFloor"
+                "key": "Volume"
             }
         ]
     },
