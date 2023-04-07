@@ -27,16 +27,14 @@
                 "key": "Leaderboard"
             },
             {
+                "url": "tiled/Level1.json",
+                "type": "tilemapTiledJSON",
+                "key": "Level1"
+            },
+            {
                 "url": "assets/buttons/Levels.png",
                 "type": "image",
                 "key": "Levels"
-            },
-            {
-                "url": [
-                    "assets/audio/Menu_Theme.wav"
-                ],
-                "type": "audio",
-                "key": "menu-theme"
             },
             {
                 "url": [
@@ -44,6 +42,13 @@
                 ],
                 "type": "audio",
                 "key": "Menu_Theme_Orchestral"
+            },
+            {
+                "url": [
+                    "assets/audio/Menu_Theme.wav"
+                ],
+                "type": "audio",
+                "key": "menu-theme"
             },
             {
                 "url": "assets/buttons/Next.png",

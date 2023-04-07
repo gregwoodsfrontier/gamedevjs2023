@@ -582,28 +582,32 @@
   </properties>
  </tile>
  <wangsets>
-  <wangset name="stone" type="corner" tile="-1">
-   <wangcolor name="stone" color="#ff0000" tile="-1" probability="1"/>
-   <wangcolor name="brick" color="#00ff00" tile="-1" probability="1"/>
+  <wangset name="stone" type="corner" tile="0">
+   <wangcolor name="stone" color="#ff0000" tile="0" probability="1"/>
+   <wangcolor name="brick" color="#00ff00" tile="23" probability="1"/>
    <wangtile tileid="0" wangid="0,1,0,2,0,1,0,1"/>
    <wangtile tileid="1" wangid="0,1,0,2,0,2,0,1"/>
    <wangtile tileid="2" wangid="0,1,0,1,0,2,0,1"/>
+   <wangtile tileid="3" wangid="0,2,0,1,0,2,0,2"/>
+   <wangtile tileid="4" wangid="0,2,0,2,0,1,0,2"/>
    <wangtile tileid="22" wangid="0,2,0,2,0,1,0,1"/>
    <wangtile tileid="23" wangid="0,2,0,2,0,2,0,2"/>
    <wangtile tileid="24" wangid="0,1,0,1,0,2,0,2"/>
+   <wangtile tileid="25" wangid="0,1,0,2,0,2,0,2"/>
+   <wangtile tileid="26" wangid="0,2,0,2,0,2,0,1"/>
    <wangtile tileid="44" wangid="0,2,0,1,0,1,0,1"/>
    <wangtile tileid="45" wangid="0,2,0,1,0,1,0,2"/>
    <wangtile tileid="46" wangid="0,1,0,1,0,1,0,2"/>
   </wangset>
-  <wangset name="grassland" type="corner" tile="-1">
+  <wangset name="grassland" type="corner" tile="6">
    <wangcolor name="soil" color="#ff0000" tile="-1" probability="1"/>
    <wangcolor name="grass" color="#00ff00" tile="-1" probability="1"/>
    <wangcolor name="soiledge" color="#0000ff" tile="-1" probability="1"/>
-   <wangtile tileid="6" wangid="0,2,0,1,0,3,0,2"/>
+   <wangtile tileid="6" wangid="0,2,0,1,0,2,0,2"/>
    <wangtile tileid="7" wangid="0,2,0,1,0,1,0,2"/>
-   <wangtile tileid="8" wangid="0,2,0,3,0,1,0,2"/>
-   <wangtile tileid="9" wangid="0,1,0,2,0,1,0,1"/>
-   <wangtile tileid="10" wangid="0,1,0,1,0,2,0,1"/>
+   <wangtile tileid="8" wangid="0,2,0,2,0,1,0,2"/>
+   <wangtile tileid="9" wangid="0,1,0,1,0,1,0,1"/>
+   <wangtile tileid="10" wangid="0,1,0,1,0,1,0,1"/>
    <wangtile tileid="28" wangid="0,1,0,1,0,3,0,3"/>
    <wangtile tileid="29" wangid="0,1,0,1,0,1,0,1"/>
    <wangtile tileid="30" wangid="0,3,0,3,0,1,0,1"/>
@@ -613,8 +617,8 @@
    <wangtile tileid="51" wangid="0,1,0,3,0,3,0,1"/>
    <wangtile tileid="52" wangid="0,3,0,3,0,3,0,1"/>
   </wangset>
-  <wangset name="wood" type="corner" tile="-1">
-   <wangcolor name="stone" color="#ff0000" tile="-1" probability="1"/>
+  <wangset name="wood" type="corner" tile="88">
+   <wangcolor name="wood" color="#ff0000" tile="-1" probability="1"/>
    <wangcolor name="brick" color="#00ff00" tile="-1" probability="1"/>
    <wangtile tileid="88" wangid="0,1,0,2,0,1,0,1"/>
    <wangtile tileid="89" wangid="0,1,0,2,0,2,0,1"/>

@@ -66,7 +66,7 @@ export default class StateMachineComp extends UserComponent {
 	addState(name: string, config?: { onEnter?: () => void, onUpdate?: () => void, onExit?: () => void })
 	{
 		const context = this.context
-		
+
 		this.states.set(name, {
 			name,
 			onEnter: config?.onEnter?.bind(context),
