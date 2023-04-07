@@ -4,13 +4,95 @@
     "settings": {
         "exportClass": true,
         "autoImport": true,
-        "preloadPackFiles": [],
+        "preloadPackFiles": [
+            "gamedevjs2023/static/assets/preload-asset-pack.json"
+        ],
         "createMethodName": "editorCreate",
         "sceneKey": "Level",
-        "compilerOutputLanguage": "TYPE_SCRIPT"
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 400,
+        "borderHeight": 300
     },
-    "displayList": [],
-    "plainObjects": [],
+    "displayList": [
+        {
+            "prefabId": "e8cbef27-0122-44ad-a3de-0e0b260351e8",
+            "id": "a9bef027-72f4-493f-a1af-0c2f8ff480bb",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "player_1",
+            "scope": "CLASS",
+            "components": [],
+            "x": 174,
+            "y": 134,
+            "scaleX": 1,
+            "scaleY": 1,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "763fe3aa-a3e5-4a34-ba59-29d7af4999db",
+            "label": "border_1",
+            "scope": "CLASS",
+            "components": [
+                "LayerPhysics"
+            ],
+            "list": [],
+            "tilemapId": "27788390-abea-4876-9f98-b8e1f5d39801",
+            "layerName": "border",
+            "tilesets": [
+                "Terrain (16x16)"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "ebf72f5a-593b-43b7-8d8d-3b006b4db356",
+            "label": "ground_1",
+            "scope": "CLASS",
+            "components": [
+                "LayerPhysics"
+            ],
+            "list": [],
+            "tilemapId": "27788390-abea-4876-9f98-b8e1f5d39801",
+            "layerName": "ground",
+            "tilesets": [
+                "Terrain (16x16)"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "b76cdae5-69f4-4dda-9f89-01af2dd13788",
+            "label": "block_1",
+            "scope": "CLASS",
+            "components": [
+                "LayerPhysics"
+            ],
+            "list": [],
+            "tilemapId": "27788390-abea-4876-9f98-b8e1f5d39801",
+            "layerName": "block",
+            "tilesets": [
+                "Terrain (16x16)"
+            ]
+        }
+    ],
+    "plainObjects": [
+        {
+            "id": "27788390-abea-4876-9f98-b8e1f5d39801",
+            "type": "Tilemap",
+            "label": "level1",
+            "key": "Level1",
+            "tilesets": [
+                {
+                    "name": "Terrain (16x16)",
+                    "imageKey": "Terrain (16x16)"
+                }
+            ]
+        }
+    ],
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",

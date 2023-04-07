@@ -3,7 +3,10 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import Player from "../prefabs/Player";
+import LayerPhysics from "../components/LayerPhysics";
 /* START-USER-IMPORTS */
+import { ANIM_P_RUN, ANIM_P_DBL_JUMP } from "../animations";
 /* END-USER-IMPORTS */
 
 export default class Level extends Phaser.Scene {
@@ -16,112 +19,104 @@ export default class Level extends Phaser.Scene {
 		/* END-USER-CTR-CODE */
 	}
 
+	preload(): void {
+
+		this.load.pack("preload-asset-pack", "assets/preload-asset-pack.json");
+	}
+
 	editorCreate(): void {
+
+		// level1
+		const level1 = this.add.tilemap("Level1");
+		level1.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
+
+		// player_1
+		const player_1 = new Player(this, 174, 134);
+		this.add.existing(player_1);
+		player_1.scaleX = 1;
+		player_1.scaleY = 1;
+
+		// border_1
+		const border_1 = level1.createLayer("border", ["Terrain (16x16)"], 0, 0);
+
+		// ground_1
+		const ground_1 = level1.createLayer("ground", ["Terrain (16x16)"], 0, 0);
+
+		// block_1
+		const block_1 = level1.createLayer("block", ["Terrain (16x16)"], 0, 0);
+
+		// border_1 (components)
+		new LayerPhysics(border_1);
+
+		// ground_1 (components)
+		new LayerPhysics(ground_1);
+
+		// block_1 (components)
+		new LayerPhysics(block_1);
+
+		this.player_1 = player_1;
+		this.border_1 = border_1;
+		this.ground_1 = ground_1;
+		this.block_1 = block_1;
+		this.level1 = level1;
 
 		this.events.emit("scene-awake");
 	}
 
+	private player_1!: Player;
+	private border_1!: Phaser.Tilemaps.TilemapLayer;
+	private ground_1!: Phaser.Tilemaps.TilemapLayer;
+	private block_1!: Phaser.Tilemaps.TilemapLayer;
+	private level1!: Phaser.Tilemaps.Tilemap;
+
 	/* START-USER-CODE */
+	private WASDcursors?: object
+	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
 
 	// Write your code here
-
-	preload()
-	{
-		// Load map
-		this.load.image("tilesBackground", "../assets/tilesets/Gray.png");
-		this.load.image("tilesFloor", "../assets/tilesets/Terrain (16x16).png");
-		this.load.tilemapTiledJSON("map", "../assets/tilemaps/Level1.json");
-
-		// Load character sprite sheets
-  		this.load.spritesheet("characterIdle", "../assets/player/Idle (32x32).png", { frameWidth: 32, frameHeight: 32 });
-  		this.load.spritesheet("characterRun", "../assets/player/Run (32x32).png", { frameWidth: 32, frameHeight: 32 });
-  		this.load.spritesheet("characterJump", "../assets/player/Jump (32x32).png", { frameWidth: 32, frameHeight: 32 });
-  		this.load.spritesheet("characterFall", "../assets/player/Fall (32x32).png", { frameWidth: 32, frameHeight: 32 });
-
-	}
-
 	create() {
-		const map = this.make.tilemap({ key: "map" });
-
-		const tilesetBackground = map.addTilesetImage("Gray", "tilesBackground");
-		const tilesetTerrian = map.addTilesetImage("Terrain (16x16)", "tilesFloor");
-
-		map.createLayer("Background", tilesetBackground, 0, 0);
- 		const foregroundLayer = map.createLayer("Foreground", tilesetTerrian, 0, 0);
-		foregroundLayer.setCollisionByProperty({ collides: true });
-
-		// Create character sprite
-  		this.character = this.physics.add.sprite(100, 100, "characterIdle");
-
-		this.anims.create({
-			key: "idle",
-			frames: this.anims.generateFrameNumbers("characterIdle", { start: 0, end: 3 }),
-			frameRate: 10,
-			repeat: -1
-		});
-
-		this.anims.create({
-			key: "run",
-			frames: this.anims.generateFrameNumbers("characterRun", { start: 0, end: 7 }),
-			frameRate: 15,
-			repeat: -1
-		  });
-
-		this.anims.create({
-			key: "jump",
-			frames: this.anims.generateFrameNumbers("characterJump", { start: 0, end: 0 }),
-			frameRate: 10,
-			repeat: -1
-		});
-
-		this.anims.create({
-			key: "fall",
-			frames: this.anims.generateFrameNumbers("characterFall", { start: 0, end: 0 }),
-			frameRate: 10,
-			repeat: -1
-		});
-
 
 		// Create and store keyboard input
-   		this.cursors = this.input.keyboard.addKeys({
+   		this.WASDcursors = this.input.keyboard.addKeys({
 		 up: Phaser.Input.Keyboard.KeyCodes.W,
 		 left: Phaser.Input.Keyboard.KeyCodes.A,
 		 right: Phaser.Input.Keyboard.KeyCodes.D,
 		});
 
-		// Play idle animation by default
-  		this.character.anims.play("idle");
-		this.physics.add.collider(this.character, foregroundLayer);
+		this.cursors = this.input.keyboard.createCursorKeys()
 
 		this.editorCreate();
+
+		const theme = this.sound.add('menu-theme')
+
+		theme.play()
 	}
 
 	update() {
-    	if (this.cursors.left.isDown) {
-        	this.character.setVelocityX(-200);
-        	this.character.anims.play("run", true);
-        	this.character.flipX = true;
-    	} else if (this.cursors.right.isDown) {
-			this.character.setVelocityX(200);
-			this.character.anims.play("run", true);
-			this.character.flipX = false;
-		} else {
-			this.character.setVelocityX(0);
-			this.character.anims.play("idle", true);
-		}
+    	// if (this.cursors.left.isDown) {
+        // 	this.character.setVelocityX(-200);
+        // 	this.character.anims.play("run", true);
+        // 	this.character.flipX = true;
+    	// } else if (this.cursors.right.isDown) {
+		// 	this.character.setVelocityX(200);
+		// 	this.character.anims.play("run", true);
+		// 	this.character.flipX = false;
+		// } else {
+		// 	this.character.setVelocityX(0);
+		// 	this.character.anims.play("idle", true);
+		// }
 
-		// Jumping
-		if (Phaser.Input.Keyboard.JustDown(this.cursors.up) && this.character.body.onFloor()) {
-			this.character.setVelocityY(-350);
-		}
+		// // Jumping
+		// if (Phaser.Input.Keyboard.JustDown(this.cursors.up) && this.character.body.onFloor()) {
+		// 	this.character.setVelocityY(-350);
+		// }
 
-
-		// Jump and fall animations
-		if (this.character.body.velocity.y < 0) {
-			this.character.anims.play("jump", true);
-		} else if (this.character.body.velocity.y > 0 && !this.character.body.touching.down) {
-			this.character.anims.play("fall", true);
-		}
+		// // Jump and fall animations
+		// if (this.character.body.velocity.y < 0) {
+		// 	this.character.anims.play("jump", true);
+		// } else if (this.character.body.velocity.y > 0 && !this.character.body.touching.down) {
+		// 	this.character.anims.play("fall", true);
+		// }
 	}
 
 

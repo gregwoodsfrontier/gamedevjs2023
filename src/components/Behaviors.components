@@ -11,12 +11,52 @@
             "baseClass": "UserComponent",
             "gameObjectType": "Phaser.GameObjects.Text",
             "properties": []
+        },
+        {
+            "name": "StartAnimation",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Sprite",
+            "properties": [
+                {
+                    "name": "animationKey",
+                    "label": "animationKey",
+                    "tooltip": "animationKey",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "StateMachineComp",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Sprite",
+            "properties": [
+                {
+                    "name": "id",
+                    "label": "id",
+                    "tooltip": "id",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "LayerPhysics",
+            "baseClass": "",
+            "gameObjectType": "Phaser.Tilemaps.TilemapLayer",
+            "properties": []
         }
     ],
     "meta": {
-        "app": "Phaser Editor 2D - Object Script Editor",
+        "app": "Phaser Editor 2D - User Components Editor",
         "url": "https://phasereditor2d.com",
-        "contentType": "phasereditor2d.core.scene.SceneContentType"
+        "contentType": "phasereditor2d.core.scene.UserComponents"
     },
     "outputLang": "TYPE_SCRIPT",
     "exportClass": true,

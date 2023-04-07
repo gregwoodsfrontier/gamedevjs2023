@@ -2,9 +2,197 @@
     "section1": {
         "files": [
             {
+                "url": "assets/buttons/Achievements.png",
+                "type": "image",
+                "key": "Achievements"
+            },
+            {
+                "url": "assets/buttons/Back.png",
+                "type": "image",
+                "key": "Back"
+            },
+            {
+                "url": "assets/buttons/Close.png",
+                "type": "image",
+                "key": "Close"
+            },
+            {
                 "url": "assets/FufuSuperDino.png",
                 "type": "image",
                 "key": "FufuSuperDino"
+            },
+            {
+                "url": "assets/buttons/Leaderboard.png",
+                "type": "image",
+                "key": "Leaderboard"
+            },
+            {
+                "url": "tiled/Level1.json",
+                "type": "tilemapTiledJSON",
+                "key": "Level1"
+            },
+            {
+                "url": "assets/buttons/Levels.png",
+                "type": "image",
+                "key": "Levels"
+            },
+            {
+                "url": [
+                    "assets/audio/Menu_Theme_Orchestral.wav"
+                ],
+                "type": "audio",
+                "key": "Menu_Theme_Orchestral"
+            },
+            {
+                "url": [
+                    "assets/audio/Menu_Theme.wav"
+                ],
+                "type": "audio",
+                "key": "menu-theme"
+            },
+            {
+                "url": "assets/buttons/Next.png",
+                "type": "image",
+                "key": "Next"
+            },
+            {
+                "url": "assets/buttons/Play.png",
+                "type": "image",
+                "key": "Play"
+            },
+            {
+                "url": "animations.json",
+                "type": "animation",
+                "key": "player-anims"
+            },
+            {
+                "url": "assets/player/Double Jump (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-double-jump"
+            },
+            {
+                "url": "assets/player/Fall (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-fall"
+            },
+            {
+                "url": "assets/player/Hit (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-hit"
+            },
+            {
+                "url": "assets/player/Idle (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-idle"
+            },
+            {
+                "url": "assets/player/Jump (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-jump"
+            },
+            {
+                "url": "assets/player/Run (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-run"
+            },
+            {
+                "url": "assets/player/Wall Jump (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-wall-jump"
+            },
+            {
+                "url": "assets/buttons/Previous.png",
+                "type": "image",
+                "key": "Previous"
+            },
+            {
+                "url": "assets/buttons/Restart.png",
+                "type": "image",
+                "key": "Restart"
+            },
+            {
+                "url": "assets/buttons/Settings.png",
+                "type": "image",
+                "key": "Settings"
+            },
+            {
+                "url": "assets/tilesets/Terrain (16x16).png",
+                "frameConfig": {
+                    "frameWidth": 16,
+                    "frameHeight": 16,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Terrain (16x16)"
+            },
+            {
+                "url": "assets/tilesets/Gray.png",
+                "type": "image",
+                "key": "tilesBackground"
+            },
+            {
+                "url": "assets/buttons/Volume.png",
+                "type": "image",
+                "key": "Volume"
             }
         ]
     },
