@@ -9,10 +9,19 @@ import StateMachineComp from "../components/StateMachineComp";
 import { ANIM_P_IDLE } from "../animations";
 /* END-USER-IMPORTS */
 
-export default class Player extends Phaser.GameObjects.Sprite {
+export default interface Player {
+
+	 body: Phaser.Physics.Arcade.Body;
+}
+
+export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 0, y ?? 0, texture || "player-idle", frame ?? 0);
+
+		scene.physics.add.existing(this, false);
+		this.body.allowGravity = false;
+		this.body.setSize(32, 32, false);
 
 		// this (components)
 		const thisStateMachineComp = new StateMachineComp(this);
