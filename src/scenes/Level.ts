@@ -96,7 +96,6 @@ export default class Level extends Phaser.Scene {
 
 		this.editorCreate();
 
-		this.player_1.play(ANIM_P_RUN)
 	}
 
 	update() {

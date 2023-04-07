@@ -8,32 +8,32 @@ import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class SpriteAnims extends UserComponent {
+export default class StartAnimation extends UserComponent {
 
 	constructor(gameObject: Phaser.GameObjects.Sprite) {
 		super(gameObject);
 
 		this.gameObject = gameObject;
-		(gameObject as any)["__SpriteAnims"] = this;
+		(gameObject as any)["__StartAnimation"] = this;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
-
-		// custom definition props
-		this.animsName = "";
 	}
 
-	static getComponent(gameObject: Phaser.GameObjects.Sprite): SpriteAnims {
-		return (gameObject as any)["__SpriteAnims"];
+	static getComponent(gameObject: Phaser.GameObjects.Sprite): StartAnimation {
+		return (gameObject as any)["__StartAnimation"];
 	}
 
 	private gameObject: Phaser.GameObjects.Sprite;
+	public animationKey: string = "";
 
 	/* START-USER-CODE */
-	private animsName: string;
 
 	// Write your code here.
+	start() {
+		this.gameObject.play(this.animationKey)
+	}
 
 	/* END-USER-CODE */
 }

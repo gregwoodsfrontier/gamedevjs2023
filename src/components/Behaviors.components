@@ -13,16 +13,33 @@
             "properties": []
         },
         {
-            "name": "SpriteAnims",
+            "name": "StartAnimation",
             "baseClass": "UserComponent",
             "gameObjectType": "Phaser.GameObjects.Sprite",
             "properties": [
                 {
-                    "name": "animsName",
-                    "label": "animsName",
-                    "tooltip": "animsName",
+                    "name": "animationKey",
+                    "label": "animationKey",
+                    "tooltip": "animationKey",
                     "defValue": "",
-                    "customDefinition": true,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "StateMachineComp",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Sprite",
+            "properties": [
+                {
+                    "name": "id",
+                    "label": "id",
+                    "tooltip": "id",
+                    "defValue": "",
+                    "customDefinition": false,
                     "type": {
                         "id": "string"
                     }
