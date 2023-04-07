@@ -2,7 +2,7 @@
     "section1": {
         "files": [
             {
-                "url": "assets/animations.json",
+                "url": "animations.json",
                 "type": "animation",
                 "key": "animations"
             },
@@ -10,19 +10,6 @@
                 "url": "assets/FufuSuperDino.png",
                 "type": "image",
                 "key": "FufuSuperDino"
-            },
-            {
-                "url": "assets/player/Jump (32x32).png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "player-jump"
             },
             {
                 "url": "assets/tilemaps/Level1.json",
@@ -82,6 +69,19 @@
                 "key": "player-idle"
             },
             {
+                "url": "assets/player/Jump (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-jump"
+            },
+            {
                 "url": "assets/player/Run (32x32).png",
                 "frameConfig": {
                     "frameWidth": 32,
@@ -95,16 +95,6 @@
                 "key": "player-run"
             },
             {
-                "url": "assets/tilesets/Gray.png",
-                "type": "image",
-                "key": "tilesBackground"
-            },
-            {
-                "url": "assets/tilesets/Terrain (16x16).png",
-                "type": "image",
-                "key": "tilesFloor"
-            },
-            {
                 "url": "assets/player/Wall Jump (32x32).png",
                 "frameConfig": {
                     "frameWidth": 32,
@@ -116,6 +106,16 @@
                 },
                 "type": "spritesheet",
                 "key": "player-wall-jump"
+            },
+            {
+                "url": "assets/tilesets/Gray.png",
+                "type": "image",
+                "key": "tilesBackground"
+            },
+            {
+                "url": "assets/tilesets/Terrain (16x16).png",
+                "type": "image",
+                "key": "tilesFloor"
             }
         ]
     },

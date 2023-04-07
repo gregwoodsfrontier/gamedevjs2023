@@ -335,7 +335,8 @@
     },
     "settings": {
         "sourceLang": "TYPE_SCRIPT",
-        "esModule": false,
-        "generateCode": false
+        "esModule": true,
+        "generateCode": true,
+        "outputFolder": "gamedevjs2023/src"
     }
 }

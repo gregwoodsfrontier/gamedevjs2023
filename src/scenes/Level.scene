@@ -9,7 +9,27 @@
         "sceneKey": "Level",
         "compilerOutputLanguage": "TYPE_SCRIPT"
     },
-    "displayList": [],
+    "displayList": [
+        {
+            "prefabId": "e8cbef27-0122-44ad-a3de-0e0b260351e8",
+            "id": "a9bef027-72f4-493f-a1af-0c2f8ff480bb",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "player_1",
+            "scope": "CLASS",
+            "components": [],
+            "x": 231,
+            "y": 187,
+            "scaleX": 5,
+            "scaleY": 5,
+            "nestedPrefabs": [],
+            "list": []
+        }
+    ],
     "plainObjects": [],
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
