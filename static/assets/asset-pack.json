@@ -2,9 +2,76 @@
     "section1": {
         "files": [
             {
+                "url": "assets/player/Fall (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "characterFall"
+            },
+            {
                 "url": "assets/FufuSuperDino.png",
                 "type": "image",
                 "key": "FufuSuperDino"
+            },
+            {
+                "url": "assets/player/Idle (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "characterIdle"
+            },
+            {
+                "url": "assets/player/Jump (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "characterJump"
+            },
+            {
+                "url": "assets/tilemaps/Level1.json",
+                "type": "tilemapTiledJSON",
+                "key": "map"
+            },
+            {
+                "url": "assets/player/Run (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "characterRun"
+            },
+            {
+                "url": "assets/tilesets/Gray.png",
+                "type": "image",
+                "key": "tilesBackground"
+            },
+            {
+                "url": "assets/tilesets/Terrain (16x16).png",
+                "type": "image",
+                "key": "tilesFloor"
             }
         ]
     },

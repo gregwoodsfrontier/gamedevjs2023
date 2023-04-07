@@ -27,17 +27,7 @@ export default class Level extends Phaser.Scene {
 
 	preload()
 	{
-		// Load map
-		this.load.image("tilesBackground", "../assets/tilesets/Gray.png");
-		this.load.image("tilesFloor", "../assets/tilesets/Terrain (16x16).png");
-		this.load.tilemapTiledJSON("map", "../assets/tilemaps/Level1.json");
-
-		// Load character sprite sheets
-  		this.load.spritesheet("characterIdle", "../assets/player/Idle (32x32).png", { frameWidth: 32, frameHeight: 32 });
-  		this.load.spritesheet("characterRun", "../assets/player/Run (32x32).png", { frameWidth: 32, frameHeight: 32 });
-  		this.load.spritesheet("characterJump", "../assets/player/Jump (32x32).png", { frameWidth: 32, frameHeight: 32 });
-  		this.load.spritesheet("characterFall", "../assets/player/Fall (32x32).png", { frameWidth: 32, frameHeight: 32 });
-
+		this.load.pack('assetsPack', '../assets/asset-pack.json');
 	}
 
 	create() {
@@ -81,7 +71,6 @@ export default class Level extends Phaser.Scene {
 			repeat: -1
 		});
 
-
 		// Create and store keyboard input
    		this.cursors = this.input.keyboard.addKeys({
 		 up: Phaser.Input.Keyboard.KeyCodes.W,
@@ -114,7 +103,6 @@ export default class Level extends Phaser.Scene {
 		if (Phaser.Input.Keyboard.JustDown(this.cursors.up) && this.character.body.onFloor()) {
 			this.character.setVelocityY(-350);
 		}
-
 
 		// Jump and fall animations
 		if (this.character.body.velocity.y < 0) {
