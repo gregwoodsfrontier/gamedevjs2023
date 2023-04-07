@@ -18,13 +18,18 @@ export default class Level extends Phaser.Scene {
 		/* END-USER-CTR-CODE */
 	}
 
+	preload(): void {
+
+		this.load.pack("preload-asset-pack", "assets/preload-asset-pack.json");
+	}
+
 	editorCreate(): void {
 
 		// player_1
-		const player_1 = new Player(this, 231, 187);
+		const player_1 = new Player(this, 204, 157);
 		this.add.existing(player_1);
-		player_1.scaleX = 5;
-		player_1.scaleY = 5;
+		player_1.scaleX = 1;
+		player_1.scaleY = 1;
 
 		this.player_1 = player_1;
 

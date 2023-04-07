@@ -4,10 +4,14 @@
     "settings": {
         "exportClass": true,
         "autoImport": true,
-        "preloadPackFiles": [],
+        "preloadPackFiles": [
+            "gamedevjs2023/static/assets/preload-asset-pack.json"
+        ],
         "createMethodName": "editorCreate",
         "sceneKey": "Level",
-        "compilerOutputLanguage": "TYPE_SCRIPT"
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 400,
+        "borderHeight": 300
     },
     "displayList": [
         {
@@ -22,10 +26,10 @@
             "label": "player_1",
             "scope": "CLASS",
             "components": [],
-            "x": 231,
-            "y": 187,
-            "scaleX": 5,
-            "scaleY": 5,
+            "x": 204,
+            "y": 157,
+            "scaleX": 1,
+            "scaleY": 1,
             "nestedPrefabs": [],
             "list": []
         }
