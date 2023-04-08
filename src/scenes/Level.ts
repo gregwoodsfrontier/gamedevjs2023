@@ -90,9 +90,6 @@ export default class Level extends Phaser.Scene {
 		// Create and store keyboard input
 		this.WKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 
-		this.cursors = this.input.keyboard.createCursorKeys()
-
-
 		for(let layer of this.tileMapLayer) {
 			this.physics.add.collider(this.player_1, layer)
 		}
@@ -111,6 +108,7 @@ export default class Level extends Phaser.Scene {
 				this.theme.pause()
 			}
 		}
+
     	// if (this.cursors.left.isDown) {
         // 	this.character.setVelocityX(-200);
         // 	this.character.anims.play("run", true);

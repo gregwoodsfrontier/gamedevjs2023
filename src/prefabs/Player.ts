@@ -6,7 +6,7 @@
 import Phaser from "phaser";
 import StateMachineComp from "../components/StateMachineComp";
 /* START-USER-IMPORTS */
-import { ANIM_P_IDLE } from "../animations";
+import { ANIM_P_IDLE, ANIM_P_RUN } from "../animations";
 /* END-USER-IMPORTS */
 
 export default interface Player {
@@ -29,18 +29,67 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		this.cursors = this.scene.input.keyboard.createCursorKeys()
+		this.stateMachine = thisStateMachineComp
+
 		thisStateMachineComp.addState('idle', {
-			onEnter: this.idleOnEnter
+			onEnter: this.idleOnEnter,
+			onUpdate: this.idleOnUpdate
+		})
+		.addState('run', {
+			onEnter: this.runOnEnter,
+			onUpdate: this.runOnUpdate
 		})
 		.setState('idle')
 		/* END-USER-CTR-CODE */
 	}
 
+	public runSpeed: number = 200;
+
 	/* START-USER-CODE */
+	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
+	private stateMachine: StateMachineComp
 
 	// Write your code here.
 	idleOnEnter() {
 		this.play(ANIM_P_IDLE)
+	}
+
+	idleOnUpdate() {
+
+		// If left or right key is pressed, set the machine state to 'run'
+		if(this.cursors?.left.isDown || this.cursors?.right.isDown)
+		{
+			this.stateMachine.setState('run')
+		}
+
+		// Add a Jump Key (up arrow) for jump state
+	}
+
+	runOnEnter() {
+		this.play(ANIM_P_RUN)
+	}
+
+	runOnUpdate() {
+		if(this.cursors?.left.isDown)
+		{
+			this.flipX = true
+			this.setVelocityX(-this.runSpeed)
+		}
+		else if(this.cursors?.right.isDown)
+		{
+			this.flipX = false
+			this.setVelocityX(this.runSpeed)
+		}
+		else
+		{
+			this.setVelocityX(0)
+			this.stateMachine.setState('idle')
+		}
+	}
+
+	runOnExit() {
+		this.stop()
 	}
 
 	/* END-USER-CODE */
