@@ -22,9 +22,9 @@
                 "key": "player-idle",
                 "frame": 0
             },
-            "allowGravity": false,
-            "body.width": 32,
-            "body.height": 32,
+            "body.width": 16,
+            "body.height": 24,
+            "body.offset.y": 7,
             "list": []
         }
     ],
