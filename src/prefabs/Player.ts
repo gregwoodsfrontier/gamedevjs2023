@@ -6,7 +6,7 @@
 import Phaser from "phaser";
 import StateMachineComp from "../components/StateMachineComp";
 /* START-USER-IMPORTS */
-import { ANIM_P_IDLE, ANIM_P_RUN } from "../animations";
+import { ANIM_P_IDLE, ANIM_P_JUMP, ANIM_P_RUN } from "../animations";
 /* END-USER-IMPORTS */
 
 export default interface Player {
@@ -40,11 +40,16 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 			onEnter: this.runOnEnter,
 			onUpdate: this.runOnUpdate
 		})
+		.addState('jump', {
+			onEnter: this.jumpOnEnter,
+			onUpdate: this.jumpOnUpdate
+		})
 		.setState('idle')
 		/* END-USER-CTR-CODE */
 	}
 
 	public runSpeed: number = 200;
+	public jumpSpeed: number = 250;
 
 	/* START-USER-CODE */
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
@@ -53,6 +58,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	// Write your code here.
 	idleOnEnter() {
 		this.play(ANIM_P_IDLE)
+	}
+
+	checkJumpCondition()
+	{
+		return this.cursors && Phaser.Input.Keyboard.JustDown(this.cursors.up) && this.body.onFloor()
 	}
 
 	idleOnUpdate() {
@@ -64,6 +74,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		}
 
 		// Add a Jump Key (up arrow) for jump state
+		if (this.checkJumpCondition())
+		{
+			this.stateMachine.setState('jump')
+		}
 	}
 
 	runOnEnter() {
@@ -73,11 +87,19 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	runOnUpdate() {
 		if(this.cursors?.left.isDown)
 		{
+			if(this.checkJumpCondition())
+			{
+				this.stateMachine.setState('jump')
+			}
 			this.flipX = true
 			this.setVelocityX(-this.runSpeed)
 		}
 		else if(this.cursors?.right.isDown)
 		{
+			if(this.checkJumpCondition())
+			{
+				this.stateMachine.setState('jump')
+			}
 			this.flipX = false
 			this.setVelocityX(this.runSpeed)
 		}
@@ -90,6 +112,43 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 	runOnExit() {
 		this.stop()
+	}
+
+	jumpOnEnter() {
+		this.setVelocityY(-this.jumpSpeed)
+		this.play(ANIM_P_JUMP)
+	}
+
+	jumpOnUpdate() {
+
+		if(this.cursors?.left.isDown)
+		{
+			this.flipX = true
+			this.setVelocityX(-this.runSpeed)
+			if(this.body.onFloor())
+			{
+				this.stateMachine.setState('run')
+			}
+		}
+		else if(this.cursors?.right.isDown)
+		{
+			this.flipX = false
+			this.setVelocityX(this.runSpeed)
+			if(this.body.onFloor())
+			{
+				this.stateMachine.setState('run')
+			}
+		}
+		else
+		{
+			this.setVelocityX(0)
+			if(this.body.onFloor())
+			{
+				this.stateMachine.setState('idle')
+			}
+		}
+
+
 	}
 
 	/* END-USER-CODE */

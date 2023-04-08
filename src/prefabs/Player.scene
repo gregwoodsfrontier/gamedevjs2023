@@ -45,6 +45,16 @@
             "type": {
                 "id": "number"
             }
+        },
+        {
+            "name": "jumpSpeed",
+            "label": "jumpSpeed",
+            "tooltip": "How fast can the player jump",
+            "defValue": 250,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
         }
     ]
 }
