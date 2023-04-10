@@ -1,0 +1,48 @@
+{
+    "id": "d1b8b2a3-76f8-4b61-b4f0-25545ef8fb45",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "MainMenu",
+        "compilerOutputLanguage": "TYPE_SCRIPT"
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "30abe27e-0809-43e3-afdb-a626c88945fa",
+            "label": "title",
+            "scope": "CLASS",
+            "components": [],
+            "x": 111.5,
+            "y": 154,
+            "text": "Gamedevjs 2023 \nGame Jam Title",
+            "fontSize": "64px",
+            "list": []
+        },
+        {
+            "prefabId": "4e99f7be-6dab-4fd8-accd-d5bb74c99a7e",
+            "id": "37e92ccf-4af7-47a9-bf4a-351d2ee3a0b8",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "playButton",
+            "scope": "CLASS",
+            "components": [],
+            "x": 400,
+            "y": 369,
+            "nestedPrefabs": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

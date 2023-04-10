@@ -4,25 +4,26 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import PushOnClick from "../components/PushOnClick";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class Component {
+export default class PlayButton extends Phaser.GameObjects.Text {
 
-	constructor(gameObject: Phaser.Tilemaps.TilemapLayer) {
-		this.gameObject = gameObject;
-		(gameObject as any)["__Component"] = this;
+	constructor(scene: Phaser.Scene, x?: number, y?: number) {
+		super(scene, x ?? 0, y ?? 0, "", {});
+
+		this.setOrigin(0.5, 0.5);
+		this.text = "PLAY";
+		this.setStyle({ "fontSize": "80px" });
+
+		// this (components)
+		new PushOnClick(this);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
-
-	static getComponent(gameObject: Phaser.Tilemaps.TilemapLayer): Component {
-		return (gameObject as any)["__Component"];
-	}
-
-	private gameObject: Phaser.Tilemaps.TilemapLayer;
 
 	/* START-USER-CODE */
 
