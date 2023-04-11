@@ -48,6 +48,9 @@ export default class Level extends Phaser.Scene {
 		// lists
 		const tileMapLayer = [block_1, ground_1, border_1];
 
+		// collider
+		const collider = this.physics.add.collider(player_1, tileMapLayer);
+
 		// border_1 (components)
 		new LayerPhysics(border_1);
 
@@ -62,6 +65,7 @@ export default class Level extends Phaser.Scene {
 		this.ground_1 = ground_1;
 		this.block_1 = block_1;
 		this.level1 = level1;
+		this.collider = collider;
 		this.tileMapLayer = tileMapLayer;
 
 		this.events.emit("scene-awake");
@@ -72,6 +76,7 @@ export default class Level extends Phaser.Scene {
 	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private block_1!: Phaser.Tilemaps.TilemapLayer;
 	private level1!: Phaser.Tilemaps.Tilemap;
+	private collider!: Phaser.Physics.Arcade.Collider;
 	private tileMapLayer!: Phaser.Tilemaps.TilemapLayer[];
 
 	/* START-USER-CODE */
@@ -89,10 +94,6 @@ export default class Level extends Phaser.Scene {
 
 		// Create and store keyboard input
 		this.WKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-
-		for(let layer of this.tileMapLayer) {
-			this.physics.add.collider(this.player_1, layer)
-		}
 	}
 
 	update() {

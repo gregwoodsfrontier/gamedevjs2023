@@ -24,9 +24,10 @@
                 "key": "player-idle",
                 "frame": 0
             },
-            "body.width": 16,
-            "body.height": 24,
-            "body.offset.y": 7,
+            "body.width": 21,
+            "body.height": 22,
+            "body.offset.x": 6,
+            "body.offset.y": 10,
             "list": []
         }
     ],

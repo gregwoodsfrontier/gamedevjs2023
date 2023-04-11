@@ -20,8 +20,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		super(scene, x ?? 0, y ?? 0, texture || "player-idle", frame ?? 0);
 
 		scene.physics.add.existing(this, false);
-		this.body.setOffset(0, 7);
-		this.body.setSize(16, 24, false);
+		this.body.setOffset(6, 10);
+		this.body.setSize(21, 22, false);
 
 		// this (components)
 		const thisStateMachineComp = new StateMachineComp(this);

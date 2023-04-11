@@ -91,6 +91,13 @@
                     "imageKey": "Terrain (16x16)"
                 }
             ]
+        },
+        {
+            "id": "91f0a713-2a4a-42c1-8dd4-0432c2114388",
+            "type": "Collider",
+            "label": "collider",
+            "object1": "player_1",
+            "object2": "tileMapLayer"
         }
     ],
     "meta": {
