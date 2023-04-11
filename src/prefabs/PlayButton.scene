@@ -1,5 +1,5 @@
 {
-    "id": "4e99f7be-6dab-4fd8-accd-d5bb74c99a7e",
+    "id": "6d250cf7-907c-4299-8cb1-ff6d2819f066",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -7,22 +7,23 @@
         "preloadMethodName": "",
         "preloadPackFiles": [],
         "createMethodName": "",
-        "compilerOutputLanguage": "TYPE_SCRIPT"
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
     },
     "displayList": [
         {
-            "type": "Text",
-            "id": "b2ca18d2-14d1-4ece-b230-b69cd3470ffb",
-            "label": "playButton",
-            "scope": "CLASS",
-            "components": [
-                "PushOnClick"
-            ],
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "PLAY",
-            "fontSize": "80px",
-            "list": []
+            "type": "Image",
+            "id": "5122d9b5-eb5a-443e-a86f-effd727f4a15",
+            "label": "play_Button",
+            "components": [],
+            "texture": {
+                "key": "Play Button"
+            },
+            "x": 320,
+            "y": 179,
+            "scaleX": 0.25,
+            "scaleY": 0.25
         }
     ],
     "plainObjects": [],

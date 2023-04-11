@@ -4,24 +4,23 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import PushOnClick from "../components/PushOnClick";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class PlayButton extends Phaser.GameObjects.Text {
+export default class PlayButton extends Phaser.GameObjects.Image {
 
-	constructor(scene: Phaser.Scene, x?: number, y?: number) {
-		super(scene, x ?? 0, y ?? 0, "", {});
+	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
+		super(scene, x ?? 320, y ?? 179, texture || "Play Button", frame);
 
-		this.setOrigin(0.5, 0.5);
-		this.text = "PLAY";
-		this.setStyle({ "fontSize": "80px" });
-
-		// this (components)
-		new PushOnClick(this);
+		this.scaleX = 0.25;
+		this.scaleY = 0.25;
 
 		/* START-USER-CTR-CODE */
-		// Write your code here.
+		this.setInteractive();
+
+		this.on('pointerdown', () => {
+			this.scene.scene.start('Level');
+		});
 		/* END-USER-CTR-CODE */
 	}
 

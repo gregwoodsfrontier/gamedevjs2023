@@ -4,6 +4,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import PlayButton from "../prefabs/PlayButton";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -27,11 +28,6 @@ export default class MainMenu extends Phaser.Scene {
 		// keyboard_key
 		const keyboard_key = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
-		// play_Button
-		const play_Button = this.add.image(215, 215, "Play Button");
-		play_Button.scaleX = 0.25;
-		play_Button.scaleY = 0.25;
-
 		// settings_Button
 		const settings_Button = this.add.image(425, 215, "Settings Button");
 		settings_Button.scaleX = 0.25;
@@ -47,6 +43,10 @@ export default class MainMenu extends Phaser.Scene {
 		placeHolderLogo.scaleX = 0.25;
 		placeHolderLogo.scaleY = 0.25;
 
+		// playButton
+		const playButton = new PlayButton(this, 215, 215);
+		this.add.existing(playButton);
+
 		this.keyboard_key = keyboard_key;
 
 		this.events.emit("scene-awake");
@@ -59,12 +59,7 @@ export default class MainMenu extends Phaser.Scene {
 	// Write your code here
 
 	create() {
- 		this.input.once('pointerdown', () =>{
 
-            this.scene.start('Level');
-
-        }, this);
-		
 		this.editorCreate();
 	}
 
