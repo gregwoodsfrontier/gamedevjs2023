@@ -23,7 +23,7 @@ export default class OnKeyBoardJustDownScript extends ScriptNode {
 	/* START-USER-CODE */
 
 	// Write your code here.
-	protected override awake(): void {
+	protected override update(): void {
 
 		if (!this.keyBoardKey) {
 
