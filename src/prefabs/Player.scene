@@ -43,7 +43,7 @@
             "name": "runSpeed",
             "label": "runSpeed",
             "tooltip": "Run Speed of character",
-            "defValue": 200,
+            "defValue": 150,
             "customDefinition": false,
             "type": {
                 "id": "number"

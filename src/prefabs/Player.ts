@@ -48,7 +48,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		/* END-USER-CTR-CODE */
 	}
 
-	public runSpeed: number = 200;
+	public runSpeed: number = 150;
 	public jumpSpeed: number = 250;
 	public hasJetPack: boolean = true;
 
