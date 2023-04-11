@@ -10,8 +10,8 @@
         "createMethodName": "editorCreate",
         "sceneKey": "Level",
         "compilerOutputLanguage": "TYPE_SCRIPT",
-        "borderWidth": 400,
-        "borderHeight": 300
+        "borderWidth": 640,
+        "borderHeight": 360
     },
     "displayList": [
         {

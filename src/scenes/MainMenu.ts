@@ -18,25 +18,41 @@ export default class MainMenu extends Phaser.Scene {
 		/* END-USER-CTR-CODE */
 	}
 
+	editorPreload(): void {
+
+		this.load.pack("preload-asset-pack", "assets/preload-asset-pack.json");
+	}
+
 	editorCreate(): void {
 
-		// title
-		const title = this.add.text(111.5, 154, "", {});
-		title.text = "Gamedevjs 2023 \nGame Jam Title";
-		title.setStyle({ "fontSize": "64px" });
+		// keyboard_key
+		const keyboard_key = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+
+		// settings_Button
+		const settings_Button = this.add.image(425, 215, "Settings Button");
+		settings_Button.scaleX = 0.25;
+		settings_Button.scaleY = 0.25;
+
+		// fullscreen
+		const fullscreen = this.add.image(620, 340, "fullscreen");
+		fullscreen.scaleX = 0.25;
+		fullscreen.scaleY = 0.25;
+
+		// placeHolderLogo
+		const placeHolderLogo = this.add.image(318, 100, "PlaceHolderLogo");
+		placeHolderLogo.scaleX = 0.25;
+		placeHolderLogo.scaleY = 0.25;
 
 		// playButton
-		const playButton = new PlayButton(this, 400, 369);
+		const playButton = new PlayButton(this, 215, 215);
 		this.add.existing(playButton);
 
-		this.title = title;
-		this.playButton = playButton;
+		this.keyboard_key = keyboard_key;
 
 		this.events.emit("scene-awake");
 	}
 
-	private title!: Phaser.GameObjects.Text;
-	private playButton!: PlayButton;
+	private keyboard_key!: Phaser.Input.Keyboard.Key;
 
 	/* START-USER-CODE */
 
