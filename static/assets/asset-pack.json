@@ -22,6 +22,11 @@
                 "key": "FufuSuperDino"
             },
             {
+                "url": "assets/buttons/fullscreen.png",
+                "type": "image",
+                "key": "fullscreen"
+            },
+            {
                 "url": "assets/buttons/Leaderboard.png",
                 "type": "image",
                 "key": "Leaderboard"
@@ -56,9 +61,19 @@
                 "key": "Next"
             },
             {
+                "url": "assets/buttons/PlaceHolderLogo.png",
+                "type": "image",
+                "key": "PlaceHolderLogo"
+            },
+            {
                 "url": "assets/buttons/Play.png",
                 "type": "image",
                 "key": "Play"
+            },
+            {
+                "url": "assets/buttons/Play Button.png",
+                "type": "image",
+                "key": "Play Button"
             },
             {
                 "url": "animations.json",
@@ -170,6 +185,11 @@
                 "url": "assets/buttons/Settings.png",
                 "type": "image",
                 "key": "Settings"
+            },
+            {
+                "url": "assets/buttons/Settings Button.png",
+                "type": "image",
+                "key": "Settings Button"
             },
             {
                 "url": "assets/tilesets/Terrain (16x16).png",
