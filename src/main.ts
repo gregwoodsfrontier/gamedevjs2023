@@ -2,6 +2,7 @@ import Phaser from "phaser"
 import MainMenu from "./scenes/MainMenu";
 import Level from "./scenes/Level";
 import Preload from "./scenes/Preload";
+import Settings from "./scenes/Settings";
 
 class Boot extends Phaser.Scene {
 
@@ -34,7 +35,7 @@ const game = new Phaser.Game({
     	  gravity: { y: 600 }
     	}
  	},
-    scene: [Boot, Preload, Level, MainMenu]
+    scene: [Boot, Preload, Level, MainMenu, Settings]
 });
 
 game.scene.start("Boot");

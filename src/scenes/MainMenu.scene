@@ -16,17 +16,18 @@
     },
     "displayList": [
         {
-            "type": "Image",
+            "prefabId": "5c1b9590-9c8c-4b42-bbae-6841635e0eaf",
             "id": "ae7b83af-4214-4714-bfb5-41b9e03ff12e",
+            "unlock": [
+                "x",
+                "y"
+            ],
             "label": "settings_Button",
             "components": [],
-            "texture": {
-                "key": "Settings Button"
-            },
             "x": 425,
             "y": 215,
-            "scaleX": 0.25,
-            "scaleY": 0.25
+            "nestedPrefabs": [],
+            "list": []
         },
         {
             "type": "Image",
@@ -39,7 +40,8 @@
             "x": 620,
             "y": 340,
             "scaleX": 0.25,
-            "scaleY": 0.25
+            "scaleY": 0.25,
+            "list": []
         },
         {
             "type": "Image",
@@ -52,7 +54,8 @@
             "x": 318,
             "y": 100,
             "scaleX": 0.25,
-            "scaleY": 0.25
+            "scaleY": 0.25,
+            "list": []
         },
         {
             "prefabId": "6d250cf7-907c-4299-8cb1-ff6d2819f066",
@@ -64,7 +67,9 @@
             "label": "playButton",
             "components": [],
             "x": 215,
-            "y": 215
+            "y": 215,
+            "nestedPrefabs": [],
+            "list": []
         }
     ],
     "plainObjects": [
