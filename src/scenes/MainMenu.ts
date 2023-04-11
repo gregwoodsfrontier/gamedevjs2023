@@ -59,7 +59,7 @@ export default class MainMenu extends Phaser.Scene {
 	// Write your code here
 
 	create() {
- 		this.input.once('pointerdown', () => {
+ 		this.input.once('pointerdown', function (event) {
 
             this.scene.start('Level');
 
