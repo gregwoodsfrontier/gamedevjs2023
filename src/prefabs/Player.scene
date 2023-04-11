@@ -58,6 +58,16 @@
             "type": {
                 "id": "number"
             }
+        },
+        {
+            "name": "hasJetPack",
+            "label": "hasJetPack",
+            "tooltip": "Enables side movements on air when true",
+            "defValue": true,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
         }
     ]
 }

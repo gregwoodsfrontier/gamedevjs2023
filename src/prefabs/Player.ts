@@ -50,6 +50,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 	public runSpeed: number = 200;
 	public jumpSpeed: number = 250;
+	public hasJetPack: boolean = true;
 
 	/* START-USER-CODE */
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
@@ -57,6 +58,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 	// Write your code here.
 	idleOnEnter() {
+		this.setVelocityX(0)
 		this.play(ANIM_P_IDLE)
 	}
 
@@ -123,8 +125,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 		if(this.cursors?.left.isDown)
 		{
-			this.flipX = true
-			this.setVelocityX(-this.runSpeed)
+			if(this.hasJetPack)
+			{
+				this.flipX = true
+				this.setVelocityX(-this.runSpeed)
+			}
+
+
 			if(this.body.onFloor())
 			{
 				this.stateMachine.setState('run')
@@ -132,8 +139,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		}
 		else if(this.cursors?.right.isDown)
 		{
-			this.flipX = false
-			this.setVelocityX(this.runSpeed)
+			if(this.hasJetPack)
+			{
+				this.flipX = false
+				this.setVelocityX(this.runSpeed)
+			}
+
 			if(this.body.onFloor())
 			{
 				this.stateMachine.setState('run')
@@ -141,7 +152,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		}
 		else
 		{
-			this.setVelocityX(0)
+			if(this.hasJetPack)
+			{
+				this.setVelocityX(0)
+			}
+
 			if(this.body.onFloor())
 			{
 				this.stateMachine.setState('idle')
