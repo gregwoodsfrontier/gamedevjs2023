@@ -77,6 +77,28 @@
             "tilesets": [
                 "Terrain (16x16)"
             ]
+        },
+        {
+            "prefabId": "71c1fad7-dac6-41ac-ad61-76f777b61bde",
+            "id": "075bfc3d-fe43-4b97-a7d4-40a80a3ad0f4",
+            "unlock": [
+                "keyBoardKey"
+            ],
+            "label": "onKeyBoardJustDownScript",
+            "scope": "CLASS",
+            "keyBoardKey": "this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "type": "ScriptNode",
+                    "id": "89e5fe91-dd05-4b39-ab68-aaf71bd5a16e",
+                    "label": "debugScript",
+                    "scope": "CLASS",
+                    "components": [],
+                    "list": []
+                }
+            ]
         }
     ],
     "plainObjects": [

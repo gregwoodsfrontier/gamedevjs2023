@@ -5,6 +5,8 @@
 import Phaser from "phaser";
 import Player from "../prefabs/Player";
 import LayerPhysics from "../components/LayerPhysics";
+import OnKeyBoardJustDownScript from "../prefabs/scriptNodes/OnKeyBoardJustDownScript";
+import ScriptNode from "../prefabs/scriptNodes/ScriptNode";
 /* START-USER-IMPORTS */
 import { ANIM_P_RUN, ANIM_P_DBL_JUMP } from "../animations";
 /* END-USER-IMPORTS */
@@ -45,6 +47,12 @@ export default class Level extends Phaser.Scene {
 		// block_1
 		const block_1 = level1.createLayer("block", ["Terrain (16x16)"], 0, 0);
 
+		// onKeyBoardJustDownScript
+		const onKeyBoardJustDownScript = new OnKeyBoardJustDownScript(this);
+
+		// debugScript
+		const debugScript = new ScriptNode(onKeyBoardJustDownScript);
+
 		// lists
 		const tileMapLayer = [block_1, ground_1, border_1];
 
@@ -60,10 +68,15 @@ export default class Level extends Phaser.Scene {
 		// block_1 (components)
 		new LayerPhysics(block_1);
 
+		// onKeyBoardJustDownScript (prefab fields)
+		onKeyBoardJustDownScript.keyBoardKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+
 		this.player_1 = player_1;
 		this.border_1 = border_1;
 		this.ground_1 = ground_1;
 		this.block_1 = block_1;
+		this.onKeyBoardJustDownScript = onKeyBoardJustDownScript;
+		this.debugScript = debugScript;
 		this.level1 = level1;
 		this.collider = collider;
 		this.tileMapLayer = tileMapLayer;
@@ -75,6 +88,8 @@ export default class Level extends Phaser.Scene {
 	private border_1!: Phaser.Tilemaps.TilemapLayer;
 	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private block_1!: Phaser.Tilemaps.TilemapLayer;
+	private onKeyBoardJustDownScript!: OnKeyBoardJustDownScript;
+	private debugScript!: ScriptNode;
 	private level1!: Phaser.Tilemaps.Tilemap;
 	private collider!: Phaser.Physics.Arcade.Collider;
 	private tileMapLayer!: Phaser.Tilemaps.TilemapLayer[];
@@ -92,23 +107,26 @@ export default class Level extends Phaser.Scene {
 		// Add the menu theme to scene
 		this.theme = this.sound.add('menu-theme')
 
+		this.debugScript.execute = () => {
+			console.log(`A key is just pressed`)
+		}
 		// Create and store keyboard input
-		this.WKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+		// this.WKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 	}
 
 	update() {
 
-		if (this.WKey && this.theme && Phaser.Input.Keyboard.JustDown(this.WKey)) {
-			console.log('W Key is just pressed')
-			if(!this.theme.isPlaying)
-			{
-				this.theme.play()
-			}
-			else if (this.theme.isPlaying)
-			{
-				this.theme.pause()
-			}
-		}
+		// if (this.WKey && this.theme && Phaser.Input.Keyboard.JustDown(this.WKey)) {
+		// 	console.log('W Key is just pressed')
+		// 	if(!this.theme.isPlaying)
+		// 	{
+		// 		this.theme.play()
+		// 	}
+		// 	else if (this.theme.isPlaying)
+		// 	{
+		// 		this.theme.pause()
+		// 	}
+		// }
 
     	// if (this.cursors.left.isDown) {
         // 	this.character.setVelocityX(-200);
