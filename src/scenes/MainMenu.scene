@@ -1,0 +1,85 @@
+{
+    "id": "d1b8b2a3-76f8-4b61-b4f0-25545ef8fb45",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "editorPreload",
+        "preloadPackFiles": [
+            "gamedevjs2023/static/assets/preload-asset-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "MainMenu",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "a0060bbe-7c7a-49a4-b234-b5f52d2e78fc",
+            "label": "play_Button",
+            "components": [],
+            "texture": {
+                "key": "Play Button"
+            },
+            "x": 215,
+            "y": 215,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "ae7b83af-4214-4714-bfb5-41b9e03ff12e",
+            "label": "settings_Button",
+            "components": [],
+            "texture": {
+                "key": "Settings Button"
+            },
+            "x": 425,
+            "y": 215,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "18bd36af-82de-45fe-ad02-4e7ca2a79ce5",
+            "label": "fullscreen",
+            "components": [],
+            "texture": {
+                "key": "fullscreen"
+            },
+            "x": 620,
+            "y": 340,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "6a6af42e-8399-43c9-b02b-cce662fa6973",
+            "label": "placeHolderLogo",
+            "components": [],
+            "texture": {
+                "key": "PlaceHolderLogo"
+            },
+            "x": 318,
+            "y": 100,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        }
+    ],
+    "plainObjects": [
+        {
+            "id": "3634edf7-2837-4a3d-a00c-72ea4649978f",
+            "type": "Keyboard.Key",
+            "label": "keyboard_key",
+            "keyCode": "DOWN"
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

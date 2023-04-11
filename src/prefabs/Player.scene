@@ -22,9 +22,9 @@
                 "key": "player-idle",
                 "frame": 0
             },
-            "allowGravity": false,
-            "body.width": 32,
-            "body.height": 32,
+            "body.width": 16,
+            "body.height": 24,
+            "body.offset.y": 7,
             "list": []
         }
     ],
@@ -34,5 +34,27 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    }
+    },
+    "prefabProperties": [
+        {
+            "name": "runSpeed",
+            "label": "runSpeed",
+            "tooltip": "Run Speed of character",
+            "defValue": 200,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "jumpSpeed",
+            "label": "jumpSpeed",
+            "tooltip": "How fast can the player jump",
+            "defValue": 250,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
 }

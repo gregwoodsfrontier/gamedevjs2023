@@ -9,8 +9,8 @@
         "createMethodName": "editorCreate",
         "sceneKey": "Preload",
         "compilerOutputLanguage": "TYPE_SCRIPT",
-        "borderWidth": 400,
-        "borderHeight": 300
+        "borderWidth": 640,
+        "borderHeight": 360
     },
     "displayList": [
         {
@@ -21,11 +21,10 @@
             "texture": {
                 "key": "guapen"
             },
-            "x": 201,
-            "y": 115,
+            "x": 320,
+            "y": 150,
             "scaleX": 0.5915891440784282,
-            "scaleY": 0.5915891440784282,
-            "list": []
+            "scaleY": 0.5915891440784282
         },
         {
             "type": "Text",
@@ -34,13 +33,12 @@
             "components": [
                 "PreloadText"
             ],
-            "x": 201,
-            "y": 245,
+            "x": 320,
+            "y": 300,
             "originX": 0.5,
             "originY": 0.5,
             "text": "0%",
-            "fontSize": "30px",
-            "list": []
+            "fontSize": "30px"
         }
     ],
     "plainObjects": [],

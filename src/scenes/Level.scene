@@ -98,5 +98,16 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    }
+    },
+    "lists": [
+        {
+            "id": "6fd0fb81-1d67-4990-9764-7b425a434f26",
+            "label": "tileMapLayer",
+            "objectIds": [
+                "b76cdae5-69f4-4dda-9f89-01af2dd13788",
+                "ebf72f5a-593b-43b7-8d8d-3b006b4db356",
+                "763fe3aa-a3e5-4a34-ba59-29d7af4999db"
+            ]
+        }
+    ]
 }

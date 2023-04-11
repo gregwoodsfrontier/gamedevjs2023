@@ -45,6 +45,9 @@ export default class Level extends Phaser.Scene {
 		// block_1
 		const block_1 = level1.createLayer("block", ["Terrain (16x16)"], 0, 0);
 
+		// lists
+		const tileMapLayer = [block_1, ground_1, border_1];
+
 		// border_1 (components)
 		new LayerPhysics(border_1);
 
@@ -59,6 +62,7 @@ export default class Level extends Phaser.Scene {
 		this.ground_1 = ground_1;
 		this.block_1 = block_1;
 		this.level1 = level1;
+		this.tileMapLayer = tileMapLayer;
 
 		this.events.emit("scene-awake");
 	}
@@ -68,31 +72,43 @@ export default class Level extends Phaser.Scene {
 	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private block_1!: Phaser.Tilemaps.TilemapLayer;
 	private level1!: Phaser.Tilemaps.Tilemap;
+	private tileMapLayer!: Phaser.Tilemaps.TilemapLayer[];
 
 	/* START-USER-CODE */
-	private WASDcursors?: object
+	private WKey?: Phaser.Input.Keyboard.Key
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
+	private theme?: Phaser.Sound.BaseSound
 
 	// Write your code here
 	create() {
 
-		// Create and store keyboard input
-   		this.WASDcursors = this.input.keyboard.addKeys({
-		 up: Phaser.Input.Keyboard.KeyCodes.W,
-		 left: Phaser.Input.Keyboard.KeyCodes.A,
-		 right: Phaser.Input.Keyboard.KeyCodes.D,
-		});
-
-		this.cursors = this.input.keyboard.createCursorKeys()
-
 		this.editorCreate();
 
-		const theme = this.sound.add('menu-theme')
+		// Add the menu theme to scene
+		this.theme = this.sound.add('menu-theme')
 
-		theme.play()
+		// Create and store keyboard input
+		this.WKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+
+		for(let layer of this.tileMapLayer) {
+			this.physics.add.collider(this.player_1, layer)
+		}
 	}
 
 	update() {
+
+		if (this.WKey && this.theme && Phaser.Input.Keyboard.JustDown(this.WKey)) {
+			console.log('W Key is just pressed')
+			if(!this.theme.isPlaying)
+			{
+				this.theme.play()
+			}
+			else if (this.theme.isPlaying)
+			{
+				this.theme.pause()
+			}
+		}
+
     	// if (this.cursors.left.isDown) {
         // 	this.character.setVelocityX(-200);
         // 	this.character.anims.play("run", true);

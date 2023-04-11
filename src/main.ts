@@ -1,4 +1,5 @@
 import Phaser from "phaser"
+import MainMenu from "./scenes/MainMenu";
 import Level from "./scenes/Level";
 import Preload from "./scenes/Preload";
 
@@ -20,8 +21,8 @@ class Boot extends Phaser.Scene {
 }
 
 const game = new Phaser.Game({
-    width: 400,
-    height: 300,
+    width: 640,
+    height: 360,
     backgroundColor: "#2f2f2f",
     scale: {
         mode: Phaser.Scale.ScaleModes.FIT,
@@ -33,7 +34,7 @@ const game = new Phaser.Game({
     	  gravity: { y: 600 }
     	}
  	},
-    scene: [Boot, Preload, Level]
+    scene: [Boot, Preload, Level, MainMenu]
 });
 
 game.scene.start("Boot");
