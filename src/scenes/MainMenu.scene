@@ -31,20 +31,6 @@
         },
         {
             "type": "Image",
-            "id": "18bd36af-82de-45fe-ad02-4e7ca2a79ce5",
-            "label": "fullscreen",
-            "components": [],
-            "texture": {
-                "key": "fullscreen"
-            },
-            "x": 620,
-            "y": 340,
-            "scaleX": 0.25,
-            "scaleY": 0.25,
-            "list": []
-        },
-        {
-            "type": "Image",
             "id": "6a6af42e-8399-43c9-b02b-cce662fa6973",
             "label": "placeHolderLogo",
             "components": [],
@@ -68,6 +54,20 @@
             "components": [],
             "x": 215,
             "y": 215,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "b922df8d-9e20-4f96-a3cd-d998e573c88f",
+            "id": "ce1657f8-a36c-482c-ae97-8e06e741e30b",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fullScreenButton",
+            "components": [],
+            "x": 622,
+            "y": 342,
             "nestedPrefabs": [],
             "list": []
         }
