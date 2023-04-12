@@ -6,7 +6,6 @@
 import ScriptNode from "./ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import { ANIM_P_IDLE } from "../../animations";
 /* END-USER-IMPORTS */
 
 export default class IdleState extends ScriptNode {
