@@ -109,6 +109,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		return this.cursors && Phaser.Input.Keyboard.JustDown(this.cursors.up) && this.body.onFloor()
 	}
 
+	// let the update handle all the state transition logic
 	update(): void {
 		if(this.stateMachineNode.isCurrentState(this.idleState.stateName)) {
 			if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
