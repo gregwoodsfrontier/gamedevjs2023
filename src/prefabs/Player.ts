@@ -10,7 +10,6 @@ import IdleState from "./scriptNodes/IdleState";
 import RunState from "./scriptNodes/RunState";
 import JumpState from "./scriptNodes/JumpState";
 /* START-USER-IMPORTS */
-import { ANIM_P_IDLE, ANIM_P_JUMP, ANIM_P_RUN } from "../animations";
 /* END-USER-IMPORTS */
 
 export default interface Player {
@@ -89,21 +88,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
 
-		// this.stateMachine = thisStateMachineComp
-
-		// thisStateMachineComp.addState('idle', {
-		// 	onEnter: this.idleOnEnter,
-		// 	onUpdate: this.idleOnUpdate
-		// })
-		// .addState('run', {
-		// 	onEnter: this.runOnEnter,
-		// 	onUpdate: this.runOnUpdate
-		// })
-		// .addState('jump', {
-		// 	onEnter: this.jumpOnEnter,
-		// 	onUpdate: this.jumpOnUpdate
-		// })
-		// .setState('idle')
 		/* END-USER-CTR-CODE */
 	}
 
@@ -117,13 +101,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 	/* START-USER-CODE */
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
-	// private stateMachine: StateMachineComp
 
 	// Write your code here.
-	// idleOnEnter() {
-	// 	this.setVelocityX(0)
-	// 	this.play(ANIM_P_IDLE)
-	// }
 
 	checkJumpCondition()
 	{
@@ -161,105 +140,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 			}
 		}
 	}
-
-	// idleOnUpdate() {
-
-	// 	// If left or right key is pressed, set the machine state to 'run'
-	// 	if(this.cursors?.left.isDown || this.cursors?.right.isDown)
-	// 	{
-	// 		this.stateMachine.setState('run')
-	// 	}
-
-	// 	// Add a Jump Key (up arrow) for jump state
-	// 	if (this.checkJumpCondition())
-	// 	{
-	// 		this.stateMachine.setState('jump')
-	// 	}
-	// }
-
-	// runOnEnter() {
-	// 	this.play(ANIM_P_RUN)
-	// }
-
-	// runOnUpdate() {
-	// 	if(this.cursors?.left.isDown)
-	// 	{
-	// 		if(this.checkJumpCondition())
-	// 		{
-	// 			this.stateMachine.setState('jump')
-	// 		}
-	// 		this.flipX = true
-	// 		this.setVelocityX(-this.runSpeed)
-	// 	}
-	// 	else if(this.cursors?.right.isDown)
-	// 	{
-	// 		if(this.checkJumpCondition())
-	// 		{
-	// 			this.stateMachine.setState('jump')
-	// 		}
-	// 		this.flipX = false
-	// 		this.setVelocityX(this.runSpeed)
-	// 	}
-	// 	else
-	// 	{
-	// 		this.setVelocityX(0)
-	// 		this.stateMachine.setState('idle')
-	// 	}
-	// }
-
-	// runOnExit() {
-	// 	this.stop()
-	// }
-
-	// jumpOnEnter() {
-	// 	this.setVelocityY(-this.jumpSpeed)
-	// 	this.play(ANIM_P_JUMP)
-	// }
-
-	// jumpOnUpdate() {
-
-	// 	if(this.cursors?.left.isDown)
-	// 	{
-	// 		if(this.hasJetPack)
-	// 		{
-	// 			this.flipX = true
-	// 			this.setVelocityX(-this.runSpeed)
-	// 		}
-
-
-	// 		if(this.body.onFloor())
-	// 		{
-	// 			this.stateMachine.setState('run')
-	// 		}
-	// 	}
-	// 	else if(this.cursors?.right.isDown)
-	// 	{
-	// 		if(this.hasJetPack)
-	// 		{
-	// 			this.flipX = false
-	// 			this.setVelocityX(this.runSpeed)
-	// 		}
-
-	// 		if(this.body.onFloor())
-	// 		{
-	// 			this.stateMachine.setState('run')
-	// 		}
-	// 	}
-	// 	else
-	// 	{
-	// 		if(this.hasJetPack)
-	// 		{
-	// 			this.setVelocityX(0)
-	// 		}
-
-	// 		if(this.body.onFloor())
-	// 		{
-	// 			this.stateMachine.setState('idle')
-	// 		}
-	// 	}
-
-
-	// }
 
 	/* END-USER-CODE */
 }
