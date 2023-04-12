@@ -6,6 +6,7 @@
 import Phaser from "phaser";
 import SettingsButton from "../prefabs/SettingsButton";
 import PlayButton from "../prefabs/PlayButton";
+import FullScreenButton from "../prefabs/FullScreenButton";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -33,11 +34,6 @@ export default class MainMenu extends Phaser.Scene {
 		const settings_Button = new SettingsButton(this, 425, 215);
 		this.add.existing(settings_Button);
 
-		// fullscreen
-		const fullscreen = this.add.image(620, 340, "fullscreen");
-		fullscreen.scaleX = 0.25;
-		fullscreen.scaleY = 0.25;
-
 		// placeHolderLogo
 		const placeHolderLogo = this.add.image(318, 100, "PlaceHolderLogo");
 		placeHolderLogo.scaleX = 0.25;
@@ -46,6 +42,10 @@ export default class MainMenu extends Phaser.Scene {
 		// playButton
 		const playButton = new PlayButton(this, 215, 215);
 		this.add.existing(playButton);
+
+		// fullScreenButton
+		const fullScreenButton = new FullScreenButton(this, 622, 342);
+		this.add.existing(fullScreenButton);
 
 		this.keyboard_key = keyboard_key;
 
