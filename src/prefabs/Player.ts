@@ -9,6 +9,7 @@ import StateMachineNode from "./scriptNodes/StateMachineNode";
 import IdleState from "./scriptNodes/IdleState";
 import RunState from "./scriptNodes/RunState";
 import JumpState from "./scriptNodes/JumpState";
+import { ANIM_P_IDLE } from "../animations";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -54,7 +55,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.stateMachineNode.addState(
 			this.idleState.stateName, {
 				onEnter: () => {
-					this.idleState.onEnter(this)
+					this.idleState.onEnter(this, ANIM_P_IDLE)
 				}
 			}
 		).addState(
