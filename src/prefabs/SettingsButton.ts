@@ -9,10 +9,10 @@ import StartSceneActionScript from "./scriptNodes/StartSceneActionScript";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class PlayButton extends Phaser.GameObjects.Image {
+export default class SettingsButton extends Phaser.GameObjects.Image {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 320, y ?? 179, texture || "Play Button", frame);
+		super(scene, x ?? 0, y ?? 0, texture || "Settings Button", frame);
 
 		this.scaleX = 0.25;
 		this.scaleY = 0.25;
@@ -24,14 +24,10 @@ export default class PlayButton extends Phaser.GameObjects.Image {
 		const startSceneActionScript = new StartSceneActionScript(onPointerDownScript);
 
 		// startSceneActionScript (prefab fields)
-		startSceneActionScript.sceneKey = "Level";
+		startSceneActionScript.sceneKey = "Settings";
 
 		/* START-USER-CTR-CODE */
-		// this.setInteractive();
-
-		// this.on('pointerdown', () => {
-		// 	this.scene.scene.start('Level');
-		// });
+		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
 

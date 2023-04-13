@@ -4,7 +4,10 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import SettingsButton from "../prefabs/SettingsButton";
 import PlayButton from "../prefabs/PlayButton";
+import FullScreenButton from "../prefabs/FullScreenButton";
+import ScrollBar from "../prefabs/ScrollBar";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -18,25 +21,43 @@ export default class MainMenu extends Phaser.Scene {
 		/* END-USER-CTR-CODE */
 	}
 
+	editorPreload(): void {
+
+		this.load.pack("preload-asset-pack", "assets/preload-asset-pack.json");
+	}
+
 	editorCreate(): void {
 
-		// title
-		const title = this.add.text(111.5, 154, "", {});
-		title.text = "Gamedevjs 2023 \nGame Jam Title";
-		title.setStyle({ "fontSize": "64px" });
+		// keyboard_key
+		const keyboard_key = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+
+		// settings_Button
+		const settings_Button = new SettingsButton(this, 425, 215);
+		this.add.existing(settings_Button);
+
+		// placeHolderLogo
+		const placeHolderLogo = this.add.image(318, 100, "PlaceHolderLogo");
+		placeHolderLogo.scaleX = 0.25;
+		placeHolderLogo.scaleY = 0.25;
 
 		// playButton
-		const playButton = new PlayButton(this, 400, 369);
+		const playButton = new PlayButton(this, 215, 215);
 		this.add.existing(playButton);
 
-		this.title = title;
-		this.playButton = playButton;
+		// fullScreenButton
+		const fullScreenButton = new FullScreenButton(this, 622, 342);
+		this.add.existing(fullScreenButton);
+
+		// scrollBar
+		const scrollBar = new ScrollBar(this, 317, 285);
+		this.add.existing(scrollBar);
+
+		this.keyboard_key = keyboard_key;
 
 		this.events.emit("scene-awake");
 	}
 
-	private title!: Phaser.GameObjects.Text;
-	private playButton!: PlayButton;
+	private keyboard_key!: Phaser.Input.Keyboard.Key;
 
 	/* START-USER-CODE */
 

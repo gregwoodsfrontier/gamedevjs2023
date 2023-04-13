@@ -4,41 +4,96 @@
     "settings": {
         "exportClass": true,
         "autoImport": true,
-        "preloadPackFiles": [],
+        "preloadMethodName": "editorPreload",
+        "preloadPackFiles": [
+            "gamedevjs2023/static/assets/preload-asset-pack.json"
+        ],
         "createMethodName": "editorCreate",
         "sceneKey": "MainMenu",
-        "compilerOutputLanguage": "TYPE_SCRIPT"
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
     },
     "displayList": [
         {
-            "type": "Text",
-            "id": "30abe27e-0809-43e3-afdb-a626c88945fa",
-            "label": "title",
-            "scope": "CLASS",
+            "prefabId": "5c1b9590-9c8c-4b42-bbae-6841635e0eaf",
+            "id": "ae7b83af-4214-4714-bfb5-41b9e03ff12e",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "settings_Button",
             "components": [],
-            "x": 111.5,
-            "y": 154,
-            "text": "Gamedevjs 2023 \nGame Jam Title",
-            "fontSize": "64px",
+            "x": 425,
+            "y": 215,
+            "nestedPrefabs": [],
             "list": []
         },
         {
-            "prefabId": "4e99f7be-6dab-4fd8-accd-d5bb74c99a7e",
-            "id": "37e92ccf-4af7-47a9-bf4a-351d2ee3a0b8",
+            "type": "Image",
+            "id": "6a6af42e-8399-43c9-b02b-cce662fa6973",
+            "label": "placeHolderLogo",
+            "components": [],
+            "texture": {
+                "key": "PlaceHolderLogo"
+            },
+            "x": 318,
+            "y": 100,
+            "scaleX": 0.25,
+            "scaleY": 0.25,
+            "list": []
+        },
+        {
+            "prefabId": "6d250cf7-907c-4299-8cb1-ff6d2819f066",
+            "id": "8d7bdd00-67bd-4c83-8f41-019a3a667229",
             "unlock": [
                 "x",
                 "y"
             ],
             "label": "playButton",
-            "scope": "CLASS",
             "components": [],
-            "x": 400,
-            "y": 369,
+            "x": 215,
+            "y": 215,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "b922df8d-9e20-4f96-a3cd-d998e573c88f",
+            "id": "ce1657f8-a36c-482c-ae97-8e06e741e30b",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fullScreenButton",
+            "components": [],
+            "x": 622,
+            "y": 342,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "b920840d-0ef4-44e5-a8f9-9ae8497ce47a",
+            "id": "6a35ba28-d6de-4003-9700-adab05d802ba",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "scrollBar",
+            "components": [],
+            "x": 317,
+            "y": 285,
             "nestedPrefabs": [],
             "list": []
         }
     ],
-    "plainObjects": [],
+    "plainObjects": [
+        {
+            "id": "3634edf7-2837-4a3d-a00c-72ea4649978f",
+            "type": "Keyboard.Key",
+            "label": "keyboard_key",
+            "keyCode": "DOWN"
+        }
+    ],
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",

@@ -22,10 +22,9 @@
                 "key": "guapen"
             },
             "x": 320,
-            "y": 115,
+            "y": 150,
             "scaleX": 0.5915891440784282,
-            "scaleY": 0.5915891440784282,
-            "list": []
+            "scaleY": 0.5915891440784282
         },
         {
             "type": "Text",
@@ -35,12 +34,11 @@
                 "PreloadText"
             ],
             "x": 320,
-            "y": 245,
+            "y": 300,
             "originX": 0.5,
             "originY": 0.5,
             "text": "0%",
-            "fontSize": "30px",
-            "list": []
+            "fontSize": "30px"
         }
     ],
     "plainObjects": [],

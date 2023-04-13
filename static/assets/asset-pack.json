@@ -22,6 +22,11 @@
                 "key": "FufuSuperDino"
             },
             {
+                "url": "assets/buttons/fullscreen.png",
+                "type": "image",
+                "key": "fullscreen"
+            },
+            {
                 "url": "assets/buttons/Leaderboard.png",
                 "type": "image",
                 "key": "Leaderboard"
@@ -56,9 +61,19 @@
                 "key": "Next"
             },
             {
+                "url": "assets/buttons/PlaceHolderLogo.png",
+                "type": "image",
+                "key": "PlaceHolderLogo"
+            },
+            {
                 "url": "assets/buttons/Play.png",
                 "type": "image",
                 "key": "Play"
+            },
+            {
+                "url": "assets/buttons/Play Button.png",
+                "type": "image",
+                "key": "Play Button"
             },
             {
                 "url": "animations.json",
@@ -172,6 +187,24 @@
                 "key": "Settings"
             },
             {
+                "url": "assets/buttons/Settings Button.png",
+                "type": "image",
+                "key": "Settings Button"
+            },
+            {
+                "url": "assets/buttons/Spritesheet_UI_Flat_Select_02.png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Spritesheet_UI_Flat_Select_02"
+            },
+            {
                 "url": "assets/tilesets/Terrain (16x16).png",
                 "frameConfig": {
                     "frameWidth": 16,
@@ -188,6 +221,46 @@
                 "url": "assets/tilesets/Gray.png",
                 "type": "image",
                 "key": "tilesBackground"
+            },
+            {
+                "url": "assets/scrollbar/UI_Flat_Scrollbar_01.png",
+                "type": "image",
+                "key": "UI_Flat_Scrollbar_01"
+            },
+            {
+                "url": "assets/scrollbar/UI_Flat_Scrollbar_02.png",
+                "type": "image",
+                "key": "UI_Flat_Scrollbar_02"
+            },
+            {
+                "url": "assets/scrollbar/UI_Flat_Scrollbar_03.png",
+                "type": "image",
+                "key": "UI_Flat_Scrollbar_03"
+            },
+            {
+                "url": "assets/scrollbar/UI_Flat_Scrollbar_04.png",
+                "type": "image",
+                "key": "UI_Flat_Scrollbar_04"
+            },
+            {
+                "url": "assets/scrollbar/UI_Flat_Scrollbar_Handle_01.png",
+                "type": "image",
+                "key": "UI_Flat_Scrollbar_Handle_01"
+            },
+            {
+                "url": "assets/scrollbar/UI_Flat_Scrollbar_Handle_02.png",
+                "type": "image",
+                "key": "UI_Flat_Scrollbar_Handle_02"
+            },
+            {
+                "url": "assets/scrollbar/UI_Flat_Scrollbar_Handle_03.png",
+                "type": "image",
+                "key": "UI_Flat_Scrollbar_Handle_03"
+            },
+            {
+                "url": "assets/scrollbar/UI_Flat_Scrollbar_Handle_04.png",
+                "type": "image",
+                "key": "UI_Flat_Scrollbar_Handle_04"
             },
             {
                 "url": "assets/buttons/Volume.png",

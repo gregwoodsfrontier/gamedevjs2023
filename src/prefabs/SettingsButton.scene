@@ -1,5 +1,5 @@
 {
-    "id": "6d250cf7-907c-4299-8cb1-ff6d2819f066",
+    "id": "5c1b9590-9c8c-4b42-bbae-6841635e0eaf",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -14,32 +14,30 @@
     "displayList": [
         {
             "type": "Image",
-            "id": "5122d9b5-eb5a-443e-a86f-effd727f4a15",
-            "label": "play_Button",
+            "id": "12fdcbc5-23df-45ce-b6a5-ca47dbc565db",
+            "label": "settings_Button",
             "components": [],
             "texture": {
-                "key": "Play Button"
+                "key": "Settings Button"
             },
-            "x": 320,
-            "y": 179,
             "scaleX": 0.25,
             "scaleY": 0.25,
             "list": [
                 {
                     "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
-                    "id": "08a5b042-2e05-45d5-9353-3ab58a75d56d",
+                    "id": "417f59ec-501a-4dab-a2ee-81645f01ff3e",
                     "label": "onPointerDownScript",
                     "components": [],
                     "nestedPrefabs": [],
                     "list": [
                         {
                             "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
-                            "id": "bf638223-bc52-44f0-8616-0847a3dce51f",
+                            "id": "bcdba072-3ec5-48b9-89eb-52d33429b972",
                             "unlock": [
                                 "sceneKey"
                             ],
                             "label": "startSceneActionScript",
-                            "sceneKey": "Level",
+                            "sceneKey": "Settings",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []

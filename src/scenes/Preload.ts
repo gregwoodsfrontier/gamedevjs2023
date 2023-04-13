@@ -21,12 +21,12 @@ export default class Preload extends Phaser.Scene {
 	editorCreate(): void {
 
 		// guapen
-		const guapen = this.add.image(320, 115, "guapen");
+		const guapen = this.add.image(320, 150, "guapen");
 		guapen.scaleX = 0.5915891440784282;
 		guapen.scaleY = 0.5915891440784282;
 
 		// progress
-		const progress = this.add.text(320, 245, "", {});
+		const progress = this.add.text(320, 300, "", {});
 		progress.setOrigin(0.5, 0.5);
 		progress.text = "0%";
 		progress.setStyle({ "fontSize": "30px" });
@@ -47,7 +47,8 @@ export default class Preload extends Phaser.Scene {
 
 		this.load.pack("asset-pack", "assets/asset-pack.json");
 
-		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("Level"));
+		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("MainMenu"));
+
 	}
 
 	/* END-USER-CODE */
