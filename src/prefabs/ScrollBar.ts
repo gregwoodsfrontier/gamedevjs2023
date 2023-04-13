@@ -13,7 +13,7 @@ import {
 export default class ScrollBar extends Phaser.GameObjects.Container {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number) {
-		super(scene, x ?? 356, y ?? 242);
+		super(scene, x ?? 0, y ?? 0);
 
 		// bar
 		const bar = scene.add.image(0, 0, "UI_Flat_Scrollbar_02");
@@ -49,11 +49,16 @@ export default class ScrollBar extends Phaser.GameObjects.Container {
 	private slider?: Slider
 
 	awake() {
+		const COLOR_LIGHT = 0x7b5e57;
+		const COLOR_DARK = 0x260e04;
+
 		const config = {
-			width: 100,
+			width: 200,
 			height: 20,
 			orientation: 'x',
 			reverseAxis: false,
+			// track: new RoundRectangle(this.scene, 0, 0, 0, 0, 6, COLOR_DARK),
+			// thumb: new RoundRectangle(this.scene, 0, 0, 0, 0, 10, COLOR_LIGHT),
 			track: this.bar,
 			thumb: this.handle,
 			valuechangeCallback: (value: any) => {

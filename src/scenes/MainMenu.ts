@@ -49,7 +49,7 @@ export default class MainMenu extends Phaser.Scene {
 		this.add.existing(fullScreenButton);
 
 		// scrollBar
-		const scrollBar = new ScrollBar(this, 488, 338);
+		const scrollBar = new ScrollBar(this, 317, 285);
 		this.add.existing(scrollBar);
 
 		this.keyboard_key = keyboard_key;
