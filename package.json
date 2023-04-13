@@ -15,7 +15,7 @@
     "vite": "^2.7.2"
   },
   "dependencies": {
-    "phaser": "^3.55.2",
+    "phaser": "^3.60.0",
     "phasereditor2d-launcher": "^3.60.0-beta.2"
   }
 }
