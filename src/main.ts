@@ -3,6 +3,7 @@ import MainMenu from "./scenes/MainMenu";
 import Level from "./scenes/Level";
 import Preload from "./scenes/Preload";
 import Settings from "./scenes/Settings";
+import UIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin.js';
 
 class Boot extends Phaser.Scene {
 
@@ -35,6 +36,15 @@ const game = new Phaser.Game({
     	  gravity: { y: 600 }
     	}
  	},
+    plugins: {
+        scene: [{
+            key: 'rexuiplugin',
+            plugin: UIPlugin,
+            mapping: 'rexUI'
+        }
+        // ...
+        ]
+    },
     scene: [Boot, Preload, Level, MainMenu, Settings]
 });
 
