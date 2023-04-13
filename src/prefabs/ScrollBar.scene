@@ -25,7 +25,7 @@
                     "scope": "NESTED_PREFAB",
                     "components": [],
                     "texture": {
-                        "key": "UI_Flat_Scrollbar_02"
+                        "key": "UI_Flat_Scrollbar_01"
                     },
                     "scaleX": 3,
                     "list": []

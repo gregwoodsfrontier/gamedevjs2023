@@ -16,7 +16,7 @@ export default class ScrollBar extends Phaser.GameObjects.Container {
 		super(scene, x ?? 0, y ?? 0);
 
 		// bar
-		const bar = scene.add.image(0, 0, "UI_Flat_Scrollbar_02");
+		const bar = scene.add.image(0, 0, "UI_Flat_Scrollbar_01");
 		bar.scaleX = 3;
 		this.add(bar);
 
