@@ -1,0 +1,65 @@
+{
+    "id": "5c0f1dd0-abb1-425a-8e1b-826e9f72a209",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "GameOver",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "prefabId": "06136fc0-38d5-4706-8a15-cfc027dc025b",
+            "id": "177f5437-2c5d-4710-9122-0fe74cf62f3d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "restart",
+            "scope": "CLASS",
+            "components": [],
+            "x": 345,
+            "y": 236,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "2edccdd2-7848-4bb7-883b-e700519cb293",
+            "id": "11499575-2433-444d-afcd-ea3f52dc76a4",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "back",
+            "scope": "CLASS",
+            "components": [],
+            "x": 262,
+            "y": 236,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "type": "Text",
+            "id": "d29793b3-819e-42c6-818f-ba572b276f28",
+            "label": "text_1",
+            "components": [],
+            "x": 208.5,
+            "y": 160,
+            "text": "GAME OVER ...",
+            "fontFamily": "'DynaPuff', cursive",
+            "fontSize": "32px",
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}
