@@ -18,8 +18,8 @@
             "label": "pauseText",
             "scope": "CLASS",
             "components": [],
-            "x": 331,
-            "y": 168,
+            "x": 329,
+            "y": 117,
             "originX": 0.5,
             "originY": 0.5,
             "text": "Pause",
@@ -38,6 +38,19 @@
             "originY": 0.5,
             "text": "Hit C to resume",
             "fontSize": "32px",
+            "list": []
+        },
+        {
+            "type": "Image",
+            "id": "f9df0e2f-50ec-4975-b5f1-29d3e03f5a66",
+            "label": "play",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "Play"
+            },
+            "x": 325,
+            "y": 188,
             "list": []
         }
     ],

@@ -20,7 +20,7 @@ export default class Pause extends Phaser.Scene {
 	editorCreate(): void {
 
 		// pauseText
-		const pauseText = this.add.text(331, 168, "", {});
+		const pauseText = this.add.text(329, 117, "", {});
 		pauseText.setOrigin(0.5, 0.5);
 		pauseText.text = "Pause";
 		pauseText.setStyle({ "fontSize": "64px" });
@@ -31,14 +31,19 @@ export default class Pause extends Phaser.Scene {
 		contDesc.text = "Hit C to resume";
 		contDesc.setStyle({ "fontSize": "32px" });
 
+		// play
+		const play = this.add.image(325, 188, "Play");
+
 		this.pauseText = pauseText;
 		this.contDesc = contDesc;
+		this.play = play;
 
 		this.events.emit("scene-awake");
 	}
 
 	private pauseText!: Phaser.GameObjects.Text;
 	private contDesc!: Phaser.GameObjects.Text;
+	private play!: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
 
@@ -47,6 +52,13 @@ export default class Pause extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+
+		this.play.once('pointerup', this.resumeLevel)
+	}
+
+	resumeLevel() {
+		this.scene.stop()
+		this.scene.resume("Level")
 	}
 
 	/* END-USER-CODE */
