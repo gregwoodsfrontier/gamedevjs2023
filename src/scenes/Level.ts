@@ -104,11 +104,21 @@ export default class Level extends Phaser.Scene {
 
 		this.editorCreate();
 
+		this.cameras.main.setBounds(0, 0, 640*10, 320*2)
+
 		// Add the menu theme to scene
-		this.theme = this.sound.add('menu-theme')
+		this.theme = this.sound.add('menu-theme', {
+			loop: true
+		})
 
 		this.debugScript.execute = () => {
-			console.log(`A key is just pressed`)
+			if(!this.theme?.isPlaying) {
+				this.theme?.play()
+			}
+			else if (this.theme?.isPlaying) {
+				this.theme.pause()
+			}
+			
 		}
 		// Create and store keyboard input
 		// this.WKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);

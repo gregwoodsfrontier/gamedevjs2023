@@ -4,13 +4,13 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import StateMachineComp from "../components/StateMachineComp";
+import CameraFollow from "../components/CameraFollow";
 import StateMachineNode from "./scriptNodes/StateMachineNode";
 import IdleState from "./scriptNodes/IdleState";
 import RunState from "./scriptNodes/RunState";
 import JumpState from "./scriptNodes/JumpState";
-import { ANIM_P_IDLE } from "../animations";
 /* START-USER-IMPORTS */
+import { ANIM_P_IDLE } from "../animations";
 /* END-USER-IMPORTS */
 
 export default interface Player {
@@ -40,8 +40,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		const jumpState = new JumpState(stateMachineNode);
 
 		// this (components)
-		const thisStateMachineComp = new StateMachineComp(this);
-		thisStateMachineComp.id = "player";
+		new CameraFollow(this);
 
 		this.stateMachineNode = stateMachineNode;
 		this.idleState = idleState;
@@ -114,7 +113,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	update(): void {
 		if(this.stateMachineNode.isCurrentState(this.idleState.stateName)) {
 			if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
-				
+
 				this.stateMachineNode.setState(this.runState.stateName)
 			}
 
