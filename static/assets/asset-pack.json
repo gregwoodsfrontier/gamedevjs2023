@@ -17,6 +17,19 @@
                 "key": "Close"
             },
             {
+                "url": "assets/tilesets/Clouds_V2-2.png",
+                "frameConfig": {
+                    "frameWidth": 16,
+                    "frameHeight": 16,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Clouds_V2-2"
+            },
+            {
                 "url": "assets/buttons/fullscreen.png",
                 "type": "image",
                 "key": "fullscreen"
@@ -25,11 +38,6 @@
                 "url": "assets/buttons/Leaderboard.png",
                 "type": "image",
                 "key": "Leaderboard"
-            },
-            {
-                "url": "tiled/Level1.json",
-                "type": "tilemapTiledJSON",
-                "key": "Level1"
             },
             {
                 "url": "assets/buttons/Levels.png",
@@ -198,6 +206,11 @@
                 },
                 "type": "spritesheet",
                 "key": "Spritesheet_UI_Flat_Select_02"
+            },
+            {
+                "url": "assets/tilemaps/startLevel.json",
+                "type": "tilemapTiledJSON",
+                "key": "startLevel"
             },
             {
                 "url": "assets/tilesets/Terrain (16x16).png",
