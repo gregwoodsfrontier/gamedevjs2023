@@ -70,20 +70,6 @@
             "y": 342,
             "nestedPrefabs": [],
             "list": []
-        },
-        {
-            "prefabId": "b920840d-0ef4-44e5-a8f9-9ae8497ce47a",
-            "id": "6a35ba28-d6de-4003-9700-adab05d802ba",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "scrollBar",
-            "components": [],
-            "x": 317,
-            "y": 285,
-            "nestedPrefabs": [],
-            "list": []
         }
     ],
     "plainObjects": [

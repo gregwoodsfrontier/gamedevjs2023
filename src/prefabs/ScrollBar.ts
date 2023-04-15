@@ -16,21 +16,11 @@ export default class ScrollBar extends Phaser.GameObjects.Container {
 	constructor(scene: Phaser.Scene, x?: number, y?: number) {
 		super(scene, x ?? 0, y ?? 0);
 
-		// bar
-		const bar = scene.add.nineslice(0, 0, "UI_Flat_Scrollbar_01", undefined, 40, 0, 1, 1, 0, 0);
-		this.add(bar);
-
-		// handle
-		const handle = scene.add.image(0, 0, "UI_Flat_Scrollbar_Handle_02");
-		this.add(handle);
-
 		// print0
 		const print0 = scene.add.text(-39, -32, "", {});
 		print0.text = "0";
 		this.add(print0);
 
-		this.bar = bar;
-		this.handle = handle;
 		this.print0 = print0;
 
 		/* START-USER-CTR-CODE */
@@ -39,8 +29,6 @@ export default class ScrollBar extends Phaser.GameObjects.Container {
 		/* END-USER-CTR-CODE */
 	}
 
-	public bar: Phaser.GameObjects.NineSlice;
-	public handle: Phaser.GameObjects.Image;
 	private print0: Phaser.GameObjects.Text;
 
 	/* START-USER-CODE */

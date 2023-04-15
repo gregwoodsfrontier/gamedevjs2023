@@ -7,7 +7,6 @@ import Phaser from "phaser";
 import SettingsButton from "../prefabs/SettingsButton";
 import PlayButton from "../prefabs/PlayButton";
 import FullScreenButton from "../prefabs/FullScreenButton";
-import ScrollBar from "../prefabs/ScrollBar";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -47,10 +46,6 @@ export default class MainMenu extends Phaser.Scene {
 		// fullScreenButton
 		const fullScreenButton = new FullScreenButton(this, 622, 342);
 		this.add.existing(fullScreenButton);
-
-		// scrollBar
-		const scrollBar = new ScrollBar(this, 317, 285);
-		this.add.existing(scrollBar);
 
 		this.keyboard_key = keyboard_key;
 
