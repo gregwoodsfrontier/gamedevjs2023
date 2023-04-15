@@ -86,13 +86,6 @@
     ],
     "plainObjects": [
         {
-            "id": "27788390-abea-4876-9f98-b8e1f5d39801",
-            "type": "Tilemap",
-            "label": "level1",
-            "key": "Level1",
-            "tilesets": []
-        },
-        {
             "id": "91f0a713-2a4a-42c1-8dd4-0432c2114388",
             "type": "Collider",
             "label": "collider",

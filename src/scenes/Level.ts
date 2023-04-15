@@ -28,16 +28,13 @@ export default class Level extends Phaser.Scene {
 
 	editorCreate(): void {
 
-		// level1
-		const level1 = this.add.tilemap("Level1");
-
 		// startLevel
 		const startLevel = this.add.tilemap("startLevel");
 		startLevel.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
 		startLevel.addTilesetImage("Clouds V2-2", "Clouds_V2-2");
 
 		// background_1
-		startLevel.createLayer("background", ["Clouds V2-2","Terrain (16x16)"], 0, 0);
+		startLevel.createLayer("background", ["Clouds V2-2"], 0, 0);
 
 		// ground_1
 		const ground_1 = startLevel.createLayer("ground", ["Terrain (16x16)"], 0, 0);
@@ -66,7 +63,6 @@ export default class Level extends Phaser.Scene {
 		this.player_1 = player_1;
 		this.onKeyBoardJustDownScript = onKeyBoardJustDownScript;
 		this.debugScript = debugScript;
-		this.level1 = level1;
 		this.collider = collider;
 		this.startLevel = startLevel;
 
@@ -76,7 +72,6 @@ export default class Level extends Phaser.Scene {
 	private player_1!: Player;
 	private onKeyBoardJustDownScript!: OnKeyBoardJustDownScript;
 	private debugScript!: ScriptNode;
-	private level1!: Phaser.Tilemaps.Tilemap;
 	private collider!: Phaser.Physics.Arcade.Collider;
 	private startLevel!: Phaser.Tilemaps.Tilemap;
 
