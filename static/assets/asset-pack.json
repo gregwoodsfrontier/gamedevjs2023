@@ -17,11 +17,6 @@
                 "key": "Close"
             },
             {
-                "url": "assets/FufuSuperDino.png",
-                "type": "image",
-                "key": "FufuSuperDino"
-            },
-            {
                 "url": "assets/buttons/fullscreen.png",
                 "type": "image",
                 "key": "fullscreen"
@@ -221,46 +216,6 @@
                 "url": "assets/tilesets/Gray.png",
                 "type": "image",
                 "key": "tilesBackground"
-            },
-            {
-                "url": "assets/scrollbar/UI_Flat_Scrollbar_01.png",
-                "type": "image",
-                "key": "UI_Flat_Scrollbar_01"
-            },
-            {
-                "url": "assets/scrollbar/UI_Flat_Scrollbar_02.png",
-                "type": "image",
-                "key": "UI_Flat_Scrollbar_02"
-            },
-            {
-                "url": "assets/scrollbar/UI_Flat_Scrollbar_03.png",
-                "type": "image",
-                "key": "UI_Flat_Scrollbar_03"
-            },
-            {
-                "url": "assets/scrollbar/UI_Flat_Scrollbar_04.png",
-                "type": "image",
-                "key": "UI_Flat_Scrollbar_04"
-            },
-            {
-                "url": "assets/scrollbar/UI_Flat_Scrollbar_Handle_01.png",
-                "type": "image",
-                "key": "UI_Flat_Scrollbar_Handle_01"
-            },
-            {
-                "url": "assets/scrollbar/UI_Flat_Scrollbar_Handle_02.png",
-                "type": "image",
-                "key": "UI_Flat_Scrollbar_Handle_02"
-            },
-            {
-                "url": "assets/scrollbar/UI_Flat_Scrollbar_Handle_03.png",
-                "type": "image",
-                "key": "UI_Flat_Scrollbar_Handle_03"
-            },
-            {
-                "url": "assets/scrollbar/UI_Flat_Scrollbar_Handle_04.png",
-                "type": "image",
-                "key": "UI_Flat_Scrollbar_Handle_04"
             },
             {
                 "url": "assets/buttons/Volume.png",
