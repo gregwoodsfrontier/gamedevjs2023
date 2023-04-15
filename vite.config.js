@@ -9,4 +9,9 @@ export default defineConfig({
       '@' : path.resolve(__dirname, './static')
     },
   },
+  build: {
+    commonjsOptions: {
+      esmExternals: true
+    }
+  }
 })
