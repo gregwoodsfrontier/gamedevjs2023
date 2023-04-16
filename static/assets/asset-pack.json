@@ -195,6 +195,19 @@
                 "key": "Settings Button"
             },
             {
+                "url": "assets/ui/Spritesheet_UI_Flat.png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Spritesheet_UI_Flat"
+            },
+            {
                 "url": "assets/buttons/Spritesheet_UI_Flat_Select_02.png",
                 "frameConfig": {
                     "frameWidth": 32,
