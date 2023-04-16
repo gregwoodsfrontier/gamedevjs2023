@@ -5,7 +5,6 @@
 import Phaser from "phaser";
 import LayerPhysics from "../components/LayerPhysics";
 import Player from "../prefabs/Player";
-import TimerBar from "../prefabs/TimerBar";
 import OnKeyBoardJustDownScript from "../prefabs/scriptNodes/OnKeyBoardJustDownScript";
 import ScriptNode from "../prefabs/scriptNodes/ScriptNode";
 /* START-USER-IMPORTS */
@@ -46,10 +45,6 @@ export default class Level extends Phaser.Scene {
 		player_1.scaleX = 1;
 		player_1.scaleY = 1;
 
-		// spritesheet_UI_Flat157
-		const spritesheet_UI_Flat157 = new TimerBar(this, 129, 33);
-		this.add.existing(spritesheet_UI_Flat157);
-
 		// onKeyBoardJustDownScript
 		const onKeyBoardJustDownScript = new OnKeyBoardJustDownScript(this);
 
@@ -66,7 +61,6 @@ export default class Level extends Phaser.Scene {
 		onKeyBoardJustDownScript.keyBoardKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 
 		this.player_1 = player_1;
-		this.spritesheet_UI_Flat157 = spritesheet_UI_Flat157;
 		this.onKeyBoardJustDownScript = onKeyBoardJustDownScript;
 		this.debugScript = debugScript;
 		this.collider = collider;
@@ -76,7 +70,6 @@ export default class Level extends Phaser.Scene {
 	}
 
 	private player_1!: Player;
-	private spritesheet_UI_Flat157!: TimerBar;
 	private onKeyBoardJustDownScript!: OnKeyBoardJustDownScript;
 	private debugScript!: ScriptNode;
 	private collider!: Phaser.Physics.Arcade.Collider;
