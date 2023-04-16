@@ -23,6 +23,7 @@
                 "key": "player-idle",
                 "frame": 0
             },
+            "collideWorldBounds": true,
             "body.width": 21,
             "body.height": 22,
             "body.offset.x": 6,

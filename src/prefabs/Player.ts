@@ -24,6 +24,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		super(scene, x ?? 0, y ?? 0, texture || "player-idle", frame ?? 0);
 
 		scene.physics.add.existing(this, false);
+		this.body.collideWorldBounds = true;
 		this.body.setOffset(6, 10);
 		this.body.setSize(21, 22, false);
 
@@ -50,6 +51,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		this.cursors = this.scene.input.keyboard.createCursorKeys()
+		scene.physics.world.setBounds(0, 0, 75*16, 23*16)
 
 		this.stateMachineNode.addState(
 			this.idleState.stateName, {
