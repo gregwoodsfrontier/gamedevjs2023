@@ -5,10 +5,11 @@
 
 import ScriptNode from "./ScriptNode";
 import Phaser from "phaser";
+import StateMachineNode from "./StateMachineNode";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class IdleState extends ScriptNode {
+export default class StaggerState extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
@@ -18,17 +19,27 @@ export default class IdleState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public stateName: string = "idle";
+	public name: string = "stagger`";
+	public timer: number = 2000;
 
 	/* START-USER-CODE */
 
 	// Write your code here.
-	onEnter(sprite: Phaser.Physics.Arcade.Sprite, anims: string) {
-		sprite.setVelocityX(0)
+	onEnter() {
+		// emit an event to play stagger anims
+		this.scene.events.emit("play-stagger")
 
-		sprite.play(anims)
+		this.scene.time.delayedCall(this.timer, () => {
+			const machine = this.parent as StateMachineNode
+			
+			if(!machine.setState) {
+				return
+			}
 
+			machine.setState('idle')
+		})
 	}
+
 	/* END-USER-CODE */
 }
 

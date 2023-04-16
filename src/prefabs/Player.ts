@@ -9,6 +9,8 @@ import StateMachineNode from "./scriptNodes/StateMachineNode";
 import IdleState from "./scriptNodes/IdleState";
 import RunState from "./scriptNodes/RunState";
 import JumpState from "./scriptNodes/JumpState";
+import DashState from "./scriptNodes/DashState";
+import StaggerState from "./scriptNodes/StaggerState";
 /* START-USER-IMPORTS */
 import { ANIM_P_IDLE } from "../animations";
 /* END-USER-IMPORTS */
@@ -39,6 +41,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		// jumpState
 		const jumpState = new JumpState(stateMachineNode);
 
+		// dashState
+		const dashState = new DashState(stateMachineNode);
+
+		// staggerState
+		const staggerState = new StaggerState(stateMachineNode);
+
 		// this (components)
 		new CameraFollow(this);
 
@@ -46,6 +54,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.idleState = idleState;
 		this.runState = runState;
 		this.jumpState = jumpState;
+		this.dashState = dashState;
+		this.staggerState = staggerState;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -95,9 +105,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	private idleState: IdleState;
 	private runState: RunState;
 	private jumpState: JumpState;
+	private dashState: DashState;
+	private staggerState: StaggerState;
 	public runSpeed: number = 150;
 	public jumpSpeed: number = 250;
 	public hasJetPack: boolean = true;
+	public dashSpd: number = 10;
+	public dashTime: number = 1000;
 
 	/* START-USER-CODE */
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
