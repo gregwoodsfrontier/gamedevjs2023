@@ -66,8 +66,22 @@
             ],
             "label": "scrollbar_1",
             "components": [],
-            "x": 396,
-            "y": 114,
+            "x": 462,
+            "y": 113,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "f913a5f0-01da-494d-bb6c-6a866df7b984",
+            "id": "909cb4ac-e11d-48b0-b398-46f819ad3163",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "scrollbar",
+            "components": [],
+            "x": 462,
+            "y": 170,
             "nestedPrefabs": [],
             "list": []
         }

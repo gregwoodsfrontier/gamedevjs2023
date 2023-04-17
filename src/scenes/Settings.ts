@@ -39,8 +39,12 @@ export default class Settings extends Phaser.Scene {
 		seText.text = "Sound Effect Volume";
 
 		// scrollbar_1
-		const scrollbar_1 = new HoriScrollBar(this, 396, 114);
+		const scrollbar_1 = new HoriScrollBar(this, 462, 113);
 		this.add.existing(scrollbar_1);
+
+		// scrollbar
+		const scrollbar = new HoriScrollBar(this, 462, 170);
+		this.add.existing(scrollbar);
 
 		this.events.emit("scene-awake");
 	}
