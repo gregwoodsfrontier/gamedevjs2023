@@ -15,12 +15,60 @@
         {
             "type": "Text",
             "id": "d88f8cb2-a45c-43e1-a0aa-96cf751a63bf",
-            "label": "text_1",
+            "label": "title",
             "components": [],
-            "x": 178,
-            "y": 143,
-            "text": "Settings here.",
+            "x": 235,
+            "y": 25,
+            "text": "Settings",
             "fontSize": "32px",
+            "list": []
+        },
+        {
+            "type": "Image",
+            "id": "05772c33-f7ea-4aa6-84a7-4d902b291d22",
+            "label": "back",
+            "components": [],
+            "texture": {
+                "key": "Back"
+            },
+            "x": 595,
+            "y": 44,
+            "scaleX": 3,
+            "scaleY": 3,
+            "list": []
+        },
+        {
+            "type": "Text",
+            "id": "72b69525-48ca-4420-8e6f-0df9d04990dd",
+            "label": "musicText",
+            "components": [],
+            "x": 71,
+            "y": 109,
+            "text": "Music Volume",
+            "list": []
+        },
+        {
+            "type": "Text",
+            "id": "38dd9b63-6425-48ca-a96d-5fd0872691a8",
+            "label": "seText",
+            "components": [],
+            "x": 68,
+            "y": 162,
+            "text": "Sound Effect Volume",
+            "list": []
+        },
+        {
+            "prefabId": "f913a5f0-01da-494d-bb6c-6a866df7b984",
+            "id": "89f61393-fb7d-4159-8490-702d45239769",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "scrollbar_1",
+            "components": [],
+            "x": 396,
+            "y": 114,
+            "nestedPrefabs": [],
             "list": []
         }
     ],
