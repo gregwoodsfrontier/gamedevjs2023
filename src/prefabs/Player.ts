@@ -4,13 +4,13 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import StateMachineComp from "../components/StateMachineComp";
+import CameraFollow from "../components/CameraFollow";
 import StateMachineNode from "./scriptNodes/StateMachineNode";
 import IdleState from "./scriptNodes/IdleState";
 import RunState from "./scriptNodes/RunState";
 import JumpState from "./scriptNodes/JumpState";
-import { ANIM_P_IDLE } from "../animations";
 /* START-USER-IMPORTS */
+import { ANIM_P_IDLE } from "../animations";
 /* END-USER-IMPORTS */
 
 export default interface Player {
@@ -24,6 +24,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		super(scene, x ?? 0, y ?? 0, texture || "player-idle", frame ?? 0);
 
 		scene.physics.add.existing(this, false);
+		this.body.collideWorldBounds = true;
 		this.body.setOffset(6, 10);
 		this.body.setSize(21, 22, false);
 
@@ -40,8 +41,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		const jumpState = new JumpState(stateMachineNode);
 
 		// this (components)
-		const thisStateMachineComp = new StateMachineComp(this);
-		thisStateMachineComp.id = "player";
+		new CameraFollow(this);
 
 		this.stateMachineNode = stateMachineNode;
 		this.idleState = idleState;
@@ -51,6 +51,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		this.cursors = this.scene.input.keyboard.createCursorKeys()
+		scene.physics.world.setBounds(0, 0, 75*16, 23*16)
 
 		this.stateMachineNode.addState(
 			this.idleState.stateName, {
@@ -114,7 +115,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	update(): void {
 		if(this.stateMachineNode.isCurrentState(this.idleState.stateName)) {
 			if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
-				
+
 				this.stateMachineNode.setState(this.runState.stateName)
 			}
 

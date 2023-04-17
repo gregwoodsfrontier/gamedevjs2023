@@ -39,7 +39,7 @@
                                 "sceneKey"
                             ],
                             "label": "startSceneActionScript",
-                            "sceneKey": "Level",
+                            "sceneKey": "Level2",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []

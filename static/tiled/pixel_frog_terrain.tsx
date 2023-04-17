@@ -52,16 +52,25 @@
   </properties>
  </tile>
  <tile id="17">
+  <properties>
+   <property name="collides" type="bool" value="true"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="5"/>
   </objectgroup>
  </tile>
  <tile id="18">
+  <properties>
+   <property name="collides" type="bool" value="true"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="5"/>
   </objectgroup>
  </tile>
  <tile id="19">
+  <properties>
+   <property name="collides" type="bool" value="true"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="5"/>
   </objectgroup>
@@ -117,16 +126,25 @@
   </properties>
  </tile>
  <tile id="39">
+  <properties>
+   <property name="collides" type="bool" value="true"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="5"/>
   </objectgroup>
  </tile>
  <tile id="40">
+  <properties>
+   <property name="collides" type="bool" value="true"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="5"/>
   </objectgroup>
  </tile>
  <tile id="41">
+  <properties>
+   <property name="collides" type="bool" value="true"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="5"/>
   </objectgroup>
@@ -177,16 +195,25 @@
   </properties>
  </tile>
  <tile id="61">
+  <properties>
+   <property name="collides" type="bool" value="true"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="5"/>
   </objectgroup>
  </tile>
  <tile id="62">
+  <properties>
+   <property name="collides" type="bool" value="true"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="5"/>
   </objectgroup>
  </tile>
  <tile id="63">
+  <properties>
+   <property name="collides" type="bool" value="true"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="0" y="0" width="16" height="5"/>
   </objectgroup>
