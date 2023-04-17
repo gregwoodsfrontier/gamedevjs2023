@@ -45,6 +45,16 @@
                 "key": "Levels"
             },
             {
+                "url": "assets/tilemaps/lv1.json",
+                "type": "tilemapTiledJSON",
+                "key": "lv1"
+            },
+            {
+                "url": "assets/tilemaps/lv2.json",
+                "type": "tilemapTiledJSON",
+                "key": "lv2"
+            },
+            {
                 "url": [
                     "assets/audio/Menu_Theme_Orchestral.wav"
                 ],
