@@ -17,13 +17,13 @@
             "id": "1af02717-4e47-4e8a-a573-d194e27bf28b",
             "label": "sprite_1",
             "components": [
-                "StateMachineComp"
+                "CameraFollow"
             ],
-            "StateMachineComp.id": "player",
             "texture": {
                 "key": "player-idle",
                 "frame": 0
             },
+            "collideWorldBounds": true,
             "body.width": 21,
             "body.height": 22,
             "body.offset.x": 6,

@@ -17,6 +17,19 @@
                 "key": "Close"
             },
             {
+                "url": "assets/tilesets/Clouds_V2-2.png",
+                "frameConfig": {
+                    "frameWidth": 16,
+                    "frameHeight": 16,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Clouds_V2-2"
+            },
+            {
                 "url": "assets/buttons/fullscreen.png",
                 "type": "image",
                 "key": "fullscreen"
@@ -27,14 +40,19 @@
                 "key": "Leaderboard"
             },
             {
-                "url": "tiled/Level1.json",
-                "type": "tilemapTiledJSON",
-                "key": "Level1"
-            },
-            {
                 "url": "assets/buttons/Levels.png",
                 "type": "image",
                 "key": "Levels"
+            },
+            {
+                "url": "assets/tilemaps/lv1.json",
+                "type": "tilemapTiledJSON",
+                "key": "lv1"
+            },
+            {
+                "url": "assets/tilemaps/lv2.json",
+                "type": "tilemapTiledJSON",
+                "key": "lv2"
             },
             {
                 "url": [
@@ -187,6 +205,19 @@
                 "key": "Settings Button"
             },
             {
+                "url": "assets/ui/Spritesheet_UI_Flat.png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Spritesheet_UI_Flat"
+            },
+            {
                 "url": "assets/buttons/Spritesheet_UI_Flat_Select_02.png",
                 "frameConfig": {
                     "frameWidth": 32,
@@ -198,6 +229,11 @@
                 },
                 "type": "spritesheet",
                 "key": "Spritesheet_UI_Flat_Select_02"
+            },
+            {
+                "url": "assets/tilemaps/startLevel.json",
+                "type": "tilemapTiledJSON",
+                "key": "startLevel"
             },
             {
                 "url": "assets/tilesets/Terrain (16x16).png",

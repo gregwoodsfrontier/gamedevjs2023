@@ -24,7 +24,7 @@ export default class PlayButton extends Phaser.GameObjects.Image {
 		const startSceneActionScript = new StartSceneActionScript(onPointerDownScript);
 
 		// startSceneActionScript (prefab fields)
-		startSceneActionScript.sceneKey = "Level";
+		startSceneActionScript.sceneKey = "Level2";
 
 		/* START-USER-CTR-CODE */
 		// this.setInteractive();
