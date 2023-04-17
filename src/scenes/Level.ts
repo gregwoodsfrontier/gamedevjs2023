@@ -3,8 +3,10 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import Player from "../prefabs/Player";
 import LayerPhysics from "../components/LayerPhysics";
+import Player from "../prefabs/Player";
+import OnKeyBoardJustDownScript from "../prefabs/scriptNodes/OnKeyBoardJustDownScript";
+import ScriptNode from "../prefabs/scriptNodes/ScriptNode";
 /* START-USER-IMPORTS */
 import { ANIM_P_RUN, ANIM_P_DBL_JUMP } from "../animations";
 /* END-USER-IMPORTS */
@@ -26,53 +28,52 @@ export default class Level extends Phaser.Scene {
 
 	editorCreate(): void {
 
-		// level1
-		const level1 = this.add.tilemap("Level1");
-		level1.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
+		// startLevel
+		const startLevel = this.add.tilemap("startLevel");
+		startLevel.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
+		startLevel.addTilesetImage("Clouds V2-2", "Clouds_V2-2");
+
+		// background_1
+		startLevel.createLayer("background", ["Clouds V2-2"], 0, 0);
+
+		// ground_1
+		const ground_1 = startLevel.createLayer("ground", ["Terrain (16x16)"], 0, 0);
 
 		// player_1
-		const player_1 = new Player(this, 174, 134);
+		const player_1 = new Player(this, 110, 148);
 		this.add.existing(player_1);
 		player_1.scaleX = 1;
 		player_1.scaleY = 1;
 
-		// border_1
-		const border_1 = level1.createLayer("border", ["Terrain (16x16)"], 0, 0);
+		// onKeyBoardJustDownScript
+		const onKeyBoardJustDownScript = new OnKeyBoardJustDownScript(this);
 
-		// ground_1
-		const ground_1 = level1.createLayer("ground", ["Terrain (16x16)"], 0, 0);
+		// debugScript
+		const debugScript = new ScriptNode(onKeyBoardJustDownScript);
 
-		// block_1
-		const block_1 = level1.createLayer("block", ["Terrain (16x16)"], 0, 0);
-
-		// lists
-		const tileMapLayer = [block_1, ground_1, border_1];
-
-		// border_1 (components)
-		new LayerPhysics(border_1);
+		// collider
+		const collider = this.physics.add.collider(player_1, ground_1);
 
 		// ground_1 (components)
 		new LayerPhysics(ground_1);
 
-		// block_1 (components)
-		new LayerPhysics(block_1);
+		// onKeyBoardJustDownScript (prefab fields)
+		onKeyBoardJustDownScript.keyBoardKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 
 		this.player_1 = player_1;
-		this.border_1 = border_1;
-		this.ground_1 = ground_1;
-		this.block_1 = block_1;
-		this.level1 = level1;
-		this.tileMapLayer = tileMapLayer;
+		this.onKeyBoardJustDownScript = onKeyBoardJustDownScript;
+		this.debugScript = debugScript;
+		this.collider = collider;
+		this.startLevel = startLevel;
 
 		this.events.emit("scene-awake");
 	}
 
 	private player_1!: Player;
-	private border_1!: Phaser.Tilemaps.TilemapLayer;
-	private ground_1!: Phaser.Tilemaps.TilemapLayer;
-	private block_1!: Phaser.Tilemaps.TilemapLayer;
-	private level1!: Phaser.Tilemaps.Tilemap;
-	private tileMapLayer!: Phaser.Tilemaps.TilemapLayer[];
+	private onKeyBoardJustDownScript!: OnKeyBoardJustDownScript;
+	private debugScript!: ScriptNode;
+	private collider!: Phaser.Physics.Arcade.Collider;
+	private startLevel!: Phaser.Tilemaps.Tilemap;
 
 	/* START-USER-CODE */
 	private WKey?: Phaser.Input.Keyboard.Key
@@ -84,30 +85,39 @@ export default class Level extends Phaser.Scene {
 
 		this.editorCreate();
 
+		this.cameras.main.setBounds(0, 0, 640*10, 320*2)
+
 		// Add the menu theme to scene
-		this.theme = this.sound.add('menu-theme')
+		this.theme = this.sound.add('menu-theme', {
+			loop: true
+		})
 
-		// Create and store keyboard input
-		this.WKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+		this.debugScript.execute = () => {
+			if(!this.theme?.isPlaying) {
+				this.theme?.play()
+			}
+			else if (this.theme?.isPlaying) {
+				this.theme.pause()
+			}
 
-		for(let layer of this.tileMapLayer) {
-			this.physics.add.collider(this.player_1, layer)
 		}
+		// Create and store keyboard input
+		// this.WKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 	}
 
 	update() {
 
-		if (this.WKey && this.theme && Phaser.Input.Keyboard.JustDown(this.WKey)) {
-			console.log('W Key is just pressed')
-			if(!this.theme.isPlaying)
-			{
-				this.theme.play()
-			}
-			else if (this.theme.isPlaying)
-			{
-				this.theme.pause()
-			}
-		}
+		// if (this.WKey && this.theme && Phaser.Input.Keyboard.JustDown(this.WKey)) {
+		// 	console.log('W Key is just pressed')
+		// 	if(!this.theme.isPlaying)
+		// 	{
+		// 		this.theme.play()
+		// 	}
+		// 	else if (this.theme.isPlaying)
+		// 	{
+		// 		this.theme.pause()
+		// 	}
+		// }
 
     	// if (this.cursors.left.isDown) {
         // 	this.character.setVelocityX(-200);

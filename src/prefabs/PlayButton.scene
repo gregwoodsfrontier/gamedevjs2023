@@ -23,7 +23,30 @@
             "x": 320,
             "y": 179,
             "scaleX": 0.25,
-            "scaleY": 0.25
+            "scaleY": 0.25,
+            "list": [
+                {
+                    "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                    "id": "08a5b042-2e05-45d5-9353-3ab58a75d56d",
+                    "label": "onPointerDownScript",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": [
+                        {
+                            "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
+                            "id": "bf638223-bc52-44f0-8616-0847a3dce51f",
+                            "unlock": [
+                                "sceneKey"
+                            ],
+                            "label": "startSceneActionScript",
+                            "sceneKey": "Level2",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "plainObjects": [],

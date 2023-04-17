@@ -17,17 +17,56 @@
             "id": "1af02717-4e47-4e8a-a573-d194e27bf28b",
             "label": "sprite_1",
             "components": [
-                "StateMachineComp"
+                "CameraFollow"
             ],
-            "StateMachineComp.id": "player",
             "texture": {
                 "key": "player-idle",
                 "frame": 0
             },
-            "body.width": 16,
-            "body.height": 24,
-            "body.offset.y": 7,
-            "list": []
+            "collideWorldBounds": true,
+            "body.width": 21,
+            "body.height": 22,
+            "body.offset.x": 6,
+            "body.offset.y": 10,
+            "list": [
+                {
+                    "prefabId": "7ebcc666-227f-47b9-ae7e-e51a0f0f18cb",
+                    "id": "88d458da-2f39-4548-b32f-17da3349710b",
+                    "label": "stateMachineNode",
+                    "scope": "CLASS",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": [
+                        {
+                            "prefabId": "41375022-6151-4754-be50-99cc65b78f7f",
+                            "id": "04dc4418-8e01-4e23-a48e-2e8bfb92c640",
+                            "label": "idleState",
+                            "scope": "CLASS",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        },
+                        {
+                            "prefabId": "edc90b8d-3414-4a7e-8c2b-43f593bef1f1",
+                            "id": "7f4aad85-14ca-46fc-9255-9192ea369164",
+                            "label": "runState",
+                            "scope": "CLASS",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        },
+                        {
+                            "prefabId": "7540cbe0-b48c-4d19-915e-51b6def9cc3e",
+                            "id": "7817c4e8-6429-47ee-8fac-2709b1848314",
+                            "label": "jumpState",
+                            "scope": "CLASS",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "plainObjects": [],
@@ -42,7 +81,7 @@
             "name": "runSpeed",
             "label": "runSpeed",
             "tooltip": "Run Speed of character",
-            "defValue": 200,
+            "defValue": 150,
             "customDefinition": false,
             "type": {
                 "id": "number"
@@ -56,6 +95,16 @@
             "customDefinition": false,
             "type": {
                 "id": "number"
+            }
+        },
+        {
+            "name": "hasJetPack",
+            "label": "hasJetPack",
+            "tooltip": "Enables side movements on air when true",
+            "defValue": true,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
             }
         }
     ]

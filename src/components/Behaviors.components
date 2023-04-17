@@ -51,6 +51,12 @@
             "baseClass": "",
             "gameObjectType": "Phaser.Tilemaps.TilemapLayer",
             "properties": []
+        },
+        {
+            "name": "CameraFollow",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.Physics.Arcade.Sprite",
+            "properties": []
         }
     ],
     "meta": {

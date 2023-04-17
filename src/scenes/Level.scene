@@ -15,6 +15,34 @@
     },
     "displayList": [
         {
+            "type": "TilemapLayer",
+            "id": "c17b25de-9b1f-4618-aaf9-1c539945312c",
+            "label": "background_1",
+            "components": [],
+            "list": [],
+            "tilemapId": "c2e4ac24-2152-4e60-b227-6a6f0d7b38a8",
+            "layerName": "background",
+            "tilesets": [
+                "Terrain (16x16)",
+                "Clouds V2-2"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "a4f197ae-75d5-4956-abd8-abe93b718ea4",
+            "label": "ground_1",
+            "components": [
+                "LayerPhysics"
+            ],
+            "list": [],
+            "tilemapId": "c2e4ac24-2152-4e60-b227-6a6f0d7b38a8",
+            "layerName": "ground",
+            "tilesets": [
+                "Terrain (16x16)",
+                "Clouds V2-2"
+            ]
+        },
+        {
             "prefabId": "e8cbef27-0122-44ad-a3de-0e0b260351e8",
             "id": "a9bef027-72f4-493f-a1af-0c2f8ff480bb",
             "unlock": [
@@ -26,69 +54,57 @@
             "label": "player_1",
             "scope": "CLASS",
             "components": [],
-            "x": 174,
-            "y": 134,
+            "x": 110,
+            "y": 148,
             "scaleX": 1,
             "scaleY": 1,
             "nestedPrefabs": [],
             "list": []
         },
         {
-            "type": "TilemapLayer",
-            "id": "763fe3aa-a3e5-4a34-ba59-29d7af4999db",
-            "label": "border_1",
-            "scope": "CLASS",
-            "components": [
-                "LayerPhysics"
+            "prefabId": "71c1fad7-dac6-41ac-ad61-76f777b61bde",
+            "id": "075bfc3d-fe43-4b97-a7d4-40a80a3ad0f4",
+            "unlock": [
+                "keyBoardKey"
             ],
-            "list": [],
-            "tilemapId": "27788390-abea-4876-9f98-b8e1f5d39801",
-            "layerName": "border",
-            "tilesets": [
-                "Terrain (16x16)"
-            ]
-        },
-        {
-            "type": "TilemapLayer",
-            "id": "ebf72f5a-593b-43b7-8d8d-3b006b4db356",
-            "label": "ground_1",
+            "label": "onKeyBoardJustDownScript",
             "scope": "CLASS",
-            "components": [
-                "LayerPhysics"
-            ],
-            "list": [],
-            "tilemapId": "27788390-abea-4876-9f98-b8e1f5d39801",
-            "layerName": "ground",
-            "tilesets": [
-                "Terrain (16x16)"
-            ]
-        },
-        {
-            "type": "TilemapLayer",
-            "id": "b76cdae5-69f4-4dda-9f89-01af2dd13788",
-            "label": "block_1",
-            "scope": "CLASS",
-            "components": [
-                "LayerPhysics"
-            ],
-            "list": [],
-            "tilemapId": "27788390-abea-4876-9f98-b8e1f5d39801",
-            "layerName": "block",
-            "tilesets": [
-                "Terrain (16x16)"
+            "keyBoardKey": "this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "type": "ScriptNode",
+                    "id": "89e5fe91-dd05-4b39-ab68-aaf71bd5a16e",
+                    "label": "debugScript",
+                    "scope": "CLASS",
+                    "components": [],
+                    "list": []
+                }
             ]
         }
     ],
     "plainObjects": [
         {
-            "id": "27788390-abea-4876-9f98-b8e1f5d39801",
+            "id": "91f0a713-2a4a-42c1-8dd4-0432c2114388",
+            "type": "Collider",
+            "label": "collider",
+            "object1": "player_1",
+            "object2": "ground_1"
+        },
+        {
+            "id": "c2e4ac24-2152-4e60-b227-6a6f0d7b38a8",
             "type": "Tilemap",
-            "label": "level1",
-            "key": "Level1",
+            "label": "startLevel",
+            "key": "startLevel",
             "tilesets": [
                 {
                     "name": "Terrain (16x16)",
                     "imageKey": "Terrain (16x16)"
+                },
+                {
+                    "name": "Clouds V2-2",
+                    "imageKey": "Clouds_V2-2"
                 }
             ]
         }
@@ -98,16 +114,5 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    },
-    "lists": [
-        {
-            "id": "6fd0fb81-1d67-4990-9764-7b425a434f26",
-            "label": "tileMapLayer",
-            "objectIds": [
-                "b76cdae5-69f4-4dda-9f89-01af2dd13788",
-                "ebf72f5a-593b-43b7-8d8d-3b006b4db356",
-                "763fe3aa-a3e5-4a34-ba59-29d7af4999db"
-            ]
-        }
-    ]
+    }
 }

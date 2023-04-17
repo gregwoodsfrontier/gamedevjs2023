@@ -2,6 +2,9 @@ import Phaser from "phaser"
 import MainMenu from "./scenes/MainMenu";
 import Level from "./scenes/Level";
 import Preload from "./scenes/Preload";
+import Settings from "./scenes/Settings";
+import UIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin.js';
+import Level2 from "./scenes/Level2";
 
 class Boot extends Phaser.Scene {
 
@@ -24,6 +27,7 @@ const game = new Phaser.Game({
     width: 640,
     height: 360,
     backgroundColor: "#2f2f2f",
+    pixelArt: true,
     scale: {
         mode: Phaser.Scale.ScaleModes.FIT,
         autoCenter: Phaser.Scale.Center.CENTER_BOTH
@@ -34,7 +38,16 @@ const game = new Phaser.Game({
     	  gravity: { y: 600 }
     	}
  	},
-    scene: [Boot, Preload, Level, MainMenu]
+    plugins: {
+        scene: [{
+            key: 'rexuiplugin',
+            plugin: UIPlugin,
+            mapping: 'rexUI'
+        }
+        // ...
+        ]
+    },
+    scene: [Boot, Preload, Level, MainMenu, Settings, Level2]
 });
 
 game.scene.start("Boot");
