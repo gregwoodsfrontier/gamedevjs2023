@@ -16,11 +16,10 @@
     "displayList": [
         {
             "type": "TilemapLayer",
-            "id": "c17b25de-9b1f-4618-aaf9-1c539945312c",
+            "id": "8d68e07b-47cc-464f-a5d5-af4497ef8c10",
             "label": "background_1",
             "components": [],
             "list": [],
-            "tilemapId": "c2e4ac24-2152-4e60-b227-6a6f0d7b38a8",
             "layerName": "background",
             "tilesets": [
                 "Terrain (16x16)",
@@ -29,13 +28,13 @@
         },
         {
             "type": "TilemapLayer",
-            "id": "a4f197ae-75d5-4956-abd8-abe93b718ea4",
+            "id": "5d2c82d0-6881-42ce-9b7d-5d13762cedc8",
             "label": "ground_1",
+            "scope": "CLASS",
             "components": [
                 "LayerPhysics"
             ],
             "list": [],
-            "tilemapId": "c2e4ac24-2152-4e60-b227-6a6f0d7b38a8",
             "layerName": "ground",
             "tilesets": [
                 "Terrain (16x16)",
@@ -72,31 +71,55 @@
             "keyBoardKey": "this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)",
             "components": [],
             "nestedPrefabs": [],
-            "list": [
-                {
-                    "type": "ScriptNode",
-                    "id": "89e5fe91-dd05-4b39-ab68-aaf71bd5a16e",
-                    "label": "debugScript",
-                    "scope": "CLASS",
-                    "components": [],
-                    "list": []
-                }
-            ]
+            "list": []
+        },
+        {
+            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
+            "id": "4d5e4d46-4ff0-4539-834d-30e19de8f552",
+            "unlock": [
+                "x",
+                "y",
+                "audioKey"
+            ],
+            "label": "AudioAddNode",
+            "scope": "CLASS",
+            "audioKey": "theme_1",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "d1e71584-417d-45a4-af27-8e2ef23af268",
+            "id": "6e6bde81-58ca-4187-8a47-f95c61c81ea0",
+            "unlock": [
+                "x",
+                "y",
+                "boundWidth",
+                "boundHeight"
+            ],
+            "label": "CameraBounds",
+            "scope": "CLASS",
+            "x": 0,
+            "y": 0,
+            "boundWidth": 6400,
+            "boundHeight": 640,
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
         }
     ],
     "plainObjects": [
         {
             "id": "91f0a713-2a4a-42c1-8dd4-0432c2114388",
             "type": "Collider",
-            "label": "collider",
+            "label": "player_ground",
             "object1": "player_1",
             "object2": "ground_1"
         },
         {
-            "id": "c2e4ac24-2152-4e60-b227-6a6f0d7b38a8",
             "type": "Tilemap",
-            "label": "startLevel",
-            "key": "startLevel",
+            "label": "lv1",
+            "key": "lv1",
             "tilesets": [
                 {
                     "name": "Terrain (16x16)",

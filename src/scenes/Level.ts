@@ -6,7 +6,8 @@ import Phaser from "phaser";
 import LayerPhysics from "../components/LayerPhysics";
 import Player from "../prefabs/Player";
 import OnKeyBoardJustDownScript from "../prefabs/scriptNodes/OnKeyBoardJustDownScript";
-import ScriptNode from "../prefabs/scriptNodes/ScriptNode";
+import AudioAddNode from "../prefabs/scriptNodes/AudioAddNode";
+import CameraBounds from "../prefabs/scriptNodes/CameraBounds";
 /* START-USER-IMPORTS */
 import { ANIM_P_RUN, ANIM_P_DBL_JUMP } from "../animations";
 /* END-USER-IMPORTS */
@@ -28,16 +29,16 @@ export default class Level extends Phaser.Scene {
 
 	editorCreate(): void {
 
-		// startLevel
-		const startLevel = this.add.tilemap("startLevel");
-		startLevel.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
-		startLevel.addTilesetImage("Clouds V2-2", "Clouds_V2-2");
+		// lv1
+		const lv1 = this.add.tilemap("lv1");
+		lv1.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
+		lv1.addTilesetImage("Clouds V2-2", "Clouds_V2-2");
 
 		// background_1
-		startLevel.createLayer("background", ["Clouds V2-2"], 0, 0);
+		lv1.createLayer("background", ["Clouds V2-2"], 0, 0);
 
 		// ground_1
-		const ground_1 = startLevel.createLayer("ground", ["Terrain (16x16)"], 0, 0);
+		const ground_1 = lv1.createLayer("ground", ["Terrain (16x16)"], 0, 0);
 
 		// player_1
 		const player_1 = new Player(this, 110, 148);
@@ -48,11 +49,14 @@ export default class Level extends Phaser.Scene {
 		// onKeyBoardJustDownScript
 		const onKeyBoardJustDownScript = new OnKeyBoardJustDownScript(this);
 
-		// debugScript
-		const debugScript = new ScriptNode(onKeyBoardJustDownScript);
+		// AudioAddNode
+		const audioAddNode = new AudioAddNode(this);
 
-		// collider
-		const collider = this.physics.add.collider(player_1, ground_1);
+		// CameraBounds
+		const cameraBounds = new CameraBounds(this);
+
+		// player_ground
+		const player_ground = this.physics.add.collider(player_1, ground_1);
 
 		// ground_1 (components)
 		new LayerPhysics(ground_1);
@@ -60,47 +64,57 @@ export default class Level extends Phaser.Scene {
 		// onKeyBoardJustDownScript (prefab fields)
 		onKeyBoardJustDownScript.keyBoardKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 
+		// audioAddNode (prefab fields)
+		audioAddNode.audioKey = "theme_1";
+
+		// cameraBounds (prefab fields)
+		cameraBounds.x = 0;
+		cameraBounds.y = 0;
+		cameraBounds.boundWidth = 6400;
+		cameraBounds.boundHeight = 640;
+
+		this.ground_1 = ground_1;
 		this.player_1 = player_1;
 		this.onKeyBoardJustDownScript = onKeyBoardJustDownScript;
-		this.debugScript = debugScript;
-		this.collider = collider;
-		this.startLevel = startLevel;
+		this.audioAddNode = audioAddNode;
+		this.cameraBounds = cameraBounds;
+		this.player_ground = player_ground;
+		this.lv1 = lv1;
 
 		this.events.emit("scene-awake");
 	}
 
+	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private player_1!: Player;
 	private onKeyBoardJustDownScript!: OnKeyBoardJustDownScript;
-	private debugScript!: ScriptNode;
-	private collider!: Phaser.Physics.Arcade.Collider;
-	private startLevel!: Phaser.Tilemaps.Tilemap;
+	private audioAddNode!: AudioAddNode;
+	private cameraBounds!: CameraBounds;
+	private player_ground!: Phaser.Physics.Arcade.Collider;
+	private lv1!: Phaser.Tilemaps.Tilemap;
 
 	/* START-USER-CODE */
-	private WKey?: Phaser.Input.Keyboard.Key
-	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
-	private theme?: Phaser.Sound.BaseSound
-
 	// Write your code here
+	init(data: object) {
+		console.log('init', data)
+	}
+
 	create() {
 
 		this.editorCreate();
 
-		this.cameras.main.setBounds(0, 0, 640*10, 320*2)
+		const theme = this.audioAddNode._g_audio
 
-		// Add the menu theme to scene
-		this.theme = this.sound.add('menu-theme', {
-			loop: true
-		})
+		theme?.play()
 
-		this.debugScript.execute = () => {
-			if(!this.theme?.isPlaying) {
-				this.theme?.play()
-			}
-			else if (this.theme?.isPlaying) {
-				this.theme.pause()
-			}
+		// this.debugScript.execute = () => {
+		// 	if(!this.theme?.isPlaying) {
+		// 		this.theme?.play()
+		// 	}
+		// 	else if (this.theme?.isPlaying) {
+		// 		this.theme.pause()
+		// 	}
 
-		}
+		// }
 		// Create and store keyboard input
 		// this.WKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
 	}
