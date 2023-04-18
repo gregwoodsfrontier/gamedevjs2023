@@ -41,6 +41,7 @@
             "y": 100,
             "scaleX": 0.25,
             "scaleY": 0.25,
+            "visible": false,
             "list": []
         },
         {
@@ -69,6 +70,24 @@
             "x": 622,
             "y": 342,
             "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "type": "BitmapText",
+            "id": "b55e4a3f-4579-4c21-aa92-badbcbd8f3c2",
+            "label": "bitmaptext_1",
+            "components": [],
+            "x": 92,
+            "y": 87,
+            "tintTopLeft": "#eea61f",
+            "tintTopRight": "#eea61f",
+            "tintBottomLeft": "#bce618",
+            "tintBottomRight": "#bce618",
+            "tintFill": true,
+            "text": "Paper Dog Dash",
+            "font": "StayPixel2",
+            "fontSize": 72,
+            "dropShadowColor": "#eda119ff",
             "list": []
         }
     ],

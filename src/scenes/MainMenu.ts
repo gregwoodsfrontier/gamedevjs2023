@@ -38,6 +38,7 @@ export default class MainMenu extends Phaser.Scene {
 		const placeHolderLogo = this.add.image(318, 100, "PlaceHolderLogo");
 		placeHolderLogo.scaleX = 0.25;
 		placeHolderLogo.scaleY = 0.25;
+		placeHolderLogo.visible = false;
 
 		// playButton
 		const playButton = new PlayButton(this, 215, 215);
@@ -46,6 +47,17 @@ export default class MainMenu extends Phaser.Scene {
 		// fullScreenButton
 		const fullScreenButton = new FullScreenButton(this, 622, 342);
 		this.add.existing(fullScreenButton);
+
+		// bitmaptext_1
+		const bitmaptext_1 = this.add.bitmapText(92, 87, "StayPixel2", "Paper Dog Dash");
+		bitmaptext_1.tintFill = true;
+		bitmaptext_1.tintTopLeft = 15640095;
+		bitmaptext_1.tintTopRight = 15640095;
+		bitmaptext_1.tintBottomLeft = 12379672;
+		bitmaptext_1.tintBottomRight = 12379672;
+		bitmaptext_1.text = "Paper Dog Dash";
+		bitmaptext_1.fontSize = 72;
+		bitmaptext_1.dropShadowColor = 15573273;
 
 		this.keyboard_key = keyboard_key;
 

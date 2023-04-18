@@ -236,6 +236,12 @@
                 "key": "Spritesheet_UI_Flat_Select_02"
             },
             {
+                "textureURL": "assets/bitmapFonts/StayPixel2.png",
+                "fontDataURL": "assets/bitmapFonts/StayPixel2.xml",
+                "type": "bitmapFont",
+                "key": "StayPixel2"
+            },
+            {
                 "url": [
                     "assets/audio/level/success.wav"
                 ],
