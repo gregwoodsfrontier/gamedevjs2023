@@ -43,7 +43,7 @@
             "name": "dashMod",
             "label": "dashMod",
             "tooltip": "Dashing modifier of the character walk speed",
-            "defValue": 1.5,
+            "defValue": 5,
             "customDefinition": false,
             "type": {
                 "id": "number"
@@ -53,7 +53,7 @@
             "name": "drag",
             "label": "drag",
             "tooltip": "The drag imposing on the player",
-            "defValue": 0.1,
+            "defValue": 0.005,
             "customDefinition": false,
             "type": {
                 "id": "number"

@@ -78,12 +78,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		).addState(
 			this.dashState.stateName, {
 				onEnter: () => {
-					this.dashState.onEnter(this, ANIM_P_RUN, {
-						sprite: this, 
-						isLeft: this.flipX, 
-						isRight: !this.flipX, 
-						speed: this.runSpeed
-					})
+					this.dashState.onEnter(this, ANIM_P_RUN, this.runSpeed)
 				},
 				// onUpdate: () => {
 				// 	this.dashState.onUpdate()
@@ -194,7 +189,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 			}
 		}
 		else if(this.stateMachineNode.isCurrentState(this.dashState.stateName)) {
-			if(this.body.velocity.x < 5) {
+			if(Math.abs(this.body.velocity.x) < 5) {
 				this.stateMachineNode.setState(this.idleState.stateName)
 			}
 		}

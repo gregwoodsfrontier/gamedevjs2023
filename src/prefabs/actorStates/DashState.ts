@@ -20,25 +20,23 @@ export default class DashState extends ScriptNode {
 	}
 
 	public stateName: string = "dash";
-	public dashMod: number = 1.5;
-	public drag: number = 0.1;
+	public dashMod: number = 5;
+	public drag: number = 0.005;
 
 	/* START-USER-CODE */
 
 	// Write your code here.
-	onEnter(sprite: Phaser.Physics.Arcade.Sprite, animKey: string, params: IRunStateParams) {
+	onEnter(sprite: Phaser.Physics.Arcade.Sprite, animKey: string, speed: number) {
 
 		sprite.play(animKey)
 
-		const { isLeft, isRight, speed } = params
 		const { dashMod, drag } = this
 
-		if(isLeft) {
-			sprite.flipX = true
-			sprite.setVelocityX(-speed * dashMod).setDragX(-drag)
+		if(sprite.flipX === true) {
+
+			sprite.setVelocityX(-speed * dashMod).setDragX(drag)
 		}
-		else if (isRight) {
-			sprite.flipX = false
+		else {
 			sprite.setVelocityX(speed * dashMod).setDragX(drag)
 		}
 	}
