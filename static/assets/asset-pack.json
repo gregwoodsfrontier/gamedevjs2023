@@ -35,6 +35,11 @@
                 "key": "fullscreen"
             },
             {
+                "url": "assets/ui/greyStar.png",
+                "type": "image",
+                "key": "greyStar"
+            },
+            {
                 "url": "assets/buttons/Leaderboard.png",
                 "type": "image",
                 "key": "Leaderboard"
@@ -56,17 +61,17 @@
             },
             {
                 "url": [
-                    "assets/audio/Menu_Theme_Orchestral.wav"
+                    "assets/audio/menu/Menu_Theme.wav"
                 ],
                 "type": "audio",
-                "key": "Menu_Theme_Orchestral"
+                "key": "Menu_Theme"
             },
             {
                 "url": [
-                    "assets/audio/Menu_Theme.wav"
+                    "assets/audio/menu/Menu_Theme_Orchestral.wav"
                 ],
                 "type": "audio",
-                "key": "menu-theme"
+                "key": "Menu_Theme_Orchestral"
             },
             {
                 "url": "assets/buttons/Next.png",
@@ -231,9 +236,11 @@
                 "key": "Spritesheet_UI_Flat_Select_02"
             },
             {
-                "url": "assets/tilemaps/startLevel.json",
-                "type": "tilemapTiledJSON",
-                "key": "startLevel"
+                "url": [
+                    "assets/audio/level/success.wav"
+                ],
+                "type": "audio",
+                "key": "success"
             },
             {
                 "url": "assets/tilesets/Terrain (16x16).png",
@@ -249,6 +256,41 @@
                 "key": "Terrain (16x16)"
             },
             {
+                "url": [
+                    "assets/audio/level/theme_1.wav"
+                ],
+                "type": "audio",
+                "key": "theme_1"
+            },
+            {
+                "url": [
+                    "assets/audio/level/theme_1_melody_1.wav"
+                ],
+                "type": "audio",
+                "key": "theme_1_melody_1"
+            },
+            {
+                "url": [
+                    "assets/audio/level/theme_1_melody_2.wav"
+                ],
+                "type": "audio",
+                "key": "theme_1_melody_2"
+            },
+            {
+                "url": [
+                    "assets/audio/level/theme_2.wav"
+                ],
+                "type": "audio",
+                "key": "theme_2"
+            },
+            {
+                "url": [
+                    "assets/audio/level/theme_2_melody_1.wav"
+                ],
+                "type": "audio",
+                "key": "theme_2_melody_1"
+            },
+            {
                 "url": "assets/tilesets/Gray.png",
                 "type": "image",
                 "key": "tilesBackground"
@@ -257,6 +299,11 @@
                 "url": "assets/buttons/Volume.png",
                 "type": "image",
                 "key": "Volume"
+            },
+            {
+                "url": "assets/ui/yellowStar.png",
+                "type": "image",
+                "key": "yellowStar"
             }
         ]
     },
