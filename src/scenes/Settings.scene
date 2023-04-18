@@ -35,7 +35,29 @@
             "y": 44,
             "scaleX": 3,
             "scaleY": 3,
-            "list": []
+            "list": [
+                {
+                    "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                    "id": "79d17fe1-f4ae-4149-8b80-2c14663497dc",
+                    "label": "onPointerDownScript",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": [
+                        {
+                            "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
+                            "id": "471e9ac2-efc7-4cd5-8131-b85810ee35dc",
+                            "unlock": [
+                                "sceneKey"
+                            ],
+                            "label": "startSceneActionScript",
+                            "sceneKey": "MainMenu",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        }
+                    ]
+                }
+            ]
         },
         {
             "type": "Text",

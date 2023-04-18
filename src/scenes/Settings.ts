@@ -4,6 +4,8 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import OnPointerDownScript from "../prefabs/scriptNodes/OnPointerDownScript";
+import StartSceneActionScript from "../prefabs/scriptNodes/StartSceneActionScript";
 import HoriScrollBar from "../prefabs/HoriScrollBar";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -30,6 +32,12 @@ export default class Settings extends Phaser.Scene {
 		back.scaleX = 3;
 		back.scaleY = 3;
 
+		// onPointerDownScript
+		const onPointerDownScript = new OnPointerDownScript(back);
+
+		// startSceneActionScript
+		const startSceneActionScript = new StartSceneActionScript(onPointerDownScript);
+
 		// musicText
 		const musicText = this.add.text(71, 109, "", {});
 		musicText.text = "Music Volume";
@@ -45,6 +53,9 @@ export default class Settings extends Phaser.Scene {
 		// scrollbar
 		const scrollbar = new HoriScrollBar(this, 462, 170);
 		this.add.existing(scrollbar);
+
+		// startSceneActionScript (prefab fields)
+		startSceneActionScript.sceneKey = "MainMenu";
 
 		this.events.emit("scene-awake");
 	}
