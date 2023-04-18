@@ -22,6 +22,13 @@ export default class Settings extends Phaser.Scene {
 
 	editorCreate(): void {
 
+		// background
+		const background = this.add.image(320, 180, "Background");
+		background.tintTopLeft = 16777215;
+		background.tintTopRight = 16777215;
+		background.tintBottomLeft = 9934743;
+		background.tintBottomRight = 9934743;
+
 		// back
 		const back = this.add.image(595, 46, "Back");
 		back.scaleX = 3;

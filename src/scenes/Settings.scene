@@ -15,6 +15,22 @@
     "displayList": [
         {
             "type": "Image",
+            "id": "0f35fda4-f4ff-4356-84af-d20cd1b2b9a3",
+            "label": "background",
+            "components": [],
+            "texture": {
+                "key": "Background"
+            },
+            "x": 320,
+            "y": 180,
+            "tintTopLeft": "",
+            "tintTopRight": "",
+            "tintBottomLeft": "#979797",
+            "tintBottomRight": "#979797",
+            "list": []
+        },
+        {
+            "type": "Image",
             "id": "05772c33-f7ea-4aa6-84a7-4d902b291d22",
             "label": "back",
             "components": [],
