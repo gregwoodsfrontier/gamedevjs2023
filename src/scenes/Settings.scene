@@ -2,6 +2,7 @@
     "id": "2dfa31cc-9f2d-40d9-96e9-6da576392f87",
     "sceneType": "SCENE",
     "settings": {
+        "javaScriptInitFieldsInConstructor": true,
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [],
@@ -13,17 +14,6 @@
     },
     "displayList": [
         {
-            "type": "Text",
-            "id": "d88f8cb2-a45c-43e1-a0aa-96cf751a63bf",
-            "label": "title",
-            "components": [],
-            "x": 235,
-            "y": 25,
-            "text": "Settings",
-            "fontSize": "32px",
-            "list": []
-        },
-        {
             "type": "Image",
             "id": "05772c33-f7ea-4aa6-84a7-4d902b291d22",
             "label": "back",
@@ -32,7 +22,7 @@
                 "key": "Back"
             },
             "x": 595,
-            "y": 44,
+            "y": 46,
             "scaleX": 3,
             "scaleY": 3,
             "list": [
@@ -60,23 +50,46 @@
             ]
         },
         {
-            "type": "Text",
-            "id": "72b69525-48ca-4420-8e6f-0df9d04990dd",
-            "label": "musicText",
+            "type": "BitmapText",
+            "id": "b2fba7ec-1040-4629-93d2-0ce42d202014",
+            "label": "seText",
             "components": [],
-            "x": 71,
-            "y": 109,
-            "text": "Music Volume",
+            "x": 62,
+            "y": 160,
+            "tintFill": true,
+            "text": "Sound Effect Volume\n",
+            "font": "StayPixel2",
+            "fontSize": 26,
             "list": []
         },
         {
-            "type": "Text",
-            "id": "38dd9b63-6425-48ca-a96d-5fd0872691a8",
-            "label": "seText",
+            "type": "BitmapText",
+            "id": "f4b29791-2a4f-4fcf-b64e-5bcedeee31ef",
+            "label": "musicText",
             "components": [],
-            "x": 68,
-            "y": 162,
-            "text": "Sound Effect Volume",
+            "x": 93,
+            "y": 102,
+            "tintFill": true,
+            "text": "Music Volume\n",
+            "font": "StayPixel2",
+            "fontSize": 26,
+            "list": []
+        },
+        {
+            "type": "BitmapText",
+            "id": "ff7e41e6-5868-4bf2-9bc6-b42aeca11716",
+            "label": "title",
+            "components": [],
+            "x": 216,
+            "y": 16,
+            "tintTopLeft": "#eea61f",
+            "tintTopRight": "#eea61f",
+            "tintBottomLeft": "#bce618",
+            "tintBottomRight": "#bce618",
+            "tintFill": true,
+            "text": "Settings\n",
+            "font": "StayPixel2",
+            "fontSize": 60,
             "list": []
         },
         {
