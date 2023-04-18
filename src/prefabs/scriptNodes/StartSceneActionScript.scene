@@ -37,6 +37,17 @@
             "type": {
                 "id": "scene-key"
             }
+        },
+        {
+            "name": "data",
+            "label": "data",
+            "tooltip": "data",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "object"
+            }
         }
     ]
 }

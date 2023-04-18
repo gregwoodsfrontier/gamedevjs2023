@@ -49,8 +49,28 @@
             "texture": {
                 "key": "Play"
             },
-            "x": 325,
-            "y": 188,
+            "x": 248,
+            "y": 184,
+            "scaleX": 3,
+            "scaleY": 3,
+            "list": []
+        },
+        {
+            "prefabId": "06136fc0-38d5-4706-8a15-cfc027dc025b",
+            "id": "ef9da173-6c65-43ba-b16b-10dc5fb48162",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "restartButton",
+            "components": [],
+            "x": 395,
+            "y": 184,
+            "scaleX": 3,
+            "scaleY": 3,
+            "nestedPrefabs": [],
             "list": []
         }
     ],

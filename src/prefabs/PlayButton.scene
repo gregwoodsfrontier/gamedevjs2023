@@ -36,10 +36,12 @@
                             "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
                             "id": "bf638223-bc52-44f0-8616-0847a3dce51f",
                             "unlock": [
-                                "sceneKey"
+                                "sceneKey",
+                                "data"
                             ],
                             "label": "startSceneActionScript",
                             "sceneKey": "Level",
+                            "data": "{ level: 1 }",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []

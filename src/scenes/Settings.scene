@@ -2,6 +2,7 @@
     "id": "2dfa31cc-9f2d-40d9-96e9-6da576392f87",
     "sceneType": "SCENE",
     "settings": {
+        "javaScriptInitFieldsInConstructor": true,
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [],
@@ -13,14 +14,126 @@
     },
     "displayList": [
         {
-            "type": "Text",
-            "id": "d88f8cb2-a45c-43e1-a0aa-96cf751a63bf",
-            "label": "text_1",
+            "type": "Image",
+            "id": "0f35fda4-f4ff-4356-84af-d20cd1b2b9a3",
+            "label": "background",
             "components": [],
-            "x": 178,
-            "y": 143,
-            "text": "Settings here.",
-            "fontSize": "32px",
+            "texture": {
+                "key": "Background"
+            },
+            "x": 320,
+            "y": 180,
+            "tintTopLeft": "",
+            "tintTopRight": "",
+            "tintBottomLeft": "#979797",
+            "tintBottomRight": "#979797",
+            "list": []
+        },
+        {
+            "type": "Image",
+            "id": "05772c33-f7ea-4aa6-84a7-4d902b291d22",
+            "label": "back",
+            "components": [],
+            "texture": {
+                "key": "Back"
+            },
+            "x": 595,
+            "y": 46,
+            "scaleX": 3,
+            "scaleY": 3,
+            "list": [
+                {
+                    "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                    "id": "79d17fe1-f4ae-4149-8b80-2c14663497dc",
+                    "label": "onPointerDownScript",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": [
+                        {
+                            "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
+                            "id": "471e9ac2-efc7-4cd5-8131-b85810ee35dc",
+                            "unlock": [
+                                "sceneKey"
+                            ],
+                            "label": "startSceneActionScript",
+                            "sceneKey": "MainMenu",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "BitmapText",
+            "id": "b2fba7ec-1040-4629-93d2-0ce42d202014",
+            "label": "seText",
+            "components": [],
+            "x": 62,
+            "y": 160,
+            "tintFill": true,
+            "text": "Sound Effect Volume\n",
+            "font": "StayPixel2",
+            "fontSize": 26,
+            "list": []
+        },
+        {
+            "type": "BitmapText",
+            "id": "f4b29791-2a4f-4fcf-b64e-5bcedeee31ef",
+            "label": "musicText",
+            "components": [],
+            "x": 93,
+            "y": 102,
+            "tintFill": true,
+            "text": "Music Volume\n",
+            "font": "StayPixel2",
+            "fontSize": 26,
+            "list": []
+        },
+        {
+            "type": "BitmapText",
+            "id": "ff7e41e6-5868-4bf2-9bc6-b42aeca11716",
+            "label": "title",
+            "components": [],
+            "x": 216,
+            "y": 16,
+            "tintTopLeft": "#eea61f",
+            "tintTopRight": "#eea61f",
+            "tintBottomLeft": "#bce618",
+            "tintBottomRight": "#bce618",
+            "tintFill": true,
+            "text": "Settings\n",
+            "font": "StayPixel2",
+            "fontSize": 60,
+            "list": []
+        },
+        {
+            "prefabId": "f913a5f0-01da-494d-bb6c-6a866df7b984",
+            "id": "89f61393-fb7d-4159-8490-702d45239769",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "scrollbar_1",
+            "components": [],
+            "x": 462,
+            "y": 113,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "f913a5f0-01da-494d-bb6c-6a866df7b984",
+            "id": "909cb4ac-e11d-48b0-b398-46f819ad3163",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "scrollbar",
+            "components": [],
+            "x": 462,
+            "y": 170,
+            "nestedPrefabs": [],
             "list": []
         }
     ],

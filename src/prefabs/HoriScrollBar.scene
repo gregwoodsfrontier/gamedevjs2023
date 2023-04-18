@@ -1,0 +1,87 @@
+{
+    "id": "f913a5f0-01da-494d-bb6c-6a866df7b984",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "92741339-6af4-45c4-8431-0a3a3d026c8c",
+            "label": "container_1",
+            "components": [],
+            "y": -37.11756271844499,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "9174a8fb-9ccd-4ffd-845f-b704a10f881e",
+                    "label": "bar",
+                    "components": [],
+                    "scaleX": 1.7194628294440388,
+                    "scaleY": 1.4259290793482646,
+                    "isFilled": true,
+                    "fillColor": "#f48e29",
+                    "strokeColor": "#3fdb86",
+                    "lineWidth": 2,
+                    "width": 160,
+                    "height": 32,
+                    "list": []
+                },
+                {
+                    "type": "Triangle",
+                    "id": "8cbe84db-cd7d-477c-9dd0-7d6f964cdc15",
+                    "label": "leftButton",
+                    "components": [],
+                    "x": -112,
+                    "y": 1,
+                    "scaleX": 0.29048739001338675,
+                    "scaleY": 0.33391345579244713,
+                    "angle": -90,
+                    "isFilled": true,
+                    "list": []
+                },
+                {
+                    "type": "Triangle",
+                    "id": "f193afae-1062-4bfe-af37-1c5a606b81b5",
+                    "label": "rightButton",
+                    "components": [],
+                    "x": 110,
+                    "scaleX": 0.29048739001338675,
+                    "scaleY": -0.33391345579244713,
+                    "angle": -90,
+                    "isFilled": true,
+                    "list": []
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "ee02b48b-92f8-4b68-9a71-cd9c0e37f723",
+                    "label": "slider",
+                    "components": [],
+                    "scaleX": 0.23436465736130904,
+                    "scaleY": 0.2801744190574454,
+                    "isFilled": true,
+                    "fillColor": "#8d1093",
+                    "strokeColor": "#1cebd0",
+                    "isStroked": true,
+                    "width": 128,
+                    "height": 128,
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

@@ -4,6 +4,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import RestartButton from "../prefabs/RestartButton";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -32,7 +33,15 @@ export default class Pause extends Phaser.Scene {
 		contDesc.setStyle({ "fontSize": "32px" });
 
 		// play
-		const play = this.add.image(325, 188, "Play");
+		const play = this.add.image(248, 184, "Play");
+		play.scaleX = 3;
+		play.scaleY = 3;
+
+		// restartButton
+		const restartButton = new RestartButton(this, 395, 184);
+		this.add.existing(restartButton);
+		restartButton.scaleX = 3;
+		restartButton.scaleY = 3;
 
 		this.pauseText = pauseText;
 		this.contDesc = contDesc;
