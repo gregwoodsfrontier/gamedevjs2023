@@ -12,6 +12,11 @@
                 "key": "Back"
             },
             {
+                "url": "assets/ui/Background.png",
+                "type": "image",
+                "key": "Background"
+            },
+            {
                 "url": "assets/buttons/Close.png",
                 "type": "image",
                 "key": "Close"

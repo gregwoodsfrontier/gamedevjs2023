@@ -16,6 +16,18 @@
     },
     "displayList": [
         {
+            "type": "Image",
+            "id": "77917744-ac94-45e3-a105-e11378750b1c",
+            "label": "background",
+            "components": [],
+            "texture": {
+                "key": "Background"
+            },
+            "x": 320,
+            "y": 180,
+            "list": []
+        },
+        {
             "prefabId": "5c1b9590-9c8c-4b42-bbae-6841635e0eaf",
             "id": "ae7b83af-4214-4714-bfb5-41b9e03ff12e",
             "unlock": [
