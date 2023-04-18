@@ -25,6 +25,10 @@
             },
             "x": 320,
             "y": 180,
+            "tintTopLeft": "",
+            "tintTopRight": "",
+            "tintBottomLeft": "#979797",
+            "tintBottomRight": "#979797",
             "list": []
         },
         {

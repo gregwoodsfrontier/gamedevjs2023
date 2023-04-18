@@ -31,7 +31,11 @@ export default class MainMenu extends Phaser.Scene {
 		const keyboard_key = this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
 		// background
-		this.add.image(320, 180, "Background");
+		const background = this.add.image(320, 180, "Background");
+		background.tintTopLeft = 16777215;
+		background.tintTopRight = 16777215;
+		background.tintBottomLeft = 9934743;
+		background.tintBottomRight = 9934743;
 
 		// settings_Button
 		const settings_Button = new SettingsButton(this, 425, 215);
