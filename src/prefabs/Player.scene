@@ -24,6 +24,7 @@
                 "frame": 0
             },
             "collideWorldBounds": true,
+            "useDamping": true,
             "body.width": 21,
             "body.height": 22,
             "body.offset.x": 6,
@@ -65,18 +66,18 @@
                             "list": []
                         },
                         {
-                            "prefabId": "afeae31e-cef1-4736-aea9-113b4205c72c",
-                            "id": "cd61db4f-ebee-468b-ad81-a7a5d8b2f23d",
-                            "label": "dashState",
+                            "prefabId": "60d51a75-cbe9-4392-90a5-3182604f735c",
+                            "id": "6f508915-b271-46d8-aeb3-1058fdad0eed",
+                            "label": "staggerState",
                             "scope": "CLASS",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []
                         },
                         {
-                            "prefabId": "60d51a75-cbe9-4392-90a5-3182604f735c",
-                            "id": "6f508915-b271-46d8-aeb3-1058fdad0eed",
-                            "label": "staggerState",
+                            "prefabId": "afeae31e-cef1-4736-aea9-113b4205c72c",
+                            "id": "3a459406-f727-49b8-97e3-a0d5b2268c9d",
+                            "label": "dashState",
                             "scope": "CLASS",
                             "components": [],
                             "nestedPrefabs": [],

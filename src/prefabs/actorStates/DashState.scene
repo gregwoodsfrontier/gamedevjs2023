@@ -30,9 +30,9 @@
     },
     "prefabProperties": [
         {
-            "name": "name",
-            "label": "name",
-            "tooltip": "name",
+            "name": "stateName",
+            "label": "stateName",
+            "tooltip": "stateName",
             "defValue": "dash",
             "customDefinition": false,
             "type": {
@@ -40,20 +40,20 @@
             }
         },
         {
-            "name": "speed",
-            "label": "speed",
-            "tooltip": "Dashing speed of the character",
-            "defValue": 0,
+            "name": "dashMod",
+            "label": "dashMod",
+            "tooltip": "Dashing modifier of the character walk speed",
+            "defValue": 1.5,
             "customDefinition": false,
             "type": {
                 "id": "number"
             }
         },
         {
-            "name": "period",
-            "label": "period",
-            "tooltip": "The duration of the dashing effect last",
-            "defValue": 1000,
+            "name": "drag",
+            "label": "drag",
+            "tooltip": "The drag imposing on the player",
+            "defValue": 0.1,
             "customDefinition": false,
             "type": {
                 "id": "number"

@@ -9,10 +9,10 @@ import StateMachineNode from "./scriptNodes/StateMachineNode";
 import IdleState from "./actorStates/IdleState";
 import RunState from "./actorStates/RunState";
 import JumpState from "./actorStates/JumpState";
-import DashState from "./actorStates/DashState";
 import StaggerState from "./actorStates/StaggerState";
+import DashState from "./actorStates/DashState";
 /* START-USER-IMPORTS */
-import { ANIM_P_IDLE } from "../animations";
+import { ANIM_P_IDLE, ANIM_P_RUN } from "../animations";
 /* END-USER-IMPORTS */
 
 export default interface Player {
@@ -26,6 +26,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		super(scene, x ?? 0, y ?? 0, texture || "player-idle", frame ?? 0);
 
 		scene.physics.add.existing(this, false);
+		this.body.useDamping = true;
 		this.body.collideWorldBounds = true;
 		this.body.setOffset(6, 10);
 		this.body.setSize(21, 22, false);
@@ -42,21 +43,21 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		// jumpState
 		const jumpState = new JumpState(stateMachineNode);
 
-		// dashState
-		const dashState = new DashState(stateMachineNode);
-
 		// staggerState
 		const staggerState = new StaggerState(stateMachineNode);
+
+		// dashState
+		const dashState = new DashState(stateMachineNode);
 
 		// this (components)
 		new CameraFollow(this);
 
-		this.stateMachineNode = stateMachineNode;
 		this.idleState = idleState;
 		this.runState = runState;
 		this.jumpState = jumpState;
-		this.dashState = dashState;
 		this.staggerState = staggerState;
+		this.dashState = dashState;
+		this.stateMachineNode = stateMachineNode;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -64,14 +65,31 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 			if(scene.input.keyboard) {
 				this.cursors = scene.input.keyboard.createCursorKeys()
 			}
-			
+
 			scene.physics.world.setBounds(0, 0, 75*16, 23*16)
 		}
-		
+
 		this.stateMachineNode.addState(
 			this.idleState.stateName, {
 				onEnter: () => {
 					this.idleState.onEnter(this, ANIM_P_IDLE)
+				}
+			}
+		).addState(
+			this.dashState.stateName, {
+				onEnter: () => {
+					this.dashState.onEnter(this, ANIM_P_RUN, {
+						sprite: this, 
+						isLeft: this.flipX, 
+						isRight: !this.flipX, 
+						speed: this.runSpeed
+					})
+				},
+				// onUpdate: () => {
+				// 	this.dashState.onUpdate()
+				// },
+				onExit: () => {
+					this.dashState.onExit(this)
 				}
 			}
 		).addState(
@@ -80,7 +98,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 					this.runState.onEnter(this)
 				},
 				onUpdate: () => {
-					this.runState.onUpdate(this, this.cursors?.left.isDown, this.cursors?.right.isDown, this.runSpeed)
+					this.runState.onUpdate({
+						sprite: this, 
+						isLeft: this.cursors?.left.isDown, 
+						isRight: this.cursors?.right.isDown, 
+						speed: this.runSpeed
+					})
 				},
 				onExit: () => {
 					this.runState.onExit(this)
@@ -108,12 +131,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		/* END-USER-CTR-CODE */
 	}
 
-	private stateMachineNode: StateMachineNode;
 	private idleState: IdleState;
 	private runState: RunState;
 	private jumpState: JumpState;
-	private dashState: DashState;
 	private staggerState: StaggerState;
+	private dashState: DashState;
+	private stateMachineNode: StateMachineNode;
 	public runSpeed: number = 150;
 	public jumpSpeed: number = 250;
 	public hasJetPack: boolean = true;
@@ -130,9 +153,18 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		return this.cursors && Phaser.Input.Keyboard.JustDown(this.cursors.up) && this.body.onFloor()
 	}
 
-	// let the update handle all the state transition logic
-	update(): void {
+	checkShiftKeyJustPress() {
+		if(!this.cursors?.shift) { return }
+
+		return Phaser.Input.Keyboard.JustDown(this.cursors?.shift)
+	}
+
+	handleStateMachineNetwork() {
 		if(this.stateMachineNode.isCurrentState(this.idleState.stateName)) {
+			if(this.checkShiftKeyJustPress()) {
+				this.stateMachineNode.setState(this.dashState.stateName)
+			}
+
 			if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
 
 				this.stateMachineNode.setState(this.runState.stateName)
@@ -161,6 +193,17 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 				}
 			}
 		}
+		else if(this.stateMachineNode.isCurrentState(this.dashState.stateName)) {
+			if(this.body.velocity.x < 5) {
+				this.stateMachineNode.setState(this.idleState.stateName)
+			}
+		}
+
+	}
+
+	// let the update handle all the state transition logic
+	update(): void {
+		this.handleStateMachineNetwork()
 	}
 
 	/* END-USER-CODE */

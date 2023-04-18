@@ -6,6 +6,7 @@
 import ScriptNode from "../scriptNodes/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import { IRunStateParams } from "../../interfaces/state_params";
 /* END-USER-IMPORTS */
 
 export default class DashState extends ScriptNode {
@@ -18,21 +19,32 @@ export default class DashState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public name: string = "dash";
-	public speed: number = 0;
-	public period: number = 1000;
+	public stateName: string = "dash";
+	public dashMod: number = 1.5;
+	public drag: number = 0.1;
 
 	/* START-USER-CODE */
 
 	// Write your code here.
-	onEnter(sprite: Phaser.Physics.Arcade.Sprite, animKey: string) {
-		
+	onEnter(sprite: Phaser.Physics.Arcade.Sprite, animKey: string, params: IRunStateParams) {
+
 		sprite.play(animKey)
-		
+
+		const { isLeft, isRight, speed } = params
+		const { dashMod, drag } = this
+
+		if(isLeft) {
+			sprite.flipX = true
+			sprite.setVelocityX(-speed * dashMod).setDragX(-drag)
+		}
+		else if (isRight) {
+			sprite.flipX = false
+			sprite.setVelocityX(speed * dashMod).setDragX(drag)
+		}
 	}
 
-	onUpdate() {
-
+	onExit(sprite: Phaser.Physics.Arcade.Sprite) {
+		sprite.stop()
 	}
 
 	/* END-USER-CODE */

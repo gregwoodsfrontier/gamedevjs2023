@@ -1,7 +1,6 @@
-export interface IDashStateParams {
+export interface IRunStateParams {
     sprite: Phaser.Physics.Arcade.Sprite,
-	isLeft: boolean,
-	isRight: boolean,
-	speed: number,
-	dashModify: number
+	isLeft: boolean | undefined,
+	isRight: boolean | undefined,
+	speed: number
 }

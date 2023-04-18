@@ -3,10 +3,12 @@
 
 /* START OF COMPILED CODE */
 
-import { ANIM_P_RUN } from "../../animations";
+
 import ScriptNode from "../scriptNodes/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import { ANIM_P_RUN } from "../../animations";
+import { IRunStateParams } from "../../interfaces/state_params";
 /* END-USER-IMPORTS */
 
 export default class RunState extends ScriptNode {
@@ -20,17 +22,20 @@ export default class RunState extends ScriptNode {
 	}
 
 	public stateName: string = "run";
+	public dashModifier: number = 1;
 
 	/* START-USER-CODE */
 
 	// Write your code here.
 	onEnter(sprite: Phaser.Physics.Arcade.Sprite) {
-		
+
 		sprite.play(ANIM_P_RUN)
-		
+
 	}
 
-	onUpdate(sprite: Phaser.Physics.Arcade.Sprite, isLeft: boolean | undefined, isRight: boolean | undefined, speed: number) {
+	onUpdate(params: IRunStateParams) {
+		const { sprite, isLeft, isRight, speed } = params
+
 		if(isLeft) {
 			sprite.flipX = true
 			sprite.setVelocityX(-speed)
