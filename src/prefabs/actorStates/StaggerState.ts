@@ -3,9 +3,9 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "./ScriptNode";
+import ScriptNode from "../scriptNodes/ScriptNode";
 import Phaser from "phaser";
-import StateMachineNode from "./StateMachineNode";
+import StateMachineNode from "../scriptNodes/StateMachineNode";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 

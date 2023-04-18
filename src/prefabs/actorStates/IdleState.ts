@@ -3,12 +3,12 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "./ScriptNode";
+import ScriptNode from "../scriptNodes/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class DashState extends ScriptNode {
+export default class IdleState extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
@@ -18,21 +18,17 @@ export default class DashState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public name: string = "dash";
-	public speed: number = 0;
-	public period: number = 1000;
+	public stateName: string = "idle";
 
 	/* START-USER-CODE */
 
 	// Write your code here.
-	onEnter() {
+	onEnter(sprite: Phaser.Physics.Arcade.Sprite, anims: string) {
+		sprite.setVelocityX(0)
+
+		sprite.play(anims)
 
 	}
-
-	onUpdate() {
-
-	}
-
 	/* END-USER-CODE */
 }
 

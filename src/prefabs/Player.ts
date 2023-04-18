@@ -6,11 +6,11 @@
 import Phaser from "phaser";
 import CameraFollow from "../components/CameraFollow";
 import StateMachineNode from "./scriptNodes/StateMachineNode";
-import IdleState from "./scriptNodes/IdleState";
-import RunState from "./scriptNodes/RunState";
-import JumpState from "./scriptNodes/JumpState";
-import DashState from "./scriptNodes/DashState";
-import StaggerState from "./scriptNodes/StaggerState";
+import IdleState from "./actorStates/IdleState";
+import RunState from "./actorStates/RunState";
+import JumpState from "./actorStates/JumpState";
+import DashState from "./actorStates/DashState";
+import StaggerState from "./actorStates/StaggerState";
 /* START-USER-IMPORTS */
 import { ANIM_P_IDLE } from "../animations";
 /* END-USER-IMPORTS */
@@ -60,9 +60,14 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		this.cursors = this.scene.input.keyboard.createCursorKeys()
-		scene.physics.world.setBounds(0, 0, 75*16, 23*16)
-
+		if(scene) {
+			if(scene.input.keyboard) {
+				this.cursors = scene.input.keyboard.createCursorKeys()
+			}
+			
+			scene.physics.world.setBounds(0, 0, 75*16, 23*16)
+		}
+		
 		this.stateMachineNode.addState(
 			this.idleState.stateName, {
 				onEnter: () => {
