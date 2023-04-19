@@ -27,8 +27,8 @@
             "y": 180,
             "tintTopLeft": "",
             "tintTopRight": "",
-            "tintBottomLeft": "#979797",
-            "tintBottomRight": "#979797",
+            "tintBottomLeft": "#9f97bf",
+            "tintBottomRight": "#9f97bf",
             "list": []
         },
         {
@@ -79,12 +79,16 @@
             "id": "ce1657f8-a36c-482c-ae97-8e06e741e30b",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "scaleX",
+                "scaleY"
             ],
             "label": "fullScreenButton",
             "components": [],
-            "x": 622,
-            "y": 342,
+            "x": 602,
+            "y": 321,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "nestedPrefabs": [],
             "list": []
         },

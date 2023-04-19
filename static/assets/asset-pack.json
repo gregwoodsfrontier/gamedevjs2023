@@ -66,6 +66,41 @@
             },
             {
                 "url": [
+                    "assets/audio/menu/Main_Menu_SFX_Back.wav"
+                ],
+                "type": "audio",
+                "key": "SFX_Back"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Main_Menu_SFX_Click.wav"
+                ],
+                "type": "audio",
+                "key": "SFX_Click"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Main_Menu_SFX_Fullscreen.wav"
+                ],
+                "type": "audio",
+                "key": "SFX_Fullscreen"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Main_Menu_SFX_Play.wav"
+                ],
+                "type": "audio",
+                "key": "SFX_Play"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Main_Menu_SFX_Volume.wav"
+                ],
+                "type": "audio",
+                "key": "SFX_Volume"
+            },
+            {
+                "url": [
                     "assets/audio/menu/Menu_Theme.wav"
                 ],
                 "type": "audio",

@@ -34,8 +34,8 @@ export default class MainMenu extends Phaser.Scene {
 		const background = this.add.image(320, 180, "Background");
 		background.tintTopLeft = 16777215;
 		background.tintTopRight = 16777215;
-		background.tintBottomLeft = 9934743;
-		background.tintBottomRight = 9934743;
+		background.tintBottomLeft = 10459071;
+		background.tintBottomRight = 10459071;
 
 		// settings_Button
 		const settings_Button = new SettingsButton(this, 425, 215);
@@ -52,8 +52,10 @@ export default class MainMenu extends Phaser.Scene {
 		this.add.existing(playButton);
 
 		// fullScreenButton
-		const fullScreenButton = new FullScreenButton(this, 622, 342);
+		const fullScreenButton = new FullScreenButton(this, 602, 321);
 		this.add.existing(fullScreenButton);
+		fullScreenButton.scaleX = 0.5;
+		fullScreenButton.scaleY = 0.5;
 
 		// bitmaptext_1
 		const bitmaptext_1 = this.add.bitmapText(92, 87, "StayPixel2", "Paper Dog Dash");
