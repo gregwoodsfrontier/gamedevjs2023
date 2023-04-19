@@ -17,6 +17,97 @@
                 "key": "Background"
             },
             {
+                "url": "assets/bird_a/Death.png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "birda_death"
+            },
+            {
+                "url": "assets/bird_a/Hurt.png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "birda_hurt"
+            },
+            {
+                "url": "assets/bird_a/Idle.png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "birda_idle"
+            },
+            {
+                "url": "assets/bird_a/Walk.png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "birda_walk"
+            },
+            {
+                "url": "assets/enemies/Chicken/Hit (32x34).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 34,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "chicken_hit"
+            },
+            {
+                "url": "assets/enemies/Chicken/Idle (32x34).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 34,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "chicken_idle"
+            },
+            {
+                "url": "assets/enemies/Chicken/Run (32x34).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 34,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "chicken_run"
+            },
+            {
                 "url": "assets/buttons/Close.png",
                 "type": "image",
                 "key": "Close"
@@ -66,41 +157,6 @@
             },
             {
                 "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Back.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Back"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Click.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Click"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Fullscreen.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Fullscreen"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Play.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Play"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Volume.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Volume"
-            },
-            {
-                "url": [
                     "assets/audio/menu/Menu_Theme.wav"
                 ],
                 "type": "audio",
@@ -134,9 +190,9 @@
                 "key": "Play Button"
             },
             {
-                "url": "animations.json",
+                "url": "assets/anims/player-animations.json",
                 "type": "animation",
-                "key": "player-anims"
+                "key": "player-animations"
             },
             {
                 "url": "assets/player/Double Jump (32x32).png",
@@ -248,6 +304,111 @@
                 "url": "assets/buttons/Settings Button.png",
                 "type": "image",
                 "key": "Settings Button"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Main_Menu_SFX_Back.wav"
+                ],
+                "type": "audio",
+                "key": "SFX_Back"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Main_Menu_SFX_Click.wav"
+                ],
+                "type": "audio",
+                "key": "SFX_Click"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Main_Menu_SFX_Fullscreen.wav"
+                ],
+                "type": "audio",
+                "key": "SFX_Fullscreen"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Main_Menu_SFX_Play.wav"
+                ],
+                "type": "audio",
+                "key": "SFX_Play"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Main_Menu_SFX_Volume.wav"
+                ],
+                "type": "audio",
+                "key": "SFX_Volume"
+            },
+            {
+                "url": "assets/player/Attack.png",
+                "frameConfig": {
+                    "frameWidth": 48,
+                    "frameHeight": 48,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "shiba_attack"
+            },
+            {
+                "url": "assets/player/Death.png",
+                "frameConfig": {
+                    "frameWidth": 48,
+                    "frameHeight": 48,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "shiba_death"
+            },
+            {
+                "url": "assets/player/Hurt.png",
+                "frameConfig": {
+                    "frameWidth": 48,
+                    "frameHeight": 48,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "shiba_hurt"
+            },
+            {
+                "url": "assets/player/Idle.png",
+                "frameConfig": {
+                    "frameWidth": 48,
+                    "frameHeight": 48,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "shiba_idle"
+            },
+            {
+                "url": "assets/player/Walk.png",
+                "frameConfig": {
+                    "frameWidth": 48,
+                    "frameHeight": 48,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "shiba_walk"
+            },
+            {
+                "url": "assets/anims/shiba-anims.json",
+                "type": "animation",
+                "key": "shiba-anims"
             },
             {
                 "url": "assets/ui/Spritesheet_UI_Flat.png",
