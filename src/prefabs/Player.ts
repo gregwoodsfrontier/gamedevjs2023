@@ -11,6 +11,7 @@ import RunState from "./actorStates/RunState";
 import JumpState from "./actorStates/JumpState";
 import StaggerState from "./actorStates/StaggerState";
 import DashState from "./actorStates/DashState";
+import CrouchState from "./actorStates/CrouchState";
 /* START-USER-IMPORTS */
 import { ANIM_P_IDLE, ANIM_P_RUN } from "../animations";
 /* END-USER-IMPORTS */
@@ -49,6 +50,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		// dashState
 		const dashState = new DashState(stateMachineNode);
 
+		// crouchState
+		const crouchState = new CrouchState(stateMachineNode);
+
 		// this (components)
 		new CameraFollow(this);
 
@@ -57,6 +61,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.jumpState = jumpState;
 		this.staggerState = staggerState;
 		this.dashState = dashState;
+		this.crouchState = crouchState;
 		this.stateMachineNode = stateMachineNode;
 
 		/* START-USER-CTR-CODE */
@@ -105,6 +110,24 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 				}
 			}
 		).addState(
+			this.crouchState.stateName, {
+				onEnter: () => {
+					this.crouchState.onEnter(this, undefined)
+				},
+				onUpdate: () => {
+					this.crouchState.onUpdate({
+						sprite: this, 
+						isLeft: this.cursors?.left.isDown, 
+						isRight: this.cursors?.right.isDown, 
+						speed: this.runSpeed
+					})
+				},
+				onExit: () => {
+					this.crouchState.onExit(this)
+				}
+			}
+		)
+		.addState(
 			this.jumpState.stateName, {
 				onEnter: () => {
 					this.jumpState.onEnter(this, this.jumpSpeed)
@@ -131,6 +154,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	private jumpState: JumpState;
 	private staggerState: StaggerState;
 	private dashState: DashState;
+	private crouchState: CrouchState;
 	private stateMachineNode: StateMachineNode;
 	public runSpeed: number = 150;
 	public jumpSpeed: number = 250;
@@ -154,51 +178,68 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		return Phaser.Input.Keyboard.JustDown(this.cursors?.shift)
 	}
 
-	handleStateMachineNetwork() {
-		if(this.stateMachineNode.isCurrentState(this.idleState.stateName)) {
-			if(this.checkShiftKeyJustPress()) {
-				this.stateMachineNode.setState(this.dashState.stateName)
-			}
+	checkKeyJustPress(key?: Phaser.Input.Keyboard.Key) {
+		if(!key) { return }
 
-			if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
+		return Phaser.Input.Keyboard.JustDown(key)
+	}
 
-				this.stateMachineNode.setState(this.runState.stateName)
-			}
+	switchStateMachineNetwork() {
+		switch (this.stateMachineNode.currentStateName) {
+			case this.idleState.stateName:
+				if(this.checkShiftKeyJustPress()) {
+					this.stateMachineNode.setState(this.dashState.stateName)
+				}
 
-			if(this.checkJumpCondition()) {
-				this.stateMachineNode.setState(this.jumpState.stateName)
-			}
-		}
-		else if(this.stateMachineNode.isCurrentState(this.runState.stateName)) {
-			if(this.checkJumpCondition())
-			{
-				this.stateMachineNode.setState(this.jumpState.stateName)
-			}
-			else if(this.cursors?.left.isUp && this.cursors?.right.isUp) {
-				this.stateMachineNode.setState(this.idleState.stateName)
-			}
-		}
-		else if(this.stateMachineNode.isCurrentState(this.jumpState.stateName)) {
-			if(this.body.onFloor()) {
 				if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
+
 					this.stateMachineNode.setState(this.runState.stateName)
+				}
+
+				if(this.cursors?.down.isDown) {
+					this.stateMachineNode.setState(this.crouchState.stateName)
+				}
+
+				if(this.checkJumpCondition()) {
+					this.stateMachineNode.setState(this.jumpState.stateName)
+				}
+				break;
+			case this.runState.stateName:
+				if(this.checkJumpCondition())
+				{
+					this.stateMachineNode.setState(this.jumpState.stateName)
 				}
 				else if(this.cursors?.left.isUp && this.cursors?.right.isUp) {
 					this.stateMachineNode.setState(this.idleState.stateName)
 				}
-			}
+				break;
+			case this.jumpState.stateName:
+				if(this.body.onFloor()) {
+					if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
+						this.stateMachineNode.setState(this.runState.stateName)
+					}
+					else if(this.cursors?.left.isUp && this.cursors?.right.isUp) {
+						this.stateMachineNode.setState(this.idleState.stateName)
+					}
+				}
+				break;
+			case this.dashState.stateName:
+				if(Math.abs(this.body.velocity.x) < 5) {
+					this.stateMachineNode.setState(this.idleState.stateName)
+				}
+				break;
+			case this.crouchState.stateName:
+				if(this.cursors?.down.isUp)
+				{
+					this.stateMachineNode.setState(this.idleState.stateName)
+				}
+				break;
 		}
-		else if(this.stateMachineNode.isCurrentState(this.dashState.stateName)) {
-			if(Math.abs(this.body.velocity.x) < 5) {
-				this.stateMachineNode.setState(this.idleState.stateName)
-			}
-		}
-
 	}
 
 	// let the update handle all the state transition logic
 	update(): void {
-		this.handleStateMachineNetwork()
+		this.switchStateMachineNetwork()
 	}
 
 	/* END-USER-CODE */

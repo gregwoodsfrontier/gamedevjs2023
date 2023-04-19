@@ -82,6 +82,15 @@
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []
+                        },
+                        {
+                            "prefabId": "85c931bc-20a2-4256-84d6-08c1e07d1a01",
+                            "id": "f630134e-9e27-499d-bf5f-72c171898cec",
+                            "label": "crouchState",
+                            "scope": "CLASS",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
                         }
                     ]
                 }
