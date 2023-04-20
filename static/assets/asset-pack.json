@@ -136,6 +136,11 @@
                 "key": "greyStar"
             },
             {
+                "url": "assets/environmental/house2.png",
+                "type": "image",
+                "key": "house2"
+            },
+            {
                 "url": "assets/buttons/Leaderboard.png",
                 "type": "image",
                 "key": "Leaderboard"
@@ -170,14 +175,14 @@
                 "key": "Menu_Theme_Orchestral"
             },
             {
+                "url": "assets/environmental/newspaper.png",
+                "type": "image",
+                "key": "newspaper"
+            },
+            {
                 "url": "assets/buttons/Next.png",
                 "type": "image",
                 "key": "Next"
-            },
-            {
-                "url": "assets/buttons/PlaceHolderLogo.png",
-                "type": "image",
-                "key": "PlaceHolderLogo"
             },
             {
                 "url": "assets/buttons/Play.png",
@@ -496,6 +501,13 @@
                 ],
                 "type": "audio",
                 "key": "theme_2_melody_1"
+            },
+            {
+                "url": [
+                    "assets/audio/Theme_Song_Orchestral_1.wav"
+                ],
+                "type": "audio",
+                "key": "Theme_Song_Orchestral_1"
             },
             {
                 "url": "assets/tilesets/Gray.png",
