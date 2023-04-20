@@ -27,9 +27,9 @@ export default class RunState extends ScriptNode {
 	/* START-USER-CODE */
 
 	// Write your code here.
-	onEnter(sprite: Phaser.Physics.Arcade.Sprite) {
+	onEnter(sprite: Phaser.Physics.Arcade.Sprite, animkey: string) {
 
-		sprite.play(ANIM_P_RUN)
+		sprite.play(animkey)
 
 	}
 

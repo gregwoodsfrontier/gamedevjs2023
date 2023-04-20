@@ -24,10 +24,10 @@ export default class JumpState extends ScriptNode {
 	/* START-USER-CODE */
 
 	// Write your code here.
-	onEnter(sprite: Phaser.Physics.Arcade.Sprite, jumpSpd: number) {
+	onEnter(sprite: Phaser.Physics.Arcade.Sprite, jumpSpd: number, animkey: string) {
 		sprite.setVelocityY(-jumpSpd)
 		
-		sprite.play(ANIM_P_JUMP)
+		sprite.play(animkey)
 	}
 
 	onUpdate(sprite: Phaser.Physics.Arcade.Sprite, isLeft: boolean | undefined, isRight: boolean | undefined, hasJetPack: boolean, speed: number) {

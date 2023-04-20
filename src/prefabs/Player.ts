@@ -13,7 +13,7 @@ import StaggerState from "./actorStates/StaggerState";
 import DashState from "./actorStates/DashState";
 import CrouchState from "./actorStates/CrouchState";
 /* START-USER-IMPORTS */
-import { ANIM_P_IDLE, ANIM_P_RUN } from "../animations";
+import { ANIM_SHIBA_IDLE, ANIM_SHIBA_JUMP, ANIM_SHIBA_WALK } from "../consts/shiba-anims";
 /* END-USER-IMPORTS */
 
 export default interface Player {
@@ -24,13 +24,13 @@ export default interface Player {
 export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "player-idle", frame ?? 0);
+		super(scene, x ?? 0, y ?? 0, texture || "shiba_idle", frame ?? 0);
 
 		scene.physics.add.existing(this, false);
 		this.body.useDamping = true;
 		this.body.collideWorldBounds = true;
-		this.body.setOffset(6, 10);
-		this.body.setSize(21, 22, false);
+		this.body.setOffset(8, 28);
+		this.body.setSize(25, 20, false);
 
 		// stateMachineNode
 		const stateMachineNode = new StateMachineNode(this);
@@ -77,13 +77,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.stateMachineNode.addState(
 			this.idleState.stateName, {
 				onEnter: () => {
-					this.idleState.onEnter(this, ANIM_P_IDLE)
+					this.idleState.onEnter(this, ANIM_SHIBA_IDLE)
 				}
 			}
 		).addState(
 			this.dashState.stateName, {
 				onEnter: () => {
-					this.dashState.onEnter(this, ANIM_P_RUN, this.runSpeed)
+					this.dashState.onEnter(this, ANIM_SHIBA_WALK, this.runSpeed)
 				},
 				// onUpdate: () => {
 				// 	this.dashState.onUpdate()
@@ -95,7 +95,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		).addState(
 			this.runState.stateName, {
 				onEnter: () => {
-					this.runState.onEnter(this)
+					this.runState.onEnter(this, ANIM_SHIBA_WALK)
 				},
 				onUpdate: () => {
 					this.runState.onUpdate({
@@ -130,7 +130,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		.addState(
 			this.jumpState.stateName, {
 				onEnter: () => {
-					this.jumpState.onEnter(this, this.jumpSpeed)
+					this.jumpState.onEnter(this, this.jumpSpeed, ANIM_SHIBA_JUMP)
 				},
 				onUpdate: () => {
 					this.jumpState.onUpdate(
@@ -208,9 +208,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 				}
 
 				if(this.cursors?.down.isDown) {
-					// this.stateMachineNode.setState(this.crouchState.stateName)
-					this.stateMachineNode.setState(this.staggerState.stateName)
-					
+					this.stateMachineNode.setState(this.crouchState.stateName)
+					// this.stateMachineNode.setState(this.staggerState.stateName)
+
 				}
 
 				if(this.checkJumpCondition()) {

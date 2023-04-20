@@ -20,15 +20,15 @@
                 "CameraFollow"
             ],
             "texture": {
-                "key": "player-idle",
+                "key": "shiba_idle",
                 "frame": 0
             },
             "collideWorldBounds": true,
             "useDamping": true,
-            "body.width": 21,
-            "body.height": 22,
-            "body.offset.x": 6,
-            "body.offset.y": 10,
+            "body.width": 25,
+            "body.height": 20,
+            "body.offset.x": 8,
+            "body.offset.y": 28,
             "list": [
                 {
                     "prefabId": "7ebcc666-227f-47b9-ae7e-e51a0f0f18cb",

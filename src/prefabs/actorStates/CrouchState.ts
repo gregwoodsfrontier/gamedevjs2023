@@ -38,7 +38,7 @@ export default class CrouchState extends ScriptNode {
 			}
 			
 			sprite.setBodySize(this.currentSize.width , this.currentSize.height / 2, false)
-			sprite.body.offset.y += 10
+			sprite.body.offset.y += this.currentSize.height / 2
 			// sprite.setDisplaySize(sprite.displayWidth, sprite.displayHeight / 2)
 			// sprite.setScale(1, 0.5)
 		}
@@ -66,7 +66,7 @@ export default class CrouchState extends ScriptNode {
 	onExit(sprite: Phaser.Physics.Arcade.Sprite) {
 		if(sprite.body) {
 			sprite.setBodySize(this.currentSize.width, this.currentSize.height, false)
-			sprite.body.offset.y -= 10
+			sprite.body.offset.y -= this.currentSize.height / 2
 			// sprite.setDisplaySize(sprite.displayWidth, sprite.displayHeight * 2)
 		}
 	}
