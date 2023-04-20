@@ -109,6 +109,19 @@
             "fontSize": 72,
             "dropShadowColor": "#eda119ff",
             "list": []
+        },
+        {
+            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
+            "id": "ab93d22a-6872-4c78-abd6-84b2322e1d52",
+            "unlock": [
+                "audioKey"
+            ],
+            "label": "audioAddNode",
+            "scope": "CLASS",
+            "audioKey": "Menu_Theme",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
         }
     ],
     "plainObjects": [

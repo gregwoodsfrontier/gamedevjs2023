@@ -104,7 +104,11 @@ export default class Level extends Phaser.Scene {
 
 		const theme = this.audioAddNode._g_audio
 
-		theme?.play()
+		this.time.delayedCall(300, () => {
+			theme?.play()
+		})
+
+		
 
 		// this.debugScript.execute = () => {
 		// 	if(!this.theme?.isPlaying) {
