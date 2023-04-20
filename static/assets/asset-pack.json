@@ -126,6 +126,11 @@
                 "key": "Clouds_V2-2"
             },
             {
+                "url": "assets/environmental/firehydrant.png",
+                "type": "image",
+                "key": "firehydrant"
+            },
+            {
                 "url": "assets/buttons/fullscreen.png",
                 "type": "image",
                 "key": "fullscreen"
