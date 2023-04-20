@@ -25,9 +25,9 @@
             },
             "collideWorldBounds": true,
             "useDamping": true,
-            "body.width": 25,
+            "body.width": 22,
             "body.height": 20,
-            "body.offset.x": 8,
+            "body.offset.x": 13,
             "body.offset.y": 28,
             "list": [
                 {
