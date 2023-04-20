@@ -6,6 +6,7 @@
 
 tasks:
   - init: npm install && npm run build
-    command: npm run editor-remote
+    command: npm run dev
+  - command: npm run editor-remote
 
 
