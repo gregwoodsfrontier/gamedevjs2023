@@ -43,6 +43,16 @@ export default class StateMachineNode extends RootScriptNode {
 		return this.previousState.name
 	}
 
+	get currentStateName()
+	{
+		if (!this.currentState)
+		{
+			return ''
+		}
+
+		return this.currentState.name
+	}
+
 	isCurrentState(name: string)
 	{
 		if (!this.currentState)

@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "./ScriptNode";
+import ScriptNode from "../scriptNodes/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -29,7 +29,6 @@ export default class IdleState extends ScriptNode {
 		sprite.play(anims)
 
 	}
-
 	/* END-USER-CODE */
 }
 

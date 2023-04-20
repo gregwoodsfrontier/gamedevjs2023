@@ -6,11 +6,14 @@
 import Phaser from "phaser";
 import CameraFollow from "../components/CameraFollow";
 import StateMachineNode from "./scriptNodes/StateMachineNode";
-import IdleState from "./scriptNodes/IdleState";
-import RunState from "./scriptNodes/RunState";
-import JumpState from "./scriptNodes/JumpState";
+import IdleState from "./actorStates/IdleState";
+import RunState from "./actorStates/RunState";
+import JumpState from "./actorStates/JumpState";
+import StaggerState from "./actorStates/StaggerState";
+import DashState from "./actorStates/DashState";
+import CrouchState from "./actorStates/CrouchState";
 /* START-USER-IMPORTS */
-import { ANIM_P_IDLE } from "../animations";
+import { ANIM_P_IDLE, ANIM_P_RUN } from "../animations";
 /* END-USER-IMPORTS */
 
 export default interface Player {
@@ -24,6 +27,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		super(scene, x ?? 0, y ?? 0, texture || "player-idle", frame ?? 0);
 
 		scene.physics.add.existing(this, false);
+		this.body.useDamping = true;
 		this.body.collideWorldBounds = true;
 		this.body.setOffset(6, 10);
 		this.body.setSize(21, 22, false);
@@ -40,18 +44,35 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		// jumpState
 		const jumpState = new JumpState(stateMachineNode);
 
+		// staggerState
+		const staggerState = new StaggerState(stateMachineNode);
+
+		// dashState
+		const dashState = new DashState(stateMachineNode);
+
+		// crouchState
+		const crouchState = new CrouchState(stateMachineNode);
+
 		// this (components)
 		new CameraFollow(this);
 
-		this.stateMachineNode = stateMachineNode;
 		this.idleState = idleState;
 		this.runState = runState;
 		this.jumpState = jumpState;
+		this.staggerState = staggerState;
+		this.dashState = dashState;
+		this.crouchState = crouchState;
+		this.stateMachineNode = stateMachineNode;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		this.cursors = this.scene.input.keyboard.createCursorKeys()
-		scene.physics.world.setBounds(0, 0, 75*16, 23*16)
+		if(scene) {
+			if(scene.input.keyboard) {
+				this.cursors = scene.input.keyboard.createCursorKeys()
+			}
+
+			scene.physics.world.setBounds(0, 0, 75*16, 23*16)
+		}
 
 		this.stateMachineNode.addState(
 			this.idleState.stateName, {
@@ -60,18 +81,53 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 				}
 			}
 		).addState(
+			this.dashState.stateName, {
+				onEnter: () => {
+					this.dashState.onEnter(this, ANIM_P_RUN, this.runSpeed)
+				},
+				// onUpdate: () => {
+				// 	this.dashState.onUpdate()
+				// },
+				onExit: () => {
+					this.dashState.onExit(this)
+				}
+			}
+		).addState(
 			this.runState.stateName, {
 				onEnter: () => {
 					this.runState.onEnter(this)
 				},
 				onUpdate: () => {
-					this.runState.onUpdate(this, this.cursors?.left.isDown, this.cursors?.right.isDown, this.runSpeed)
+					this.runState.onUpdate({
+						sprite: this, 
+						isLeft: this.cursors?.left.isDown, 
+						isRight: this.cursors?.right.isDown, 
+						speed: this.runSpeed
+					})
 				},
 				onExit: () => {
 					this.runState.onExit(this)
 				}
 			}
 		).addState(
+			this.crouchState.stateName, {
+				onEnter: () => {
+					this.crouchState.onEnter(this, undefined)
+				},
+				onUpdate: () => {
+					this.crouchState.onUpdate({
+						sprite: this, 
+						isLeft: this.cursors?.left.isDown, 
+						isRight: this.cursors?.right.isDown, 
+						speed: this.runSpeed
+					})
+				},
+				onExit: () => {
+					this.crouchState.onExit(this)
+				}
+			}
+		)
+		.addState(
 			this.jumpState.stateName, {
 				onEnter: () => {
 					this.jumpState.onEnter(this, this.jumpSpeed)
@@ -86,20 +142,36 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 					)
 				}
 			}
-		).setState(this.idleState.stateName)
+		)
+		.addState(
+			this.staggerState.stateName, {
+				onEnter: () => {
+					this.staggerState.onEnter(this)
+				},
+				onExit: () => {
+					this.staggerState.onExit(this)
+				}
+			}
+		)
+		.setState(this.idleState.stateName)
 
 		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
 
 		/* END-USER-CTR-CODE */
 	}
 
-	private stateMachineNode: StateMachineNode;
 	private idleState: IdleState;
 	private runState: RunState;
 	private jumpState: JumpState;
+	private staggerState: StaggerState;
+	private dashState: DashState;
+	private crouchState: CrouchState;
+	private stateMachineNode: StateMachineNode;
 	public runSpeed: number = 150;
 	public jumpSpeed: number = 250;
 	public hasJetPack: boolean = true;
+	public dashSpd: number = 10;
+	public dashTime: number = 1000;
 
 	/* START-USER-CODE */
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
@@ -111,37 +183,76 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		return this.cursors && Phaser.Input.Keyboard.JustDown(this.cursors.up) && this.body.onFloor()
 	}
 
-	// let the update handle all the state transition logic
-	update(): void {
-		if(this.stateMachineNode.isCurrentState(this.idleState.stateName)) {
-			if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
+	checkShiftKeyJustPress() {
+		if(!this.cursors?.shift) { return }
 
-				this.stateMachineNode.setState(this.runState.stateName)
-			}
+		return Phaser.Input.Keyboard.JustDown(this.cursors?.shift)
+	}
 
-			if(this.checkJumpCondition()) {
-				this.stateMachineNode.setState(this.jumpState.stateName)
-			}
-		}
-		else if(this.stateMachineNode.isCurrentState(this.runState.stateName)) {
-			if(this.checkJumpCondition())
-			{
-				this.stateMachineNode.setState(this.jumpState.stateName)
-			}
-			else if(this.cursors?.left.isUp && this.cursors?.right.isUp) {
-				this.stateMachineNode.setState(this.idleState.stateName)
-			}
-		}
-		else if(this.stateMachineNode.isCurrentState(this.jumpState.stateName)) {
-			if(this.body.onFloor()) {
+	checkKeyJustPress(key?: Phaser.Input.Keyboard.Key) {
+		if(!key) { return }
+
+		return Phaser.Input.Keyboard.JustDown(key)
+	}
+
+	switchStateMachineNetwork() {
+		switch (this.stateMachineNode.currentStateName) {
+			case this.idleState.stateName:
+				if(this.checkShiftKeyJustPress()) {
+					this.stateMachineNode.setState(this.dashState.stateName)
+				}
+
 				if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
+
 					this.stateMachineNode.setState(this.runState.stateName)
+				}
+
+				if(this.cursors?.down.isDown) {
+					// this.stateMachineNode.setState(this.crouchState.stateName)
+					this.stateMachineNode.setState(this.staggerState.stateName)
+					
+				}
+
+				if(this.checkJumpCondition()) {
+					this.stateMachineNode.setState(this.jumpState.stateName)
+				}
+				break;
+			case this.runState.stateName:
+				if(this.checkJumpCondition())
+				{
+					this.stateMachineNode.setState(this.jumpState.stateName)
 				}
 				else if(this.cursors?.left.isUp && this.cursors?.right.isUp) {
 					this.stateMachineNode.setState(this.idleState.stateName)
 				}
-			}
+				break;
+			case this.jumpState.stateName:
+				if(this.body.onFloor()) {
+					if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
+						this.stateMachineNode.setState(this.runState.stateName)
+					}
+					else if(this.cursors?.left.isUp && this.cursors?.right.isUp) {
+						this.stateMachineNode.setState(this.idleState.stateName)
+					}
+				}
+				break;
+			case this.dashState.stateName:
+				if(Math.abs(this.body.velocity.x) < 5) {
+					this.stateMachineNode.setState(this.idleState.stateName)
+				}
+				break;
+			case this.crouchState.stateName:
+				if(this.cursors?.down.isUp)
+				{
+					this.stateMachineNode.setState(this.idleState.stateName)
+				}
+				break;
 		}
+	}
+
+	// let the update handle all the state transition logic
+	update(): void {
+		this.switchStateMachineNetwork()
 	}
 
 	/* END-USER-CODE */
