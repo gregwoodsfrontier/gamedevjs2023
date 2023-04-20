@@ -29,10 +29,10 @@
     },
     "prefabProperties": [
         {
-            "name": "name",
-            "label": "name",
-            "tooltip": "name",
-            "defValue": "stagger`",
+            "name": "stateName",
+            "label": "stateName",
+            "tooltip": "stateName",
+            "defValue": "stagger",
             "customDefinition": false,
             "type": {
                 "id": "string"
@@ -42,7 +42,7 @@
             "name": "timer",
             "label": "timer",
             "tooltip": "timer",
-            "defValue": 2000,
+            "defValue": 1000,
             "customDefinition": false,
             "type": {
                 "id": "number"

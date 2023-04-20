@@ -5,8 +5,8 @@
 
 import ScriptNode from "../scriptNodes/ScriptNode";
 import Phaser from "phaser";
-import StateMachineNode from "../scriptNodes/StateMachineNode";
 /* START-USER-IMPORTS */
+import StateMachineNode from "../scriptNodes/StateMachineNode";
 /* END-USER-IMPORTS */
 
 export default class StaggerState extends ScriptNode {
@@ -19,25 +19,48 @@ export default class StaggerState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public name: string = "stagger`";
-	public timer: number = 2000;
+	public stateName: string = "stagger";
+	public timer: number = 1000;
 
 	/* START-USER-CODE */
 
 	// Write your code here.
-	onEnter() {
-		// emit an event to play stagger anims
-		this.scene.events.emit("play-stagger")
+	onEnter(sprite: Phaser.Physics.Arcade.Sprite) {
+		// make the sprite red to indicate stagger
+		sprite.setTint(0xff0000)
 
+		// make the sprite backoff a little to indicate hurt
+		if(sprite.flipX)
+		{
+			sprite.setVelocityX(30).setDragX(0.1)
+		}
+		else
+		{
+			sprite.setVelocityX(-30).setDragX(0.1)
+		}
+		
 		this.scene.time.delayedCall(this.timer, () => {
 			const machine = this.parent as StateMachineNode
-			
+
 			if(!machine.setState) {
 				return
 			}
 
 			machine.setState('idle')
 		})
+	}
+
+	onUpdate(sprite: Phaser.Physics.Arcade.Sprite) {
+		if(!sprite.body) { return }
+
+		if(Math.abs(sprite.body?.velocity.x) < 5)
+		{
+			sprite.setVelocityX(0)
+		}
+	}
+
+	onExit(sprite: Phaser.Physics.Arcade.Sprite) {
+		sprite.setTint(0xffffff)
 	}
 
 	/* END-USER-CODE */

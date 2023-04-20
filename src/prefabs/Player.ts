@@ -142,7 +142,18 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 					)
 				}
 			}
-		).setState(this.idleState.stateName)
+		)
+		.addState(
+			this.staggerState.stateName, {
+				onEnter: () => {
+					this.staggerState.onEnter(this)
+				},
+				onExit: () => {
+					this.staggerState.onExit(this)
+				}
+			}
+		)
+		.setState(this.idleState.stateName)
 
 		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
 
@@ -197,7 +208,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 				}
 
 				if(this.cursors?.down.isDown) {
-					this.stateMachineNode.setState(this.crouchState.stateName)
+					// this.stateMachineNode.setState(this.crouchState.stateName)
+					this.stateMachineNode.setState(this.staggerState.stateName)
+					
 				}
 
 				if(this.checkJumpCondition()) {
