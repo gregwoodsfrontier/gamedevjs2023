@@ -7,7 +7,6 @@
 import ScriptNode from "../scriptNodes/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import { ANIM_P_RUN } from "../../animations";
 import { IRunStateParams } from "../../interfaces/state_params";
 /* END-USER-IMPORTS */
 

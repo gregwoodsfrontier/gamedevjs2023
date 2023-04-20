@@ -2,8 +2,6 @@
 // You can write more code here
 
 /* START OF COMPILED CODE */
-
-import { ANIM_P_JUMP } from "../../animations";
 import ScriptNode from "../scriptNodes/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
