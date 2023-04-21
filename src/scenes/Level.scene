@@ -61,6 +61,51 @@
             "list": []
         },
         {
+            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
+            "id": "5dfbe1b2-b44b-4fc9-9053-fe11e68d8372",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "firehydrant",
+            "scope": "CLASS",
+            "components": [],
+            "x": 711,
+            "y": 175,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "151acbe1-c211-41b2-a5ff-73dfc46e4c1c",
+            "id": "ae8efb83-cabe-4970-81f3-90b38b9546f0",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "house2",
+            "scope": "CLASS",
+            "components": [],
+            "x": 1137,
+            "y": 84,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6d6f40ee-7a43-480c-9d6e-e26ccef0a3e2",
+            "id": "566dd795-464e-4aba-9755-10f2115610cc",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "newspaper",
+            "scope": "CLASS",
+            "components": [],
+            "x": 189,
+            "y": 163,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
             "prefabId": "71c1fad7-dac6-41ac-ad61-76f777b61bde",
             "id": "075bfc3d-fe43-4b97-a7d4-40a80a3ad0f4",
             "unlock": [

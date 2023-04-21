@@ -1,0 +1,44 @@
+{
+    "id": "151acbe1-c211-41b2-a5ff-73dfc46e4c1c",
+    "settings": {
+        "createMethodName": "",
+        "preloadMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "exportClass": true,
+        "autoImport": true,
+        "generateAwakeHandler": false,
+        "compilerInsertSpaces": false,
+        "compilerTabSize": 4,
+        "borderWidth": 640,
+        "borderHeight": 360,
+        "borderX": 0,
+        "borderY": 0
+    },
+    "sceneType": "PREFAB",
+    "displayList": [
+        {
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "type": "ArcadeImage",
+            "id": "3325f397-b5e0-4a02-87bf-e82aeb173de4",
+            "label": "house2",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "house2"
+            },
+            "x": 0,
+            "y": 0,
+            "body.width": 48,
+            "body.height": 48,
+            "list": []
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType"
+    }
+}

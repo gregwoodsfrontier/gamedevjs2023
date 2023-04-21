@@ -5,6 +5,9 @@
 import Phaser from "phaser";
 import LayerPhysics from "../components/LayerPhysics";
 import Player from "../prefabs/Player";
+import FireHydrant from "../prefabs/FireHydrant";
+import Goal from "../prefabs/Goal";
+import News from "../prefabs/News";
 import OnKeyBoardJustDownScript from "../prefabs/scriptNodes/OnKeyBoardJustDownScript";
 import AudioAddNode from "../prefabs/scriptNodes/AudioAddNode";
 import CameraBounds from "../prefabs/scriptNodes/CameraBounds";
@@ -46,6 +49,18 @@ export default class Level extends Phaser.Scene {
 		player_1.scaleX = 1;
 		player_1.scaleY = 1;
 
+		// firehydrant
+		const firehydrant = new FireHydrant(this, 711, 175);
+		this.add.existing(firehydrant);
+
+		// house2
+		const house2 = new Goal(this, 1137, 84);
+		this.add.existing(house2);
+
+		// newspaper
+		const newspaper = new News(this, 189, 163);
+		this.add.existing(newspaper);
+
 		// onKeyBoardJustDownScript
 		const onKeyBoardJustDownScript = new OnKeyBoardJustDownScript(this);
 
@@ -75,6 +90,9 @@ export default class Level extends Phaser.Scene {
 
 		this.ground_1 = ground_1;
 		this.player_1 = player_1;
+		this.firehydrant = firehydrant;
+		this.house2 = house2;
+		this.newspaper = newspaper;
 		this.onKeyBoardJustDownScript = onKeyBoardJustDownScript;
 		this.audioAddNode = audioAddNode;
 		this.cameraBounds = cameraBounds;
@@ -86,6 +104,9 @@ export default class Level extends Phaser.Scene {
 
 	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private player_1!: Player;
+	private firehydrant!: FireHydrant;
+	private house2!: Goal;
+	private newspaper!: News;
 	private onKeyBoardJustDownScript!: OnKeyBoardJustDownScript;
 	private audioAddNode!: AudioAddNode;
 	private cameraBounds!: CameraBounds;
@@ -108,7 +129,7 @@ export default class Level extends Phaser.Scene {
 			theme?.play()
 		})
 
-		
+
 
 		// this.debugScript.execute = () => {
 		// 	if(!this.theme?.isPlaying) {
