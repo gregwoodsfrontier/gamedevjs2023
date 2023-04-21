@@ -3,7 +3,6 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import LayerPhysics from "../components/LayerPhysics";
 import Goal from "../prefabs/Goal";
 import Newspaper from "../prefabs/Newspaper";
 import FireHydrant from "../prefabs/FireHydrant";
@@ -36,11 +35,21 @@ export default class Level extends Phaser.Scene {
 		lv1.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
 		lv1.addTilesetImage("Clouds V2-2", "Clouds_V2-2");
 
+		// lv
+		const lv = this.add.tilemap("lv1");
+		lv.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
+		lv.addTilesetImage("Clouds V2-2", "Clouds_V2-2");
+
+		// lv_1
+		const lv_1 = this.add.tilemap("lv1");
+		lv_1.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
+		lv_1.addTilesetImage("Clouds V2-2", "Clouds_V2-2");
+
 		// background_1
-		lv1.createLayer("background", ["Clouds V2-2"], 0, 0);
+		lv_1.createLayer("background", ["Clouds V2-2"], 0, 0);
 
 		// ground_1
-		const ground_1 = lv1.createLayer("ground", ["Terrain (16x16)"], 0, 0);
+		lv.createLayer("ground", ["Terrain (16x16)"], 0, 0);
 
 		// house2
 		const house2 = new Goal(this, 1145, 64);
@@ -74,8 +83,8 @@ export default class Level extends Phaser.Scene {
 		// player_ground
 		const player_ground = this.physics.add.collider(player_1, ground_1);
 
-		// ground_1 (components)
-		new LayerPhysics(ground_1);
+		// hydrantCollide
+		const hydrantCollide = this.physics.add.collider(player_1, fireHydrant, this.handlePlayerHydrant, undefined, this);
 
 		// cameraBounds (prefab fields)
 		cameraBounds.x = 0;
@@ -89,7 +98,6 @@ export default class Level extends Phaser.Scene {
 		// audioAddNode (prefab fields)
 		audioAddNode.audioKey = "theme_1";
 
-		this.ground_1 = ground_1;
 		this.house2 = house2;
 		this.newspaper = newspaper;
 		this.fireHydrant = fireHydrant;
@@ -99,11 +107,13 @@ export default class Level extends Phaser.Scene {
 		this.audioAddNode = audioAddNode;
 		this.player_ground = player_ground;
 		this.lv1 = lv1;
+		this.lv = lv;
+		this.lv_1 = lv_1;
+		this.hydrantCollide = hydrantCollide;
 
 		this.events.emit("scene-awake");
 	}
 
-	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private house2!: Goal;
 	private newspaper!: Newspaper;
 	private fireHydrant!: FireHydrant;
@@ -113,6 +123,9 @@ export default class Level extends Phaser.Scene {
 	private audioAddNode!: AudioAddNode;
 	private player_ground!: Phaser.Physics.Arcade.Collider;
 	private lv1!: Phaser.Tilemaps.Tilemap;
+	private lv!: Phaser.Tilemaps.Tilemap;
+	private lv_1!: Phaser.Tilemaps.Tilemap;
+	private hydrantCollide!: Phaser.Physics.Arcade.Collider;
 
 	/* START-USER-CODE */
 	// Write your code here
@@ -130,7 +143,7 @@ export default class Level extends Phaser.Scene {
 		//@ts-ignore
 		const p_news = this.physics.add.collider(this.player_1, this.newspaper, this.handlePlayerNewsPaper)
 		//@ts-ignore
-		const p_firehydrant = this.physics.add.collider(this.player_1, this.fireHydrant, this.handlePlayerHydrant)
+		// const p_firehydrant = this.physics.add.collider(this.player_1, this.fireHydrant, this.handlePlayerHydrant)
 
 		const p_goal = this.physics.add.collider(this.player_1, this.house2)
 

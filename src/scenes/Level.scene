@@ -16,10 +16,11 @@
     "displayList": [
         {
             "type": "TilemapLayer",
-            "id": "8d68e07b-47cc-464f-a5d5-af4497ef8c10",
+            "id": "568ccd61-6b8a-4665-9ef3-e896b7990d98",
             "label": "background_1",
             "components": [],
             "list": [],
+            "tilemapId": "71f08db6-f2da-43ad-b705-5d566d5c334a",
             "layerName": "background",
             "tilesets": [
                 "Terrain (16x16)",
@@ -28,13 +29,11 @@
         },
         {
             "type": "TilemapLayer",
-            "id": "5d2c82d0-6881-42ce-9b7d-5d13762cedc8",
+            "id": "6d8a3bac-1989-4def-a98d-0ceafabc591e",
             "label": "ground_1",
-            "scope": "CLASS",
-            "components": [
-                "LayerPhysics"
-            ],
+            "components": [],
             "list": [],
+            "tilemapId": "6934e97d-bc38-4131-b8b4-f0809b2d9fdd",
             "layerName": "ground",
             "tilesets": [
                 "Terrain (16x16)",
@@ -166,6 +165,7 @@
             "object2": "ground_1"
         },
         {
+            "id": "39d96246-c4fa-4675-bc80-9d1a0abfb7ab",
             "type": "Tilemap",
             "label": "lv1",
             "key": "lv1",
@@ -179,6 +179,47 @@
                     "imageKey": "Clouds_V2-2"
                 }
             ]
+        },
+        {
+            "id": "6934e97d-bc38-4131-b8b4-f0809b2d9fdd",
+            "type": "Tilemap",
+            "label": "lv",
+            "key": "lv1",
+            "tilesets": [
+                {
+                    "name": "Terrain (16x16)",
+                    "imageKey": "Terrain (16x16)"
+                },
+                {
+                    "name": "Clouds V2-2",
+                    "imageKey": "Clouds_V2-2"
+                }
+            ]
+        },
+        {
+            "id": "71f08db6-f2da-43ad-b705-5d566d5c334a",
+            "type": "Tilemap",
+            "label": "lv_1",
+            "key": "lv1",
+            "tilesets": [
+                {
+                    "name": "Terrain (16x16)",
+                    "imageKey": "Terrain (16x16)"
+                },
+                {
+                    "name": "Clouds V2-2",
+                    "imageKey": "Clouds_V2-2"
+                }
+            ]
+        },
+        {
+            "id": "106ddc43-338d-4495-84b5-c1710d716970",
+            "type": "Collider",
+            "label": "hydrantCollide",
+            "object1": "player_1",
+            "object2": "fireHydrant",
+            "collideCallback": "this.handlePlayerHydrant",
+            "callbackContext": "this"
         }
     ],
     "meta": {
