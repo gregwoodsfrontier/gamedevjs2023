@@ -29,7 +29,7 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 		this.add(fill);
 
 		// hourglass
-		const hourglass = scene.add.image(-30, 13, "Play");
+		const hourglass = scene.add.image(-24, 11, "hourglass");
 		this.add(hourglass);
 
 		this.bar = bar;

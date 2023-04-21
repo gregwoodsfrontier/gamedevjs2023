@@ -56,10 +56,10 @@
                     "label": "hourglass",
                     "components": [],
                     "texture": {
-                        "key": "Play"
+                        "key": "hourglass"
                     },
-                    "x": -30,
-                    "y": 13,
+                    "x": -24,
+                    "y": 11,
                     "list": []
                 }
             ]
