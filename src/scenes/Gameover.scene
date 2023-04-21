@@ -1,38 +1,56 @@
 {
-    "id": "349d88a5-88ac-4d72-acec-27f34a6ddcf8",
+    "id": "5c0f1dd0-abb1-425a-8e1b-826e9f72a209",
     "sceneType": "SCENE",
     "settings": {
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
-        "sceneKey": "Gameover",
+        "sceneKey": "GameOver",
         "compilerOutputLanguage": "TYPE_SCRIPT",
         "borderWidth": 640,
         "borderHeight": 360
     },
     "displayList": [
         {
-            "type": "Text",
-            "id": "e8fc9fbc-6568-4a93-9742-93a106c52dad",
-            "label": "gameoverText",
+            "prefabId": "06136fc0-38d5-4706-8a15-cfc027dc025b",
+            "id": "177f5437-2c5d-4710-9122-0fe74cf62f3d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "restart",
             "scope": "CLASS",
             "components": [],
-            "x": 90,
-            "y": 103,
-            "text": "Game Over...",
-            "fontSize": "64px",
+            "x": 345,
+            "y": 236,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "2edccdd2-7848-4bb7-883b-e700519cb293",
+            "id": "11499575-2433-444d-afcd-ea3f52dc76a4",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "back",
+            "scope": "CLASS",
+            "components": [],
+            "x": 262,
+            "y": 236,
+            "nestedPrefabs": [],
             "list": []
         },
         {
             "type": "Text",
-            "id": "fea5a40e-748f-4c4f-bcd6-7b0c938b3d09",
-            "label": "contText",
-            "scope": "CLASS",
+            "id": "d29793b3-819e-42c6-818f-ba572b276f28",
+            "label": "text_1",
             "components": [],
-            "x": 147,
-            "y": 223,
-            "text": "Hit C to main menu",
+            "x": 208.5,
+            "y": 160,
+            "text": "GAME OVER ...",
+            "fontFamily": "'DynaPuff', cursive",
             "fontSize": "32px",
             "list": []
         }

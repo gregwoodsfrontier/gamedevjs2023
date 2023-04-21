@@ -4,13 +4,15 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import RestartButton from "../prefabs/RestartButton";
+import BackToMainButton from "../prefabs/BackToMainButton";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class Gameover extends Phaser.Scene {
+export default class GameOver extends Phaser.Scene {
 
 	constructor() {
-		super("Gameover");
+		super("GameOver");
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -19,24 +21,27 @@ export default class Gameover extends Phaser.Scene {
 
 	editorCreate(): void {
 
-		// gameoverText
-		const gameoverText = this.add.text(90, 103, "", {});
-		gameoverText.text = "Game Over...";
-		gameoverText.setStyle({ "fontSize": "64px" });
+		// restart
+		const restart = new RestartButton(this, 345, 236);
+		this.add.existing(restart);
 
-		// contText
-		const contText = this.add.text(147, 223, "", {});
-		contText.text = "Hit C to main menu";
-		contText.setStyle({ "fontSize": "32px" });
+		// back
+		const back = new BackToMainButton(this, 262, 236);
+		this.add.existing(back);
 
-		this.gameoverText = gameoverText;
-		this.contText = contText;
+		// text_1
+		const text_1 = this.add.text(208.5, 160, "", {});
+		text_1.text = "GAME OVER ...";
+		text_1.setStyle({ "fontFamily": "'DynaPuff', cursive", "fontSize": "32px" });
+
+		this.restart = restart;
+		this.back = back;
 
 		this.events.emit("scene-awake");
 	}
 
-	private gameoverText!: Phaser.GameObjects.Text;
-	private contText!: Phaser.GameObjects.Text;
+	private restart!: RestartButton;
+	private back!: BackToMainButton;
 
 	/* START-USER-CODE */
 
