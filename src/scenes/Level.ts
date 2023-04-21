@@ -4,15 +4,14 @@
 
 import Phaser from "phaser";
 import LayerPhysics from "../components/LayerPhysics";
-import Player from "../prefabs/Player";
-import FireHydrant from "../prefabs/FireHydrant";
 import Goal from "../prefabs/Goal";
-import News from "../prefabs/News";
+import Newspaper from "../prefabs/Newspaper";
+import FireHydrant from "../prefabs/FireHydrant";
+import Player from "../prefabs/Player";
+import CameraBounds from "../prefabs/scriptNodes/CameraBounds";
 import OnKeyBoardJustDownScript from "../prefabs/scriptNodes/OnKeyBoardJustDownScript";
 import AudioAddNode from "../prefabs/scriptNodes/AudioAddNode";
-import CameraBounds from "../prefabs/scriptNodes/CameraBounds";
 /* START-USER-IMPORTS */
-import { ANIM_P_RUN, ANIM_P_DBL_JUMP } from "../animations";
 /* END-USER-IMPORTS */
 
 export default class Level extends Phaser.Scene {
@@ -43,23 +42,28 @@ export default class Level extends Phaser.Scene {
 		// ground_1
 		const ground_1 = lv1.createLayer("ground", ["Terrain (16x16)"], 0, 0);
 
+		// house2
+		const house2 = new Goal(this, 1145, 64);
+		this.add.existing(house2);
+		house2.scaleX = 2;
+		house2.scaleY = 2;
+
+		// newspaper
+		const newspaper = new Newspaper(this, 189, 167);
+		this.add.existing(newspaper);
+
+		// fireHydrant
+		const fireHydrant = new FireHydrant(this, 310, 191);
+		this.add.existing(fireHydrant);
+
 		// player_1
 		const player_1 = new Player(this, 110, 148);
 		this.add.existing(player_1);
 		player_1.scaleX = 1;
 		player_1.scaleY = 1;
 
-		// firehydrant
-		const firehydrant = new FireHydrant(this, 711, 175);
-		this.add.existing(firehydrant);
-
-		// house2
-		const house2 = new Goal(this, 1137, 84);
-		this.add.existing(house2);
-
-		// newspaper
-		const newspaper = new News(this, 189, 163);
-		this.add.existing(newspaper);
+		// CameraBounds
+		const cameraBounds = new CameraBounds(this);
 
 		// onKeyBoardJustDownScript
 		const onKeyBoardJustDownScript = new OnKeyBoardJustDownScript(this);
@@ -67,20 +71,11 @@ export default class Level extends Phaser.Scene {
 		// AudioAddNode
 		const audioAddNode = new AudioAddNode(this);
 
-		// CameraBounds
-		const cameraBounds = new CameraBounds(this);
-
 		// player_ground
 		const player_ground = this.physics.add.collider(player_1, ground_1);
 
 		// ground_1 (components)
 		new LayerPhysics(ground_1);
-
-		// onKeyBoardJustDownScript (prefab fields)
-		onKeyBoardJustDownScript.keyBoardKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-
-		// audioAddNode (prefab fields)
-		audioAddNode.audioKey = "theme_1";
 
 		// cameraBounds (prefab fields)
 		cameraBounds.x = 0;
@@ -88,14 +83,20 @@ export default class Level extends Phaser.Scene {
 		cameraBounds.boundWidth = 6400;
 		cameraBounds.boundHeight = 640;
 
+		// onKeyBoardJustDownScript (prefab fields)
+		onKeyBoardJustDownScript.keyBoardKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+
+		// audioAddNode (prefab fields)
+		audioAddNode.audioKey = "theme_1";
+
 		this.ground_1 = ground_1;
-		this.player_1 = player_1;
-		this.firehydrant = firehydrant;
 		this.house2 = house2;
 		this.newspaper = newspaper;
+		this.fireHydrant = fireHydrant;
+		this.player_1 = player_1;
+		this.cameraBounds = cameraBounds;
 		this.onKeyBoardJustDownScript = onKeyBoardJustDownScript;
 		this.audioAddNode = audioAddNode;
-		this.cameraBounds = cameraBounds;
 		this.player_ground = player_ground;
 		this.lv1 = lv1;
 
@@ -103,13 +104,13 @@ export default class Level extends Phaser.Scene {
 	}
 
 	private ground_1!: Phaser.Tilemaps.TilemapLayer;
-	private player_1!: Player;
-	private firehydrant!: FireHydrant;
 	private house2!: Goal;
-	private newspaper!: News;
+	private newspaper!: Newspaper;
+	private fireHydrant!: FireHydrant;
+	private player_1!: Player;
+	private cameraBounds!: CameraBounds;
 	private onKeyBoardJustDownScript!: OnKeyBoardJustDownScript;
 	private audioAddNode!: AudioAddNode;
-	private cameraBounds!: CameraBounds;
 	private player_ground!: Phaser.Physics.Arcade.Collider;
 	private lv1!: Phaser.Tilemaps.Tilemap;
 
@@ -123,65 +124,35 @@ export default class Level extends Phaser.Scene {
 
 		this.editorCreate();
 
+		this.physics.add.collider(this.newspaper, this.ground_1)
+		this.physics.add.collider(this.fireHydrant, this.ground_1)
+
+		//@ts-ignore
+		const p_news = this.physics.add.collider(this.player_1, this.newspaper, this.handlePlayerNewsPaper)
+		//@ts-ignore
+		const p_firehydrant = this.physics.add.collider(this.player_1, this.fireHydrant, this.handlePlayerHydrant)
+
+		const p_goal = this.physics.add.collider(this.player_1, this.house2)
+
 		const theme = this.audioAddNode._g_audio
 
 		this.time.delayedCall(300, () => {
 			theme?.play()
 		})
+	}
 
+	handlePlayerNewsPaper(player: Player, newspaper: Newspaper) {
+		newspaper.disableBody(true, true)
+		player.equip(1)
+	}
 
-
-		// this.debugScript.execute = () => {
-		// 	if(!this.theme?.isPlaying) {
-		// 		this.theme?.play()
-		// 	}
-		// 	else if (this.theme?.isPlaying) {
-		// 		this.theme.pause()
-		// 	}
-
-		// }
-		// Create and store keyboard input
-		// this.WKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+	handlePlayerHydrant(player: Player, hydrant: FireHydrant) {
+		console.log(`player touch fire hydrant`)
+		player.pee()
+		hydrant.disableBody()
 	}
 
 	update() {
-
-		// if (this.WKey && this.theme && Phaser.Input.Keyboard.JustDown(this.WKey)) {
-		// 	console.log('W Key is just pressed')
-		// 	if(!this.theme.isPlaying)
-		// 	{
-		// 		this.theme.play()
-		// 	}
-		// 	else if (this.theme.isPlaying)
-		// 	{
-		// 		this.theme.pause()
-		// 	}
-		// }
-
-    	// if (this.cursors.left.isDown) {
-        // 	this.character.setVelocityX(-200);
-        // 	this.character.anims.play("run", true);
-        // 	this.character.flipX = true;
-    	// } else if (this.cursors.right.isDown) {
-		// 	this.character.setVelocityX(200);
-		// 	this.character.anims.play("run", true);
-		// 	this.character.flipX = false;
-		// } else {
-		// 	this.character.setVelocityX(0);
-		// 	this.character.anims.play("idle", true);
-		// }
-
-		// // Jumping
-		// if (Phaser.Input.Keyboard.JustDown(this.cursors.up) && this.character.body.onFloor()) {
-		// 	this.character.setVelocityY(-350);
-		// }
-
-		// // Jump and fall animations
-		// if (this.character.body.velocity.y < 0) {
-		// 	this.character.anims.play("jump", true);
-		// } else if (this.character.body.velocity.y > 0 && !this.character.body.touching.down) {
-		// 	this.character.anims.play("fall", true);
-		// }
 	}
 
 

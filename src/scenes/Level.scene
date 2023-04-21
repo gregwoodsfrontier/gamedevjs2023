@@ -42,6 +42,55 @@
             ]
         },
         {
+            "prefabId": "151acbe1-c211-41b2-a5ff-73dfc46e4c1c",
+            "id": "ae8efb83-cabe-4970-81f3-90b38b9546f0",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "house2",
+            "scope": "CLASS",
+            "components": [],
+            "x": 1145,
+            "y": 64,
+            "scaleX": 2,
+            "scaleY": 2,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6d6f40ee-7a43-480c-9d6e-e26ccef0a3e2",
+            "id": "566dd795-464e-4aba-9755-10f2115610cc",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "newspaper",
+            "scope": "CLASS",
+            "components": [],
+            "x": 189,
+            "y": 167,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
+            "id": "2a359014-8d6c-4983-8a06-1243e7db8116",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fireHydrant",
+            "scope": "CLASS",
+            "components": [],
+            "x": 310,
+            "y": 191,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
             "prefabId": "e8cbef27-0122-44ad-a3de-0e0b260351e8",
             "id": "a9bef027-72f4-493f-a1af-0c2f8ff480bb",
             "unlock": [
@@ -61,47 +110,21 @@
             "list": []
         },
         {
-            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
-            "id": "5dfbe1b2-b44b-4fc9-9053-fe11e68d8372",
+            "prefabId": "d1e71584-417d-45a4-af27-8e2ef23af268",
+            "id": "6e6bde81-58ca-4187-8a47-f95c61c81ea0",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "boundWidth",
+                "boundHeight"
             ],
-            "label": "firehydrant",
+            "label": "CameraBounds",
             "scope": "CLASS",
+            "x": 0,
+            "y": 0,
+            "boundWidth": 6400,
+            "boundHeight": 640,
             "components": [],
-            "x": 711,
-            "y": 175,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "151acbe1-c211-41b2-a5ff-73dfc46e4c1c",
-            "id": "ae8efb83-cabe-4970-81f3-90b38b9546f0",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "house2",
-            "scope": "CLASS",
-            "components": [],
-            "x": 1137,
-            "y": 84,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "6d6f40ee-7a43-480c-9d6e-e26ccef0a3e2",
-            "id": "566dd795-464e-4aba-9755-10f2115610cc",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "newspaper",
-            "scope": "CLASS",
-            "components": [],
-            "x": 189,
-            "y": 163,
             "nestedPrefabs": [],
             "list": []
         },
@@ -129,25 +152,6 @@
             "label": "AudioAddNode",
             "scope": "CLASS",
             "audioKey": "theme_1",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "d1e71584-417d-45a4-af27-8e2ef23af268",
-            "id": "6e6bde81-58ca-4187-8a47-f95c61c81ea0",
-            "unlock": [
-                "x",
-                "y",
-                "boundWidth",
-                "boundHeight"
-            ],
-            "label": "CameraBounds",
-            "scope": "CLASS",
-            "x": 0,
-            "y": 0,
-            "boundWidth": 6400,
-            "boundHeight": 640,
             "components": [],
             "nestedPrefabs": [],
             "list": []

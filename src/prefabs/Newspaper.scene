@@ -1,41 +1,35 @@
 {
     "id": "6d6f40ee-7a43-480c-9d6e-e26ccef0a3e2",
+    "sceneType": "PREFAB",
     "settings": {
-        "createMethodName": "",
-        "preloadMethodName": "",
-        "compilerOutputLanguage": "TYPE_SCRIPT",
         "exportClass": true,
         "autoImport": true,
-        "generateAwakeHandler": false,
-        "compilerInsertSpaces": false,
-        "compilerTabSize": 4,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
         "borderWidth": 640,
-        "borderHeight": 360,
-        "borderX": 0,
-        "borderY": 0
+        "borderHeight": 360
     },
-    "sceneType": "PREFAB",
     "displayList": [
         {
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "type": "Image",
+            "type": "ArcadeImage",
             "id": "4c94fe45-43d6-40ae-a502-a90bc5578b24",
             "label": "newspaper",
             "components": [],
             "texture": {
                 "key": "newspaper"
             },
-            "x": 0,
-            "y": 0,
+            "body.width": 16,
+            "body.height": 16,
             "list": []
         }
     ],
+    "plainObjects": [],
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
-        "contentType": "phasereditor2d.core.scene.SceneContentType"
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
     }
 }
