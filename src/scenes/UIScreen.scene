@@ -17,12 +17,14 @@
             "id": "cb51d61a-0739-4e33-8669-1bdf430089a1",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "timer"
             ],
             "label": "timeBar",
+            "timer": 30,
             "components": [],
-            "x": 190.25,
-            "y": 30,
+            "x": 192,
+            "y": 32,
             "nestedPrefabs": [],
             "list": []
         },
@@ -37,10 +39,10 @@
             ],
             "label": "backToMainButton",
             "components": [],
-            "x": 39,
-            "y": 40,
-            "scaleX": 3,
-            "scaleY": 3,
+            "x": 32,
+            "y": 32,
+            "scaleX": 2,
+            "scaleY": 2,
             "nestedPrefabs": [],
             "list": []
         },
@@ -55,10 +57,10 @@
             ],
             "label": "fullScreenButton",
             "components": [],
-            "x": 594,
-            "y": 314,
-            "scaleX": 0.72,
-            "scaleY": 0.72,
+            "x": 603,
+            "y": 320,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
             "nestedPrefabs": [],
             "list": []
         },
@@ -73,10 +75,10 @@
             ],
             "label": "restartButton",
             "components": [],
-            "x": 595,
-            "y": 52,
-            "scaleX": 3.4285714285714284,
-            "scaleY": 3.272727272727273,
+            "x": 608,
+            "y": 32,
+            "scaleX": 2,
+            "scaleY": 2,
             "nestedPrefabs": [],
             "list": []
         }

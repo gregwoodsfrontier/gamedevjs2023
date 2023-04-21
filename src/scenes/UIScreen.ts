@@ -24,26 +24,29 @@ export default class UIScreen extends Phaser.Scene {
 	editorCreate(): void {
 
 		// timeBar
-		const timeBar = new TimeBar(this, 190.25, 30);
+		const timeBar = new TimeBar(this, 192, 32);
 		this.add.existing(timeBar);
 
 		// backToMainButton
-		const backToMainButton = new BackToMainButton(this, 39, 40);
+		const backToMainButton = new BackToMainButton(this, 32, 32);
 		this.add.existing(backToMainButton);
-		backToMainButton.scaleX = 3;
-		backToMainButton.scaleY = 3;
+		backToMainButton.scaleX = 2;
+		backToMainButton.scaleY = 2;
 
 		// fullScreenButton
-		const fullScreenButton = new FullScreenButton(this, 594, 314);
+		const fullScreenButton = new FullScreenButton(this, 603, 320);
 		this.add.existing(fullScreenButton);
-		fullScreenButton.scaleX = 0.72;
-		fullScreenButton.scaleY = 0.72;
+		fullScreenButton.scaleX = 0.5;
+		fullScreenButton.scaleY = 0.5;
 
 		// restartButton
-		const restartButton = new RestartButton(this, 595, 52);
+		const restartButton = new RestartButton(this, 608, 32);
 		this.add.existing(restartButton);
-		restartButton.scaleX = 3.4285714285714284;
-		restartButton.scaleY = 3.272727272727273;
+		restartButton.scaleX = 2;
+		restartButton.scaleY = 2;
+
+		// timeBar (prefab fields)
+		timeBar.timer = 30;
 
 		this.events.emit("scene-awake");
 	}

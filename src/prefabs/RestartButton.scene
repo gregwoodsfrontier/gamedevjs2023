@@ -34,8 +34,20 @@
                             "unlock": [
                                 "sceneKey"
                             ],
-                            "label": "startSceneActionScript",
+                            "label": "startLevelScript",
                             "sceneKey": "Level",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        },
+                        {
+                            "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
+                            "id": "0ee6b284-a81d-47a6-9b2b-b8bc947c1b10",
+                            "unlock": [
+                                "sceneKey"
+                            ],
+                            "label": "startUIScreenScript",
+                            "sceneKey": "UIScreen",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []

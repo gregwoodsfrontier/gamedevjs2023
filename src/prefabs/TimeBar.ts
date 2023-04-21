@@ -17,6 +17,7 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 		bar.setOrigin(0, 0);
 		bar.isFilled = true;
 		bar.fillColor = 3024182;
+		bar.fillAlpha = 0.9;
 		this.add(bar);
 
 		// fill
@@ -24,6 +25,7 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 		fill.setOrigin(0, 0);
 		fill.isFilled = true;
 		fill.fillColor = 1375022;
+		fill.fillAlpha = 0.9;
 		this.add(fill);
 
 		// hourglass
@@ -32,21 +34,35 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 
 		this.bar = bar;
 		this.fill = fill;
-		this.hourglass = hourglass;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		this.scene.events.once("scene-awake", this.awake, this)
+
+		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this)
 		/* END-USER-CTR-CODE */
 	}
 
 	private bar: Phaser.GameObjects.Rectangle;
 	private fill: Phaser.GameObjects.Rectangle;
-	private hourglass: Phaser.GameObjects.Image;
-	public timer: number = 60;
+	public timer: number = 30;
 
 	/* START-USER-CODE */
+	private timerInMs = this.timer * 1000
 
 	// Write your code here.
+	awake() {
+		// fill the bar first
+		this.fill.width = this.bar.width
+	}
+
+	update(time: number, delta: number) {
+		this.timerInMs -= delta
+
+		const fillScale = Phaser.Math.Clamp(this.timerInMs / (this.timer * 1000), 0, 1)
+
+		this.fill.setScale(fillScale, 1)
+	}
 
 	/* END-USER-CODE */
 }
