@@ -227,8 +227,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 				}
 
 				if(this.cursors?.down.isDown) {
-					// this.stateMachineNode.setState(this.crouchState.stateName)
-					this.stateMachineNode.setState(this.staggerState.stateName)
+					this.stateMachineNode.setState(this.crouchState.stateName)
 
 				}
 

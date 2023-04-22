@@ -32,7 +32,9 @@
             "id": "39123aac-ce29-40e7-8d3c-058be03b40bb",
             "label": "ground_1",
             "useGameObjectName": true,
-            "components": [],
+            "components": [
+                "LayerPhysics"
+            ],
             "list": [],
             "tilemapId": "39d96246-c4fa-4675-bc80-9d1a0abfb7ab",
             "layerName": "ground",

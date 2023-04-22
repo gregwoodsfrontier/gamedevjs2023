@@ -3,6 +3,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import LayerPhysics from "../components/LayerPhysics";
 import Goal from "../prefabs/Goal";
 import Newspaper from "../prefabs/Newspaper";
 import FireHydrant from "../prefabs/FireHydrant";
@@ -77,6 +78,9 @@ export default class Level extends Phaser.Scene {
 
 		// lists
 		const hydrantList = [fireHydrant, fireHydrant_1];
+
+		// ground_1 (components)
+		new LayerPhysics(ground_1);
 
 		// cameraBounds (prefab fields)
 		cameraBounds.x = 0;
