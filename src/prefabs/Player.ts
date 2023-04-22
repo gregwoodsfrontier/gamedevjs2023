@@ -215,6 +215,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	switchStateMachineNetwork() {
+		if(!this.body) {
+			return console.error(`player body is undefined`)
+		}
 		switch (this.stateMachineNode.currentStateName) {
 			case this.idleState.stateName:
 				if(this.checkShiftKeyJustPress()) {

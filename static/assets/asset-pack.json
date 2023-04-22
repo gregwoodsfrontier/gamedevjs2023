@@ -194,11 +194,6 @@
                 "key": "Play Button"
             },
             {
-                "url": "assets/anims/player-animations.json",
-                "type": "animation",
-                "key": "player-animations"
-            },
-            {
                 "url": "assets/buttons/Previous.png",
                 "type": "image",
                 "key": "Previous"
