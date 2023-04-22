@@ -7,6 +7,7 @@ import ScriptNode from "./ScriptNode";
 import Phaser from "phaser";
 import CameraBounds from "./CameraBounds";
 import WorldBounds from "./WorldBounds";
+import AudioAddNode from "./AudioAddNode";
 /* START-USER-IMPORTS */
 import Player from "../Player";
 import PlayerContainer from "../PlayerContainer";
@@ -26,8 +27,15 @@ export default class LevelBehavior extends ScriptNode {
 		// worldBounds
 		const worldBounds = new WorldBounds(this);
 
+		// audioAddNode
+		const audioAddNode = new AudioAddNode(this);
+
+		// audioAddNode (prefab fields)
+		audioAddNode.audioKey = "theme_1";
+
 		this.cameraBounds = cameraBounds;
 		this.worldBounds = worldBounds;
+		this.audioAddNode = audioAddNode;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -36,15 +44,16 @@ export default class LevelBehavior extends ScriptNode {
 
 	private cameraBounds: CameraBounds;
 	private worldBounds: WorldBounds;
+	private audioAddNode: AudioAddNode;
 	public player!: Player;
-	public groundLayer!: Phaser.Tilemaps.TilemapLayer;
+	public groundLayer!: Phaser.Tilemaps.TilemapLayer | null;
 	public hydrantList!: FireHydrant[];
 	public goal!: Goal;
 	public newspaper!: Newspaper;
 
 	/* START-USER-CODE */
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
-	
+
 	awake() {
 		const {scene} = this
 
@@ -58,9 +67,13 @@ export default class LevelBehavior extends ScriptNode {
 		const {scene} = this
 
 		// setting up all the colliders here
-		scene.physics.add.collider(this.newspaper, this.groundLayer)
-		scene.physics.add.collider(this.hydrantList, this.groundLayer)
-		scene.physics.add.collider(this.player, this.groundLayer)
+		if(this.groundLayer)
+		{
+			scene.physics.add.collider(this.newspaper, this.groundLayer)
+			scene.physics.add.collider(this.hydrantList, this.groundLayer)
+			scene.physics.add.collider(this.player, this.groundLayer)
+		}
+		
 		//@ts-ignore
 		scene.physics.add.collider(this.player, this.newspaper, this.handlePlayerNewsPaper)
 		//@ts-ignore
@@ -69,6 +82,13 @@ export default class LevelBehavior extends ScriptNode {
 
 		// setting all the player inputs here and fire events to the player instead
 		// this.cursors = scene.input.keyboard?.createCursorKeys()
+
+		// play the tune in Level Behavior
+		const theme = this.audioAddNode._g_audio
+
+		scene.time.delayedCall(300, () => {
+			theme?.play()
+		})
 	}
 
 	// may need to re-visit this sometime

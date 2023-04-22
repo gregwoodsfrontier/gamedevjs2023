@@ -31,6 +31,7 @@
             "type": "TilemapLayer",
             "id": "39123aac-ce29-40e7-8d3c-058be03b40bb",
             "label": "ground_1",
+            "useGameObjectName": true,
             "components": [],
             "list": [],
             "tilemapId": "39d96246-c4fa-4675-bc80-9d1a0abfb7ab",
@@ -170,24 +171,17 @@
                 "newspaper"
             ],
             "label": "LevelBehavior",
-            "player": "Player",
-            "groundLayer": "Phaser.Tilemaps.TilemapLayer",
-            "hydrantList": "FireHydrant[]",
-            "goal": "Goal",
-            "newspaper": "Newspaper",
+            "player": "player_1",
+            "groundLayer": "ground_1",
+            "hydrantList": "hydrantList",
+            "goal": "house2",
+            "newspaper": "newspaper",
             "components": [],
             "nestedPrefabs": [],
             "list": []
         }
     ],
     "plainObjects": [
-        {
-            "id": "91f0a713-2a4a-42c1-8dd4-0432c2114388",
-            "type": "Collider",
-            "label": "player_ground",
-            "object1": "player_1",
-            "object2": "ground_1"
-        },
         {
             "id": "39d96246-c4fa-4675-bc80-9d1a0abfb7ab",
             "type": "Tilemap",
@@ -203,15 +197,6 @@
                     "imageKey": "Clouds_V2-2"
                 }
             ]
-        },
-        {
-            "id": "106ddc43-338d-4495-84b5-c1710d716970",
-            "type": "Collider",
-            "label": "hydrantCollide",
-            "object1": "player_1",
-            "object2": "hydrantList",
-            "collideCallback": "this.handlePlayerHydrant",
-            "callbackContext": "this"
         }
     ],
     "meta": {

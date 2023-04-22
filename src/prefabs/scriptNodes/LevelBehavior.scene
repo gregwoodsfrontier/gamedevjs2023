@@ -35,6 +35,19 @@
                     "components": [],
                     "nestedPrefabs": [],
                     "list": []
+                },
+                {
+                    "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
+                    "id": "657f5c79-a28c-41b0-9794-1723355c845b",
+                    "unlock": [
+                        "audioKey"
+                    ],
+                    "label": "audioAddNode",
+                    "scope": "CLASS",
+                    "audioKey": "theme_1",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
                 }
             ]
         }
@@ -66,7 +79,7 @@
             "customDefinition": false,
             "type": {
                 "id": "object-var",
-                "expressionType": "Phaser.Tilemaps.TilemapLayer"
+                "expressionType": "Phaser.Tilemaps.TilemapLayer | null"
             }
         },
         {

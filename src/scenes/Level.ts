@@ -39,7 +39,8 @@ export default class Level extends Phaser.Scene {
 		lv1.createLayer("background", ["Clouds V2-2"], 0, 0);
 
 		// ground_1
-		lv1.createLayer("ground", ["Terrain (16x16)"], 0, 0);
+		const ground_1 = lv1.createLayer("ground", ["Terrain (16x16)"], 0, 0);
+		ground_1.name = "ground_1";
 
 		// house2
 		const house2 = new Goal(this, 1145, 64);
@@ -77,12 +78,6 @@ export default class Level extends Phaser.Scene {
 		// lists
 		const hydrantList = [fireHydrant, fireHydrant_1];
 
-		// player_ground
-		const player_ground = this.physics.add.collider(player_1, ground_1);
-
-		// hydrantCollide
-		const hydrantCollide = this.physics.add.collider(player_1, hydrantList, this.handlePlayerHydrant, undefined, this);
-
 		// cameraBounds (prefab fields)
 		cameraBounds.x = 0;
 		cameraBounds.y = 0;
@@ -93,11 +88,11 @@ export default class Level extends Phaser.Scene {
 		audioAddNode.audioKey = "theme_1";
 
 		// levelBehavior (prefab fields)
-		levelBehavior.player = Player;
-		levelBehavior.groundLayer = Phaser.Tilemaps.TilemapLayer;
-		levelBehavior.hydrantList = FireHydrant[];
-		levelBehavior.goal = Goal;
-		levelBehavior.newspaper = Newspaper;
+		levelBehavior.player = player_1;
+		levelBehavior.groundLayer = ground_1;
+		levelBehavior.hydrantList = hydrantList;
+		levelBehavior.goal = house2;
+		levelBehavior.newspaper = newspaper;
 
 		this.house2 = house2;
 		this.newspaper = newspaper;
@@ -106,9 +101,7 @@ export default class Level extends Phaser.Scene {
 		this.player_1 = player_1;
 		this.cameraBounds = cameraBounds;
 		this.audioAddNode = audioAddNode;
-		this.player_ground = player_ground;
 		this.lv1 = lv1;
-		this.hydrantCollide = hydrantCollide;
 		this.hydrantList = hydrantList;
 
 		this.events.emit("scene-awake");
@@ -121,9 +114,7 @@ export default class Level extends Phaser.Scene {
 	private player_1!: Player;
 	private cameraBounds!: CameraBounds;
 	private audioAddNode!: AudioAddNode;
-	private player_ground!: Phaser.Physics.Arcade.Collider;
 	private lv1!: Phaser.Tilemaps.Tilemap;
-	private hydrantCollide!: Phaser.Physics.Arcade.Collider;
 	private hydrantList!: FireHydrant[];
 
 	/* START-USER-CODE */
@@ -146,33 +137,14 @@ export default class Level extends Phaser.Scene {
 		// this.physics.add.collider(this.hydrantList, this.ground_1)
 
 		//@ts-ignore
-		const p_news = this.physics.add.collider(this.player_1, this.newspaper, this.handlePlayerNewsPaper)
+		// const p_news = this.physics.add.collider(this.player_1, this.newspaper, this.handlePlayerNewsPaper)
 		//@ts-ignore
 		// const p_firehydrant = this.physics.add.collider(this.player_1, this.fireHydrant, this.handlePlayerHydrant)
 
-		const p_goal = this.physics.add.collider(this.player_1, this.house2)
+		// const p_goal = this.physics.add.collider(this.player_1, this.house2)
 
-		const theme = this.audioAddNode._g_audio
 
-		this.time.delayedCall(300, () => {
-			theme?.play()
-		})
 	}
-
-	handlePlayerNewsPaper(player: Player, newspaper: Newspaper) {
-		newspaper.disableBody(true, true)
-		player.equip(1)
-	}
-
-	handlePlayerHydrant(player: Player, hydrant: FireHydrant) {
-		console.log(`player touch fire hydrant`)
-		player.pee()
-		hydrant.disableBody()
-	}
-
-	update() {
-	}
-
 
 	/* END-USER-CODE */
 }
