@@ -132,20 +132,6 @@ export default class Level extends Phaser.Scene {
 		this.events.emit("setup-cam-bounds", this.lv1.width * this.lv1.tileWidth, this.lv1.height * this.lv1.tileHeight)
 		this.events.emit("setup-world-bounds", this.lv1.width * this.lv1.tileWidth, this.lv1.height * this.lv1.tileHeight)
 
-		// this.cameraBounds.boundWidth = this.lv1.width * this.lv1.tileWidth
-		// this.cameraBounds.boundHeight = this.lv1.height * this.lv1.tileHeight
-
-		// this.physics.add.collider(this.newspaper, this.ground_1)
-		// this.physics.add.collider(this.hydrantList, this.ground_1)
-
-		//@ts-ignore
-		// const p_news = this.physics.add.collider(this.player_1, this.newspaper, this.handlePlayerNewsPaper)
-		//@ts-ignore
-		// const p_firehydrant = this.physics.add.collider(this.player_1, this.fireHydrant, this.handlePlayerHydrant)
-
-		// const p_goal = this.physics.add.collider(this.player_1, this.house2)
-
-
 	}
 
 	/* END-USER-CODE */
