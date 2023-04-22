@@ -10,6 +10,8 @@ import FullScreenButton from "../prefabs/FullScreenButton";
 import RestartButton from "../prefabs/RestartButton";
 import PauseButton from "../prefabs/PauseButton";
 /* START-USER-IMPORTS */
+import eventsCenter from "../eventCenter";
+import { PAUSE_GAME, RESUME_GAME } from "../prefabs/scriptNodes/onPauseScreenNode";
 /* END-USER-IMPORTS */
 
 export default class UIScreen extends Phaser.Scene {
@@ -52,11 +54,18 @@ export default class UIScreen extends Phaser.Scene {
 		pause.scaleX = 2;
 		pause.scaleY = 2;
 
+		// lists
+		const thingsToHide = [backToMainButton, timeBar, restartButton];
+
 		// timeBar (prefab fields)
 		timeBar.timer = 30;
 
+		this.thingsToHide = thingsToHide;
+
 		this.events.emit("scene-awake");
 	}
+
+	private thingsToHide!: Array<BackToMainButton|TimeBar|RestartButton>;
 
 	/* START-USER-CODE */
 
@@ -65,6 +74,20 @@ export default class UIScreen extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+
+		eventsCenter.on(PAUSE_GAME, () => {
+			this.thingsToHide.forEach(e => {
+				e.setActive(false)
+				e.setVisible(false)
+			})
+		})
+
+		eventsCenter.on(RESUME_GAME, () => {
+			this.thingsToHide.forEach(e => {
+				e.setActive(true)
+				e.setVisible(true)
+			})
+		})
 	}
 
 	/* END-USER-CODE */

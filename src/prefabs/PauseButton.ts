@@ -5,8 +5,9 @@
 
 import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
-import onPauseScreenNode from "./scriptNodes/onPauseScreenNode";
+import onPauseScreenNode, { PAUSE_GAME, RESUME_GAME } from "./scriptNodes/onPauseScreenNode";
 /* START-USER-IMPORTS */
+import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class PauseButton extends Phaser.GameObjects.Image {
@@ -22,11 +23,11 @@ export default class PauseButton extends Phaser.GameObjects.Image {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		scene.events.on("stop-timer", () => {
+		eventsCenter.on(PAUSE_GAME, () => {
 			this.setTexture("Play")
 		})
 
-		scene.events.on("start-timer", () => {
+		eventsCenter.on(RESUME_GAME, () => {
 			this.setTexture("pause")
 		})
 		/* END-USER-CTR-CODE */

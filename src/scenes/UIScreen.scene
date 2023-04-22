@@ -107,5 +107,16 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    }
+    },
+    "lists": [
+        {
+            "id": "0301c197-d87b-4ff2-b861-f11ee109ca1e",
+            "label": "thingsToHide",
+            "objectIds": [
+                "ceb260df-d154-4003-9650-7a69f4fb1f14",
+                "cb51d61a-0739-4e33-8669-1bdf430089a1",
+                "9a72a9ac-efe0-4c57-a33e-778f98243c1c"
+            ]
+        }
+    ]
 }
