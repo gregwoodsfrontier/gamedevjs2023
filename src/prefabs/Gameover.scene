@@ -1,0 +1,47 @@
+{
+    "id": "349d88a5-88ac-4d72-acec-27f34a6ddcf8",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Gameover",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "e8fc9fbc-6568-4a93-9742-93a106c52dad",
+            "label": "gameoverText",
+            "scope": "CLASS",
+            "components": [],
+            "x": 90,
+            "y": 103,
+            "text": "Game Over...",
+            "fontSize": "64px",
+            "list": []
+        },
+        {
+            "type": "Text",
+            "id": "fea5a40e-748f-4c4f-bcd6-7b0c938b3d09",
+            "label": "contText",
+            "scope": "CLASS",
+            "components": [],
+            "x": 147,
+            "y": 223,
+            "text": "Hit C to main menu",
+            "fontSize": "32px",
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

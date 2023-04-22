@@ -12,63 +12,6 @@
                 "key": "Back"
             },
             {
-                "url": "assets/ui/Background.png",
-                "type": "image",
-                "key": "Background"
-            },
-            {
-                "url": "assets/bird_a/Death.png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "birda_death"
-            },
-            {
-                "url": "assets/bird_a/Hurt.png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "birda_hurt"
-            },
-            {
-                "url": "assets/bird_a/Idle.png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "birda_idle"
-            },
-            {
-                "url": "assets/bird_a/Walk.png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "birda_walk"
-            },
-            {
                 "url": "assets/buttons/Close.png",
                 "type": "image",
                 "key": "Close"
@@ -87,39 +30,9 @@
                 "key": "Clouds_V2-2"
             },
             {
-                "url": "assets/continue/Continue.png",
-                "type": "image",
-                "key": "Continue"
-            },
-            {
-                "url": "assets/continue/ContinueMenu.png",
-                "type": "image",
-                "key": "ContinueMenu"
-            },
-            {
-                "url": "assets/environmental/firehydrant.png",
-                "type": "image",
-                "key": "firehydrant"
-            },
-            {
                 "url": "assets/buttons/fullscreen.png",
                 "type": "image",
                 "key": "fullscreen"
-            },
-            {
-                "url": "assets/ui/greyStar.png",
-                "type": "image",
-                "key": "greyStar"
-            },
-            {
-                "url": "assets/ui/hourglass.png",
-                "type": "image",
-                "key": "hourglass"
-            },
-            {
-                "url": "assets/environmental/house2.png",
-                "type": "image",
-                "key": "house2"
             },
             {
                 "url": "assets/buttons/Leaderboard.png",
@@ -143,22 +56,17 @@
             },
             {
                 "url": [
-                    "assets/audio/menu/Menu_Theme.wav"
-                ],
-                "type": "audio",
-                "key": "Menu_Theme"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Menu_Theme_Orchestral.wav"
+                    "assets/audio/Menu_Theme_Orchestral.wav"
                 ],
                 "type": "audio",
                 "key": "Menu_Theme_Orchestral"
             },
             {
-                "url": "assets/environmental/newspaper.png",
-                "type": "image",
-                "key": "newspaper"
+                "url": [
+                    "assets/audio/Menu_Theme.wav"
+                ],
+                "type": "audio",
+                "key": "menu-theme"
             },
             {
                 "url": "assets/buttons/Next.png",
@@ -166,22 +74,9 @@
                 "key": "Next"
             },
             {
-                "url": "assets/buttons/pause.png",
+                "url": "assets/buttons/PlaceHolderLogo.png",
                 "type": "image",
-                "key": "pause"
-            },
-            {
-                "url": "assets/player/Pee.png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "Pee"
+                "key": "PlaceHolderLogo"
             },
             {
                 "url": "assets/buttons/Play.png",
@@ -194,9 +89,100 @@
                 "key": "Play Button"
             },
             {
-                "url": "assets/anims/player-animations.json",
+                "url": "animations.json",
                 "type": "animation",
-                "key": "player-animations"
+                "key": "player-anims"
+            },
+            {
+                "url": "assets/player/Double Jump (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-double-jump"
+            },
+            {
+                "url": "assets/player/Fall (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-fall"
+            },
+            {
+                "url": "assets/player/Hit (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-hit"
+            },
+            {
+                "url": "assets/player/Idle (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-idle"
+            },
+            {
+                "url": "assets/player/Jump (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-jump"
+            },
+            {
+                "url": "assets/player/Run (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-run"
+            },
+            {
+                "url": "assets/player/Wall Jump (32x32).png",
+                "frameConfig": {
+                    "frameWidth": 32,
+                    "frameHeight": 32,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "player-wall-jump"
             },
             {
                 "url": "assets/buttons/Previous.png",
@@ -217,111 +203,6 @@
                 "url": "assets/buttons/Settings Button.png",
                 "type": "image",
                 "key": "Settings Button"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Back.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Back"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Click.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Click"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Fullscreen.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Fullscreen"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Play.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Play"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Volume.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Volume"
-            },
-            {
-                "url": "assets/player/Attack.png",
-                "frameConfig": {
-                    "frameWidth": 48,
-                    "frameHeight": 48,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "shiba_attack"
-            },
-            {
-                "url": "assets/player/Death.png",
-                "frameConfig": {
-                    "frameWidth": 48,
-                    "frameHeight": 48,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "shiba_death"
-            },
-            {
-                "url": "assets/player/Hurt.png",
-                "frameConfig": {
-                    "frameWidth": 48,
-                    "frameHeight": 48,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "shiba_hurt"
-            },
-            {
-                "url": "assets/player/Idle.png",
-                "frameConfig": {
-                    "frameWidth": 48,
-                    "frameHeight": 48,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "shiba_idle"
-            },
-            {
-                "url": "assets/player/Walk.png",
-                "frameConfig": {
-                    "frameWidth": 48,
-                    "frameHeight": 48,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "shiba_walk"
-            },
-            {
-                "url": "assets/anims/shiba-anims.json",
-                "type": "animation",
-                "key": "shiba-anims"
             },
             {
                 "url": "assets/ui/Spritesheet_UI_Flat.png",
@@ -350,17 +231,9 @@
                 "key": "Spritesheet_UI_Flat_Select_02"
             },
             {
-                "textureURL": "assets/bitmapFonts/StayPixel2.png",
-                "fontDataURL": "assets/bitmapFonts/StayPixel2.xml",
-                "type": "bitmapFont",
-                "key": "StayPixel2"
-            },
-            {
-                "url": [
-                    "assets/audio/level/success.wav"
-                ],
-                "type": "audio",
-                "key": "success"
+                "url": "assets/tilemaps/startLevel.json",
+                "type": "tilemapTiledJSON",
+                "key": "startLevel"
             },
             {
                 "url": "assets/tilesets/Terrain (16x16).png",
@@ -376,48 +249,6 @@
                 "key": "Terrain (16x16)"
             },
             {
-                "url": [
-                    "assets/audio/level/theme_1.wav"
-                ],
-                "type": "audio",
-                "key": "theme_1"
-            },
-            {
-                "url": [
-                    "assets/audio/level/theme_1_melody_1.wav"
-                ],
-                "type": "audio",
-                "key": "theme_1_melody_1"
-            },
-            {
-                "url": [
-                    "assets/audio/level/theme_1_melody_2.wav"
-                ],
-                "type": "audio",
-                "key": "theme_1_melody_2"
-            },
-            {
-                "url": [
-                    "assets/audio/level/theme_2.wav"
-                ],
-                "type": "audio",
-                "key": "theme_2"
-            },
-            {
-                "url": [
-                    "assets/audio/level/theme_2_melody_1.wav"
-                ],
-                "type": "audio",
-                "key": "theme_2_melody_1"
-            },
-            {
-                "url": [
-                    "assets/audio/Theme_Song_Orchestral_1.wav"
-                ],
-                "type": "audio",
-                "key": "Theme_Song_Orchestral_1"
-            },
-            {
                 "url": "assets/tilesets/Gray.png",
                 "type": "image",
                 "key": "tilesBackground"
@@ -426,11 +257,6 @@
                 "url": "assets/buttons/Volume.png",
                 "type": "image",
                 "key": "Volume"
-            },
-            {
-                "url": "assets/ui/yellowStar.png",
-                "type": "image",
-                "key": "yellowStar"
             }
         ]
     },

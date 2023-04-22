@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && phaser-asset-pack-hashing -j -r dist --noEmitOnError",
+    "build": "tsc && vite build && phaser-asset-pack-hashing -j -r dist",
     "preview": "vite preview",
     "editor": "phasereditor2d-launcher -project . -port 1959",
     "editor-remote": "phasereditor2d-launcher -project . -disable-open-browser -public -port 1959"
@@ -11,11 +11,11 @@
   "devDependencies": {
     "phaser-asset-pack-hashing": "^1.0.5",
     "phaser3-rex-plugins": "^1.60.0",
-    "phasereditor2d-launcher": "^3.60.0",
     "typescript": "^5.0.4",
     "vite": "^4.2.1"
   },
   "dependencies": {
-    "phaser": "^3.60.0"
+    "phaser": "^3.60.0",
+    "phasereditor2d-launcher": "^3.60.0"
   }
 }

@@ -30,24 +30,12 @@
                     "list": [
                         {
                             "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
-                            "id": "8b56f0cf-1baa-4ada-ad31-d6f6ffb6e7f1",
+                            "id": "808113ab-f5ec-46d1-a5a5-91997a34bbfc",
                             "unlock": [
                                 "sceneKey"
                             ],
                             "label": "startSceneActionScript",
                             "sceneKey": "Level",
-                            "components": [],
-                            "nestedPrefabs": [],
-                            "list": []
-                        },
-                        {
-                            "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
-                            "id": "0ee6b284-a81d-47a6-9b2b-b8bc947c1b10",
-                            "unlock": [
-                                "sceneKey"
-                            ],
-                            "label": "startUIScreenScript",
-                            "sceneKey": "UIScreen",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []

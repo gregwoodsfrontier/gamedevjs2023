@@ -14,8 +14,8 @@ export default class SettingsButton extends Phaser.GameObjects.Image {
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 0, y ?? 0, texture || "Settings Button", frame);
 
-		this.scaleX = 1.5;
-		this.scaleY = 1.25;
+		this.scaleX = 0.25;
+		this.scaleY = 0.25;
 
 		// onPointerDownScript
 		const onPointerDownScript = new OnPointerDownScript(this);
