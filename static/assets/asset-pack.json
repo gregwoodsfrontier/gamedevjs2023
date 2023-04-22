@@ -87,6 +87,16 @@
                 "key": "Clouds_V2-2"
             },
             {
+                "url": "assets/continue/Continue.png",
+                "type": "image",
+                "key": "Continue"
+            },
+            {
+                "url": "assets/continue/ContinueMenu.png",
+                "type": "image",
+                "key": "ContinueMenu"
+            },
+            {
                 "url": "assets/environmental/firehydrant.png",
                 "type": "image",
                 "key": "firehydrant"
