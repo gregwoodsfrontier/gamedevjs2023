@@ -17,7 +17,26 @@
             "id": "5afa873d-fe22-4db3-a62e-94a0150fe1ec",
             "label": "LevelBehavior",
             "components": [],
-            "list": []
+            "list": [
+                {
+                    "prefabId": "d1e71584-417d-45a4-af27-8e2ef23af268",
+                    "id": "815cc6a3-1325-4e65-9443-bcf190edaffb",
+                    "label": "cameraBounds",
+                    "scope": "CLASS",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "b6fb41fb-8d49-4816-969d-427326a41e0e",
+                    "id": "47babc73-bd40-4ce2-ae37-070bac178792",
+                    "label": "worldBounds",
+                    "scope": "CLASS",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
         }
     ],
     "plainObjects": [],
@@ -35,7 +54,7 @@
             "defValue": "",
             "customDefinition": false,
             "type": {
-                "id": "constructor",
+                "id": "object-var",
                 "expressionType": "Player"
             }
         },
@@ -46,8 +65,8 @@
             "defValue": "",
             "customDefinition": false,
             "type": {
-                "id": "constructor",
-                "expressionType": "any"
+                "id": "object-var",
+                "expressionType": "Phaser.Tilemaps.TilemapLayer"
             }
         },
         {
@@ -57,7 +76,7 @@
             "defValue": "",
             "customDefinition": false,
             "type": {
-                "id": "constructor",
+                "id": "object-var",
                 "expressionType": "FireHydrant[]"
             }
         },
@@ -68,7 +87,7 @@
             "defValue": "",
             "customDefinition": false,
             "type": {
-                "id": "constructor",
+                "id": "object-var",
                 "expressionType": "Goal"
             }
         },
@@ -79,7 +98,7 @@
             "defValue": "",
             "customDefinition": false,
             "type": {
-                "id": "constructor",
+                "id": "object-var",
                 "expressionType": "Newspaper"
             }
         }
