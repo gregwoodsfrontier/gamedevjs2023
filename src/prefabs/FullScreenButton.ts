@@ -12,9 +12,6 @@ export default class FullScreenButton extends Phaser.GameObjects.Image {
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 320, y ?? 240, texture || "fullscreen", frame);
 
-		this.scaleX = 0.25;
-		this.scaleY = 0.25;
-
 		/* START-USER-CTR-CODE */
         this.setInteractive(); // Make the button interactive
         this.on('pointerup', this.toggleFullScreen, this); // Toggle fullscreen on pointerup event

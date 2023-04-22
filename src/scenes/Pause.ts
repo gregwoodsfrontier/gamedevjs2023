@@ -4,7 +4,6 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import RestartButton from "../prefabs/RestartButton";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -21,38 +20,41 @@ export default class Pause extends Phaser.Scene {
 	editorCreate(): void {
 
 		// pauseText
-		const pauseText = this.add.text(329, 117, "", {});
+		const pauseText = this.add.bitmapText(320, 175, "StayPixel2", "Pause");
 		pauseText.setOrigin(0.5, 0.5);
+		pauseText.tintFill = true;
+		pauseText.tintTopLeft = 16753408;
+		pauseText.tintTopRight = 16753408;
+		pauseText.tintBottomLeft = 16753408;
+		pauseText.tintBottomRight = 16753408;
 		pauseText.text = "Pause";
-		pauseText.setStyle({ "fontSize": "64px" });
+		pauseText.fontSize = 60;
+		pauseText.dropShadowX = 5;
+		pauseText.dropShadowY = 2;
+		pauseText.dropShadowColor = 11227702;
 
 		// contDesc
-		const contDesc = this.add.text(328, 249, "", {});
+		const contDesc = this.add.bitmapText(320, 237, "StayPixel2", "Hit C to resume");
 		contDesc.setOrigin(0.5, 0.5);
+		contDesc.tintFill = true;
+		contDesc.tintTopLeft = 16753408;
+		contDesc.tintTopRight = 16753408;
+		contDesc.tintBottomLeft = 16753408;
+		contDesc.tintBottomRight = 16753408;
 		contDesc.text = "Hit C to resume";
-		contDesc.setStyle({ "fontSize": "32px" });
-
-		// play
-		const play = this.add.image(248, 184, "Play");
-		play.scaleX = 3;
-		play.scaleY = 3;
-
-		// restartButton
-		const restartButton = new RestartButton(this, 395, 184);
-		this.add.existing(restartButton);
-		restartButton.scaleX = 3;
-		restartButton.scaleY = 3;
+		contDesc.fontSize = 40;
+		contDesc.dropShadowX = 5;
+		contDesc.dropShadowY = 5;
+		contDesc.dropShadowColor = 11227702;
 
 		this.pauseText = pauseText;
 		this.contDesc = contDesc;
-		this.play = play;
 
 		this.events.emit("scene-awake");
 	}
 
-	private pauseText!: Phaser.GameObjects.Text;
-	private contDesc!: Phaser.GameObjects.Text;
-	private play!: Phaser.GameObjects.Image;
+	private pauseText!: Phaser.GameObjects.BitmapText;
+	private contDesc!: Phaser.GameObjects.BitmapText;
 
 	/* START-USER-CODE */
 
@@ -62,7 +64,7 @@ export default class Pause extends Phaser.Scene {
 
 		this.editorCreate();
 
-		this.play.once('pointerup', this.resumeLevel)
+		// this.play.once('pointerup', this.resumeLevel)
 	}
 
 	resumeLevel() {

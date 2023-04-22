@@ -14,8 +14,8 @@ export default class PlayButton extends Phaser.GameObjects.Image {
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 320, y ?? 179, texture || "Play Button", frame);
 
-		this.scaleX = 0.25;
-		this.scaleY = 0.25;
+		this.scaleX = 1.5;
+		this.scaleY = 1.25;
 
 		// onPointerDownScript
 		const onPointerDownScript = new OnPointerDownScript(this);
@@ -23,15 +23,18 @@ export default class PlayButton extends Phaser.GameObjects.Image {
 		// startSceneActionScript
 		const startSceneActionScript = new StartSceneActionScript(onPointerDownScript);
 
+		// startSceneActionScript_1
+		const startSceneActionScript_1 = new StartSceneActionScript(onPointerDownScript);
+
 		// startSceneActionScript (prefab fields)
-		startSceneActionScript.sceneKey = "Level2";
+		startSceneActionScript.sceneKey = "Level";
+		startSceneActionScript.data = { level: 1 };
+
+		// startSceneActionScript_1 (prefab fields)
+		startSceneActionScript_1.sceneKey = "UIScreen";
 
 		/* START-USER-CTR-CODE */
-		// this.setInteractive();
 
-		// this.on('pointerdown', () => {
-		// 	this.scene.scene.start('Level');
-		// });
 		/* END-USER-CTR-CODE */
 	}
 

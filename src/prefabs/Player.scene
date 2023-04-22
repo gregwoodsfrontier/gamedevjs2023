@@ -20,14 +20,15 @@
                 "CameraFollow"
             ],
             "texture": {
-                "key": "player-idle",
+                "key": "shiba_idle",
                 "frame": 0
             },
             "collideWorldBounds": true,
-            "body.width": 21,
-            "body.height": 22,
-            "body.offset.x": 6,
-            "body.offset.y": 10,
+            "useDamping": true,
+            "body.width": 22,
+            "body.height": 20,
+            "body.offset.x": 13,
+            "body.offset.y": 28,
             "list": [
                 {
                     "prefabId": "7ebcc666-227f-47b9-ae7e-e51a0f0f18cb",
@@ -59,6 +60,33 @@
                             "prefabId": "7540cbe0-b48c-4d19-915e-51b6def9cc3e",
                             "id": "7817c4e8-6429-47ee-8fac-2709b1848314",
                             "label": "jumpState",
+                            "scope": "CLASS",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        },
+                        {
+                            "prefabId": "60d51a75-cbe9-4392-90a5-3182604f735c",
+                            "id": "6f508915-b271-46d8-aeb3-1058fdad0eed",
+                            "label": "staggerState",
+                            "scope": "CLASS",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        },
+                        {
+                            "prefabId": "afeae31e-cef1-4736-aea9-113b4205c72c",
+                            "id": "3a459406-f727-49b8-97e3-a0d5b2268c9d",
+                            "label": "dashState",
+                            "scope": "CLASS",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        },
+                        {
+                            "prefabId": "85c931bc-20a2-4256-84d6-08c1e07d1a01",
+                            "id": "f630134e-9e27-499d-bf5f-72c171898cec",
+                            "label": "crouchState",
                             "scope": "CLASS",
                             "components": [],
                             "nestedPrefabs": [],
@@ -105,6 +133,26 @@
             "customDefinition": false,
             "type": {
                 "id": "boolean"
+            }
+        },
+        {
+            "name": "dashSpd",
+            "label": "dashSpd",
+            "tooltip": "The dashing speed of the player",
+            "defValue": 10,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "dashTime",
+            "label": "dashTime",
+            "tooltip": "The dashing period it lasts",
+            "defValue": 1000,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
             }
         }
     ]
