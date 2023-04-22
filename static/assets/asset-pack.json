@@ -69,45 +69,6 @@
                 "key": "birda_walk"
             },
             {
-                "url": "assets/enemies/Chicken/Hit (32x34).png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 34,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "chicken_hit"
-            },
-            {
-                "url": "assets/enemies/Chicken/Idle (32x34).png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 34,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "chicken_idle"
-            },
-            {
-                "url": "assets/enemies/Chicken/Run (32x34).png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 34,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "chicken_run"
-            },
-            {
                 "url": "assets/buttons/Close.png",
                 "type": "image",
                 "key": "Close"
@@ -213,32 +174,6 @@
                 "url": "assets/anims/player-animations.json",
                 "type": "animation",
                 "key": "player-animations"
-            },
-            {
-                "url": "assets/player/Idle (32x32).png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "player-idle"
-            },
-            {
-                "url": "assets/player/Run (32x32).png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "player-run"
             },
             {
                 "url": "assets/buttons/Previous.png",
