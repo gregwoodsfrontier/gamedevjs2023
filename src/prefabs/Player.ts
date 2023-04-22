@@ -126,8 +126,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 					this.crouchState.onExit(this)
 				}
 			}
-		)
-		.addState(
+		).addState(
 			this.jumpState.stateName, {
 				onEnter: () => {
 					this.jumpState.onEnter(this, this.jumpSpeed, ANIM_SHIBA_JUMP)
@@ -142,8 +141,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 					)
 				}
 			}
-		)
-		.addState(
+		).addState(
 			this.staggerState.stateName, {
 				onEnter: () => {
 					this.staggerState.onEnter(this)
@@ -152,8 +150,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 					this.staggerState.onExit(this)
 				}
 			}
-		)
-		.setState(this.idleState.stateName)
+		).setState(this.idleState.stateName)
 
 		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
 

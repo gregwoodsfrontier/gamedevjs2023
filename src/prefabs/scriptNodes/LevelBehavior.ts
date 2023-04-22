@@ -57,8 +57,6 @@ export default class LevelBehavior extends ScriptNode {
 	start() {
 		const {scene} = this
 
-		
-
 		// setting up all the colliders here
 		scene.physics.add.collider(this.newspaper, this.groundLayer)
 		scene.physics.add.collider(this.hydrantList, this.groundLayer)
@@ -70,8 +68,27 @@ export default class LevelBehavior extends ScriptNode {
 		scene.physics.add.collider(this.player, this.goal)
 
 		// setting all the player inputs here and fire events to the player instead
-
+		// this.cursors = scene.input.keyboard?.createCursorKeys()
 	}
+
+	// may need to re-visit this sometime
+	// update() {
+	// 	if(this.cursors) {
+	// 		if(Phaser.Input.Keyboard.JustDown(this.cursors?.up)) {
+	// 			this.player.emit("jump")
+	// 		}
+	// 		else if(this.cursors.down.isDown) {
+	// 			this.player.emit("crouch")
+	// 		}
+
+	// 		if(this.cursors.left.isDown) {
+	// 			this.player.emit("move-left")
+	// 		}
+	// 		else if(this.cursors.right.isDown) {
+	// 			this.player.emit("move-right")
+	// 		}
+	// 	}
+	// }
 
 	setupCameraBounds(_boundW: number, _boundH: number) {
 		this.cameraBounds.boundWidth = _boundW;
