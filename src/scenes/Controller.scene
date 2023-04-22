@@ -1,0 +1,56 @@
+{
+    "id": "a252c27b-f33e-4ee7-acf9-41a7e7a93dfe",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Controller",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "prefabId": "b922df8d-9e20-4f96-a3cd-d998e573c88f",
+            "id": "2fcee690-37be-4ee7-8cfc-46cfc2ab9fe2",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "fullScreenButton",
+            "components": [],
+            "x": 602,
+            "y": 321,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "2e0b2c35-78d5-40d1-a59f-7aa65d6f6f92",
+            "id": "90f33564-41b1-45db-b632-0168c9e5f749",
+            "unlock": [
+                "x",
+                "y",
+                "key"
+            ],
+            "label": "launchSceneNode",
+            "scope": "CLASS",
+            "key": "MainMenu",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}
