@@ -76,7 +76,25 @@
             "label": "restartButton",
             "components": [],
             "x": 608,
-            "y": 32,
+            "y": 34,
+            "scaleX": 2,
+            "scaleY": 2,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "00258ca7-ff33-40ce-8ecc-43ed5f2508b5",
+            "id": "cb1de720-9d8d-4b9f-a893-c46d26eb14dc",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "pause",
+            "components": [],
+            "x": 556,
+            "y": 34,
             "scaleX": 2,
             "scaleY": 2,
             "nestedPrefabs": [],

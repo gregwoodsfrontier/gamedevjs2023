@@ -17,14 +17,14 @@ export default class RestartButton extends Phaser.GameObjects.Image {
 		// onPointerDownScript
 		const onPointerDownScript = new OnPointerDownScript(this);
 
-		// startLevelScript
-		const startLevelScript = new StartSceneActionScript(onPointerDownScript);
+		// startSceneActionScript
+		const startSceneActionScript = new StartSceneActionScript(onPointerDownScript);
 
 		// startUIScreenScript
 		const startUIScreenScript = new StartSceneActionScript(onPointerDownScript);
 
-		// startLevelScript (prefab fields)
-		startLevelScript.sceneKey = "Level";
+		// startSceneActionScript (prefab fields)
+		startSceneActionScript.sceneKey = "Level";
 
 		// startUIScreenScript (prefab fields)
 		startUIScreenScript.sceneKey = "UIScreen";

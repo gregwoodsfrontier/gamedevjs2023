@@ -10,6 +10,8 @@ import AudioAddNode from "../prefabs/scriptNodes/AudioAddNode";
 import CameraBounds from "../prefabs/scriptNodes/CameraBounds";
 /* START-USER-IMPORTS */
 import { ANIM_P_RUN, ANIM_P_DBL_JUMP } from "../animations";
+import eventsCenter from "../eventCenter";
+import { PAUSE_GAME, RESUME_GAME } from "../prefabs/scriptNodes/onPauseScreenNode";
 /* END-USER-IMPORTS */
 
 export default class Level extends Phaser.Scene {
@@ -106,6 +108,19 @@ export default class Level extends Phaser.Scene {
 
 		this.time.delayedCall(300, () => {
 			theme?.play()
+		})
+
+		eventsCenter.on(PAUSE_GAME, () => {
+			theme?.pause()
+		})
+
+		eventsCenter.on(RESUME_GAME, () => {
+			theme?.resume()
+		})
+
+		this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+			theme?.stop()
+			theme?.destroy()
 		})
 
 		

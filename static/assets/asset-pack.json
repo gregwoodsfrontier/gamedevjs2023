@@ -195,6 +195,11 @@
                 "key": "Next"
             },
             {
+                "url": "assets/buttons/pause.png",
+                "type": "image",
+                "key": "pause"
+            },
+            {
                 "url": "assets/buttons/Play.png",
                 "type": "image",
                 "key": "Play"
