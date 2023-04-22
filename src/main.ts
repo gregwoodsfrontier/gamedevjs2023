@@ -5,6 +5,8 @@ import Preload from "./scenes/Preload";
 import Settings from "./scenes/Settings";
 import UIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin.js';
 import Level2 from "./scenes/Level2";
+import UIScreen from "./scenes/UIScreen";
+import Pause from "./scenes/Pause";
 
 class Boot extends Phaser.Scene {
 
@@ -48,7 +50,7 @@ const game = new Phaser.Game({
         // ...
         ]
     },
-    scene: [Boot, Preload, Level, MainMenu, Settings, Level2]
+    scene: [Boot, Preload, Level, MainMenu, Settings, Level2, UIScreen, Pause]
 });
 
 game.scene.start("Boot");

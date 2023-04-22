@@ -12,6 +12,9 @@ import CameraBounds from "../prefabs/scriptNodes/CameraBounds";
 import AudioAddNode from "../prefabs/scriptNodes/AudioAddNode";
 import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
 /* START-USER-IMPORTS */
+import { ANIM_P_RUN, ANIM_P_DBL_JUMP } from "../animations";
+import eventsCenter from "../eventCenter";
+import { PAUSE_GAME, RESUME_GAME } from "../prefabs/scriptNodes/onPauseScreenNode";
 /* END-USER-IMPORTS */
 
 export default class Level extends Phaser.Scene {
@@ -132,6 +135,78 @@ export default class Level extends Phaser.Scene {
 		this.events.emit("setup-cam-bounds", this.lv1.width * this.lv1.tileWidth, this.lv1.height * this.lv1.tileHeight)
 		this.events.emit("setup-world-bounds", this.lv1.width * this.lv1.tileWidth, this.lv1.height * this.lv1.tileHeight)
 
+		const theme = this.audioAddNode._g_audio
+
+		this.time.delayedCall(300, () => {
+			theme?.play()
+		})
+
+		eventsCenter.on(PAUSE_GAME, () => {
+			theme?.pause()
+		})
+
+		eventsCenter.on(RESUME_GAME, () => {
+			theme?.resume()
+		})
+
+		this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+			theme?.stop()
+			theme?.destroy()
+		})
+
+		
+
+		// this.debugScript.execute = () => {
+		// 	if(!this.theme?.isPlaying) {
+		// 		this.theme?.play()
+		// 	}
+		// 	else if (this.theme?.isPlaying) {
+		// 		this.theme.pause()
+		// 	}
+
+		// }
+		// Create and store keyboard input
+		// this.WKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+	}
+
+	update() {
+
+		// if (this.WKey && this.theme && Phaser.Input.Keyboard.JustDown(this.WKey)) {
+		// 	console.log('W Key is just pressed')
+		// 	if(!this.theme.isPlaying)
+		// 	{
+		// 		this.theme.play()
+		// 	}
+		// 	else if (this.theme.isPlaying)
+		// 	{
+		// 		this.theme.pause()
+		// 	}
+		// }
+
+    	// if (this.cursors.left.isDown) {
+        // 	this.character.setVelocityX(-200);
+        // 	this.character.anims.play("run", true);
+        // 	this.character.flipX = true;
+    	// } else if (this.cursors.right.isDown) {
+		// 	this.character.setVelocityX(200);
+		// 	this.character.anims.play("run", true);
+		// 	this.character.flipX = false;
+		// } else {
+		// 	this.character.setVelocityX(0);
+		// 	this.character.anims.play("idle", true);
+		// }
+
+		// // Jumping
+		// if (Phaser.Input.Keyboard.JustDown(this.cursors.up) && this.character.body.onFloor()) {
+		// 	this.character.setVelocityY(-350);
+		// }
+
+		// // Jump and fall animations
+		// if (this.character.body.velocity.y < 0) {
+		// 	this.character.anims.play("jump", true);
+		// } else if (this.character.body.velocity.y > 0 && !this.character.body.touching.down) {
+		// 	this.character.anims.play("fall", true);
+		// }
 	}
 
 	/* END-USER-CODE */

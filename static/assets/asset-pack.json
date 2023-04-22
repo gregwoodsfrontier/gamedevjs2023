@@ -141,6 +141,11 @@
                 "key": "greyStar"
             },
             {
+                "url": "assets/ui/hourglass.png",
+                "type": "image",
+                "key": "hourglass"
+            },
+            {
                 "url": "assets/environmental/house2.png",
                 "type": "image",
                 "key": "house2"
@@ -188,6 +193,11 @@
                 "url": "assets/buttons/Next.png",
                 "type": "image",
                 "key": "Next"
+            },
+            {
+                "url": "assets/buttons/pause.png",
+                "type": "image",
+                "key": "pause"
             },
             {
                 "url": "assets/buttons/Play.png",

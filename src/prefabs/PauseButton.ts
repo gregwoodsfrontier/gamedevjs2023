@@ -5,32 +5,31 @@
 
 import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
-import StartSceneActionScript from "./scriptNodes/StartSceneActionScript";
+import onPauseScreenNode, { PAUSE_GAME, RESUME_GAME } from "./scriptNodes/onPauseScreenNode";
 /* START-USER-IMPORTS */
+import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
-export default class RestartButton extends Phaser.GameObjects.Image {
+export default class PauseButton extends Phaser.GameObjects.Image {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "Restart", frame);
+		super(scene, x ?? 0, y ?? 0, texture || "pause", frame);
 
 		// onPointerDownScript
 		const onPointerDownScript = new OnPointerDownScript(this);
 
-		// startSceneActionScript
-		const startSceneActionScript = new StartSceneActionScript(onPointerDownScript);
-
-		// startUIScreenScript
-		const startUIScreenScript = new StartSceneActionScript(onPointerDownScript);
-
-		// startSceneActionScript (prefab fields)
-		startSceneActionScript.sceneKey = "Level";
-
-		// startUIScreenScript (prefab fields)
-		startUIScreenScript.sceneKey = "UIScreen";
+		// onPauseScreenNode
+		new onPauseScreenNode(onPointerDownScript);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		eventsCenter.on(PAUSE_GAME, () => {
+			this.setTexture("Play")
+		})
+
+		eventsCenter.on(RESUME_GAME, () => {
+			this.setTexture("pause")
+		})
 		/* END-USER-CTR-CODE */
 	}
 

@@ -45,6 +45,18 @@
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []
+                        },
+                        {
+                            "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
+                            "id": "939a7f9c-35ae-4643-b97b-ff85bf5cdb90",
+                            "unlock": [
+                                "sceneKey"
+                            ],
+                            "label": "startSceneActionScript_1",
+                            "sceneKey": "UIScreen",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
                         }
                     ]
                 }
