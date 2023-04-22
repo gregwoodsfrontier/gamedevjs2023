@@ -4,7 +4,9 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+
 /* START-USER-IMPORTS */
+import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class TimeBar extends Phaser.GameObjects.Container {
@@ -49,16 +51,35 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 
 	/* START-USER-CODE */
 	private timerInMs = this.timer * 1000
+	private isPaused = false
 
 	// Write your code here.
 	awake() {
 		// fill the bar first
 		this.fill.width = this.bar.width
+
+		eventsCenter.on("pause-game", () => {
+			this.isPaused = true
+		})
+
+		eventsCenter.on("resume-game", () => {
+			this.isPaused = false
+		})
+
+		// this.scene.events.on("stop-timer", () => {
+		// 	this.isPaused = true
+		// })
+
+		// this.scene.events.on("start-timer", () => {
+		// 	this.isPaused = false
+		// })
 	}
 
 	update(time: number, delta: number) {
-		this.timerInMs -= delta
-
+		if(!this.isPaused) {
+			this.timerInMs -= delta
+		}
+		
 		const fillScale = Phaser.Math.Clamp(this.timerInMs / (this.timer * 1000), 0, 1)
 
 		this.fill.setScale(fillScale, 1)
