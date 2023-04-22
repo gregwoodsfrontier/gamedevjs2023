@@ -20,8 +20,8 @@
             "texture": {
                 "key": "Settings Button"
             },
-            "scaleX": 0.25,
-            "scaleY": 0.25,
+            "scaleX": 1.5,
+            "scaleY": 1.25,
             "list": [
                 {
                     "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
