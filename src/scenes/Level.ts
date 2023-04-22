@@ -105,9 +105,6 @@ export default class Level extends Phaser.Scene {
 
 	/* START-USER-CODE */
 	// Write your code here
-	init(data: object) {
-		console.log('init', data)
-	}
 
 	create() {
 

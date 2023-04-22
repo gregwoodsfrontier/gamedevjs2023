@@ -22,20 +22,24 @@ export default class PauseButton extends Phaser.GameObjects.Image {
 		new onPauseScreenNode(onPointerDownScript);
 
 		/* START-USER-CTR-CODE */
+		this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this)
 		// Write your code here.
-		eventsCenter.on(PAUSE_GAME, () => {
-			this.setTexture("Play")
-		})
 
-		eventsCenter.on(RESUME_GAME, () => {
-			this.setTexture("pause")
-		})
 		/* END-USER-CTR-CODE */
 	}
 
 	/* START-USER-CODE */
 
 	// Write your code here.
+	start() {
+		eventsCenter.on(PAUSE_GAME, () => {
+			this.setTexture("Play")
+		}, this)
+
+		eventsCenter.on(RESUME_GAME, () => {
+			this.setTexture("pause")
+		}, this)
+	}
 
 	/* END-USER-CODE */
 }

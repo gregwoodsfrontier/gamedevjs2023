@@ -109,11 +109,9 @@ export default class LevelBehavior extends ScriptNode {
 		})
 
 		scene.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
-			theme?.stop()
 			theme?.destroy()
+			console.log('theme should be destroyed in level')
 		})
-
-		
 	}
 
 	// may need to re-visit this sometime

@@ -41,7 +41,6 @@
                             ],
                             "label": "startSceneActionScript",
                             "sceneKey": "Level",
-                            "data": "{ level: 1 }",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []

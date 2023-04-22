@@ -6,6 +6,7 @@
 import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
 import StartSceneActionScript from "./scriptNodes/StartSceneActionScript";
+import eventsCenter from "../eventCenter";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -31,6 +32,9 @@ export default class RestartButton extends Phaser.GameObjects.Image {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		this.on('pointerdown', () => {
+			eventsCenter.shutdown()
+		})
 		/* END-USER-CTR-CODE */
 	}
 

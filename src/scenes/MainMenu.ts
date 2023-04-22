@@ -92,16 +92,14 @@ export default class MainMenu extends Phaser.Scene {
 
 		this.editorCreate();
 
-		// const theme = this.sound.add("Menu_Theme", {
-		// 	loop: true
-		// })
 		const theme = this.audioAddNode._g_audio
 
 		theme?.play()
 
 		this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
 
-			theme?.stop()
+			theme?.destroy()
+			console.log('theme should be destroyed in main')
 		})
 	}
 

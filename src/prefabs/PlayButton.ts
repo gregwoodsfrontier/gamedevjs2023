@@ -28,7 +28,6 @@ export default class PlayButton extends Phaser.GameObjects.Image {
 
 		// startSceneActionScript (prefab fields)
 		startSceneActionScript.sceneKey = "Level";
-		startSceneActionScript.data = { level: 1 };
 
 		// startSceneActionScript_1 (prefab fields)
 		startSceneActionScript_1.sceneKey = "UIScreen";

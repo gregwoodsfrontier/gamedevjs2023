@@ -39,7 +39,7 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		this.scene.events.once("scene-awake", this.awake, this)
+		this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this)
 
 		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this)
 		/* END-USER-CTR-CODE */
@@ -54,25 +54,19 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 	private isPaused = false
 
 	// Write your code here.
-	awake() {
+	start() {
 		// fill the bar first
 		this.fill.width = this.bar.width
 
 		eventsCenter.on("pause-game", () => {
 			this.isPaused = true
+			console.log(`timer is paused`)
 		})
 
 		eventsCenter.on("resume-game", () => {
 			this.isPaused = false
+			console.log(`timer is resumed`)
 		})
-
-		// this.scene.events.on("stop-timer", () => {
-		// 	this.isPaused = true
-		// })
-
-		// this.scene.events.on("start-timer", () => {
-		// 	this.isPaused = false
-		// })
 	}
 
 	update(time: number, delta: number) {

@@ -7,6 +7,7 @@ import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
 import StartSceneActionScript from "./scriptNodes/StartSceneActionScript";
 /* START-USER-IMPORTS */
+import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class BackToMainButton extends Phaser.GameObjects.Image {
@@ -25,6 +26,19 @@ export default class BackToMainButton extends Phaser.GameObjects.Image {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		this.on('pointerdown', () => {
+			if(this.scene.scene.isActive("UIScreen"))
+			{
+				this.scene.scene.stop("uiScreen")
+			}
+
+			if(this.scene.scene.isActive("Level"))
+			{
+				this.scene.scene.stop("Level")
+			}
+
+			eventsCenter.shutdown()
+		})
 		/* END-USER-CTR-CODE */
 	}
 
