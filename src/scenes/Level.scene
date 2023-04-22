@@ -127,36 +127,6 @@
             "list": []
         },
         {
-            "prefabId": "d1e71584-417d-45a4-af27-8e2ef23af268",
-            "id": "6e6bde81-58ca-4187-8a47-f95c61c81ea0",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "CameraBounds",
-            "scope": "CLASS",
-            "x": 0,
-            "y": 0,
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
-            "id": "4d5e4d46-4ff0-4539-834d-30e19de8f552",
-            "unlock": [
-                "x",
-                "y",
-                "audioKey"
-            ],
-            "label": "AudioAddNode",
-            "scope": "CLASS",
-            "audioKey": "theme_1",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
             "prefabId": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
             "id": "4ef87d2a-68d5-49a1-9039-842698dc0130",
             "unlock": [

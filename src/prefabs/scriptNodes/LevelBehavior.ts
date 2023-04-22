@@ -14,6 +14,8 @@ import PlayerContainer from "../PlayerContainer";
 import FireHydrant from "../FireHydrant";
 import Newspaper from "../Newspaper";
 import Goal from "../Goal";
+import eventsCenter from "../../eventCenter";
+import { PAUSE_GAME, RESUME_GAME } from "./onPauseScreenNode";
 /* END-USER-IMPORTS */
 
 export default class LevelBehavior extends ScriptNode {
@@ -97,6 +99,21 @@ export default class LevelBehavior extends ScriptNode {
 		scene.time.delayedCall(300, () => {
 			theme?.play()
 		})
+
+		eventsCenter.on(PAUSE_GAME, () => {
+			theme?.pause()
+		})
+
+		eventsCenter.on(RESUME_GAME, () => {
+			theme?.resume()
+		})
+
+		scene.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+			theme?.stop()
+			theme?.destroy()
+		})
+
+		
 	}
 
 	// may need to re-visit this sometime
