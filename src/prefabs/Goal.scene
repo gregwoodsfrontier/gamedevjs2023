@@ -22,10 +22,14 @@
                 "key": "house2"
             },
             "physicsType": 1,
-            "body.width": 24,
-            "body.height": 24,
-            "body.offset.x": 12,
-            "body.offset.y": 24,
+            "moves": false,
+            "allowGravity": false,
+            "allowRotation": false,
+            "pushable": false,
+            "body.width": 38,
+            "body.height": 31,
+            "body.offset.x": 5,
+            "body.offset.y": 34,
             "list": []
         }
     ],

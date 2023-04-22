@@ -21,8 +21,14 @@
                 {
                     "prefabId": "d1e71584-417d-45a4-af27-8e2ef23af268",
                     "id": "815cc6a3-1325-4e65-9443-bcf190edaffb",
+                    "unlock": [
+                        "boundWidth",
+                        "boundHeight"
+                    ],
                     "label": "cameraBounds",
                     "scope": "CLASS",
+                    "boundWidth": 1200,
+                    "boundHeight": 368,
                     "components": [],
                     "nestedPrefabs": [],
                     "list": []
@@ -30,8 +36,14 @@
                 {
                     "prefabId": "b6fb41fb-8d49-4816-969d-427326a41e0e",
                     "id": "47babc73-bd40-4ce2-ae37-070bac178792",
+                    "unlock": [
+                        "width",
+                        "height"
+                    ],
                     "label": "worldBounds",
                     "scope": "CLASS",
+                    "width": 1200,
+                    "height": 368,
                     "components": [],
                     "nestedPrefabs": [],
                     "list": []

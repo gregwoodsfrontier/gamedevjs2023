@@ -30,6 +30,14 @@ export default class LevelBehavior extends ScriptNode {
 		// audioAddNode
 		const audioAddNode = new AudioAddNode(this);
 
+		// cameraBounds (prefab fields)
+		cameraBounds.boundWidth = 1200;
+		cameraBounds.boundHeight = 368;
+
+		// worldBounds (prefab fields)
+		worldBounds.width = 1200;
+		worldBounds.height = 368;
+
 		// audioAddNode (prefab fields)
 		audioAddNode.audioKey = "theme_1";
 
@@ -73,12 +81,12 @@ export default class LevelBehavior extends ScriptNode {
 			scene.physics.add.collider(this.hydrantList, this.groundLayer)
 			scene.physics.add.collider(this.player, this.groundLayer)
 		}
-		
+
 		//@ts-ignore
 		scene.physics.add.collider(this.player, this.newspaper, this.handlePlayerNewsPaper)
 		//@ts-ignore
 		scene.physics.add.collider(this.player, this.hydrantList, this.handlePlayerHydrant)
-		scene.physics.add.collider(this.player, this.goal)
+		scene.physics.add.overlap(this.player, this.goal)
 
 		// setting all the player inputs here and fire events to the player instead
 		// this.cursors = scene.input.keyboard?.createCursorKeys()
@@ -111,6 +119,8 @@ export default class LevelBehavior extends ScriptNode {
 	// }
 
 	setupCameraBounds(_boundW: number, _boundH: number) {
+		console.log(_boundW, "bound Width")
+		console.log(_boundH, "boundH")
 		this.cameraBounds.boundWidth = _boundW;
 		this.cameraBounds.boundHeight = _boundH
 	}

@@ -85,8 +85,6 @@ export default class Level extends Phaser.Scene {
 		// cameraBounds (prefab fields)
 		cameraBounds.x = 0;
 		cameraBounds.y = 0;
-		cameraBounds.boundWidth = 0;
-		cameraBounds.boundHeight = 640;
 
 		// audioAddNode (prefab fields)
 		audioAddNode.audioKey = "theme_1";

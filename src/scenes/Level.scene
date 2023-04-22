@@ -131,16 +131,12 @@
             "id": "6e6bde81-58ca-4187-8a47-f95c61c81ea0",
             "unlock": [
                 "x",
-                "y",
-                "boundHeight",
-                "boundWidth"
+                "y"
             ],
             "label": "CameraBounds",
             "scope": "CLASS",
             "x": 0,
             "y": 0,
-            "boundWidth": 0,
-            "boundHeight": 640,
             "components": [],
             "nestedPrefabs": [],
             "list": []
