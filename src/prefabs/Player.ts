@@ -126,8 +126,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 					this.crouchState.onExit(this)
 				}
 			}
-		)
-		.addState(
+		).addState(
 			this.jumpState.stateName, {
 				onEnter: () => {
 					this.jumpState.onEnter(this, this.jumpSpeed, ANIM_SHIBA_JUMP)
@@ -142,8 +141,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 					)
 				}
 			}
-		)
-		.addState(
+		).addState(
 			this.staggerState.stateName, {
 				onEnter: () => {
 					this.staggerState.onEnter(this)
@@ -152,8 +150,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 					this.staggerState.onExit(this)
 				}
 			}
-		)
-		.setState(this.idleState.stateName)
+		).setState(this.idleState.stateName)
 
 		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
 
@@ -175,6 +172,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 	/* START-USER-CODE */
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
+	private inventory = [] as number[]
 
 	// Write your code here.
 
@@ -195,6 +193,27 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		return Phaser.Input.Keyboard.JustDown(key)
 	}
 
+	get inventoryGetter() {
+		return this.inventory
+	}
+
+	equip(item: number) {
+		console.log('Dog has newspaper equipped')
+		this.inventory.push(item)
+		console.log('Dog item bag : ', this.inventory)
+	}
+
+	unequip(item: number) {
+		console.log('Dog has newspaper un-equipped')
+		const filtered = this.inventory.filter(i => i === item)
+		this.inventory = filtered
+		console.log('Dog item bag : ', this.inventory)
+	}
+
+	pee() {
+		this.stateMachineNode.setState(this.staggerState.stateName)
+	}
+
 	switchStateMachineNetwork() {
 		switch (this.stateMachineNode.currentStateName) {
 			case this.idleState.stateName:
@@ -209,7 +228,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 				if(this.cursors?.down.isDown) {
 					this.stateMachineNode.setState(this.crouchState.stateName)
-					// this.stateMachineNode.setState(this.staggerState.stateName)
 
 				}
 

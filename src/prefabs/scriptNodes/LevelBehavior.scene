@@ -1,0 +1,131 @@
+{
+    "id": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "type": "ScriptNode",
+            "id": "5afa873d-fe22-4db3-a62e-94a0150fe1ec",
+            "label": "LevelBehavior",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "d1e71584-417d-45a4-af27-8e2ef23af268",
+                    "id": "815cc6a3-1325-4e65-9443-bcf190edaffb",
+                    "unlock": [
+                        "boundWidth",
+                        "boundHeight"
+                    ],
+                    "label": "cameraBounds",
+                    "scope": "CLASS",
+                    "boundWidth": 1200,
+                    "boundHeight": 368,
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "b6fb41fb-8d49-4816-969d-427326a41e0e",
+                    "id": "47babc73-bd40-4ce2-ae37-070bac178792",
+                    "unlock": [
+                        "width",
+                        "height"
+                    ],
+                    "label": "worldBounds",
+                    "scope": "CLASS",
+                    "width": 1200,
+                    "height": 368,
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
+                    "id": "657f5c79-a28c-41b0-9794-1723355c845b",
+                    "unlock": [
+                        "audioKey"
+                    ],
+                    "label": "audioAddNode",
+                    "scope": "CLASS",
+                    "audioKey": "theme_1",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "player",
+            "label": "player",
+            "tooltip": "player",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Player"
+            }
+        },
+        {
+            "name": "groundLayer",
+            "label": "groundLayer",
+            "tooltip": "groundLayer",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.Tilemaps.TilemapLayer | null"
+            }
+        },
+        {
+            "name": "hydrantList",
+            "label": "hydrantList",
+            "tooltip": "hydrantList",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "FireHydrant[]"
+            }
+        },
+        {
+            "name": "goal",
+            "label": "goal",
+            "tooltip": "goal",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Goal"
+            }
+        },
+        {
+            "name": "newspaper",
+            "label": "newspaper",
+            "tooltip": "newspaper",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Newspaper"
+            }
+        }
+    ]
+}

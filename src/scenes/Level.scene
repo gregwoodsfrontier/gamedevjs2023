@@ -16,10 +16,11 @@
     "displayList": [
         {
             "type": "TilemapLayer",
-            "id": "8d68e07b-47cc-464f-a5d5-af4497ef8c10",
+            "id": "d3195c01-6a3a-4f9b-bcea-0ce80ec6656c",
             "label": "background_1",
             "components": [],
             "list": [],
+            "tilemapId": "39d96246-c4fa-4675-bc80-9d1a0abfb7ab",
             "layerName": "background",
             "tilesets": [
                 "Terrain (16x16)",
@@ -28,18 +29,83 @@
         },
         {
             "type": "TilemapLayer",
-            "id": "5d2c82d0-6881-42ce-9b7d-5d13762cedc8",
+            "id": "39123aac-ce29-40e7-8d3c-058be03b40bb",
             "label": "ground_1",
-            "scope": "CLASS",
+            "useGameObjectName": true,
             "components": [
                 "LayerPhysics"
             ],
             "list": [],
+            "tilemapId": "39d96246-c4fa-4675-bc80-9d1a0abfb7ab",
             "layerName": "ground",
             "tilesets": [
                 "Terrain (16x16)",
                 "Clouds V2-2"
             ]
+        },
+        {
+            "prefabId": "151acbe1-c211-41b2-a5ff-73dfc46e4c1c",
+            "id": "ae8efb83-cabe-4970-81f3-90b38b9546f0",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "house2",
+            "scope": "CLASS",
+            "components": [],
+            "x": 1145,
+            "y": 64,
+            "scaleX": 2,
+            "scaleY": 2,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6d6f40ee-7a43-480c-9d6e-e26ccef0a3e2",
+            "id": "566dd795-464e-4aba-9755-10f2115610cc",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "newspaper",
+            "scope": "CLASS",
+            "components": [],
+            "x": 189,
+            "y": 167,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
+            "id": "2a359014-8d6c-4983-8a06-1243e7db8116",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fireHydrant",
+            "scope": "CLASS",
+            "components": [],
+            "x": 310,
+            "y": 191,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
+            "id": "55e6bc43-944b-4661-8ea7-01b4ba7685f0",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fireHydrant_1",
+            "scope": "CLASS",
+            "components": [],
+            "x": 542,
+            "y": 191,
+            "nestedPrefabs": [],
+            "list": []
         },
         {
             "prefabId": "e8cbef27-0122-44ad-a3de-0e0b260351e8",
@@ -61,14 +127,16 @@
             "list": []
         },
         {
-            "prefabId": "71c1fad7-dac6-41ac-ad61-76f777b61bde",
-            "id": "075bfc3d-fe43-4b97-a7d4-40a80a3ad0f4",
+            "prefabId": "d1e71584-417d-45a4-af27-8e2ef23af268",
+            "id": "6e6bde81-58ca-4187-8a47-f95c61c81ea0",
             "unlock": [
-                "keyBoardKey"
+                "x",
+                "y"
             ],
-            "label": "onKeyBoardJustDownScript",
+            "label": "CameraBounds",
             "scope": "CLASS",
-            "keyBoardKey": "this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)",
+            "x": 0,
+            "y": 0,
             "components": [],
             "nestedPrefabs": [],
             "list": []
@@ -89,20 +157,23 @@
             "list": []
         },
         {
-            "prefabId": "d1e71584-417d-45a4-af27-8e2ef23af268",
-            "id": "6e6bde81-58ca-4187-8a47-f95c61c81ea0",
+            "prefabId": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
+            "id": "4ef87d2a-68d5-49a1-9039-842698dc0130",
             "unlock": [
                 "x",
                 "y",
-                "boundWidth",
-                "boundHeight"
+                "player",
+                "groundLayer",
+                "hydrantList",
+                "goal",
+                "newspaper"
             ],
-            "label": "CameraBounds",
-            "scope": "CLASS",
-            "x": 0,
-            "y": 0,
-            "boundWidth": 6400,
-            "boundHeight": 640,
+            "label": "LevelBehavior",
+            "player": "player_1",
+            "groundLayer": "ground_1",
+            "hydrantList": "hydrantList",
+            "goal": "house2",
+            "newspaper": "newspaper",
             "components": [],
             "nestedPrefabs": [],
             "list": []
@@ -110,13 +181,7 @@
     ],
     "plainObjects": [
         {
-            "id": "91f0a713-2a4a-42c1-8dd4-0432c2114388",
-            "type": "Collider",
-            "label": "player_ground",
-            "object1": "player_1",
-            "object2": "ground_1"
-        },
-        {
+            "id": "39d96246-c4fa-4675-bc80-9d1a0abfb7ab",
             "type": "Tilemap",
             "label": "lv1",
             "key": "lv1",
@@ -137,5 +202,15 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    }
+    },
+    "lists": [
+        {
+            "id": "f53f0ac8-c629-40c9-b195-817dc7e8366c",
+            "label": "hydrantList",
+            "objectIds": [
+                "2a359014-8d6c-4983-8a06-1243e7db8116",
+                "55e6bc43-944b-4661-8ea7-01b4ba7685f0"
+            ]
+        }
+    ]
 }
