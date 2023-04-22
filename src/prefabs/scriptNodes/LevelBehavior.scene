@@ -1,0 +1,87 @@
+{
+    "id": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "type": "ScriptNode",
+            "id": "5afa873d-fe22-4db3-a62e-94a0150fe1ec",
+            "label": "LevelBehavior",
+            "components": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "player",
+            "label": "player",
+            "tooltip": "player",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "constructor",
+                "expressionType": "Player"
+            }
+        },
+        {
+            "name": "groundLayer",
+            "label": "groundLayer",
+            "tooltip": "groundLayer",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "constructor",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "hydrantList",
+            "label": "hydrantList",
+            "tooltip": "hydrantList",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "constructor",
+                "expressionType": "FireHydrant[]"
+            }
+        },
+        {
+            "name": "goal",
+            "label": "goal",
+            "tooltip": "goal",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "constructor",
+                "expressionType": "Goal"
+            }
+        },
+        {
+            "name": "newspaper",
+            "label": "newspaper",
+            "tooltip": "newspaper",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "constructor",
+                "expressionType": "Newspaper"
+            }
+        }
+    ]
+}
