@@ -5,7 +5,7 @@
 
 import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
-import StartSceneActionScript from "./scriptNodes/StartSceneActionScript";
+import ChangeStateInController from "./scriptNodes/ChangeStateInController";
 /* START-USER-IMPORTS */
 import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
@@ -18,27 +18,14 @@ export default class BackToMainButton extends Phaser.GameObjects.Image {
 		// onPointerDownScript
 		const onPointerDownScript = new OnPointerDownScript(this);
 
-		// startSceneActionScript
-		const startSceneActionScript = new StartSceneActionScript(onPointerDownScript);
+		// changeStateInController
+		const changeStateInController = new ChangeStateInController(onPointerDownScript);
 
-		// startSceneActionScript (prefab fields)
-		startSceneActionScript.sceneKey = "MainMenu";
+		// changeStateInController (prefab fields)
+		changeStateInController.SMState = "main-menu";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		this.on('pointerdown', () => {
-			if(this.scene.scene.isActive("UIScreen"))
-			{
-				this.scene.scene.stop("uiScreen")
-			}
-
-			if(this.scene.scene.isActive("Level"))
-			{
-				this.scene.scene.stop("Level")
-			}
-
-			eventsCenter.shutdown()
-		})
 		/* END-USER-CTR-CODE */
 	}
 

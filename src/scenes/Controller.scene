@@ -1,0 +1,76 @@
+{
+    "id": "a252c27b-f33e-4ee7-acf9-41a7e7a93dfe",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Controller",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "prefabId": "b922df8d-9e20-4f96-a3cd-d998e573c88f",
+            "id": "2fcee690-37be-4ee7-8cfc-46cfc2ab9fe2",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "fullScreenButton",
+            "components": [],
+            "x": 602,
+            "y": 321,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "7ebcc666-227f-47b9-ae7e-e51a0f0f18cb",
+            "id": "79e584af-1ae0-4f81-a7ab-8156853aca23",
+            "label": "stateMachineNode",
+            "scope": "CLASS",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
+            "id": "11614a5c-fb7f-4b55-b09d-aa0d39a3380e",
+            "unlock": [
+                "audioKey"
+            ],
+            "label": "theme_1_Node",
+            "scope": "CLASS",
+            "audioKey": "theme_1",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
+            "id": "699bb636-106b-4d5b-9862-8362f2e06a56",
+            "unlock": [
+                "audioKey"
+            ],
+            "label": "menuThemeNode",
+            "scope": "CLASS",
+            "audioKey": "Menu_Theme",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

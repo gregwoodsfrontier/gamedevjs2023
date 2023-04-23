@@ -94,24 +94,24 @@ export default class LevelBehavior extends ScriptNode {
 		// this.cursors = scene.input.keyboard?.createCursorKeys()
 
 		// play the tune in Level Behavior
-		const theme = this.audioAddNode._g_audio
+		// const theme = this.audioAddNode._g_audio
 
-		scene.time.delayedCall(300, () => {
-			theme?.play()
-		})
+		// scene.time.delayedCall(300, () => {
+		// 	theme?.play()
+		// })
 
-		eventsCenter.on(PAUSE_GAME, () => {
-			theme?.pause()
-		})
+		// eventsCenter.on(PAUSE_GAME, () => {
+		// 	theme?.pause()
+		// })
 
-		eventsCenter.on(RESUME_GAME, () => {
-			theme?.resume()
-		})
+		// eventsCenter.on(RESUME_GAME, () => {
+		// 	theme?.resume()
+		// })
 
-		scene.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
-			theme?.destroy()
-			console.log('theme should be destroyed in level')
-		})
+		// scene.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+		// 	theme?.destroy()
+		// 	console.log('theme should be destroyed in level')
+		// })
 	}
 
 	// may need to re-visit this sometime

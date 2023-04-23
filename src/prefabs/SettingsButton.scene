@@ -31,13 +31,13 @@
                     "nestedPrefabs": [],
                     "list": [
                         {
-                            "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
-                            "id": "bcdba072-3ec5-48b9-89eb-52d33429b972",
+                            "prefabId": "ed6c6e09-9fce-4613-bb4a-1441a84bf052",
+                            "id": "1f794da7-c85a-410a-8803-978a1a9025d2",
                             "unlock": [
-                                "sceneKey"
+                                "SMState"
                             ],
-                            "label": "startSceneActionScript",
-                            "sceneKey": "Settings",
+                            "label": "changeStateInController",
+                            "SMState": "settings",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []

@@ -5,7 +5,7 @@
 
 import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
-import StartSceneActionScript from "./scriptNodes/StartSceneActionScript";
+import ChangeStateInController from "./scriptNodes/ChangeStateInController";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -20,11 +20,11 @@ export default class SettingsButton extends Phaser.GameObjects.Image {
 		// onPointerDownScript
 		const onPointerDownScript = new OnPointerDownScript(this);
 
-		// startSceneActionScript
-		const startSceneActionScript = new StartSceneActionScript(onPointerDownScript);
+		// changeStateInController
+		const changeStateInController = new ChangeStateInController(onPointerDownScript);
 
-		// startSceneActionScript (prefab fields)
-		startSceneActionScript.sceneKey = "Settings";
+		// changeStateInController (prefab fields)
+		changeStateInController.SMState = "settings";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.

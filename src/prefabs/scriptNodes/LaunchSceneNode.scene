@@ -1,5 +1,5 @@
 {
-    "id": "493567a1-b55f-4937-b510-8f94e8021fbd",
+    "id": "2e0b2c35-78d5-40d1-a59f-7aa65d6f6f92",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -14,9 +14,8 @@
     "displayList": [
         {
             "type": "ScriptNode",
-            "id": "c7b28984-cb28-48cf-a01d-328ff634ce18",
-            "label": "AudioAddNode",
-            "scope": "CLASS",
+            "id": "4991fd47-428e-4de0-8318-eeb6a806c5e0",
+            "label": "launchSceneNode",
             "components": [],
             "list": []
         }
@@ -30,23 +29,13 @@
     },
     "prefabProperties": [
         {
-            "name": "audioKey",
-            "label": "audioKey",
-            "tooltip": "audioKey",
+            "name": "key",
+            "label": "Scene Key",
+            "tooltip": "Scene key that launch in parallel",
             "defValue": "",
             "customDefinition": false,
             "type": {
-                "id": "audio-key"
-            }
-        },
-        {
-            "name": "_loop",
-            "label": "_loop",
-            "tooltip": "Should the audio loop?",
-            "defValue": true,
-            "customDefinition": false,
-            "type": {
-                "id": "boolean"
+                "id": "scene-key"
             }
         }
     ]

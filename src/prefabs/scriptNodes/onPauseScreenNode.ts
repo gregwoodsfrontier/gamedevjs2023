@@ -26,9 +26,7 @@ export default class onPauseScreenNode extends ScriptNode {
 	private isPause = false
 	private levelKey = "Level"
 
-	execute(): void {
-		console.log("pause menu : ", this.isPause)
-		
+	execute(): void {		
 		this.runPauseButtonLogic(this.levelKey)
 	}
 

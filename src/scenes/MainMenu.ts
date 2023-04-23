@@ -6,8 +6,6 @@
 import Phaser from "phaser";
 import SettingsButton from "../prefabs/SettingsButton";
 import PlayButton from "../prefabs/PlayButton";
-import FullScreenButton from "../prefabs/FullScreenButton";
-import AudioAddNode from "../prefabs/scriptNodes/AudioAddNode";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -52,12 +50,6 @@ export default class MainMenu extends Phaser.Scene {
 		const playButton = new PlayButton(this, 215, 215);
 		this.add.existing(playButton);
 
-		// fullScreenButton
-		const fullScreenButton = new FullScreenButton(this, 602, 321);
-		this.add.existing(fullScreenButton);
-		fullScreenButton.scaleX = 0.5;
-		fullScreenButton.scaleY = 0.5;
-
 		// bitmaptext_1
 		const bitmaptext_1 = this.add.bitmapText(92, 87, "StayPixel2", "Paper Dog Dash");
 		bitmaptext_1.tintFill = true;
@@ -69,19 +61,11 @@ export default class MainMenu extends Phaser.Scene {
 		bitmaptext_1.fontSize = 72;
 		bitmaptext_1.dropShadowColor = 15573273;
 
-		// audioAddNode
-		const audioAddNode = new AudioAddNode(this);
-
-		// audioAddNode (prefab fields)
-		audioAddNode.audioKey = "Menu_Theme";
-
-		this.audioAddNode = audioAddNode;
 		this.keyboard_key = keyboard_key;
 
 		this.events.emit("scene-awake");
 	}
 
-	private audioAddNode!: AudioAddNode;
 	private keyboard_key!: Phaser.Input.Keyboard.Key;
 
 	/* START-USER-CODE */
@@ -92,15 +76,15 @@ export default class MainMenu extends Phaser.Scene {
 
 		this.editorCreate();
 
-		const theme = this.audioAddNode._g_audio
+		// const theme = this.audioAddNode._g_audio
 
-		theme?.play()
+		// theme?.play()
 
-		this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+		// this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
 
-			theme?.destroy()
-			console.log('theme should be destroyed in main')
-		})
+		// 	theme?.destroy()
+		// 	console.log('theme should be destroyed in main')
+		// })
 	}
 
 	/* END-USER-CODE */
