@@ -389,6 +389,11 @@
                 "key": "Terrain (16x16)"
             },
             {
+                "url": "assets/tilemaps/testLevel.json",
+                "type": "tilemapTiledJSON",
+                "key": "testLevel"
+            },
+            {
                 "url": [
                     "assets/audio/level/theme_1.wav"
                 ],

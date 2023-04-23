@@ -1,0 +1,95 @@
+{
+    "id": "194f32c7-8ab5-447b-92d1-efc786de64da",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "TestLevel",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "type": "TilemapLayer",
+            "id": "6e63bfb2-4150-4057-bd2c-3a0a39a07bea",
+            "label": "ground_1",
+            "components": [],
+            "list": [],
+            "tilemapId": "ed3a68cc-fc9a-4ff7-ba19-34c6e4cfa439",
+            "layerName": "ground",
+            "tilesets": [
+                "Terrain (16x16)",
+                "Clouds V2-2"
+            ]
+        },
+        {
+            "prefabId": "e8cbef27-0122-44ad-a3de-0e0b260351e8",
+            "id": "e50c72d7-46e1-482c-b619-dcca1506e56c",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "player",
+            "components": [],
+            "x": 63,
+            "y": 151,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6d6f40ee-7a43-480c-9d6e-e26ccef0a3e2",
+            "id": "cfa55d4e-8803-41c3-b0a7-9dec19d935d4",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "newspaper",
+            "components": [],
+            "x": 192,
+            "y": 111,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "151acbe1-c211-41b2-a5ff-73dfc46e4c1c",
+            "id": "2ae769bd-4950-4c08-94f1-de2e2452b511",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "goal",
+            "components": [],
+            "x": 1044,
+            "y": 6,
+            "nestedPrefabs": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [
+        {
+            "id": "ed3a68cc-fc9a-4ff7-ba19-34c6e4cfa439",
+            "type": "Tilemap",
+            "label": "testLevel",
+            "key": "testLevel",
+            "tilesets": [
+                {
+                    "name": "Terrain (16x16)",
+                    "imageKey": "Terrain (16x16)"
+                },
+                {
+                    "name": "Clouds V2-2",
+                    "imageKey": "Clouds_V2-2"
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}
