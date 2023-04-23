@@ -13,7 +13,7 @@ import StaggerState from "./actorStates/StaggerState";
 import DashState from "./actorStates/DashState";
 import CrouchState from "./actorStates/CrouchState";
 /* START-USER-IMPORTS */
-import { ANIM_SHIBA_IDLE, ANIM_SHIBA_JUMP, ANIM_SHIBA_WALK } from "../consts/shiba-anims";
+import { ANIM_CRAWL_IDLE, ANIM_SHIBA_IDLE, ANIM_SHIBA_JUMP, ANIM_SHIBA_WALK } from "../consts/shiba-anims";
 /* END-USER-IMPORTS */
 
 export default interface Player {
@@ -112,7 +112,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		).addState(
 			this.crouchState.stateName, {
 				onEnter: () => {
-					this.crouchState.onEnter(this, undefined)
+					this.crouchState.onEnter(this, ANIM_CRAWL_IDLE)
 				},
 				onUpdate: () => {
 					this.crouchState.onUpdate({
@@ -120,7 +120,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 						isLeft: this.cursors?.left.isDown, 
 						isRight: this.cursors?.right.isDown, 
 						speed: this.runSpeed
-					})
+					}
+					)
 				},
 				onExit: () => {
 					this.crouchState.onExit(this)
