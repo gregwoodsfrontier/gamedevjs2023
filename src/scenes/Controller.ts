@@ -116,8 +116,7 @@ export default class Controller extends Phaser.Scene {
 		if(this.stateMachineNode.previousStateName === "level") {
 			this.theme_1_Node._g_audio?.stop()
 			this.scene.stop("UIScreen")
-		this.scene.stop(this.levelScene[this.currLevel])
-			
+			this.scene.stop(this.levelScene[this.currLevel])		
 		}
 
 		this.scene.launch("MainMenu")
@@ -126,6 +125,7 @@ export default class Controller extends Phaser.Scene {
 
 	private mainMenuOnExit() {
 		this.scene.stop("MainMenu")
+		console.log(this.scene.manager.dump())
 	}
 
 	private settingsOnEnter() {

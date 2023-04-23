@@ -6,7 +6,6 @@
 import Phaser from "phaser";
 import TimeBar from "../prefabs/TimeBar";
 import BackToMainButton from "../prefabs/BackToMainButton";
-import FullScreenButton from "../prefabs/FullScreenButton";
 import RestartButton from "../prefabs/RestartButton";
 import PauseButton from "../prefabs/PauseButton";
 /* START-USER-IMPORTS */
@@ -35,12 +34,6 @@ export default class UIScreen extends Phaser.Scene {
 		this.add.existing(backToMainButton);
 		backToMainButton.scaleX = 2;
 		backToMainButton.scaleY = 2;
-
-		// fullScreenButton
-		const fullScreenButton = new FullScreenButton(this, 603, 320);
-		this.add.existing(fullScreenButton);
-		fullScreenButton.scaleX = 0.5;
-		fullScreenButton.scaleY = 0.5;
 
 		// restartButton
 		const restartButton = new RestartButton(this, 608, 34);

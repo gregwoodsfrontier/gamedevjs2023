@@ -47,24 +47,6 @@
             "list": []
         },
         {
-            "prefabId": "b922df8d-9e20-4f96-a3cd-d998e573c88f",
-            "id": "1a05f4c6-a637-45b2-a95c-dc91b7227e14",
-            "unlock": [
-                "x",
-                "y",
-                "scaleX",
-                "scaleY"
-            ],
-            "label": "fullScreenButton",
-            "components": [],
-            "x": 603,
-            "y": 320,
-            "scaleX": 0.5,
-            "scaleY": 0.5,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
             "prefabId": "06136fc0-38d5-4706-8a15-cfc027dc025b",
             "id": "9a72a9ac-efe0-4c57-a33e-778f98243c1c",
             "unlock": [
