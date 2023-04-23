@@ -104,15 +104,15 @@
             {
                 "url": "assets/player/Crawling.png",
                 "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
+                    "frameWidth": 48,
+                    "frameHeight": 48,
                     "startFrame": 0,
                     "endFrame": -1,
                     "spacing": 0,
                     "margin": 0
                 },
                 "type": "spritesheet",
-                "key": "Crawling"
+                "key": "shiba_crawl"
             },
             {
                 "url": "assets/environmental/firehydrant.png",
@@ -199,7 +199,7 @@
                     "margin": 0
                 },
                 "type": "spritesheet",
-                "key": "Pee"
+                "key": "shiba_pee"
             },
             {
                 "url": "assets/buttons/Play.png",

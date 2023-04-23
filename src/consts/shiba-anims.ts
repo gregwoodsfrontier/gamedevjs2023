@@ -9,3 +9,5 @@ export const ANIM_SHIBA_HURT = "shiba-hurt";
 export const ANIM_SHIBA_JUMP = "shiba-jump";
 
 export const ANIM_SHIBA_FALL = "shiba-fall";
+
+export const ANIM_SHIBA_CRAWL = "shiba-crawl";
