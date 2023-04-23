@@ -60,6 +60,19 @@
                     "components": [],
                     "nestedPrefabs": [],
                     "list": []
+                },
+                {
+                    "prefabId": "ed6c6e09-9fce-4613-bb4a-1441a84bf052",
+                    "id": "af76ce8e-d143-42c3-aa21-6f887a662d62",
+                    "unlock": [
+                        "SMState"
+                    ],
+                    "label": "toCompleteLv",
+                    "scope": "CLASS",
+                    "SMState": "complete",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
                 }
             ]
         }
