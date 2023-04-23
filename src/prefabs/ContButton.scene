@@ -32,15 +32,29 @@
                     "y": null,
                     "scaleX": 0.7,
                     "scaleY": 0.7,
-                    "list": []
-                },
-                {
-                    "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
-                    "id": "e7a0af31-0ca2-4b88-9071-c9c99ad4f311",
-                    "label": "onPointerDownScript",
-                    "components": [],
-                    "nestedPrefabs": [],
-                    "list": []
+                    "list": [
+                        {
+                            "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                            "id": "7e0b8759-f2cc-4aa5-90eb-0366fe80fd91",
+                            "label": "onPointerDownScript",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": [
+                                {
+                                    "prefabId": "ed6c6e09-9fce-4613-bb4a-1441a84bf052",
+                                    "id": "7768726d-2379-4247-b7b0-4ad279801d5e",
+                                    "unlock": [
+                                        "SMState"
+                                    ],
+                                    "label": "toLevel",
+                                    "SMState": "level",
+                                    "components": [],
+                                    "nestedPrefabs": [],
+                                    "list": []
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }

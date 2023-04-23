@@ -4,9 +4,9 @@
 
 import Phaser from "phaser";
 import LayerPhysics from "../components/LayerPhysics";
-import Goal from "../prefabs/Goal";
 import Newspaper from "../prefabs/Newspaper";
 import FireHydrant from "../prefabs/FireHydrant";
+import Goal from "../prefabs/Goal";
 import Player from "../prefabs/Player";
 import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
 /* START-USER-IMPORTS */
@@ -44,12 +44,6 @@ export default class Level extends Phaser.Scene {
 		const ground_1 = lv1.createLayer("ground", ["Terrain (16x16)"], 0, 0);
 		ground_1.name = "ground_1";
 
-		// house2
-		const house2 = new Goal(this, 1145, 64);
-		this.add.existing(house2);
-		house2.scaleX = 2;
-		house2.scaleY = 2;
-
 		// newspaper
 		const newspaper = new Newspaper(this, 189, 167);
 		this.add.existing(newspaper);
@@ -61,6 +55,10 @@ export default class Level extends Phaser.Scene {
 		// fireHydrant_1
 		const fireHydrant_1 = new FireHydrant(this, 542, 191);
 		this.add.existing(fireHydrant_1);
+
+		// goal
+		const goal = new Goal(this, 582, 81);
+		this.add.existing(goal);
 
 		// player_1
 		const player_1 = new Player(this, 110, 148);
@@ -81,10 +79,9 @@ export default class Level extends Phaser.Scene {
 		levelBehavior.player = player_1;
 		levelBehavior.groundLayer = ground_1;
 		levelBehavior.hydrantList = hydrantList;
-		levelBehavior.goal = house2;
+		levelBehavior.goal = goal;
 		levelBehavior.newspaper = newspaper;
 
-		this.house2 = house2;
 		this.newspaper = newspaper;
 		this.fireHydrant = fireHydrant;
 		this.fireHydrant_1 = fireHydrant_1;
@@ -95,7 +92,6 @@ export default class Level extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
-	private house2!: Goal;
 	private newspaper!: Newspaper;
 	private fireHydrant!: FireHydrant;
 	private fireHydrant_1!: FireHydrant;

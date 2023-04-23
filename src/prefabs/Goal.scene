@@ -21,15 +21,16 @@
             "texture": {
                 "key": "house2"
             },
+            "scaleX": 2,
+            "scaleY": 2,
+            "originX": 0,
+            "originY": 0,
             "physicsType": 1,
-            "moves": false,
-            "allowGravity": false,
-            "allowRotation": false,
             "pushable": false,
-            "body.width": 38,
+            "body.width": 18,
             "body.height": 31,
-            "body.offset.x": 5,
-            "body.offset.y": 34,
+            "body.offset.x": 39,
+            "body.offset.y": 56,
             "list": []
         }
     ],

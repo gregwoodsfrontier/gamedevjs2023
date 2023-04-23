@@ -44,25 +44,6 @@
             ]
         },
         {
-            "prefabId": "151acbe1-c211-41b2-a5ff-73dfc46e4c1c",
-            "id": "ae8efb83-cabe-4970-81f3-90b38b9546f0",
-            "unlock": [
-                "x",
-                "y",
-                "scaleX",
-                "scaleY"
-            ],
-            "label": "house2",
-            "scope": "CLASS",
-            "components": [],
-            "x": 1145,
-            "y": 64,
-            "scaleX": 2,
-            "scaleY": 2,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
             "prefabId": "6d6f40ee-7a43-480c-9d6e-e26ccef0a3e2",
             "id": "566dd795-464e-4aba-9755-10f2115610cc",
             "unlock": [
@@ -108,6 +89,20 @@
             "list": []
         },
         {
+            "prefabId": "151acbe1-c211-41b2-a5ff-73dfc46e4c1c",
+            "id": "8c2c9758-f239-498c-8cb3-3c4b3e2b92d8",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "goal",
+            "components": [],
+            "x": 582,
+            "y": 81,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
             "prefabId": "e8cbef27-0122-44ad-a3de-0e0b260351e8",
             "id": "a9bef027-72f4-493f-a1af-0c2f8ff480bb",
             "unlock": [
@@ -142,7 +137,7 @@
             "player": "player_1",
             "groundLayer": "ground_1",
             "hydrantList": "hydrantList",
-            "goal": "house2",
+            "goal": "goal",
             "newspaper": "newspaper",
             "components": [],
             "nestedPrefabs": [],

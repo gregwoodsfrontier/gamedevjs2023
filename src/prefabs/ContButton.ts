@@ -5,22 +5,29 @@
 
 import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
+import ChangeStateInController from "./scriptNodes/ChangeStateInController";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
 export default class ContButton extends Phaser.GameObjects.Container {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number) {
-		super(scene, x ?? NaN, y ?? NaN);
+		super(scene, x ?? null, y ?? null);
 
 		// contButton
-		const contButton = scene.add.image(NaN, NaN, "Continue");
+		const contButton = scene.add.image(null, null, "Continue");
 		contButton.scaleX = 0.7;
 		contButton.scaleY = 0.7;
 		this.add(contButton);
 
 		// onPointerDownScript
-		new OnPointerDownScript(this);
+		const onPointerDownScript = new OnPointerDownScript(contButton);
+
+		// toLevel
+		const toLevel = new ChangeStateInController(onPointerDownScript);
+
+		// toLevel (prefab fields)
+		toLevel.SMState = "level";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.

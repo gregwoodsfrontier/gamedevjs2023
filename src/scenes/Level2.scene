@@ -43,6 +43,104 @@
             ]
         },
         {
+            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
+            "id": "8d8bc4ea-78df-4c29-9126-aae09bb4eba6",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fireHydrant",
+            "components": [],
+            "x": 725,
+            "y": 144,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
+            "id": "5a7fc3e7-bde1-484c-a8e5-9f7785985d3c",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fireHydrant_1",
+            "components": [],
+            "x": 867,
+            "y": 144,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
+            "id": "033d89c8-2570-4548-853e-6745d5d76d85",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fireHydrant_2",
+            "components": [],
+            "x": 244,
+            "y": 193,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
+            "id": "2f404f93-4c40-45c3-b420-8c72c67e85bc",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fireHydrant_3",
+            "components": [],
+            "x": 368,
+            "y": 193,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
+            "id": "1b983410-32b3-4efb-b2f9-d1bc8cb4ede6",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fireHydrant_4",
+            "components": [],
+            "x": 549,
+            "y": 193,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "151acbe1-c211-41b2-a5ff-73dfc46e4c1c",
+            "id": "37306cd5-880c-4d43-ab1b-b959b9b3443d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "goal",
+            "components": [],
+            "x": 979,
+            "y": 49,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6d6f40ee-7a43-480c-9d6e-e26ccef0a3e2",
+            "id": "f94aeead-3e86-48f0-ac87-d8c997f53692",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "newspaper",
+            "components": [],
+            "x": 312,
+            "y": 149,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
             "prefabId": "e8cbef27-0122-44ad-a3de-0e0b260351e8",
             "id": "a9bef027-72f4-493f-a1af-0c2f8ff480bb",
             "unlock": [
@@ -62,36 +160,27 @@
             "list": []
         },
         {
-            "prefabId": "71c1fad7-dac6-41ac-ad61-76f777b61bde",
-            "id": "075bfc3d-fe43-4b97-a7d4-40a80a3ad0f4",
+            "prefabId": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
+            "id": "5283454a-1c11-4e89-9ad7-d7eed0edeab2",
             "unlock": [
-                "keyBoardKey"
+                "player",
+                "groundLayer",
+                "hydrantList",
+                "goal",
+                "newspaper"
             ],
-            "label": "onKeyBoardJustDownScript",
-            "scope": "CLASS",
-            "keyBoardKey": "this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)",
+            "label": "levelBehavior",
+            "player": "player_1",
+            "groundLayer": "ground_1",
+            "hydrantList": "hydrantList",
+            "goal": "goal",
+            "newspaper": "newspaper",
             "components": [],
             "nestedPrefabs": [],
-            "list": [
-                {
-                    "type": "ScriptNode",
-                    "id": "89e5fe91-dd05-4b39-ab68-aaf71bd5a16e",
-                    "label": "debugScript",
-                    "scope": "CLASS",
-                    "components": [],
-                    "list": []
-                }
-            ]
+            "list": []
         }
     ],
     "plainObjects": [
-        {
-            "id": "91f0a713-2a4a-42c1-8dd4-0432c2114388",
-            "type": "Collider",
-            "label": "collider",
-            "object1": "player_1",
-            "object2": "ground_1"
-        },
         {
             "id": "443a18bb-ddd5-48df-a24f-7874f0f066ed",
             "type": "Tilemap",
@@ -114,5 +203,35 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    }
+    },
+    "lists": [
+        {
+            "id": "65e2840f-bc59-47f5-b395-adb587020948",
+            "label": "hydrantList",
+            "objectIds": [
+                "8d8bc4ea-78df-4c29-9126-aae09bb4eba6",
+                "1b983410-32b3-4efb-b2f9-d1bc8cb4ede6",
+                "2f404f93-4c40-45c3-b420-8c72c67e85bc",
+                "033d89c8-2570-4548-853e-6745d5d76d85",
+                "5a7fc3e7-bde1-484c-a8e5-9f7785985d3c"
+            ]
+        },
+        {
+            "id": "f22ce833-c0ce-4ffa-9a80-5c834b4bdc91",
+            "label": "bottom",
+            "objectIds": [
+                "1b983410-32b3-4efb-b2f9-d1bc8cb4ede6",
+                "2f404f93-4c40-45c3-b420-8c72c67e85bc",
+                "033d89c8-2570-4548-853e-6745d5d76d85"
+            ]
+        },
+        {
+            "id": "407fd58a-68bf-4fc8-b532-20ad1f0853cc",
+            "label": "top",
+            "objectIds": [
+                "5a7fc3e7-bde1-484c-a8e5-9f7785985d3c",
+                "8d8bc4ea-78df-4c29-9126-aae09bb4eba6"
+            ]
+        }
+    ]
 }

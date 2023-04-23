@@ -17,13 +17,13 @@ export default class Goal extends Phaser.Physics.Arcade.Image {
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 0, y ?? 0, texture || "house2", frame);
 
+		this.scaleX = 2;
+		this.scaleY = 2;
+		this.setOrigin(0, 0);
 		scene.physics.add.existing(this, true);
-		this.body.moves = false;
-		this.body.allowGravity = false;
-		this.body.allowRotation = false;
 		this.body.pushable = false;
-		this.body.setOffset(5, 34);
-		this.body.setSize(38, 31, false);
+		this.body.setOffset(39, 56);
+		this.body.setSize(18, 31, false);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
