@@ -31,9 +31,17 @@
                     "nestedPrefabs": [],
                     "list": [
                         {
-                            "prefabId": "b90ad30c-2d77-44cc-8911-0d1338602325",
-                            "id": "cd27cede-c18c-478e-9087-40f2d1edd13a",
-                            "label": "onPauseScreenNode",
+                            "prefabId": "ed6c6e09-9fce-4613-bb4a-1441a84bf052",
+                            "id": "554dadb1-bde5-484b-ab10-1c9f9182cc3f",
+                            "label": "toLevel",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        },
+                        {
+                            "prefabId": "ed6c6e09-9fce-4613-bb4a-1441a84bf052",
+                            "id": "35bdf190-0ec3-481d-8265-b3a4a171642c",
+                            "label": "toPause",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []

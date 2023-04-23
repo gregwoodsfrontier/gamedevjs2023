@@ -5,9 +5,10 @@
 
 import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
-import onPauseScreenNode, { PAUSE_GAME, RESUME_GAME } from "./scriptNodes/onPauseScreenNode";
+import ChangeStateInController from "./scriptNodes/ChangeStateInController";
 /* START-USER-IMPORTS */
 import eventsCenter from "../eventCenter";
+import { PAUSE_GAME, RESUME_GAME } from "./scriptNodes/onPauseScreenNode";
 /* END-USER-IMPORTS */
 
 export default class PauseButton extends Phaser.GameObjects.Image {
@@ -18,8 +19,11 @@ export default class PauseButton extends Phaser.GameObjects.Image {
 		// onPointerDownScript
 		const onPointerDownScript = new OnPointerDownScript(this);
 
-		// onPauseScreenNode
-		new onPauseScreenNode(onPointerDownScript);
+		// toLevel
+		new ChangeStateInController(onPointerDownScript);
+
+		// toPause
+		new ChangeStateInController(onPointerDownScript);
 
 		/* START-USER-CTR-CODE */
 		this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this)

@@ -64,23 +64,32 @@ export default class Controller extends Phaser.Scene {
 
 		this.editorCreate()
 
+		this.stateMachineNode.id = "game-state"
+
 		this.stateMachineNode.addState("main-menu", {
-			onEnter: this.mainMenuOnEnter,
-			onExit: this.mainMenuOnExit
+			onEnter: () => {
+				this.mainMenuOnEnter()
+			},
+			onExit: () => {
+				this.mainMenuOnExit()
+			}
 		}).addState("settings", {
-			onEnter: this.settingsOnEnter,
-			onExit: this.settingsOnExit
+			onEnter: () => {
+				this.settingsOnEnter()
+			},
+			onExit: () => {
+				this.settingsOnExit()
+			}
 		}).addState("level", {
-			onEnter: this.levelOnEnter,
-			onExit: this.levelOnExit
+			onEnter: () => {this.levelOnEnter()}
 		}).addState("pause", {
-			onEnter: this.pauseOnEnter,
-			onExit: this.pauseOnExit
+			onEnter: () => {this.pauseOnEnter()},
+			onExit: () => {this.pauseOnExit()}
 		}).addState("restart", {
-			onEnter: this.restartOnEnter
+			onEnter: () => {this.restartOnEnter()}
 		}).addState("complete", {
-			onEnter: this.completeOnEnter,
-			onExit: this.completeOnExit
+			onEnter: () => {this.completeOnEnter()},
+			onExit: () => {this.completeOnExit()}
 		}).setState("main-menu")
 
 		// The game can have several states
@@ -91,14 +100,16 @@ export default class Controller extends Phaser.Scene {
 		// (add a in restart transition state)
 		// Level complete
 
-		this.events.on("change-game-state", this.changeState, this)
+		// this.events.on("change-game-state", this.changeState, this)
+		eventsCenter.on("change-game-state", this.changeState, this)
 	}
 
 	private changeState(stateKey: string) {
+
 		this.stateMachineNode.setState(stateKey)
 	}
 
-	private mainMenuOnEnter() {
+	mainMenuOnEnter() {
 		this.scene.launch("MainMenu")
 		this.menuThemeNode._g_audio?.play()
 	}
@@ -123,12 +134,11 @@ export default class Controller extends Phaser.Scene {
 		{
 			this.scene.launch(this.levelScene[this.currLevel])
 		}
-		
+
 	}
 
 	private levelOnExit() {
-		this.scene.stop("UIScreen")
-		this.scene.stop(this.levelScene[this.currLevel])
+		
 	}
 
 	private pauseOnEnter() {
@@ -144,6 +154,9 @@ export default class Controller extends Phaser.Scene {
 	}
 
 	private restartOnEnter() {
+		this.scene.stop("UIScreen")
+		// this.scene.stop(this.levelScene[this.currLevel])
+
 		const fx = this.cameras.main.postFX.addWipe()
 
 		this.scene.transition({
@@ -159,6 +172,9 @@ export default class Controller extends Phaser.Scene {
 	}
 
 	private completeOnEnter() {
+		this.scene.stop("UIScreen")
+		this.scene.stop(this.levelScene[this.currLevel])
+
 		this.time.delayedCall(500, () => {
 			this.scene.launch("CompleteLv")
 		})
