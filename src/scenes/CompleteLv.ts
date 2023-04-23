@@ -5,6 +5,7 @@
 
 import Phaser from "phaser";
 import BackToMainButton from "../prefabs/BackToMainButton";
+import ContButton from "../prefabs/ContButton";
 import LevelStar from "../prefabs/LevelStar";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -30,56 +31,69 @@ export default class CompleteLv extends Phaser.Scene {
 		// backToMainButton
 		const backToMainButton = new BackToMainButton(this, 173, 306);
 		this.add.existing(backToMainButton);
-		backToMainButton.scaleX = 3;
-		backToMainButton.scaleY = 3;
-
-		// starContainer
-		const starContainer = this.add.container(352, 132);
-		starContainer.scaleX = 0.75;
-		starContainer.scaleY = 0.75;
-
-		// greyStar
-		const greyStar = new LevelStar(this, 0, 0);
-		greyStar.scaleX = 0.75;
-		greyStar.scaleY = 0.75;
-		starContainer.add(greyStar);
-
-		// levelStar
-		const levelStar = new LevelStar(this, 107, 0);
-		levelStar.scaleX = 0.75;
-		levelStar.scaleY = 0.75;
-		starContainer.add(levelStar);
-
-		// levelStar_1
-		const levelStar_1 = new LevelStar(this, 214, 0);
-		levelStar_1.scaleX = 0.75;
-		levelStar_1.scaleY = 0.75;
-		starContainer.add(levelStar_1);
-
-		// bitmaptext_1
-		const bitmaptext_1 = this.add.bitmapText(44, 42, "StayPixel2", "Local good boy delivers newspaper!");
-		bitmaptext_1.text = "Local good boy delivers newspaper!";
-		bitmaptext_1.fontSize = 38;
+		backToMainButton.scaleX = 4;
+		backToMainButton.scaleY = 4;
 
 		// shiba_attack0
-		const shiba_attack0 = this.add.image(200, 121, "shiba_attack", 0);
+		const shiba_attack0 = this.add.image(192, 123, "shiba_attack", 0);
 		shiba_attack0.scaleX = 5;
 		shiba_attack0.scaleY = 5;
 
 		// bitmaptext_2
 		const bitmaptext_2 = this.add.bitmapText(326, 189, "StayPixel2", "Time: XX s");
+		bitmaptext_2.visible = false;
 		bitmaptext_2.text = "Time: XX s";
 		bitmaptext_2.fontSize = 52;
 
 		// contButton
-		const contButton = this.add.image(448, 305, "Continue");
-		contButton.scaleX = 0.7;
-		contButton.scaleY = 0.7;
+		const contButton = new ContButton(this, 448, 305);
+		this.add.existing(contButton);
 
 		// banner
 		const banner = this.add.image(320, 54, "Banner");
 		banner.scaleX = 1.15;
 		banner.scaleY = 1.15;
+
+		// starContainer
+		const starContainer = this.add.container(379, 167);
+		starContainer.scaleX = 0.75;
+		starContainer.scaleY = 0.75;
+
+		// spritesheet_UI_Flat86
+		const spritesheet_UI_Flat86 = this.add.image(95, 20, "Spritesheet_UI_Flat", 86);
+		spritesheet_UI_Flat86.scaleX = 4;
+		spritesheet_UI_Flat86.scaleY = 7;
+		starContainer.add(spritesheet_UI_Flat86);
+
+		// spritesheet_UI_Flat87
+		const spritesheet_UI_Flat87 = this.add.image(252, 20, "Spritesheet_UI_Flat", 87);
+		spritesheet_UI_Flat87.scaleX = 6;
+		spritesheet_UI_Flat87.scaleY = 7;
+		starContainer.add(spritesheet_UI_Flat87);
+
+		// spritesheet_UI_Flat85
+		const spritesheet_UI_Flat85 = this.add.image(-64, 20, "Spritesheet_UI_Flat", 85);
+		spritesheet_UI_Flat85.scaleX = 6;
+		spritesheet_UI_Flat85.scaleY = 7;
+		starContainer.add(spritesheet_UI_Flat85);
+
+		// greyStar
+		const greyStar = new LevelStar(this, 0, 0, "yellowStar");
+		greyStar.scaleX = 0.75;
+		greyStar.scaleY = 0.75;
+		starContainer.add(greyStar);
+
+		// levelStar
+		const levelStar = new LevelStar(this, 107, 0, "yellowStar");
+		levelStar.scaleX = 0.75;
+		levelStar.scaleY = 0.75;
+		starContainer.add(levelStar);
+
+		// levelStar_1
+		const levelStar_1 = new LevelStar(this, 214, 0, "yellowStar");
+		levelStar_1.scaleX = 0.75;
+		levelStar_1.scaleY = 0.75;
+		starContainer.add(levelStar_1);
 
 		// lists
 		const starGroup = [greyStar, levelStar, levelStar_1];

@@ -37,9 +37,8 @@ export default class CrouchState extends ScriptNode {
 				width: body.width,
 				height: body.height
 			}
-			if(animKey) {
-				sprite.play(animKey)
-			}
+			
+			sprite.play(ANIM_CRAWL_IDLE, true)
 			
 			sprite.setBodySize(this.currentSize.width , this.currentSize.height / 2, false)
 			sprite.body.offset.y += this.currentSize.height / 2
