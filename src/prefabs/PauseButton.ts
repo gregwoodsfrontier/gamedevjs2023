@@ -4,8 +4,6 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
-import ChangeStateInController from "./scriptNodes/ChangeStateInController";
 /* START-USER-IMPORTS */
 import eventsCenter from "../eventCenter";
 import { PAUSE_GAME, RESUME_GAME } from "./scriptNodes/onPauseScreenNode";
@@ -15,15 +13,6 @@ export default class PauseButton extends Phaser.GameObjects.Image {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 0, y ?? 0, texture || "pause", frame);
-
-		// onPointerDownScript
-		const onPointerDownScript = new OnPointerDownScript(this);
-
-		// toLevel
-		new ChangeStateInController(onPointerDownScript);
-
-		// toPause
-		new ChangeStateInController(onPointerDownScript);
 
 		/* START-USER-CTR-CODE */
 		this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this)
@@ -36,6 +25,19 @@ export default class PauseButton extends Phaser.GameObjects.Image {
 
 	// Write your code here.
 	start() {
+		this.setInteractive()
+
+		this.on("pointerdown", () => {
+			if(!this.scene.scene.isActive("Pause"))
+			{
+				eventsCenter.emit("change-game-state", "pause")
+			}
+			else 
+			{
+				eventsCenter.emit("change-game-state", "level")
+			}
+		})
+
 		eventsCenter.on(PAUSE_GAME, () => {
 			this.setTexture("Play")
 		}, this)
