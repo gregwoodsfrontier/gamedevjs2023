@@ -76,18 +76,23 @@ export default class CompleteLv extends Phaser.Scene {
 		continue.scaleX = 0.7;
 		continue.scaleY = 0.7;
 
+		// banner
+		const banner = this.add.image(320, 54, "Banner");
+		banner.scaleX = 1.15;
+		banner.scaleY = 1.15;
+
 		// lists
 		const starGroup = [greyStar, levelStar, levelStar_1];
 
-		this.greyStar = greyStar;
 		this.starContainer = starContainer;
+		this.greyStar = greyStar;
 		this.starGroup = starGroup;
 
 		this.events.emit("scene-awake");
 	}
 
-	private greyStar!: LevelStar;
 	private starContainer!: Phaser.GameObjects.Container;
+	private greyStar!: LevelStar;
 	private starGroup!: LevelStar[];
 
 	/* START-USER-CODE */

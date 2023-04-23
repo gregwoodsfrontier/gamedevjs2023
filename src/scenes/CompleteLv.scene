@@ -163,6 +163,20 @@
             "scaleX": 0.7,
             "scaleY": 0.7,
             "list": []
+        },
+        {
+            "type": "Image",
+            "id": "604d65ed-5cb7-4712-ab2d-484e585d7758",
+            "label": "banner",
+            "components": [],
+            "texture": {
+                "key": "Banner"
+            },
+            "x": 320,
+            "y": 54,
+            "scaleX": 1.15,
+            "scaleY": 1.15,
+            "list": []
         }
     ],
     "plainObjects": [],
