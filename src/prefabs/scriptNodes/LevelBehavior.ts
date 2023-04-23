@@ -98,7 +98,7 @@ export default class LevelBehavior extends ScriptNode {
 		//@ts-ignore
 		scene.physics.add.collider(this.player, this.hydrantList, this.handlePlayerHydrant)
 		//@ts-ignore
-		scene.physics.add.overlap(this.player, this.goal, this.handlePlayerGoal)
+		scene.physics.add.overlap(this.player, this.goal, this.handlePlayerGoal, undefined, this)
 	}
 
 	setupCameraBounds(_boundW: number, _boundH: number) {
@@ -124,8 +124,18 @@ export default class LevelBehavior extends ScriptNode {
 	}
 
 	handlePlayerGoal(p: Player, goal: Goal) {
-		// make the dog celebrate
-		this.toCompleteLv.execute()
+		// check if the dog has a newspaper
+		console.log(p.inventoryGetter)
+		if(p.inventoryGetter.find(e => e === 1)) {
+			// make the dog celebrate
+
+			// go to complete level
+			if(this.toCompleteLv) {
+				this.toCompleteLv.execute()
+			}
+			
+		}
+		
 	}
 
 	/* END-USER-CODE */

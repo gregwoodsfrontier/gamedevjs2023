@@ -8,6 +8,7 @@ import Level2 from "./scenes/Level2";
 import UIScreen from "./scenes/UIScreen";
 import Pause from "./scenes/Pause";
 import Controller from "./scenes/Controller";
+import CompleteLv from "./scenes/CompleteLv";
 
 class Boot extends Phaser.Scene {
 
@@ -51,7 +52,11 @@ const game = new Phaser.Game({
         // ...
         ]
     },
-    scene: [Boot, Preload, Controller, Level, MainMenu, Settings, Level2, UIScreen, Pause]
+    scene: [
+        Boot, Preload, Controller, 
+        Level, MainMenu, Settings, 
+        Level2, UIScreen, Pause, CompleteLv
+    ]
 });
 
 game.scene.start("Boot");

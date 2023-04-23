@@ -184,14 +184,17 @@ export default class Controller extends Phaser.Scene {
 	private completeOnEnter() {
 		this.scene.stop("UIScreen")
 		this.scene.stop(this.levelScene[this.currLevel])
+		this.theme_1_Node._g_audio?.stop()
 
-		this.time.delayedCall(500, () => {
+		this.time.delayedCall(300, () => {
 			this.scene.launch("CompleteLv")
 		})
 	}
 
 	private completeOnExit() {
-
+		this.scene.stop("CompleteLv")
+		// add function to increase level count to load next level
+		// this.currLevel = Phaser.Math.Clamp(this.currLevel++, 0, this.levelScene.length - 1)
 	}
 
 	/* END-USER-CODE */
