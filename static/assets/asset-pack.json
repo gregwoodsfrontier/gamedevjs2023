@@ -17,6 +17,11 @@
                 "key": "Background"
             },
             {
+                "url": "assets/ui/Banner.png",
+                "type": "image",
+                "key": "Banner"
+            },
+            {
                 "url": "assets/bird_a/Death.png",
                 "frameConfig": {
                     "frameWidth": 32,
