@@ -5,8 +5,11 @@
 
 import Phaser from "phaser";
 import FullScreenButton from "../prefabs/FullScreenButton";
-import LaunchSceneNode from "../prefabs/scriptNodes/LaunchSceneNode";
+import StateMachineNode from "../prefabs/scriptNodes/StateMachineNode";
+import AudioAddNode from "../prefabs/scriptNodes/AudioAddNode";
 /* START-USER-IMPORTS */
+import eventsCenter from "../eventCenter";
+import { PAUSE_GAME, RESUME_GAME } from "../prefabs/scriptNodes/onPauseScreenNode";
 /* END-USER-IMPORTS */
 
 export default class Controller extends Phaser.Scene {
@@ -27,28 +30,58 @@ export default class Controller extends Phaser.Scene {
 		fullScreenButton.scaleX = 0.5;
 		fullScreenButton.scaleY = 0.5;
 
-		// launchSceneNode
-		const launchSceneNode = new LaunchSceneNode(this);
+		// stateMachineNode
+		const stateMachineNode = new StateMachineNode(this);
 
-		// launchSceneNode (prefab fields)
-		launchSceneNode.key = "MainMenu";
+		// theme_1_Node
+		const theme_1_Node = new AudioAddNode(this);
 
-		this.launchSceneNode = launchSceneNode;
+		// menuThemeNode
+		const menuThemeNode = new AudioAddNode(this);
+
+		// theme_1_Node (prefab fields)
+		theme_1_Node.audioKey = "theme_1";
+
+		// menuThemeNode (prefab fields)
+		menuThemeNode.audioKey = "Menu_Theme";
+
+		this.stateMachineNode = stateMachineNode;
+		this.menuThemeNode = menuThemeNode;
 
 		this.events.emit("scene-awake");
 	}
 
-	private launchSceneNode!: LaunchSceneNode;
+	private stateMachineNode!: StateMachineNode;
+	private menuThemeNode!: AudioAddNode;
 
 	/* START-USER-CODE */
+	private levelScene = ["Level", "Level2", "Level3"]
+	private currLevel = 0
 
 	// Write your code here
 
 	create() {
 
-		this.editorCreate();
+		this.editorCreate()
 
-		this.launchMainMenu()
+		this.stateMachineNode.addState("main-menu", {
+			onEnter: this.mainMenuOnEnter,
+			onExit: this.mainMenuOnExit
+		}).addState("settings", {
+			onEnter: this.settingsOnEnter,
+			onExit: this.settingsOnExit
+		}).addState("level", {
+			onEnter: this.levelOnEnter,
+			onExit: this.levelOnExit
+		}).addState("pause", {
+			onEnter: this.pauseOnEnter,
+			onExit: this.pauseOnExit
+		}).addState("restart", {
+			onEnter: this.restartOnEnter
+		}).addState("complete", {
+			onEnter: this.completeOnEnter,
+			onExit: this.completeOnExit
+		}).setState("main-menu")
 
 		// The game can have several states
 		// Main menu states
@@ -57,10 +90,82 @@ export default class Controller extends Phaser.Scene {
 		// In Pause
 		// (add a in restart transition state)
 		// Level complete
+
+		this.events.on("change-game-state", this.changeState, this)
 	}
 
-	launchMainMenu() {
-		this.launchSceneNode.execute()
+	private changeState(stateKey: string) {
+		this.stateMachineNode.setState(stateKey)
+	}
+
+	private mainMenuOnEnter() {
+		this.scene.launch("MainMenu")
+		this.menuThemeNode._g_audio?.play()
+	}
+
+	private mainMenuOnExit() {
+		this.scene.stop("MainMenu")
+	}
+
+	private settingsOnEnter() {
+		this.scene.launch("Settings")
+	}
+
+	private settingsOnExit() {
+		this.scene.stop("Settings")
+	}
+
+	private levelOnEnter() {
+		this.menuThemeNode._g_audio?.stop()
+		this.scene.launch("UIScreen")
+
+		if(!this.scene.isActive(this.levelScene[this.currLevel]))
+		{
+			this.scene.launch(this.levelScene[this.currLevel])
+		}
+		
+	}
+
+	private levelOnExit() {
+		this.scene.stop("UIScreen")
+		this.scene.stop(this.levelScene[this.currLevel])
+	}
+
+	private pauseOnEnter() {
+		this.scene.pause(this.levelScene[this.currLevel])
+		this.scene.launch("Pause")
+		eventsCenter.emit(PAUSE_GAME)
+	}
+
+	private pauseOnExit() {
+		this.scene.resume(this.levelScene[this.currLevel])
+		this.scene.stop("Pause")
+		eventsCenter.emit(RESUME_GAME)
+	}
+
+	private restartOnEnter() {
+		const fx = this.cameras.main.postFX.addWipe()
+
+		this.scene.transition({
+			target: this.levelScene[this.currLevel],
+			duration: 1000,
+			moveBelow: true,
+			onUpdate: (progress: number) => {
+				fx.progress = progress
+			}
+		})
+
+		this.stateMachineNode.setState("level")
+	}
+
+	private completeOnEnter() {
+		this.time.delayedCall(500, () => {
+			this.scene.launch("CompleteLv")
+		})
+	}
+
+	private completeOnExit() {
+
 	}
 
 	/* END-USER-CODE */
