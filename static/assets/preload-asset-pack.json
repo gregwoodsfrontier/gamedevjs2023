@@ -5,6 +5,24 @@
                 "url": "assets/guapen.png",
                 "type": "image",
                 "key": "guapen"
+            },
+            {
+                "url": "assets/preload-anims.json",
+                "type": "animation",
+                "key": "preload-anims"
+            },
+            {
+                "url": "assets/Walk.png",
+                "frameConfig": {
+                    "frameWidth": 48,
+                    "frameHeight": 48,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Walk"
             }
         ]
     },
