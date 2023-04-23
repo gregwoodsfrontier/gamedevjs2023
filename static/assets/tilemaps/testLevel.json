@@ -38,7 +38,7 @@
                 {
                  "height":32,
                  "id":3,
-                 "name":"",
+                 "name":"FireHydrant",
                  "rotation":0,
                  "type":"FireHydrant",
                  "visible":true,
@@ -49,7 +49,7 @@
                 {
                  "height":32,
                  "id":5,
-                 "name":"",
+                 "name":"FireHydrant",
                  "rotation":0,
                  "type":"FireHydrant",
                  "visible":true,
@@ -60,7 +60,7 @@
                 {
                  "height":32,
                  "id":6,
-                 "name":"",
+                 "name":"FireHydrant",
                  "rotation":0,
                  "type":"FireHydrant",
                  "visible":true,
@@ -71,7 +71,7 @@
                 {
                  "height":32,
                  "id":7,
-                 "name":"",
+                 "name":"FireHydrant",
                  "rotation":0,
                  "type":"FireHydrant",
                  "visible":true,
@@ -82,7 +82,7 @@
                 {
                  "height":16,
                  "id":10,
-                 "name":"",
+                 "name":"Newspaper",
                  "rotation":0,
                  "type":"Newspaper",
                  "visible":true,
@@ -93,7 +93,7 @@
                 {
                  "height":48,
                  "id":12,
-                 "name":"",
+                 "name":"House",
                  "rotation":0,
                  "type":"House",
                  "visible":true,
