@@ -57,7 +57,7 @@ export default class Level extends Phaser.Scene {
 		this.add.existing(fireHydrant_1);
 
 		// goal
-		const goal = new Goal(this, 582, 81);
+		const goal = new Goal(this, 1089, 16);
 		this.add.existing(goal);
 
 		// player_1
