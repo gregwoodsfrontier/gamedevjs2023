@@ -46,6 +46,7 @@
                 "audioKey"
             ],
             "label": "theme_1_Node",
+            "scope": "CLASS",
             "audioKey": "theme_1",
             "components": [],
             "nestedPrefabs": [],

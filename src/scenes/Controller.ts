@@ -46,12 +46,14 @@ export default class Controller extends Phaser.Scene {
 		menuThemeNode.audioKey = "Menu_Theme";
 
 		this.stateMachineNode = stateMachineNode;
+		this.theme_1_Node = theme_1_Node;
 		this.menuThemeNode = menuThemeNode;
 
 		this.events.emit("scene-awake");
 	}
 
 	private stateMachineNode!: StateMachineNode;
+	private theme_1_Node!: AudioAddNode;
 	private menuThemeNode!: AudioAddNode;
 
 	/* START-USER-CODE */
@@ -102,6 +104,7 @@ export default class Controller extends Phaser.Scene {
 
 		// this.events.on("change-game-state", this.changeState, this)
 		eventsCenter.on("change-game-state", this.changeState, this)
+		this.scene.bringToTop()
 	}
 
 	private changeState(stateKey: string) {
@@ -110,6 +113,13 @@ export default class Controller extends Phaser.Scene {
 	}
 
 	mainMenuOnEnter() {
+		if(this.stateMachineNode.previousStateName === "level") {
+			this.theme_1_Node._g_audio?.stop()
+			this.scene.stop("UIScreen")
+		this.scene.stop(this.levelScene[this.currLevel])
+			
+		}
+
 		this.scene.launch("MainMenu")
 		this.menuThemeNode._g_audio?.play()
 	}
@@ -128,34 +138,34 @@ export default class Controller extends Phaser.Scene {
 
 	private levelOnEnter() {
 		this.menuThemeNode._g_audio?.stop()
-		this.scene.launch("UIScreen")
 
-		if(!this.scene.isActive(this.levelScene[this.currLevel]))
-		{
-			this.scene.launch(this.levelScene[this.currLevel])
+		if(this.stateMachineNode.previousStateName === "pause") {
+			return
 		}
 
-	}
+		this.theme_1_Node._g_audio?.play()
+		this.scene.launch("UIScreen")
+		this.scene.launch(this.levelScene[this.currLevel])
 
-	private levelOnExit() {
-		
 	}
 
 	private pauseOnEnter() {
 		this.scene.pause(this.levelScene[this.currLevel])
 		this.scene.launch("Pause")
+		this.theme_1_Node._g_audio?.stop()
 		eventsCenter.emit(PAUSE_GAME)
 	}
 
 	private pauseOnExit() {
 		this.scene.resume(this.levelScene[this.currLevel])
 		this.scene.stop("Pause")
+		this.theme_1_Node._g_audio?.play()
 		eventsCenter.emit(RESUME_GAME)
 	}
 
 	private restartOnEnter() {
 		this.scene.stop("UIScreen")
-		// this.scene.stop(this.levelScene[this.currLevel])
+		this.scene.pause(this.levelScene[this.currLevel])
 
 		const fx = this.cameras.main.postFX.addWipe()
 

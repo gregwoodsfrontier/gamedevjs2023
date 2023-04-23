@@ -39,10 +39,12 @@ export default class PauseButton extends Phaser.GameObjects.Image {
 		})
 
 		eventsCenter.on(PAUSE_GAME, () => {
+			if(!this.scene){return}
 			this.setTexture("Play")
 		}, this)
 
 		eventsCenter.on(RESUME_GAME, () => {
+			if(!this.scene){return}
 			this.setTexture("pause")
 		}, this)
 	}

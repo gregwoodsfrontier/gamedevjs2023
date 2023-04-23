@@ -29,25 +29,13 @@
                     "nestedPrefabs": [],
                     "list": [
                         {
-                            "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
-                            "id": "8b56f0cf-1baa-4ada-ad31-d6f6ffb6e7f1",
+                            "prefabId": "ed6c6e09-9fce-4613-bb4a-1441a84bf052",
+                            "id": "8216b2a3-0f6b-4da5-976c-4b94d3e94e0e",
                             "unlock": [
-                                "sceneKey"
+                                "SMState"
                             ],
-                            "label": "startSceneActionScript",
-                            "sceneKey": "Level",
-                            "components": [],
-                            "nestedPrefabs": [],
-                            "list": []
-                        },
-                        {
-                            "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
-                            "id": "0ee6b284-a81d-47a6-9b2b-b8bc947c1b10",
-                            "unlock": [
-                                "sceneKey"
-                            ],
-                            "label": "startUIScreenScript",
-                            "sceneKey": "UIScreen",
+                            "label": "changeStateInController",
+                            "SMState": "restart",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []

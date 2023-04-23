@@ -6,7 +6,6 @@
 import Phaser from "phaser";
 import SettingsButton from "../prefabs/SettingsButton";
 import PlayButton from "../prefabs/PlayButton";
-import FullScreenButton from "../prefabs/FullScreenButton";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -50,12 +49,6 @@ export default class MainMenu extends Phaser.Scene {
 		// playButton
 		const playButton = new PlayButton(this, 215, 215);
 		this.add.existing(playButton);
-
-		// fullScreenButton
-		const fullScreenButton = new FullScreenButton(this, 602, 321);
-		this.add.existing(fullScreenButton);
-		fullScreenButton.scaleX = 0.5;
-		fullScreenButton.scaleY = 0.5;
 
 		// bitmaptext_1
 		const bitmaptext_1 = this.add.bitmapText(92, 87, "StayPixel2", "Paper Dog Dash");
