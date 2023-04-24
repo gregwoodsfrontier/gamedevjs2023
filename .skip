@@ -1,1 +1,7 @@
 dist
+**/LICENSE
+**/CHANGELOG.md
+**/CallbackActionScript*
+
+# exclude all node_modules folders in the project.
+**/node_modules
