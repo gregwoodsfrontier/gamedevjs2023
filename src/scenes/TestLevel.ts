@@ -59,8 +59,14 @@ export default class TestLevel extends Phaser.Scene {
 		// levelBehavior
 		const levelBehavior = new LevelBehavior(this);
 
-		// createFromObjectsNode
-		const createFromObjectsNode = new CreateFromObjectsNode(this);
+		// fireHydrantNode
+		const fireHydrantNode = new CreateFromObjectsNode(this);
+
+		// newspaperNode
+		const newspaperNode = new CreateFromObjectsNode(this);
+
+		// houseNode
+		const houseNode = new CreateFromObjectsNode(this);
 
 		// lists
 		const hydrantList = [fireHydrant];
@@ -77,12 +83,26 @@ export default class TestLevel extends Phaser.Scene {
 		levelBehavior.goal = goalList;
 		levelBehavior.newspaper = newspaperList;
 
-		// createFromObjectsNode (prefab fields)
-		createFromObjectsNode._name = "FireHydrant";
-		createFromObjectsNode.classType = FireHydrant;
-		createFromObjectsNode.textureKey = "firehydrant";
-		createFromObjectsNode.targetList = hydrantList;
-		createFromObjectsNode.tilemapSrce = testLevel;
+		// fireHydrantNode (prefab fields)
+		fireHydrantNode._name = "FireHydrant";
+		fireHydrantNode.classType = FireHydrant;
+		fireHydrantNode.textureKey = "firehydrant";
+		fireHydrantNode.targetList = hydrantList;
+		fireHydrantNode.tilemapSrce = testLevel;
+
+		// newspaperNode (prefab fields)
+		newspaperNode._name = "Newspaper";
+		newspaperNode.classType = Newspaper;
+		newspaperNode.textureKey = "newspaper";
+		newspaperNode.targetList = newspaperList;
+		newspaperNode.tilemapSrce = testLevel;
+
+		// houseNode (prefab fields)
+		houseNode._name = "House";
+		houseNode.classType = Goal;
+		houseNode.textureKey = "house2";
+		houseNode.targetList = goalList;
+		houseNode.tilemapSrce = testLevel;
 
 		this.testLevel = testLevel;
 		this.hydrantList = hydrantList;

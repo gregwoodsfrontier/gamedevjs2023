@@ -134,11 +134,51 @@
                 "targetList",
                 "tilemapSrce"
             ],
-            "label": "createFromObjectsNode",
+            "label": "fireHydrantNode",
             "_name": "FireHydrant",
             "classType": "FireHydrant",
             "textureKey": "firehydrant",
             "targetList": "hydrantList",
+            "tilemapSrce": "testLevel",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
+            "id": "4d9780a8-efb8-4f2d-9554-0b8c84509a9c",
+            "unlock": [
+                "_name",
+                "classType",
+                "targetList",
+                "textureKey",
+                "tilemapSrce"
+            ],
+            "label": "newspaperNode",
+            "_name": "Newspaper",
+            "classType": "Newspaper",
+            "textureKey": "newspaper",
+            "targetList": "newspaperList",
+            "tilemapSrce": "testLevel",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
+            "id": "8df0a76a-e1b4-4483-b199-0b3f8e755677",
+            "unlock": [
+                "_name",
+                "classType",
+                "textureKey",
+                "targetList",
+                "tilemapSrce"
+            ],
+            "label": "houseNode",
+            "_name": "House",
+            "classType": "Goal",
+            "textureKey": "house2",
+            "targetList": "goalList",
             "tilemapSrce": "testLevel",
             "components": [],
             "nestedPrefabs": [],
