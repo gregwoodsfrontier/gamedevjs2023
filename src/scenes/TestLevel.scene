@@ -36,8 +36,8 @@
             ],
             "label": "newspaper",
             "components": [],
-            "x": 192,
-            "y": 111,
+            "x": 399,
+            "y": -23,
             "nestedPrefabs": [],
             "list": []
         },
@@ -50,8 +50,22 @@
             ],
             "label": "goal",
             "components": [],
-            "x": 1044,
-            "y": 6,
+            "x": 400,
+            "y": -51,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
+            "id": "4cec27f9-10b0-420d-b947-d0fc6754805c",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fireHydrant",
+            "components": [],
+            "x": 400,
+            "y": -33,
             "nestedPrefabs": [],
             "list": []
         },
@@ -70,20 +84,6 @@
             "list": []
         },
         {
-            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
-            "id": "4cec27f9-10b0-420d-b947-d0fc6754805c",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "fireHydrant",
-            "components": [],
-            "x": 137,
-            "y": 140,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
             "prefabId": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
             "id": "82c81ec7-c63f-4b02-a993-e9dff42a9757",
             "unlock": [
@@ -97,8 +97,8 @@
             "player": "player",
             "groundLayer": "ground_1",
             "hydrantList": "hydrantList",
-            "goal": "goal",
-            "newspaper": "newspaper",
+            "goal": "goalList",
+            "newspaper": "newspaperList",
             "components": [],
             "nestedPrefabs": [],
             "list": []
@@ -134,6 +134,20 @@
             "label": "hydrantList",
             "objectIds": [
                 "4cec27f9-10b0-420d-b947-d0fc6754805c"
+            ]
+        },
+        {
+            "id": "f8135020-9e4c-4579-85ac-04877f2dff4f",
+            "label": "goalList",
+            "objectIds": [
+                "2ae769bd-4950-4c08-94f1-de2e2452b511"
+            ]
+        },
+        {
+            "id": "36e7e4ea-8e98-44b4-8dbb-7d9bcd09989e",
+            "label": "newspaperList",
+            "objectIds": [
+                "cfa55d4e-8803-41c3-b0a7-9dec19d935d4"
             ]
         }
     ]

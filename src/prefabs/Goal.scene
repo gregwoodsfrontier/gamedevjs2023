@@ -23,14 +23,11 @@
             },
             "scaleX": 2,
             "scaleY": 2,
-            "originX": 0,
-            "originY": 0,
-            "physicsType": 1,
             "pushable": false,
             "body.width": 18,
-            "body.height": 31,
-            "body.offset.x": 39,
-            "body.offset.y": 56,
+            "body.height": 33,
+            "body.offset.x": 15,
+            "body.offset.y": 16,
             "list": []
         }
     ],

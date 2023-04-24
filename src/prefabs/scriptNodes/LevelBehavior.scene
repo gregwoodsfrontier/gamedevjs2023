@@ -126,7 +126,7 @@
             "customDefinition": false,
             "type": {
                 "id": "object-var",
-                "expressionType": "Goal"
+                "expressionType": "Goal[]"
             }
         },
         {
@@ -137,7 +137,7 @@
             "customDefinition": false,
             "type": {
                 "id": "object-var",
-                "expressionType": "Newspaper"
+                "expressionType": "Newspaper[]"
             }
         }
     ]

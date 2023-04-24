@@ -56,9 +56,9 @@ const game = new Phaser.Game({
     },
     scene: [
         Boot, Preload, Controller, 
-        Level, MainMenu, Settings, 
+        Level, TestLevel, MainMenu, Settings, 
         Level2, UIScreen, Pause, CompleteLv,
-        Level3, TestLevel
+        Level3
     ]
 });
 

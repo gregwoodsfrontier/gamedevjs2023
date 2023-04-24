@@ -7,8 +7,8 @@ import Phaser from "phaser";
 import LayerPhysics from "../components/LayerPhysics";
 import Newspaper from "../prefabs/Newspaper";
 import Goal from "../prefabs/Goal";
-import Player from "../prefabs/Player";
 import FireHydrant from "../prefabs/FireHydrant";
+import Player from "../prefabs/Player";
 import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -34,26 +34,28 @@ export default class TestLevel extends Phaser.Scene {
 		const ground_1 = testLevel.createLayer("ground", ["Terrain (16x16)"], 0, 0);
 
 		// newspaper
-		const newspaper = new Newspaper(this, 192, 111);
+		const newspaper = new Newspaper(this, 399, -23);
 		this.add.existing(newspaper);
 
 		// goal
-		const goal = new Goal(this, 1044, 6);
+		const goal = new Goal(this, 400, -51);
 		this.add.existing(goal);
+
+		// fireHydrant
+		const fireHydrant = new FireHydrant(this, 400, -33);
+		this.add.existing(fireHydrant);
 
 		// player
 		const player = new Player(this, 63, 151);
 		this.add.existing(player);
-
-		// fireHydrant
-		const fireHydrant = new FireHydrant(this, 137, 140);
-		this.add.existing(fireHydrant);
 
 		// levelBehavior
 		const levelBehavior = new LevelBehavior(this);
 
 		// lists
 		const hydrantList = [fireHydrant];
+		const goalList = [goal];
+		const newspaperList = [newspaper];
 
 		// ground_1 (components)
 		new LayerPhysics(ground_1);
@@ -62,17 +64,21 @@ export default class TestLevel extends Phaser.Scene {
 		levelBehavior.player = player;
 		levelBehavior.groundLayer = ground_1;
 		levelBehavior.hydrantList = hydrantList;
-		levelBehavior.goal = goal;
-		levelBehavior.newspaper = newspaper;
+		levelBehavior.goal = goalList;
+		levelBehavior.newspaper = newspaperList;
 
 		this.testLevel = testLevel;
 		this.hydrantList = hydrantList;
+		this.goalList = goalList;
+		this.newspaperList = newspaperList;
 
 		this.events.emit("scene-awake");
 	}
 
 	private testLevel!: Phaser.Tilemaps.Tilemap;
 	private hydrantList!: FireHydrant[];
+	private goalList!: Goal[];
+	private newspaperList!: Newspaper[];
 
 	/* START-USER-CODE */
 
@@ -88,11 +94,33 @@ export default class TestLevel extends Phaser.Scene {
 			key: "firehydrant"
 		})
 
+		const npPoints = this.testLevel.createFromObjects("Objects", {
+			name: "Newspaper",
+			classType: Newspaper,
+			key: "newspaper"
+		})
+
+		const housePoints = this.testLevel.createFromObjects("Objects", {
+			name: "House",
+			classType: Goal,
+			key: "house2"
+		})
+
 		for(let fh of fireHydrantPoints) {
 			this.hydrantList.push(fh as FireHydrant)
 		}
 
-		console.log("get newspaper obj",this.testLevel.findObject("Objects", e => e.name === "Newspaper", this))
+		for(let np of npPoints) {
+			this.newspaperList.push(np as Newspaper)
+		}
+
+		for(let h of housePoints) {
+			// console.log(h)
+			this.goalList.push(h as Goal)
+		}
+
+		// console.warn(this.goalList[1].body)
+
 	}
 
 	/* END-USER-CODE */

@@ -67,8 +67,8 @@ export default class LevelBehavior extends ScriptNode {
 	public player!: Player;
 	public groundLayer!: Phaser.Tilemaps.TilemapLayer | null;
 	public hydrantList!: FireHydrant[];
-	public goal!: Goal;
-	public newspaper!: Newspaper;
+	public goal!: Goal[];
+	public newspaper!: Newspaper[];
 
 	/* START-USER-CODE */
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
@@ -91,6 +91,7 @@ export default class LevelBehavior extends ScriptNode {
 			scene.physics.add.collider(this.newspaper, this.groundLayer)
 			scene.physics.add.collider(this.hydrantList, this.groundLayer)
 			scene.physics.add.collider(this.player, this.groundLayer)
+			scene.physics.add.collider(this.goal, this.groundLayer)
 		}
 
 		//@ts-ignore
@@ -133,9 +134,9 @@ export default class LevelBehavior extends ScriptNode {
 			if(this.toCompleteLv) {
 				this.toCompleteLv.execute()
 			}
-			
+
 		}
-		
+
 	}
 
 	/* END-USER-CODE */
