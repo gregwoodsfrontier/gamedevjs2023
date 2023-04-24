@@ -32,12 +32,14 @@
             "id": "cfa55d4e-8803-41c3-b0a7-9dec19d935d4",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "enable"
             ],
             "label": "newspaper",
             "components": [],
             "x": 399,
             "y": -23,
+            "enable": false,
             "nestedPrefabs": [],
             "list": []
         },
@@ -46,12 +48,14 @@
             "id": "2ae769bd-4950-4c08-94f1-de2e2452b511",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "enable"
             ],
             "label": "goal",
             "components": [],
-            "x": 400,
-            "y": -51,
+            "x": 492,
+            "y": -56,
+            "enable": false,
             "nestedPrefabs": [],
             "list": []
         },
@@ -60,12 +64,14 @@
             "id": "4cec27f9-10b0-420d-b947-d0fc6754805c",
             "unlock": [
                 "x",
-                "y"
+                "y",
+                "enable"
             ],
             "label": "fireHydrant",
             "components": [],
-            "x": 400,
-            "y": -33,
+            "x": 350,
+            "y": -25,
+            "enable": false,
             "nestedPrefabs": [],
             "list": []
         },

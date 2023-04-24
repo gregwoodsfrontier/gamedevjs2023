@@ -36,14 +36,17 @@ export default class TestLevel extends Phaser.Scene {
 		// newspaper
 		const newspaper = new Newspaper(this, 399, -23);
 		this.add.existing(newspaper);
+		newspaper.body.enable = false;
 
 		// goal
-		const goal = new Goal(this, 400, -51);
+		const goal = new Goal(this, 492, -56);
 		this.add.existing(goal);
+		goal.body.enable = false;
 
 		// fireHydrant
-		const fireHydrant = new FireHydrant(this, 400, -33);
+		const fireHydrant = new FireHydrant(this, 350, -25);
 		this.add.existing(fireHydrant);
+		fireHydrant.body.enable = false;
 
 		// player
 		const player = new Player(this, 63, 151);
