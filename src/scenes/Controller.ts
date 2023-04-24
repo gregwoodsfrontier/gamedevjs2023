@@ -128,7 +128,7 @@ export default class Controller extends Phaser.Scene {
 	}
 
 	private gameoverOnEnter() {
-
+		this.scene.launch("Gameover")
 	}
 
 	private gameoverOnExit() {

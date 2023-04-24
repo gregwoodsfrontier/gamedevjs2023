@@ -47,7 +47,9 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 
 	private bar: Phaser.GameObjects.Rectangle;
 	private fill: Phaser.GameObjects.Rectangle;
-	public timer: number = 30;
+	
+	public timer: number = 2;
+	// public timer: number = 30;
 
 	/* START-USER-CODE */
 	private timerInMs = this.timer * 1000
@@ -79,7 +81,7 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 		this.fill.setScale(fillScale, 1)
 
 		if(this.timerInMs < 0.001) {
-			eventsCenter.emit("change-game-state")
+			eventsCenter.emit("change-game-state", "gameover")
 		}
 	}
 
