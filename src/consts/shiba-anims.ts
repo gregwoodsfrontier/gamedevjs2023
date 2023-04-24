@@ -19,3 +19,5 @@ export const ANIM_PEE_END = "pee-end";
 export const ANIM_CRAWL_GO = "crawl-go";
 
 export const ANIM_CRAWL_IDLE = "crawl-idle";
+
+export const ANIM_SHIBA_DEAD = "shiba-dead";

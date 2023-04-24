@@ -33,6 +33,10 @@ export default class StateMachineNode extends RootScriptNode {
 	private changeStateQueue: string[] = []
 
 	// Write your code here.
+	set contextSetter (_context: object) {
+		this.context = _context
+	}
+
 	get previousStateName()
 	{
 		if (!this.previousState)

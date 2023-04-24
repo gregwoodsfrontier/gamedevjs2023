@@ -67,6 +67,7 @@ export default class Controller extends Phaser.Scene {
 		this.editorCreate()
 
 		this.stateMachineNode.id = "game-state"
+		this.stateMachineNode.contextSetter = this
 
 		this.stateMachineNode.addState("main-menu", {
 			onEnter: () => {
@@ -92,6 +93,9 @@ export default class Controller extends Phaser.Scene {
 		}).addState("complete", {
 			onEnter: () => {this.completeOnEnter()},
 			onExit: () => {this.completeOnExit()}
+		}).addState("gameover", {
+			onEnter: () => {this.gameoverOnEnter()},
+			onExit: () => {this.gameoverOnExit()}
 		}).setState("main-menu")
 
 		// The game can have several states
@@ -112,7 +116,7 @@ export default class Controller extends Phaser.Scene {
 		this.stateMachineNode.setState(stateKey)
 	}
 
-	mainMenuOnEnter() {
+	private mainMenuOnEnter() {
 		if(this.stateMachineNode.previousStateName === "level") {
 			this.theme_1_Node._g_audio?.stop()
 			this.scene.stop("UIScreen")
@@ -121,6 +125,14 @@ export default class Controller extends Phaser.Scene {
 
 		this.scene.launch("MainMenu")
 		this.menuThemeNode._g_audio?.play()
+	}
+
+	private gameoverOnEnter() {
+
+	}
+
+	private gameoverOnExit() {
+
 	}
 
 	private mainMenuOnExit() {

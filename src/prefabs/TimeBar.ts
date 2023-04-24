@@ -77,6 +77,10 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 		const fillScale = Phaser.Math.Clamp(this.timerInMs / (this.timer * 1000), 0, 1)
 
 		this.fill.setScale(fillScale, 1)
+
+		if(this.timerInMs < 0.001) {
+			eventsCenter.emit("change-game-state")
+		}
 	}
 
 	/* END-USER-CODE */
