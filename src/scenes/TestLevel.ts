@@ -10,6 +10,7 @@ import Goal from "../prefabs/Goal";
 import FireHydrant from "../prefabs/FireHydrant";
 import Player from "../prefabs/Player";
 import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
+import CreateFromObjectsNode from "../prefabs/scriptNodes/CreateFromObjectsNode";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -29,6 +30,9 @@ export default class TestLevel extends Phaser.Scene {
 		const testLevel = this.add.tilemap("testLevel");
 		testLevel.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
 		testLevel.addTilesetImage("Clouds V2-2", "Clouds_V2-2");
+
+		// background_1
+		testLevel.createLayer("background", ["Clouds V2-2"], 0, 0);
 
 		// ground_1
 		const ground_1 = testLevel.createLayer("ground", ["Terrain (16x16)"], 0, 0);
@@ -55,6 +59,9 @@ export default class TestLevel extends Phaser.Scene {
 		// levelBehavior
 		const levelBehavior = new LevelBehavior(this);
 
+		// createFromObjectsNode
+		const createFromObjectsNode = new CreateFromObjectsNode(this);
+
 		// lists
 		const hydrantList = [fireHydrant];
 		const goalList = [goal];
@@ -69,6 +76,13 @@ export default class TestLevel extends Phaser.Scene {
 		levelBehavior.hydrantList = hydrantList;
 		levelBehavior.goal = goalList;
 		levelBehavior.newspaper = newspaperList;
+
+		// createFromObjectsNode (prefab fields)
+		createFromObjectsNode._name = "FireHydrant";
+		createFromObjectsNode.classType = FireHydrant;
+		createFromObjectsNode.textureKey = "firehydrant";
+		createFromObjectsNode.targetList = hydrantList;
+		createFromObjectsNode.tilemapSrce = testLevel;
 
 		this.testLevel = testLevel;
 		this.hydrantList = hydrantList;
@@ -91,36 +105,36 @@ export default class TestLevel extends Phaser.Scene {
 
 		this.editorCreate();
 
-		const fireHydrantPoints = this.testLevel.createFromObjects("Objects", {
-			name: "FireHydrant",
-			classType: FireHydrant,
-			key: "firehydrant"
-		})
+		// const fireHydrantPoints = this.testLevel.createFromObjects("Objects", {
+		// 	name: "FireHydrant",
+		// 	classType: FireHydrant,
+		// 	key: "firehydrant"
+		// })
 
-		const npPoints = this.testLevel.createFromObjects("Objects", {
-			name: "Newspaper",
-			classType: Newspaper,
-			key: "newspaper"
-		})
+		// const npPoints = this.testLevel.createFromObjects("Objects", {
+		// 	name: "Newspaper",
+		// 	classType: Newspaper,
+		// 	key: "newspaper"
+		// })
 
-		const housePoints = this.testLevel.createFromObjects("Objects", {
-			name: "House",
-			classType: Goal,
-			key: "house2"
-		})
+		// const housePoints = this.testLevel.createFromObjects("Objects", {
+		// 	name: "House",
+		// 	classType: Goal,
+		// 	key: "house2"
+		// })
 
-		for(let fh of fireHydrantPoints) {
-			this.hydrantList.push(fh as FireHydrant)
-		}
+		// for(let fh of fireHydrantPoints) {
+		// 	this.hydrantList.push(fh as FireHydrant)
+		// }
 
-		for(let np of npPoints) {
-			this.newspaperList.push(np as Newspaper)
-		}
+		// for(let np of npPoints) {
+		// 	this.newspaperList.push(np as Newspaper)
+		// }
 
-		for(let h of housePoints) {
-			// console.log(h)
-			this.goalList.push(h as Goal)
-		}
+		// for(let h of housePoints) {
+		// 	// console.log(h)
+		// 	this.goalList.push(h as Goal)
+		// }
 
 		// console.warn(this.goalList[1].body)
 

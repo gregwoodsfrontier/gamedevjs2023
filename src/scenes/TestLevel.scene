@@ -14,6 +14,19 @@
     "displayList": [
         {
             "type": "TilemapLayer",
+            "id": "72bcb942-c67b-43b1-baf8-29d3cdc21e72",
+            "label": "background_1",
+            "components": [],
+            "list": [],
+            "tilemapId": "ed3a68cc-fc9a-4ff7-ba19-34c6e4cfa439",
+            "layerName": "background",
+            "tilesets": [
+                "Terrain (16x16)",
+                "Clouds V2-2"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
             "id": "6e63bfb2-4150-4057-bd2c-3a0a39a07bea",
             "label": "ground_1",
             "components": [
@@ -105,6 +118,28 @@
             "hydrantList": "hydrantList",
             "goal": "goalList",
             "newspaper": "newspaperList",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
+            "id": "db887937-1d2c-4782-a712-35b5871dbc39",
+            "unlock": [
+                "x",
+                "y",
+                "_name",
+                "classType",
+                "textureKey",
+                "targetList",
+                "tilemapSrce"
+            ],
+            "label": "createFromObjectsNode",
+            "_name": "FireHydrant",
+            "classType": "FireHydrant",
+            "textureKey": "firehydrant",
+            "targetList": "hydrantList",
+            "tilemapSrce": "testLevel",
             "components": [],
             "nestedPrefabs": [],
             "list": []
