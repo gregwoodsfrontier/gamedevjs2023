@@ -6,7 +6,7 @@
         "autoImport": true,
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
-        "sceneKey": "TestLevel",
+        "sceneKey": "Level1",
         "compilerOutputLanguage": "TYPE_SCRIPT",
         "borderWidth": 640,
         "borderHeight": 360
@@ -139,7 +139,7 @@
             "classType": "FireHydrant",
             "textureKey": "firehydrant",
             "targetList": "hydrantList",
-            "tilemapSrce": "testLevel",
+            "tilemapSrce": "level1map",
             "components": [],
             "nestedPrefabs": [],
             "list": []
@@ -159,7 +159,7 @@
             "classType": "Newspaper",
             "textureKey": "newspaper",
             "targetList": "newspaperList",
-            "tilemapSrce": "testLevel",
+            "tilemapSrce": "level1map",
             "components": [],
             "nestedPrefabs": [],
             "list": []
@@ -179,7 +179,7 @@
             "classType": "Goal",
             "textureKey": "house2",
             "targetList": "goalList",
-            "tilemapSrce": "testLevel",
+            "tilemapSrce": "level1map",
             "components": [],
             "nestedPrefabs": [],
             "list": []
@@ -189,7 +189,7 @@
         {
             "id": "ed3a68cc-fc9a-4ff7-ba19-34c6e4cfa439",
             "type": "Tilemap",
-            "label": "testLevel",
+            "label": "level1map",
             "key": "testLevel",
             "tilesets": [
                 {

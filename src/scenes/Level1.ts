@@ -14,10 +14,10 @@ import CreateFromObjectsNode from "../prefabs/scriptNodes/CreateFromObjectsNode"
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class TestLevel extends Phaser.Scene {
+export default class Level1 extends Phaser.Scene {
 
 	constructor() {
-		super("TestLevel");
+		super("Level1");
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -26,16 +26,16 @@ export default class TestLevel extends Phaser.Scene {
 
 	editorCreate(): void {
 
-		// testLevel
-		const testLevel = this.add.tilemap("testLevel");
-		testLevel.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
-		testLevel.addTilesetImage("Clouds V2-2", "Clouds_V2-2");
+		// level1map
+		const level1map = this.add.tilemap("testLevel");
+		level1map.addTilesetImage("Terrain (16x16)", "Terrain (16x16)");
+		level1map.addTilesetImage("Clouds V2-2", "Clouds_V2-2");
 
 		// background_1
-		testLevel.createLayer("background", ["Clouds V2-2"], 0, 0);
+		level1map.createLayer("background", ["Clouds V2-2"], 0, 0);
 
 		// ground_1
-		const ground_1 = testLevel.createLayer("ground", ["Terrain (16x16)"], 0, 0);
+		const ground_1 = level1map.createLayer("ground", ["Terrain (16x16)"], 0, 0);
 
 		// newspaper
 		const newspaper = new Newspaper(this, 399, -23);
@@ -88,23 +88,23 @@ export default class TestLevel extends Phaser.Scene {
 		fireHydrantNode.classType = FireHydrant;
 		fireHydrantNode.textureKey = "firehydrant";
 		fireHydrantNode.targetList = hydrantList;
-		fireHydrantNode.tilemapSrce = testLevel;
+		fireHydrantNode.tilemapSrce = level1map;
 
 		// newspaperNode (prefab fields)
 		newspaperNode._name = "Newspaper";
 		newspaperNode.classType = Newspaper;
 		newspaperNode.textureKey = "newspaper";
 		newspaperNode.targetList = newspaperList;
-		newspaperNode.tilemapSrce = testLevel;
+		newspaperNode.tilemapSrce = level1map;
 
 		// houseNode (prefab fields)
 		houseNode._name = "House";
 		houseNode.classType = Goal;
 		houseNode.textureKey = "house2";
 		houseNode.targetList = goalList;
-		houseNode.tilemapSrce = testLevel;
+		houseNode.tilemapSrce = level1map;
 
-		this.testLevel = testLevel;
+		this.level1map = level1map;
 		this.hydrantList = hydrantList;
 		this.goalList = goalList;
 		this.newspaperList = newspaperList;
@@ -112,7 +112,7 @@ export default class TestLevel extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
-	private testLevel!: Phaser.Tilemaps.Tilemap;
+	private level1map!: Phaser.Tilemaps.Tilemap;
 	private hydrantList!: FireHydrant[];
 	private goalList!: Goal[];
 	private newspaperList!: Newspaper[];
@@ -124,40 +124,6 @@ export default class TestLevel extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
-
-		// const fireHydrantPoints = this.testLevel.createFromObjects("Objects", {
-		// 	name: "FireHydrant",
-		// 	classType: FireHydrant,
-		// 	key: "firehydrant"
-		// })
-
-		// const npPoints = this.testLevel.createFromObjects("Objects", {
-		// 	name: "Newspaper",
-		// 	classType: Newspaper,
-		// 	key: "newspaper"
-		// })
-
-		// const housePoints = this.testLevel.createFromObjects("Objects", {
-		// 	name: "House",
-		// 	classType: Goal,
-		// 	key: "house2"
-		// })
-
-		// for(let fh of fireHydrantPoints) {
-		// 	this.hydrantList.push(fh as FireHydrant)
-		// }
-
-		// for(let np of npPoints) {
-		// 	this.newspaperList.push(np as Newspaper)
-		// }
-
-		// for(let h of housePoints) {
-		// 	// console.log(h)
-		// 	this.goalList.push(h as Goal)
-		// }
-
-		// console.warn(this.goalList[1].body)
-
 	}
 
 	/* END-USER-CODE */
