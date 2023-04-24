@@ -48,17 +48,19 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 	private bar: Phaser.GameObjects.Rectangle;
 	private fill: Phaser.GameObjects.Rectangle;
 	
-	public timer: number = 2;
-	// public timer: number = 30;
+	// public timer: number = 2;
+	public timer: number = 30;
 
 	/* START-USER-CODE */
-	private timerInMs = this.timer * 1000
+	private timerInMs = this.timer * 100
 	private isPaused = false
 
 	// Write your code here.
 	start() {
 		// fill the bar first
 		this.fill.width = this.bar.width
+
+		// this.timerInMs = this.timer * 1000
 
 		eventsCenter.on("pause-game", () => {
 			this.isPaused = true
@@ -72,16 +74,25 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 	}
 
 	update(time: number, delta: number) {
+		
+
 		if(!this.isPaused) {
 			this.timerInMs -= delta
 		}
 		
 		const fillScale = Phaser.Math.Clamp(this.timerInMs / (this.timer * 1000), 0, 1)
 
+		console.log(`timer: ${this.timerInMs}`)
+
 		this.fill.setScale(fillScale, 1)
 
 		if(this.timerInMs < 0.001) {
 			eventsCenter.emit("change-game-state", "gameover")
+
+			//refresh timer
+			this.timerInMs = this.timer * 1000
+
+			console.log(`timer: ${this.timerInMs}`)
 		}
 	}
 

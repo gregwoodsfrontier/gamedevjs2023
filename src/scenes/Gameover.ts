@@ -5,6 +5,7 @@
 
 import Phaser from "phaser";
 import { ANIM_SHIBA_DEAD } from "../consts/shiba-anims";
+import eventsCenter from "../eventCenter";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -77,17 +78,39 @@ export default class Gameover extends Phaser.Scene {
 
 		this.editorCreate();
 
-		this.events.on("transitionstart", () => {
-			this.tweens.add({
-				targets: this.container_1,
-				x: 0,
-				duration: 2000
+		this.container_1.x = this.scale.width
+	
+		eventsCenter.once("to-level", (levelkey: string) => {
+			this.scene.transition({
+				target: levelkey,
+				duration: 400,
+				moveBelow: true,
+				onUpdate: (progress: number) => {
+					this.container_1.x = this.scale.width * progress
+				}
 			})
 		}, this)
 
-		this.events.on('transitioncomplete', () => {
-			this.gameoverDog.play(ANIM_SHIBA_DEAD)
-		});
+		this.gameoverDog.once(Phaser.Animations.Events.ANIMATION_COMPLETE, () => {
+
+			eventsCenter.emit("change-game-state", "level")
+		}, this)
+
+		this.events.on("transitionstart", () => {
+			const containertween = this.tweens.add({
+				targets: this.container_1,
+				x: 0,
+				duration: 800,
+				ease: "sine.out"
+			})
+			containertween.once(Phaser.Tweens.Events.TWEEN_COMPLETE, () => {
+				// console.log("tween complete")
+				// this.scene.manager.dump()
+				this.gameoverDog.play(ANIM_SHIBA_DEAD, true)
+			})
+		}, this)
+
+		
 
 	}
 

@@ -79,6 +79,15 @@ export default class LevelBehavior extends ScriptNode {
 		//  passing the total width and height from the level scene to create the camera bounds
 		scene.events.once("setup-cam-bounds", this.setupCameraBounds, this)
 		scene.events.once("setup-world-bounds", this.setupWorldBounds, this)
+
+		eventsCenter.once("to-gameover", () => {
+			scene.scene.transition({
+				target: "Gameover",
+				moveAbove: true,
+				duration: 10
+			})
+			scene.scene.stop()
+		}, this)
 	}
 
 	// Write your code here.

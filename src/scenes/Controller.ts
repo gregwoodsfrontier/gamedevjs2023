@@ -128,11 +128,20 @@ export default class Controller extends Phaser.Scene {
 	}
 
 	private gameoverOnEnter() {
-		this.scene.launch("Gameover")
+		const { stateMachineNode } = this
+		// check if previous state is level
+		if(stateMachineNode.previousStateName === "level")
+		{
+			eventsCenter.emit("to-gameover")
+			this.scene.stop("UIScreen")
+		} 
+		
 	}
 
 	private gameoverOnExit() {
-
+		// scene transition can only be invoked on the source scene
+		eventsCenter.emit("to-level", this.levelScene[this.currLevel])
+		
 	}
 
 	private mainMenuOnExit() {
@@ -158,6 +167,7 @@ export default class Controller extends Phaser.Scene {
 		this.theme_1_Node._g_audio?.play()
 		this.scene.launch("UIScreen")
 		this.scene.launch(this.levelScene[this.currLevel])
+		this.scene.moveAbove("UIScreen")
 
 	}
 

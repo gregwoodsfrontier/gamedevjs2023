@@ -21,7 +21,7 @@
                 "timer"
             ],
             "label": "timeBar",
-            "timer": 30,
+            "timer": 2,
             "components": [],
             "x": 192,
             "y": 32,
