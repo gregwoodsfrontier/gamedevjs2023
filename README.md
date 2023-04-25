@@ -1,6 +1,29 @@
-# Phaser Editor 2D Vite.js Template
+# Paper Dog Dash
 
-A template that can be opened in Phaser Editor 2D.
+## Description
+Paper Dog Dash is a platformer game where the player takes control of a newspaper delivery dog who has to deliver the newspaper to the house before the timer runs out. The dog has to navigate through various obstacles, jump over hurdles, duck under low passages and crawl through narrow spaces to complete the delivery successfully.
+
+## Controls
+The game can be played using the following keyboard controls:
+
+Up arrow: Jump
+Left arrow: Move left
+Down arrow: Duck/Crawl
+Right arrow: Move right
+Space bar: Throw newspaper
+
+## How to Play
+The objective of the game is to deliver the newspaper to the house before the timer runs out. The player must navigate through different levels filled with obstacles and enemies to reach the house. The player can jump over hurdles, duck under low passages and crawl through narrow spaces to avoid obstacles.
+
+The game has multiple levels, each with increasing difficulty. The player must complete each level within a specific time limit to progress to the next level.
+
+## Screenshots
+![EndGame](https://user-images.githubusercontent.com/34982031/234369790-3b324fc2-59ab-4147-8564-93ce7df72091.png)
+![Level1](https://user-images.githubusercontent.com/34982031/234369792-20fd8058-4c4f-4963-80d6-d73b5b5dfb96.png)
+![Level2](https://user-images.githubusercontent.com/34982031/234369793-56b64442-93f1-4d50-b217-099b3e9567b2.png)
+
+## Video
+https://user-images.githubusercontent.com/34982031/234370364-b8fc37a3-930d-433f-9c6f-775f53d4ffb7.mp4
 
 ## First steps
 
