@@ -8,12 +8,10 @@ import Phaser from "phaser";
 import ChangeStateInController from "./ChangeStateInController";
 /* START-USER-IMPORTS */
 import Player from "../Player";
-import PlayerContainer from "../PlayerContainer";
 import FireHydrant from "../FireHydrant";
 import Newspaper from "../Newspaper";
 import Goal from "../Goal";
 import eventsCenter from "../../eventCenter";
-import { PAUSE_GAME, RESUME_GAME } from "./onPauseScreenNode";
 /* END-USER-IMPORTS */
 
 export default class LevelBehavior extends ScriptNode {
@@ -42,7 +40,6 @@ export default class LevelBehavior extends ScriptNode {
 	public newspaper!: Newspaper[];
 
 	/* START-USER-CODE */
-	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
 
 	awake() {
 		const {scene} = this
@@ -89,16 +86,6 @@ export default class LevelBehavior extends ScriptNode {
 		scene.physics.add.overlap(this.player, this.goal, this.handlePlayerGoal, undefined, this)
 	}
 
-	private setupCameraBounds(_boundW: number, _boundH: number) {
-		this.cameraBounds.boundWidth = _boundW;
-		this.cameraBounds.boundHeight = _boundH
-	}
-
-	private setupWorldBounds(_boundW: number, _boundH: number) {
-		this.worldBounds.width = _boundW;
-		this.worldBounds.height = _boundH;
-	}
-
 	private handlePlayerNewsPaper(player: Player, newspaper: Newspaper) {
 		newspaper.disableBody(true, true)
 		player.equip(1)
@@ -109,6 +96,7 @@ export default class LevelBehavior extends ScriptNode {
 		hydrant.disableBody()
 	}
 
+	//@ts-ignore
 	private handlePlayerGoal(p: Player, goal: Goal) {
 		// check if the dog has a newspaper
 		if(p.inventoryGetter.find(e => e === 1)) {
