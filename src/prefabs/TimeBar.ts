@@ -78,7 +78,7 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 
 	}
 
-	update(time: number, delta: number) {
+	update(time: number) {
 
 		const { scene } = this
 

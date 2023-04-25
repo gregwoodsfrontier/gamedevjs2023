@@ -98,15 +98,11 @@ export default class CompleteLv extends Phaser.Scene {
 		// lists
 		const starGroup = [greyStar, levelStar, levelStar_1];
 
-		this.greyStar = greyStar;
-		this.starContainer = starContainer;
 		this.starGroup = starGroup;
 
 		this.events.emit("scene-awake");
 	}
 
-	private greyStar!: LevelStar;
-	private starContainer!: Phaser.GameObjects.Container;
 	private starGroup!: LevelStar[];
 
 	/* START-USER-CODE */
