@@ -112,8 +112,6 @@ export default class LevelBehavior extends ScriptNode {
 	}
 
 	setupCameraBounds(_boundW: number, _boundH: number) {
-		console.log(_boundW, "bound Width")
-		console.log(_boundH, "boundH")
 		this.cameraBounds.boundWidth = _boundW;
 		this.cameraBounds.boundHeight = _boundH
 	}
@@ -135,7 +133,6 @@ export default class LevelBehavior extends ScriptNode {
 
 	handlePlayerGoal(p: Player, goal: Goal) {
 		// check if the dog has a newspaper
-		console.log(p.inventoryGetter)
 		if(p.inventoryGetter.find(e => e === 1)) {
 			// make the dog celebrate
 

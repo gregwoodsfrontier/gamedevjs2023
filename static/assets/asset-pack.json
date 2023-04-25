@@ -22,58 +22,6 @@
                 "key": "Banner"
             },
             {
-                "url": "assets/bird_a/Death.png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "birda_death"
-            },
-            {
-                "url": "assets/bird_a/Hurt.png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "birda_hurt"
-            },
-            {
-                "url": "assets/bird_a/Idle.png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "birda_idle"
-            },
-            {
-                "url": "assets/bird_a/Walk.png",
-                "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
-                    "startFrame": 0,
-                    "endFrame": -1,
-                    "spacing": 0,
-                    "margin": 0
-                },
-                "type": "spritesheet",
-                "key": "birda_walk"
-            },
-            {
                 "url": "assets/buttons/Close.png",
                 "type": "image",
                 "key": "Close"
@@ -145,19 +93,19 @@
                 "key": "Leaderboard"
             },
             {
+                "url": "assets/tilemaps/level2.json",
+                "type": "tilemapTiledJSON",
+                "key": "level2"
+            },
+            {
+                "url": "assets/tilemaps/level3.json",
+                "type": "tilemapTiledJSON",
+                "key": "level3"
+            },
+            {
                 "url": "assets/buttons/Levels.png",
                 "type": "image",
                 "key": "Levels"
-            },
-            {
-                "url": "assets/tilemaps/lv1.json",
-                "type": "tilemapTiledJSON",
-                "key": "lv1"
-            },
-            {
-                "url": "assets/tilemaps/lv2.json",
-                "type": "tilemapTiledJSON",
-                "key": "lv2"
             },
             {
                 "url": [

@@ -58,13 +58,15 @@ export default class Controller extends Phaser.Scene {
 
 	/* START-USER-CODE */
 	private levelScene = ["Level1", "Level2", "Level3"]
-	private currLevel = 0
+	private currLevel = 1
 
 	// Write your code here
 
 	create() {
 
 		this.editorCreate()
+
+		this.currLevel = this.currLevel % this.levelScene.length
 
 		this.stateMachineNode.id = "game-state"
 		this.stateMachineNode.contextSetter = this

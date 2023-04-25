@@ -31,6 +31,16 @@
    <property name="collides" type="bool" value="true"/>
   </properties>
  </tile>
+ <tile id="9">
+  <properties>
+   <property name="collides" type="bool" value="false"/>
+  </properties>
+ </tile>
+ <tile id="10">
+  <properties>
+   <property name="collides" type="bool" value="false"/>
+  </properties>
+ </tile>
  <tile id="12">
   <properties>
    <property name="collides" type="bool" value="true"/>
@@ -97,12 +107,22 @@
  </tile>
  <tile id="29">
   <properties>
-   <property name="collides" type="bool" value="true"/>
+   <property name="collides" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="30">
   <properties>
    <property name="collides" type="bool" value="true"/>
+  </properties>
+ </tile>
+ <tile id="31">
+  <properties>
+   <property name="collides" type="bool" value="false"/>
+  </properties>
+ </tile>
+ <tile id="32">
+  <properties>
+   <property name="collides" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="34">

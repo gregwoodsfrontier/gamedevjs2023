@@ -1,10 +1,12 @@
 {
-    "id": "0dc33c87-1bc3-4574-93a5-5318fdb0dc3a",
+    "id": "fcfe21e4-b4ac-4262-a1c2-8c7990e82527",
     "sceneType": "SCENE",
     "settings": {
         "exportClass": true,
         "autoImport": true,
-        "preloadPackFiles": [],
+        "preloadPackFiles": [
+            "gamedevjs2023/static/assets/preload-asset-pack.json"
+        ],
         "createMethodName": "editorCreate",
         "sceneKey": "Level3",
         "compilerOutputLanguage": "TYPE_SCRIPT",
@@ -13,22 +15,226 @@
     },
     "displayList": [
         {
-            "type": "Text",
-            "id": "a5d206a4-f819-4c64-b211-37a14cdc7a04",
-            "label": "text_1",
+            "type": "TilemapLayer",
+            "id": "1aa253c6-82dc-40b2-8da9-523e23be5b8e",
+            "label": "background_1",
             "components": [],
-            "x": -54,
-            "y": 129,
-            "text": "Level 3 in progress",
-            "fontSize": "128px",
+            "list": [],
+            "tilemapId": "307260c3-0d77-446a-88a6-ccd968febdc6",
+            "layerName": "background",
+            "tilesets": [
+                "Terrain (16x16)",
+                "Clouds V2-2"
+            ]
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "0533b21a-4d31-442d-b3c0-a95384c0bcad",
+            "label": "ground_1",
+            "components": [
+                "LayerPhysics"
+            ],
+            "list": [],
+            "tilemapId": "307260c3-0d77-446a-88a6-ccd968febdc6",
+            "layerName": "ground",
+            "tilesets": [
+                "Terrain (16x16)",
+                "Clouds V2-2"
+            ]
+        },
+        {
+            "prefabId": "09acc3ad-3825-4697-9b99-67a50cfbfc1e",
+            "id": "8d8bc4ea-78df-4c29-9126-aae09bb4eba6",
+            "unlock": [
+                "x",
+                "y",
+                "enable"
+            ],
+            "label": "fireHydrant",
+            "components": [],
+            "x": -44,
+            "y": 141,
+            "enable": false,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "151acbe1-c211-41b2-a5ff-73dfc46e4c1c",
+            "id": "37306cd5-880c-4d43-ab1b-b959b9b3443d",
+            "unlock": [
+                "x",
+                "y",
+                "enable"
+            ],
+            "label": "goal",
+            "components": [],
+            "x": -129,
+            "y": 130,
+            "enable": false,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6d6f40ee-7a43-480c-9d6e-e26ccef0a3e2",
+            "id": "f94aeead-3e86-48f0-ac87-d8c997f53692",
+            "unlock": [
+                "x",
+                "y",
+                "enable"
+            ],
+            "label": "newspaper",
+            "components": [],
+            "x": -50,
+            "y": 95,
+            "enable": false,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "e8cbef27-0122-44ad-a3de-0e0b260351e8",
+            "id": "a9bef027-72f4-493f-a1af-0c2f8ff480bb",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "player_1",
+            "scope": "CLASS",
+            "components": [],
+            "x": 205,
+            "y": 279,
+            "scaleX": 1,
+            "scaleY": 1,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
+            "id": "16255799-e73e-43a2-b711-62d878ea2c9f",
+            "unlock": [
+                "classType",
+                "textureKey",
+                "targetList",
+                "tilemapSrce",
+                "_name"
+            ],
+            "label": "houseNode",
+            "_name": "House",
+            "classType": "Goal",
+            "textureKey": "house2",
+            "targetList": "houseList",
+            "tilemapSrce": "level2",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
+            "id": "69949a3d-da08-440e-8b10-4ccb38d15116",
+            "unlock": [
+                "_name",
+                "classType",
+                "targetList",
+                "textureKey",
+                "tilemapSrce"
+            ],
+            "label": "paperNode",
+            "_name": "Newspaper",
+            "classType": "Newspaper",
+            "textureKey": "newspaper",
+            "targetList": "paperList",
+            "tilemapSrce": "level2",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
+            "id": "5283454a-1c11-4e89-9ad7-d7eed0edeab2",
+            "unlock": [
+                "player",
+                "groundLayer",
+                "hydrantList",
+                "goal",
+                "newspaper"
+            ],
+            "label": "levelBehavior",
+            "player": "player_1",
+            "groundLayer": "ground_1",
+            "hydrantList": "hydrantList",
+            "goal": "houseList",
+            "newspaper": "paperList",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
+            "id": "c4d8abec-afde-47a8-b1c6-e48d0665c13e",
+            "unlock": [
+                "_name",
+                "textureKey",
+                "classType",
+                "targetList",
+                "tilemapSrce"
+            ],
+            "label": "hydrantNode",
+            "_name": "FireHydrant",
+            "classType": "FireHydrant",
+            "textureKey": "firehydrant",
+            "targetList": "hydrantList",
+            "tilemapSrce": "level2",
+            "components": [],
+            "nestedPrefabs": [],
             "list": []
         }
     ],
-    "plainObjects": [],
+    "plainObjects": [
+        {
+            "id": "307260c3-0d77-446a-88a6-ccd968febdc6",
+            "type": "Tilemap",
+            "label": "level3",
+            "key": "level3",
+            "tilesets": [
+                {
+                    "name": "Terrain (16x16)",
+                    "imageKey": "Terrain (16x16)"
+                },
+                {
+                    "name": "Clouds V2-2",
+                    "imageKey": "Clouds_V2-2"
+                }
+            ]
+        }
+    ],
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    }
+    },
+    "lists": [
+        {
+            "id": "65e2840f-bc59-47f5-b395-adb587020948",
+            "label": "hydrantList",
+            "objectIds": [
+                "8d8bc4ea-78df-4c29-9126-aae09bb4eba6"
+            ]
+        },
+        {
+            "id": "f97345d1-dc34-4eb7-bd2c-8760d53e4ad2",
+            "label": "paperList",
+            "objectIds": [
+                "f94aeead-3e86-48f0-ac87-d8c997f53692"
+            ]
+        },
+        {
+            "id": "9ab11426-16fe-433d-be24-a5b116fb78a8",
+            "label": "houseList",
+            "objectIds": [
+                "37306cd5-880c-4d43-ab1b-b959b9b3443d"
+            ]
+        }
+    ]
 }

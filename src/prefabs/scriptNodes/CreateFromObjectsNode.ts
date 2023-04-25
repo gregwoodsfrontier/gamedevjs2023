@@ -37,6 +37,8 @@ export default class CreateFromObjectsNode extends ScriptNode {
 		for(let e of spawnPoints) {
 			this.targetList.unshift(e)
 		}
+
+		console.log(this._name, this.targetList)
 	}
 
 	/* END-USER-CODE */
