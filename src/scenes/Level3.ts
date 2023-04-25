@@ -9,8 +9,8 @@ import FireHydrant from "../prefabs/FireHydrant";
 import Goal from "../prefabs/Goal";
 import Newspaper from "../prefabs/Newspaper";
 import Player from "../prefabs/Player";
-import CreateFromObjectsNode from "../prefabs/scriptNodes/CreateFromObjectsNode";
 import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
+import CreateFromObjectsNode from "../prefabs/scriptNodes/CreateFromObjectsNode";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -63,14 +63,14 @@ export default class Level3 extends Phaser.Scene {
 		player_1.scaleX = 1;
 		player_1.scaleY = 1;
 
+		// levelBehavior
+		const levelBehavior = new LevelBehavior(this);
+
 		// houseNode
 		const houseNode = new CreateFromObjectsNode(this);
 
 		// paperNode
 		const paperNode = new CreateFromObjectsNode(this);
-
-		// levelBehavior
-		const levelBehavior = new LevelBehavior(this);
 
 		// hydrantNode
 		const hydrantNode = new CreateFromObjectsNode(this);
@@ -83,20 +83,6 @@ export default class Level3 extends Phaser.Scene {
 		// ground_1 (components)
 		new LayerPhysics(ground_1);
 
-		// houseNode (prefab fields)
-		houseNode._name = "House";
-		houseNode.classType = Goal;
-		houseNode.textureKey = "house2";
-		houseNode.targetList = houseList;
-		houseNode.tilemapSrce = level2;
-
-		// paperNode (prefab fields)
-		paperNode._name = "Newspaper";
-		paperNode.classType = Newspaper;
-		paperNode.textureKey = "newspaper";
-		paperNode.targetList = paperList;
-		paperNode.tilemapSrce = level2;
-
 		// levelBehavior (prefab fields)
 		levelBehavior.player = player_1;
 		levelBehavior.groundLayer = ground_1;
@@ -104,12 +90,26 @@ export default class Level3 extends Phaser.Scene {
 		levelBehavior.goal = houseList;
 		levelBehavior.newspaper = paperList;
 
+		// houseNode (prefab fields)
+		houseNode._name = "House";
+		houseNode.classType = Goal;
+		houseNode.textureKey = "house2";
+		houseNode.targetList = houseList;
+		houseNode.tilemapSrce = level3;
+
+		// paperNode (prefab fields)
+		paperNode._name = "Newspaper";
+		paperNode.classType = Newspaper;
+		paperNode.textureKey = "newspaper";
+		paperNode.targetList = paperList;
+		paperNode.tilemapSrce = level3;
+
 		// hydrantNode (prefab fields)
 		hydrantNode._name = "FireHydrant";
 		hydrantNode.classType = FireHydrant;
 		hydrantNode.textureKey = "firehydrant";
 		hydrantNode.targetList = hydrantList;
-		hydrantNode.tilemapSrce = level2;
+		hydrantNode.tilemapSrce = level3;
 
 		this.player_1 = player_1;
 		this.level3 = level3;

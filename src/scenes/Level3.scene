@@ -110,46 +110,6 @@
             "list": []
         },
         {
-            "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
-            "id": "16255799-e73e-43a2-b711-62d878ea2c9f",
-            "unlock": [
-                "classType",
-                "textureKey",
-                "targetList",
-                "tilemapSrce",
-                "_name"
-            ],
-            "label": "houseNode",
-            "_name": "House",
-            "classType": "Goal",
-            "textureKey": "house2",
-            "targetList": "houseList",
-            "tilemapSrce": "level2",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
-            "id": "69949a3d-da08-440e-8b10-4ccb38d15116",
-            "unlock": [
-                "_name",
-                "classType",
-                "targetList",
-                "textureKey",
-                "tilemapSrce"
-            ],
-            "label": "paperNode",
-            "_name": "Newspaper",
-            "classType": "Newspaper",
-            "textureKey": "newspaper",
-            "targetList": "paperList",
-            "tilemapSrce": "level2",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
             "prefabId": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
             "id": "5283454a-1c11-4e89-9ad7-d7eed0edeab2",
             "unlock": [
@@ -171,6 +131,46 @@
         },
         {
             "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
+            "id": "16255799-e73e-43a2-b711-62d878ea2c9f",
+            "unlock": [
+                "classType",
+                "textureKey",
+                "targetList",
+                "tilemapSrce",
+                "_name"
+            ],
+            "label": "houseNode",
+            "_name": "House",
+            "classType": "Goal",
+            "textureKey": "house2",
+            "targetList": "houseList",
+            "tilemapSrce": "level3",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
+            "id": "69949a3d-da08-440e-8b10-4ccb38d15116",
+            "unlock": [
+                "_name",
+                "classType",
+                "targetList",
+                "textureKey",
+                "tilemapSrce"
+            ],
+            "label": "paperNode",
+            "_name": "Newspaper",
+            "classType": "Newspaper",
+            "textureKey": "newspaper",
+            "targetList": "paperList",
+            "tilemapSrce": "level3",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
             "id": "c4d8abec-afde-47a8-b1c6-e48d0665c13e",
             "unlock": [
                 "_name",
@@ -184,7 +184,7 @@
             "classType": "FireHydrant",
             "textureKey": "firehydrant",
             "targetList": "hydrantList",
-            "tilemapSrce": "level2",
+            "tilemapSrce": "level3",
             "components": [],
             "nestedPrefabs": [],
             "list": []
