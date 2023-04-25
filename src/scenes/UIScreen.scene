@@ -17,11 +17,9 @@
             "id": "cb51d61a-0739-4e33-8669-1bdf430089a1",
             "unlock": [
                 "x",
-                "y",
-                "timer"
+                "y"
             ],
             "label": "timeBar",
-            "timer": 2,
             "components": [],
             "x": 192,
             "y": 32,

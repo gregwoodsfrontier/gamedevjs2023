@@ -50,9 +50,6 @@ export default class UIScreen extends Phaser.Scene {
 		// lists
 		const thingsToHide = [backToMainButton, timeBar, restartButton];
 
-		// timeBar (prefab fields)
-		timeBar.timer = 2;
-
 		this.thingsToHide = thingsToHide;
 
 		this.events.emit("scene-awake");
