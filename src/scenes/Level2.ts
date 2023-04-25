@@ -133,6 +133,14 @@ export default class Level2 extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+
+		this.setCamWorldBounds(this.level2)
+	}
+
+	private setCamWorldBounds(map: Phaser.Tilemaps.Tilemap) {
+		this.cameras.main.setBounds(0, 0, map.width * 16, map.height * 16)
+
+		this.physics.world.setBounds(0, 0, map.width * 16, map.width * 16)
 	}
 
 	/* END-USER-CODE */

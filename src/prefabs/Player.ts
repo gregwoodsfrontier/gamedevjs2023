@@ -29,8 +29,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		scene.physics.add.existing(this, false);
 		this.body.useDamping = true;
 		this.body.collideWorldBounds = true;
-		this.body.setOffset(13, 28);
-		this.body.setSize(22, 20, false);
+		this.body.setOffset(13, 33);
+		this.body.setSize(22, 15, false);
 
 		// stateMachineNode
 		const stateMachineNode = new StateMachineNode(this);
@@ -70,8 +70,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 			if(scene.input.keyboard) {
 				this.cursors = scene.input.keyboard.createCursorKeys()
 			}
-
-			scene.physics.world.setBounds(0, 0, 75*16, 23*16)
 		}
 
 		this.stateMachineNode.addState(

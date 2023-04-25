@@ -1,6 +1,6 @@
 
 // You can write more code here
-
+//@ts-nocheck
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -133,6 +133,14 @@ export default class Level3 extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+
+		this.setCamWorldBounds(this.level3)
+	}
+
+	private setCamWorldBounds(map: Phaser.Tilemaps.Tilemap) {
+		this.cameras.main.setBounds(0, 0, map.width * 16, map.height * 16)
+
+		this.physics.world.setBounds(0, 0, map.width * 16, map.width * 16)
 	}
 
 	/* END-USER-CODE */
