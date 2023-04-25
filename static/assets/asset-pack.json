@@ -17,6 +17,11 @@
                 "key": "Background"
             },
             {
+                "url": "assets/ui/Banner.png",
+                "type": "image",
+                "key": "Banner"
+            },
+            {
                 "url": "assets/bird_a/Death.png",
                 "frameConfig": {
                     "frameWidth": 32,
@@ -97,6 +102,19 @@
                 "key": "ContinueMenu"
             },
             {
+                "url": "assets/player/Crawling.png",
+                "frameConfig": {
+                    "frameWidth": 48,
+                    "frameHeight": 48,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "Crawling"
+            },
+            {
                 "url": "assets/environmental/firehydrant.png",
                 "type": "image",
                 "key": "firehydrant"
@@ -173,8 +191,8 @@
             {
                 "url": "assets/player/Pee.png",
                 "frameConfig": {
-                    "frameWidth": 32,
-                    "frameHeight": 32,
+                    "frameWidth": 48,
+                    "frameHeight": 48,
                     "startFrame": 0,
                     "endFrame": -1,
                     "spacing": 0,
@@ -192,11 +210,6 @@
                 "url": "assets/buttons/Play Button.png",
                 "type": "image",
                 "key": "Play Button"
-            },
-            {
-                "url": "assets/anims/player-animations.json",
-                "type": "animation",
-                "key": "player-animations"
             },
             {
                 "url": "assets/buttons/Previous.png",
@@ -374,6 +387,11 @@
                 },
                 "type": "spritesheet",
                 "key": "Terrain (16x16)"
+            },
+            {
+                "url": "assets/tilemaps/testLevel.json",
+                "type": "tilemapTiledJSON",
+                "key": "testLevel"
             },
             {
                 "url": [

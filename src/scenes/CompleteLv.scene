@@ -13,89 +13,16 @@
     },
     "displayList": [
         {
-            "type": "Text",
-            "id": "90acef2f-f050-475e-b5d3-45167883063b",
-            "label": "text_1",
+            "type": "Rectangle",
+            "id": "7afd3f48-dd17-4b00-9037-7dc9962948ca",
+            "label": "rectangle_1",
             "components": [],
-            "x": 326,
-            "y": 140,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "Level Complete",
-            "fontSize": "64px",
-            "list": []
-        },
-        {
-            "prefabId": "f14cdc51-e905-41ce-9935-25d9b3d42bbd",
-            "id": "248f6020-efb9-401d-b606-78dc9dd7d27f",
-            "unlock": [
-                "x",
-                "y",
-                "scaleX",
-                "scaleY"
-            ],
-            "label": "greyStar",
-            "scope": "CLASS",
-            "components": [],
-            "x": 207,
-            "y": 235,
-            "scaleX": 0.75,
-            "scaleY": 0.75,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "f14cdc51-e905-41ce-9935-25d9b3d42bbd",
-            "id": "9e3e2602-43f0-44fe-9faa-8a644a134e90",
-            "unlock": [
-                "x",
-                "y",
-                "scaleX",
-                "scaleY"
-            ],
-            "label": "levelStar",
-            "components": [],
-            "x": 314,
-            "y": 235,
-            "scaleX": 0.75,
-            "scaleY": 0.75,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "f14cdc51-e905-41ce-9935-25d9b3d42bbd",
-            "id": "1f23fbfc-4518-4d5d-904d-30488386b1c0",
-            "unlock": [
-                "x",
-                "y",
-                "scaleX",
-                "scaleY"
-            ],
-            "label": "levelStar_1",
-            "components": [],
-            "x": 421,
-            "y": 235,
-            "scaleX": 0.75,
-            "scaleY": 0.75,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "06136fc0-38d5-4706-8a15-cfc027dc025b",
-            "id": "c5a0f0c7-bba9-433f-9eea-91f3ae96f3bf",
-            "unlock": [
-                "x",
-                "y",
-                "scaleX",
-                "scaleY"
-            ],
-            "label": "restartButton",
-            "components": [],
-            "x": 590,
-            "y": 51.5,
-            "scaleX": 3,
-            "scaleY": 3,
-            "nestedPrefabs": [],
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillColor": "#ffccaa",
+            "width": 700,
+            "height": 400,
             "list": []
         },
         {
@@ -109,12 +36,193 @@
             ],
             "label": "backToMainButton",
             "components": [],
-            "x": 57,
-            "y": 51.5,
-            "scaleX": 3,
-            "scaleY": 3,
+            "x": 173,
+            "y": 306,
+            "scaleX": 4,
+            "scaleY": 4,
             "nestedPrefabs": [],
             "list": []
+        },
+        {
+            "type": "Image",
+            "id": "4c4e9f9a-7a30-461a-95d0-4ba121a66385",
+            "label": "shiba_attack0",
+            "components": [],
+            "texture": {
+                "key": "shiba_attack",
+                "frame": 0
+            },
+            "x": 192,
+            "y": 123,
+            "scaleX": 5,
+            "scaleY": 5,
+            "list": []
+        },
+        {
+            "type": "BitmapText",
+            "id": "10c52982-089b-4e93-bc3b-addf083ebe74",
+            "label": "bitmaptext_2",
+            "components": [],
+            "x": 326,
+            "y": 189,
+            "visible": false,
+            "text": "Time: XX s",
+            "font": "StayPixel2",
+            "fontSize": 52,
+            "list": []
+        },
+        {
+            "prefabId": "ca6fe7b1-605c-41d9-8d27-c1ecee45f8de",
+            "id": "cda93ac1-f613-417a-8094-3f50f2a390b0",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "contButton",
+            "components": [],
+            "x": 448,
+            "y": 305,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "type": "Image",
+            "id": "604d65ed-5cb7-4712-ab2d-484e585d7758",
+            "label": "banner",
+            "components": [],
+            "texture": {
+                "key": "Banner"
+            },
+            "x": 320,
+            "y": 54,
+            "scaleX": 1.15,
+            "scaleY": 1.15,
+            "list": []
+        },
+        {
+            "type": "Container",
+            "id": "3071c59c-3e00-417e-ae3f-6620dd33de02",
+            "label": "starContainer",
+            "scope": "CLASS",
+            "components": [],
+            "x": 379,
+            "y": 167,
+            "scaleX": 0.75,
+            "scaleY": 0.75,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "3f36e67f-9c45-47fb-b42e-e6694d7ab298",
+                    "label": "spritesheet_UI_Flat86",
+                    "components": [],
+                    "texture": {
+                        "key": "Spritesheet_UI_Flat",
+                        "frame": 86
+                    },
+                    "x": 95,
+                    "y": 20,
+                    "scaleX": 4,
+                    "scaleY": 7,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "7db2cf13-2e14-4da7-9e7f-125e7efd17f1",
+                    "label": "spritesheet_UI_Flat87",
+                    "components": [],
+                    "texture": {
+                        "key": "Spritesheet_UI_Flat",
+                        "frame": 87
+                    },
+                    "x": 252,
+                    "y": 20,
+                    "scaleX": 6,
+                    "scaleY": 7,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "e00a7c8f-fdda-487d-9802-cabdc3faa400",
+                    "label": "spritesheet_UI_Flat85",
+                    "components": [],
+                    "texture": {
+                        "key": "Spritesheet_UI_Flat",
+                        "frame": 85
+                    },
+                    "x": -64,
+                    "y": 20,
+                    "scaleX": 6,
+                    "scaleY": 7,
+                    "list": []
+                },
+                {
+                    "prefabId": "f14cdc51-e905-41ce-9935-25d9b3d42bbd",
+                    "id": "248f6020-efb9-401d-b606-78dc9dd7d27f",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY",
+                        "texture"
+                    ],
+                    "label": "greyStar",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "yellowStar"
+                    },
+                    "x": 0,
+                    "y": 0,
+                    "scaleX": 0.75,
+                    "scaleY": 0.75,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "f14cdc51-e905-41ce-9935-25d9b3d42bbd",
+                    "id": "9e3e2602-43f0-44fe-9faa-8a644a134e90",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY",
+                        "texture"
+                    ],
+                    "label": "levelStar",
+                    "components": [],
+                    "texture": {
+                        "key": "yellowStar"
+                    },
+                    "x": 107,
+                    "y": 0,
+                    "scaleX": 0.75,
+                    "scaleY": 0.75,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "f14cdc51-e905-41ce-9935-25d9b3d42bbd",
+                    "id": "1f23fbfc-4518-4d5d-904d-30488386b1c0",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "scaleX",
+                        "scaleY",
+                        "texture"
+                    ],
+                    "label": "levelStar_1",
+                    "components": [],
+                    "texture": {
+                        "key": "yellowStar"
+                    },
+                    "x": 214,
+                    "y": 0,
+                    "scaleX": 0.75,
+                    "scaleY": 0.75,
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
         }
     ],
     "plainObjects": [],

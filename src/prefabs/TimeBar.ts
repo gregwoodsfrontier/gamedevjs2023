@@ -4,7 +4,6 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-
 /* START-USER-IMPORTS */
 import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
@@ -39,7 +38,7 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		this.scene.events.once("scene-awake", this.awake, this)
+		this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this)
 
 		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this)
 		/* END-USER-CTR-CODE */
@@ -47,42 +46,71 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 
 	private bar: Phaser.GameObjects.Rectangle;
 	private fill: Phaser.GameObjects.Rectangle;
-	public timer: number = 30;
+	public timer: number = 5;
 
 	/* START-USER-CODE */
 	private timerInMs = this.timer * 1000
+	private remainingRatio = 0
 	private isPaused = false
+	private unixNow = 0
+	private unixTarget = 0
+	// private barTimerEvent!: Phaser.Time.TimerEvent
 
 	// Write your code here.
-	awake() {
+	start() {
 		// fill the bar first
 		this.fill.width = this.bar.width
 
-		eventsCenter.on("pause-game", () => {
-			this.isPaused = true
-		})
+		const { scene } = this
 
-		eventsCenter.on("resume-game", () => {
-			this.isPaused = false
-		})
+		if(!scene) {return}
 
-		// this.scene.events.on("stop-timer", () => {
-		// 	this.isPaused = true
-		// })
+		this.unixNow = scene.time.now
 
-		// this.scene.events.on("start-timer", () => {
-		// 	this.isPaused = false
-		// })
+		this.unixTarget = this.unixNow + this.timerInMs
+
+		eventsCenter.on("pause-game", this.pauseGame, this)
+
+		eventsCenter.on("resume-game", this.resumeGame, this)
+
+
 	}
 
 	update(time: number, delta: number) {
-		if(!this.isPaused) {
-			this.timerInMs -= delta
+
+		const { scene } = this
+
+		if(!scene) {return}
+
+		if(scene.time.now > this.unixTarget && !this.isPaused) {
+			eventsCenter.emit("change-game-state", "gameover")
 		}
-		
-		const fillScale = Phaser.Math.Clamp(this.timerInMs / (this.timer * 1000), 0, 1)
+
+		const fillScale = this.getRemainingPeriodRatio()
 
 		this.fill.setScale(fillScale, 1)
+	}
+
+	private pauseGame() {
+		this.isPaused = true
+		// save the remainingRatio to the class
+		this.remainingRatio = this.getRemainingPeriodRatio()
+	}
+
+	private resumeGame() {
+		const { scene } = this
+
+		this.isPaused = false
+		// update the target timestamp
+		this.unixTarget = scene.time.now + this.remainingRatio * this.timerInMs
+		// reset the remaining ratio
+		this.remainingRatio = 0
+	}
+
+	private getRemainingPeriodRatio() {
+		const { scene } = this
+
+		return Phaser.Math.Difference(this.unixTarget, scene.time.now) / this.timerInMs
 	}
 
 	/* END-USER-CODE */

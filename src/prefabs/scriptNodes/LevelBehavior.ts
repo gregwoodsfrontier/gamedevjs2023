@@ -8,6 +8,7 @@ import Phaser from "phaser";
 import CameraBounds from "./CameraBounds";
 import WorldBounds from "./WorldBounds";
 import AudioAddNode from "./AudioAddNode";
+import ChangeStateInController from "./ChangeStateInController";
 /* START-USER-IMPORTS */
 import Player from "../Player";
 import PlayerContainer from "../PlayerContainer";
@@ -32,6 +33,9 @@ export default class LevelBehavior extends ScriptNode {
 		// audioAddNode
 		const audioAddNode = new AudioAddNode(this);
 
+		// toCompleteLv
+		const toCompleteLv = new ChangeStateInController(this);
+
 		// cameraBounds (prefab fields)
 		cameraBounds.boundWidth = 1200;
 		cameraBounds.boundHeight = 368;
@@ -43,9 +47,13 @@ export default class LevelBehavior extends ScriptNode {
 		// audioAddNode (prefab fields)
 		audioAddNode.audioKey = "theme_1";
 
+		// toCompleteLv (prefab fields)
+		toCompleteLv.SMState = "complete";
+
 		this.cameraBounds = cameraBounds;
 		this.worldBounds = worldBounds;
 		this.audioAddNode = audioAddNode;
+		this.toCompleteLv = toCompleteLv;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -55,11 +63,12 @@ export default class LevelBehavior extends ScriptNode {
 	private cameraBounds: CameraBounds;
 	private worldBounds: WorldBounds;
 	private audioAddNode: AudioAddNode;
+	private toCompleteLv: ChangeStateInController;
 	public player!: Player;
 	public groundLayer!: Phaser.Tilemaps.TilemapLayer | null;
 	public hydrantList!: FireHydrant[];
-	public goal!: Goal;
-	public newspaper!: Newspaper;
+	public goal!: Goal[];
+	public newspaper!: Newspaper[];
 
 	/* START-USER-CODE */
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
@@ -70,6 +79,15 @@ export default class LevelBehavior extends ScriptNode {
 		//  passing the total width and height from the level scene to create the camera bounds
 		scene.events.once("setup-cam-bounds", this.setupCameraBounds, this)
 		scene.events.once("setup-world-bounds", this.setupWorldBounds, this)
+
+		eventsCenter.once("to-gameover", () => {
+			scene.scene.transition({
+				target: "Gameover",
+				moveAbove: true,
+				duration: 10
+			})
+			scene.scene.stop()
+		}, this)
 	}
 
 	// Write your code here.
@@ -82,58 +100,16 @@ export default class LevelBehavior extends ScriptNode {
 			scene.physics.add.collider(this.newspaper, this.groundLayer)
 			scene.physics.add.collider(this.hydrantList, this.groundLayer)
 			scene.physics.add.collider(this.player, this.groundLayer)
+			scene.physics.add.collider(this.goal, this.groundLayer)
 		}
 
 		//@ts-ignore
 		scene.physics.add.collider(this.player, this.newspaper, this.handlePlayerNewsPaper)
 		//@ts-ignore
 		scene.physics.add.collider(this.player, this.hydrantList, this.handlePlayerHydrant)
-		scene.physics.add.overlap(this.player, this.goal)
-
-		// setting all the player inputs here and fire events to the player instead
-		// this.cursors = scene.input.keyboard?.createCursorKeys()
-
-		// play the tune in Level Behavior
-		const theme = this.audioAddNode._g_audio
-
-		scene.time.delayedCall(300, () => {
-			theme?.play()
-		})
-
-		eventsCenter.on(PAUSE_GAME, () => {
-			theme?.pause()
-		})
-
-		eventsCenter.on(RESUME_GAME, () => {
-			theme?.resume()
-		})
-
-		scene.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
-			theme?.stop()
-			theme?.destroy()
-		})
-
-		
+		//@ts-ignore
+		scene.physics.add.overlap(this.player, this.goal, this.handlePlayerGoal, undefined, this)
 	}
-
-	// may need to re-visit this sometime
-	// update() {
-	// 	if(this.cursors) {
-	// 		if(Phaser.Input.Keyboard.JustDown(this.cursors?.up)) {
-	// 			this.player.emit("jump")
-	// 		}
-	// 		else if(this.cursors.down.isDown) {
-	// 			this.player.emit("crouch")
-	// 		}
-
-	// 		if(this.cursors.left.isDown) {
-	// 			this.player.emit("move-left")
-	// 		}
-	// 		else if(this.cursors.right.isDown) {
-	// 			this.player.emit("move-right")
-	// 		}
-	// 	}
-	// }
 
 	setupCameraBounds(_boundW: number, _boundH: number) {
 		console.log(_boundW, "bound Width")
@@ -155,6 +131,21 @@ export default class LevelBehavior extends ScriptNode {
 	handlePlayerHydrant(player: Player, hydrant: FireHydrant) {
 		player.pee()
 		hydrant.disableBody()
+	}
+
+	handlePlayerGoal(p: Player, goal: Goal) {
+		// check if the dog has a newspaper
+		console.log(p.inventoryGetter)
+		if(p.inventoryGetter.find(e => e === 1)) {
+			// make the dog celebrate
+
+			// go to complete level
+			if(this.toCompleteLv) {
+				this.toCompleteLv.execute()
+			}
+
+		}
+
 	}
 
 	/* END-USER-CODE */

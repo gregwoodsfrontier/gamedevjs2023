@@ -14,19 +14,6 @@
     },
     "displayList": [
         {
-            "type": "Image",
-            "id": "e413cbbf-ce25-4dad-a117-b7cf0791f655",
-            "label": "guapen",
-            "components": [],
-            "texture": {
-                "key": "guapen"
-            },
-            "x": 320,
-            "y": 150,
-            "scaleX": 0.5915891440784282,
-            "scaleY": 0.5915891440784282
-        },
-        {
             "type": "Text",
             "id": "2ce42443-5227-4c9b-b498-e81f9a21cde3",
             "label": "progress",
@@ -38,7 +25,24 @@
             "originX": 0.5,
             "originY": 0.5,
             "text": "0%",
-            "fontSize": "30px"
+            "fontSize": "30px",
+            "list": []
+        },
+        {
+            "type": "Sprite",
+            "id": "05707f2a-d0a8-458d-87a4-8e3598c625e8",
+            "label": "walk0",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "Walk",
+                "frame": 0
+            },
+            "x": 340,
+            "y": 110,
+            "scaleX": 5,
+            "scaleY": 5,
+            "list": []
         }
     ],
     "plainObjects": [],

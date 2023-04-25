@@ -9,7 +9,7 @@ import Phaser from "phaser";
 
 export default interface Goal {
 
-	 body: Phaser.Physics.Arcade.StaticBody;
+	 body: Phaser.Physics.Arcade.Body;
 }
 
 export default class Goal extends Phaser.Physics.Arcade.Image {
@@ -17,13 +17,12 @@ export default class Goal extends Phaser.Physics.Arcade.Image {
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 0, y ?? 0, texture || "house2", frame);
 
-		scene.physics.add.existing(this, true);
-		this.body.moves = false;
-		this.body.allowGravity = false;
-		this.body.allowRotation = false;
+		this.scaleX = 2;
+		this.scaleY = 2;
+		scene.physics.add.existing(this, false);
 		this.body.pushable = false;
-		this.body.setOffset(5, 34);
-		this.body.setSize(38, 31, false);
+		this.body.setOffset(15, 16);
+		this.body.setSize(18, 33, false);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.

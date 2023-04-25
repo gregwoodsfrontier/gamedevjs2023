@@ -63,13 +63,6 @@ export default class Pause extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
-
-		// this.play.once('pointerup', this.resumeLevel)
-	}
-
-	resumeLevel() {
-		this.scene.stop()
-		this.scene.resume("Level")
 	}
 
 	/* END-USER-CODE */

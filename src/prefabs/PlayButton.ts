@@ -5,7 +5,7 @@
 
 import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
-import StartSceneActionScript from "./scriptNodes/StartSceneActionScript";
+import ChangeStateInController from "./scriptNodes/ChangeStateInController";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -20,18 +20,11 @@ export default class PlayButton extends Phaser.GameObjects.Image {
 		// onPointerDownScript
 		const onPointerDownScript = new OnPointerDownScript(this);
 
-		// startSceneActionScript
-		const startSceneActionScript = new StartSceneActionScript(onPointerDownScript);
+		// changeStateInController
+		const changeStateInController = new ChangeStateInController(onPointerDownScript);
 
-		// startSceneActionScript_1
-		const startSceneActionScript_1 = new StartSceneActionScript(onPointerDownScript);
-
-		// startSceneActionScript (prefab fields)
-		startSceneActionScript.sceneKey = "Level";
-		startSceneActionScript.data = { level: 1 };
-
-		// startSceneActionScript_1 (prefab fields)
-		startSceneActionScript_1.sceneKey = "UIScreen";
+		// changeStateInController (prefab fields)
+		changeStateInController.SMState = "level";
 
 		/* START-USER-CTR-CODE */
 

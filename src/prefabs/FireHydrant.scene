@@ -25,8 +25,9 @@
             "allowGravity": false,
             "pushable": false,
             "immovable": true,
-            "body.width": 32,
+            "body.width": 16,
             "body.height": 32,
+            "body.offset.x": 8,
             "list": []
         }
     ],

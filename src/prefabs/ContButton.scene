@@ -1,0 +1,69 @@
+{
+    "id": "ca6fe7b1-605c-41d9-8d27-c1ecee45f8de",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "102958c0-137b-4564-b625-74093718bba5",
+            "label": "container_1",
+            "components": [],
+            "x": null,
+            "y": null,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "a1550d08-8d21-48c6-8f79-b9cf6d017344",
+                    "label": "contButton",
+                    "components": [],
+                    "texture": {
+                        "key": "Continue"
+                    },
+                    "x": null,
+                    "y": null,
+                    "scaleX": 0.7,
+                    "scaleY": 0.7,
+                    "list": [
+                        {
+                            "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                            "id": "7e0b8759-f2cc-4aa5-90eb-0366fe80fd91",
+                            "label": "onPointerDownScript",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": [
+                                {
+                                    "prefabId": "ed6c6e09-9fce-4613-bb4a-1441a84bf052",
+                                    "id": "7768726d-2379-4247-b7b0-4ad279801d5e",
+                                    "unlock": [
+                                        "SMState"
+                                    ],
+                                    "label": "toLevel",
+                                    "SMState": "level",
+                                    "components": [],
+                                    "nestedPrefabs": [],
+                                    "list": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

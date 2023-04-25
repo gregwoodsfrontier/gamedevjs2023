@@ -4,9 +4,8 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import OnPointerDownScript from "../prefabs/scriptNodes/OnPointerDownScript";
-import StartSceneActionScript from "../prefabs/scriptNodes/StartSceneActionScript";
 import HoriScrollBar from "../prefabs/HoriScrollBar";
+import BackToMainButton from "../prefabs/BackToMainButton";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -28,17 +27,6 @@ export default class Settings extends Phaser.Scene {
 		background.tintTopRight = 16777215;
 		background.tintBottomLeft = 9934743;
 		background.tintBottomRight = 9934743;
-
-		// back
-		const back = this.add.image(595, 46, "Back");
-		back.scaleX = 3;
-		back.scaleY = 3;
-
-		// onPointerDownScript
-		const onPointerDownScript = new OnPointerDownScript(back);
-
-		// startSceneActionScript
-		const startSceneActionScript = new StartSceneActionScript(onPointerDownScript);
 
 		// seText
 		const seText = this.add.bitmapText(62, 160, "StayPixel2", "Sound Effect Volume\n");
@@ -70,8 +58,11 @@ export default class Settings extends Phaser.Scene {
 		const scrollbar = new HoriScrollBar(this, 462, 170);
 		this.add.existing(scrollbar);
 
-		// startSceneActionScript (prefab fields)
-		startSceneActionScript.sceneKey = "MainMenu";
+		// backToMainButton
+		const backToMainButton = new BackToMainButton(this, 32, 32);
+		this.add.existing(backToMainButton);
+		backToMainButton.scaleX = 2;
+		backToMainButton.scaleY = 2;
 
 		this.events.emit("scene-awake");
 	}

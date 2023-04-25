@@ -22,7 +22,8 @@ export default class FireHydrant extends Phaser.Physics.Arcade.Image {
 		this.body.allowGravity = false;
 		this.body.pushable = false;
 		this.body.immovable = true;
-		this.body.setSize(32, 32, false);
+		this.body.setOffset(8, 0);
+		this.body.setSize(16, 32, false);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.

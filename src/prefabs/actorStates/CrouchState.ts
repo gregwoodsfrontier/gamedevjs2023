@@ -7,6 +7,7 @@ import ScriptNode from "../scriptNodes/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import { IRunStateParams } from "../../interfaces/state_params";
+import { ANIM_CRAWL_GO, ANIM_CRAWL_IDLE } from "../../consts/shiba-anims";
 /* END-USER-IMPORTS */
 
 export default class CrouchState extends ScriptNode {
@@ -37,15 +38,11 @@ export default class CrouchState extends ScriptNode {
 				height: body.height
 			}
 			
-			// sprite.setBodySize(this.currentSize.width , this.currentSize.height / 2, false)
-			sprite.setScale(1, 0.5)
-			// sprite.setOffset(0, this.currentSize.height / 2)
+			sprite.play(ANIM_CRAWL_IDLE, true)
+			
+			sprite.setBodySize(this.currentSize.width , this.currentSize.height / 2, false)
 			sprite.body.offset.y += this.currentSize.height / 2
-			// sprite.setDisplaySize(sprite.displayWidth, sprite.displayHeight / 2)
-			// sprite.setScale(1, 0.5)
 		}
-
-		if(animKey){ sprite.play(animKey) }
 	}
 
 	onUpdate(params: IRunStateParams) {
@@ -54,21 +51,24 @@ export default class CrouchState extends ScriptNode {
 		if(isLeft) {
 			sprite.flipX = true
 			sprite.setVelocityX(-speed * this.speedMod)
+			sprite.play(ANIM_CRAWL_GO, true)
 		}
 		else if (isRight) {
 			sprite.flipX = false
 			sprite.setVelocityX(speed  * this.speedMod)
+			sprite.play(ANIM_CRAWL_GO, true)
 		}
 		else
 		{
 			sprite.setVelocityX(0)
+			sprite.play(ANIM_CRAWL_IDLE, true)
 		}
 	}
 
 	onExit(sprite: Phaser.Physics.Arcade.Sprite) {
 		if(sprite.body) {
-			// sprite.setBodySize(this.currentSize.width, this.currentSize.height, false)
-			sprite.setScale(1, 1)
+			sprite.setBodySize(this.currentSize.width, this.currentSize.height, false)
+			// sprite.setScale(1, 1)
 			// sprite.setOffset(0, -this.currentSize.height / 2)
 			sprite.body.offset.y -= this.currentSize.height / 2
 			// sprite.setDisplaySize(sprite.displayWidth, sprite.displayHeight * 2)

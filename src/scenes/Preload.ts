@@ -20,22 +20,26 @@ export default class Preload extends Phaser.Scene {
 
 	editorCreate(): void {
 
-		// guapen
-		const guapen = this.add.image(320, 150, "guapen");
-		guapen.scaleX = 0.5915891440784282;
-		guapen.scaleY = 0.5915891440784282;
-
 		// progress
 		const progress = this.add.text(320, 300, "", {});
 		progress.setOrigin(0.5, 0.5);
 		progress.text = "0%";
 		progress.setStyle({ "fontSize": "30px" });
 
+		// walk0
+		const walk0 = this.add.sprite(340, 110, "Walk", 0);
+		walk0.scaleX = 5;
+		walk0.scaleY = 5;
+
 		// progress (components)
 		new PreloadText(progress);
 
+		this.walk0 = walk0;
+
 		this.events.emit("scene-awake");
 	}
+
+	private walk0!: Phaser.GameObjects.Sprite;
 
 	/* START-USER-CODE */
 
@@ -45,9 +49,11 @@ export default class Preload extends Phaser.Scene {
 
 		this.editorCreate();
 
+		this.walk0.play("dog-walk")
+
 		this.load.pack("asset-pack", "assets/asset-pack.json");
 
-		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("MainMenu"));
+		this.load.on(Phaser.Loader.Events.COMPLETE, () => this.scene.start("Controller"));
 
 	}
 

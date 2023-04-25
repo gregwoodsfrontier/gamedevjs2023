@@ -1,0 +1,85 @@
+{
+    "id": "6021ddc5-0feb-4e44-a400-708976bed53c",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "type": "ScriptNode",
+            "id": "aa9860d4-5a31-42d8-8ed7-faffcca8d147",
+            "label": "createFromObjectsNode",
+            "components": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "_name",
+            "label": "Object Name",
+            "tooltip": "The object name defined in Tiled",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "classType",
+            "label": "Class Type",
+            "tooltip": "The class type that you want to instantiate",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "constructor",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "textureKey",
+            "label": "Texture Key",
+            "tooltip": "The name of the texture that the object needs",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "targetList",
+            "label": "Target List",
+            "tooltip": "The list the you need to put objects into",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "Phaser.GameObjects.GameObject[]"
+            }
+        },
+        {
+            "name": "tilemapSrce",
+            "label": "Tile Map Source",
+            "tooltip": "The Tile Map for reading Objects Layer",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "Phaser.Tilemaps.Tilemap"
+            }
+        }
+    ]
+}

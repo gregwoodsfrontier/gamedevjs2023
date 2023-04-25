@@ -19,13 +19,12 @@ export default class StartSceneActionScript extends ScriptNode {
 	}
 
 	public sceneKey: string = "";
-	public data!: object;
 
 	/* START-USER-CODE */
 
 	override execute(): void {
 
-		this.scene.scene.start(this.sceneKey, this.data);
+		this.scene.scene.start(this.sceneKey);
 	}
 
 	/* END-USER-CODE */

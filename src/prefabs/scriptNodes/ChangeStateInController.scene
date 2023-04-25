@@ -1,0 +1,51 @@
+{
+    "id": "ed6c6e09-9fce-4613-bb4a-1441a84bf052",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "type": "ScriptNode",
+            "id": "cee97c9f-8fee-4f13-9bc8-65c1fe891003",
+            "label": "changeStateInController",
+            "scope": "CLASS",
+            "components": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "SMState",
+            "label": "Game State Machine State",
+            "tooltip": "Game State Machine State",
+            "defValue": "main-menu",
+            "customDefinition": false,
+            "type": {
+                "id": "option",
+                "options": [
+                    "main-menu",
+                    "settings",
+                    "level",
+                    "pause",
+                    "restart",
+                    "complete"
+                ]
+            }
+        }
+    ]
+}

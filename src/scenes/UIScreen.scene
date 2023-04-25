@@ -17,11 +17,9 @@
             "id": "cb51d61a-0739-4e33-8669-1bdf430089a1",
             "unlock": [
                 "x",
-                "y",
-                "timer"
+                "y"
             ],
             "label": "timeBar",
-            "timer": 30,
             "components": [],
             "x": 192,
             "y": 32,
@@ -43,24 +41,6 @@
             "y": 32,
             "scaleX": 2,
             "scaleY": 2,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "b922df8d-9e20-4f96-a3cd-d998e573c88f",
-            "id": "1a05f4c6-a637-45b2-a95c-dc91b7227e14",
-            "unlock": [
-                "x",
-                "y",
-                "scaleX",
-                "scaleY"
-            ],
-            "label": "fullScreenButton",
-            "components": [],
-            "x": 603,
-            "y": 320,
-            "scaleX": 0.5,
-            "scaleY": 0.5,
             "nestedPrefabs": [],
             "list": []
         },

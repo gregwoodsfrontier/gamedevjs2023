@@ -26,13 +26,17 @@ export default class onPauseScreenNode extends ScriptNode {
 	private isPause = false
 	private levelKey = "Level"
 
-	execute(): void {
+	execute(): void {		
 		this.runPauseButtonLogic(this.levelKey)
 	}
 
 	runPauseButtonLogic(currLevelKey: string) {
+		
 		if(!this.isPause) {
 			this.isPause = true
+
+			//stop the time in UI screen
+			eventsCenter.emit(PAUSE_GAME)
 
 			// pause the current level
 			this.scene.scene.pause(currLevelKey)
@@ -40,11 +44,13 @@ export default class onPauseScreenNode extends ScriptNode {
 			// Launch the pause scene
 			this.scene.scene.launch("Pause")
 
-			//stop the time in UI screen
-			eventsCenter.emit(PAUSE_GAME)
+			
 		}
 		else {
 			this.isPause = false
+
+			//restart the time in UI screen
+			eventsCenter.emit(RESUME_GAME)
 
 			// restart the current level
 			this.scene.scene.resume(currLevelKey)
@@ -52,8 +58,7 @@ export default class onPauseScreenNode extends ScriptNode {
 			// Stop the pause scene
 			this.scene.scene.stop("Pause")
 
-			//restart the time in UI screen
-			eventsCenter.emit(RESUME_GAME)
+			
 		}
 	}
 
