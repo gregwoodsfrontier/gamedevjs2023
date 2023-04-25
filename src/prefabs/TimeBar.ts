@@ -46,10 +46,10 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 
 	private bar: Phaser.GameObjects.Rectangle;
 	private fill: Phaser.GameObjects.Rectangle;
-	public timer: number = 5;
+	public timer: number = 30;
 
 	/* START-USER-CODE */
-	private timerInMs = this.timer * 1000
+	private timerInMs = 0
 	private remainingRatio = 0
 	private isPaused = false
 	private unixNow = 0
@@ -64,6 +64,8 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 		const { scene } = this
 
 		if(!scene) {return}
+
+		this.timerInMs = this.timer * 1000
 
 		this.unixNow = scene.time.now
 

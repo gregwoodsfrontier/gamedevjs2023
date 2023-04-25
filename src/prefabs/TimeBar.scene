@@ -77,7 +77,7 @@
             "name": "timer",
             "label": "timer",
             "tooltip": "Time for the level in seconds",
-            "defValue": 5,
+            "defValue": 30,
             "customDefinition": false,
             "type": {
                 "id": "number"
