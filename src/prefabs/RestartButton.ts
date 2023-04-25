@@ -7,7 +7,6 @@ import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
 import ChangeStateInController from "./scriptNodes/ChangeStateInController";
 /* START-USER-IMPORTS */
-import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class RestartButton extends Phaser.GameObjects.Image {

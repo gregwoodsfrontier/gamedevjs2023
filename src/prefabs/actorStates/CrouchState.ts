@@ -30,7 +30,7 @@ export default class CrouchState extends ScriptNode {
 	}
 
 	// Write your code here.
-	onEnter(sprite: Phaser.Physics.Arcade.Sprite, animKey: string | undefined) {
+	onEnter(sprite: Phaser.Physics.Arcade.Sprite) {
 		if(sprite.body) {
 			const { body } = sprite
 			this.currentSize = {

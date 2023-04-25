@@ -17,8 +17,8 @@
             "id": "102958c0-137b-4564-b625-74093718bba5",
             "label": "container_1",
             "components": [],
-            "x": null,
-            "y": null,
+            "x": 0,
+            "y": 0,
             "list": [
                 {
                     "type": "Image",
@@ -28,8 +28,8 @@
                     "texture": {
                         "key": "Continue"
                     },
-                    "x": null,
-                    "y": null,
+                    "x": 0,
+                    "y": 0,
                     "scaleX": 0.7,
                     "scaleY": 0.7,
                     "list": [

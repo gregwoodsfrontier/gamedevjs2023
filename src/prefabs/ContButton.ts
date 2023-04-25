@@ -12,10 +12,10 @@ import ChangeStateInController from "./scriptNodes/ChangeStateInController";
 export default class ContButton extends Phaser.GameObjects.Container {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number) {
-		super(scene, x ?? null, y ?? null);
+		super(scene, x ?? 0, y ?? 0);
 
 		// contButton
-		const contButton = scene.add.image(null, null, "Continue");
+		const contButton = scene.add.image(0, 0, "Continue");
 		contButton.scaleX = 0.7;
 		contButton.scaleY = 0.7;
 		this.add(contButton);

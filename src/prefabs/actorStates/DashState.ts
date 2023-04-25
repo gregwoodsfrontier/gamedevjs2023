@@ -6,7 +6,6 @@
 import ScriptNode from "../scriptNodes/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import { IRunStateParams } from "../../interfaces/state_params";
 /* END-USER-IMPORTS */
 
 export default class DashState extends ScriptNode {
