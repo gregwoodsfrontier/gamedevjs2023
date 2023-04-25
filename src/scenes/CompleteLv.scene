@@ -103,7 +103,6 @@
             "type": "Container",
             "id": "3071c59c-3e00-417e-ae3f-6620dd33de02",
             "label": "starContainer",
-            "scope": "CLASS",
             "components": [],
             "x": 379,
             "y": 167,
@@ -166,7 +165,6 @@
                         "texture"
                     ],
                     "label": "greyStar",
-                    "scope": "CLASS",
                     "components": [],
                     "texture": {
                         "key": "yellowStar"
