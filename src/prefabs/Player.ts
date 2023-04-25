@@ -166,7 +166,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	private crouchState: CrouchState;
 	private stateMachineNode: StateMachineNode;
 	public runSpeed: number = 150;
-	public jumpSpeed: number = 350;
+	public jumpSpeed: number = 280;
 	public hasJetPack: boolean = true;
 	public dashSpd: number = 10;
 	public dashTime: number = 1000;

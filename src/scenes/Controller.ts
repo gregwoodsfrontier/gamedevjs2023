@@ -169,13 +169,16 @@ export default class Controller extends Phaser.Scene {
 		this.theme_1_Node._g_audio?.play()
 		this.scene.launch("UIScreen")
 		this.scene.launch(this.levelScene[this.currLevel])
-		this.scene.moveAbove("UIScreen")
+		this.scene.bringToTop("UIScreen")
+
+		this.scene.manager.dump()
 
 	}
 
 	private pauseOnEnter() {
 		this.scene.pause(this.levelScene[this.currLevel])
 		this.scene.launch("Pause")
+		this.scene.bringToTop("Pause")
 		this.theme_1_Node._g_audio?.stop()
 		eventsCenter.emit(PAUSE_GAME)
 	}

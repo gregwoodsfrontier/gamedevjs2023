@@ -37,13 +37,6 @@
          "name":"Objects",
          "objects":[
                 {
-                 "id":3,
-                 "template":"..\/..\/tiled\/FireHydrant.tx",
-                 "type":"FireHydrant",
-                 "x":239.333333333333,
-                 "y":171.666666666667
-                }, 
-                {
                  "height":32,
                  "id":5,
                  "name":"FireHydrant",
@@ -52,7 +45,7 @@
                  "visible":true,
                  "width":32,
                  "x":498,
-                 "y":239.333333333333
+                 "y":239.333
                 }, 
                 {
                  "height":32,
@@ -62,8 +55,8 @@
                  "type":"FireHydrant",
                  "visible":true,
                  "width":32,
-                 "x":927.833333333333,
-                 "y":207.666666666667
+                 "x":927.833,
+                 "y":207.667
                 }, 
                 {
                  "height":32,
@@ -74,7 +67,7 @@
                  "visible":true,
                  "width":32,
                  "x":842,
-                 "y":239.666666666667
+                 "y":239.667
                 }, 
                 {
                  "height":48,
@@ -95,15 +88,30 @@
                  "type":"FireHydrant",
                  "visible":true,
                  "width":32,
-                 "x":1021.66666666667,
+                 "x":1021.67,
                  "y":77
                 }, 
                 {
-                 "id":16,
+                 "height":32,
+                 "id":17,
+                 "name":"FireHydrant",
+                 "rotation":0,
+                 "type":"FireHydrant",
+                 "visible":true,
+                 "width":32,
+                 "x":264,
+                 "y":176
+                }, 
+                {
+                 "height":16,
+                 "id":18,
                  "name":"Newspaper",
-                 "template":"..\/..\/tiled\/Newspaper.tx",
-                 "x":240.333333333333,
-                 "y":287.666666666667
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":267.333333333333,
+                 "y":302.75
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -112,7 +120,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":17,
+ "nextobjectid":19,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",

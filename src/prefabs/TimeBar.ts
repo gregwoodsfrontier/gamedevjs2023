@@ -96,11 +96,15 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 	private pauseGame() {
 		this.isPaused = true
 		// save the remainingRatio to the class
-		this.remainingRatio = this.getRemainingPeriodRatio()
+		if(!this.getRemainingPeriodRatio()) {return}
+
+		this.remainingRatio = this.getRemainingPeriodRatio() ?? 0
 	}
 
 	private resumeGame() {
 		const { scene } = this
+
+		if(!scene) { return }
 
 		this.isPaused = false
 		// update the target timestamp
@@ -111,6 +115,8 @@ export default class TimeBar extends Phaser.GameObjects.Container {
 
 	private getRemainingPeriodRatio() {
 		const { scene } = this
+
+		if(!scene) {return}
 
 		return Phaser.Math.Difference(this.unixTarget, scene.time.now) / this.timerInMs
 	}
