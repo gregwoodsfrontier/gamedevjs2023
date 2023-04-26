@@ -29,8 +29,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		scene.physics.add.existing(this, false);
 		this.body.useDamping = true;
 		this.body.collideWorldBounds = true;
-		this.body.setOffset(13, 33);
-		this.body.setSize(22, 15, false);
+		this.body.setOffset(13, 28);
+		this.body.setSize(22, 20, false);
 
 		// stateMachineNode
 		const stateMachineNode = new StateMachineNode(this);

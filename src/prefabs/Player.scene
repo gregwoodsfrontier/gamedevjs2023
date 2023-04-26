@@ -26,9 +26,9 @@
             "collideWorldBounds": true,
             "useDamping": true,
             "body.width": 22,
-            "body.height": 15,
+            "body.height": 20,
             "body.offset.x": 13,
-            "body.offset.y": 33,
+            "body.offset.y": 28,
             "list": [
                 {
                     "prefabId": "7ebcc666-227f-47b9-ae7e-e51a0f0f18cb",

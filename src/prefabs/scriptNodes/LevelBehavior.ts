@@ -71,11 +71,11 @@ export default class LevelBehavior extends ScriptNode {
 			scene.physics.add.collider(this.goal, this.groundLayer)
 
 			// debug info
-			this.groundLayer.renderDebug(scene.add.graphics().setAlpha(0.75), {
-				tileColor: null, // Color of non-colliding tiles
-				collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
-				faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
-			})
+			// this.groundLayer.renderDebug(scene.add.graphics().setAlpha(0.75), {
+			// 	tileColor: null, // Color of non-colliding tiles
+			// 	collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
+			// 	faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
+			// })
 		}
 
 		//@ts-ignore
