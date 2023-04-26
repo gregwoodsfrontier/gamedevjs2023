@@ -63,6 +63,139 @@
                 "key": "Crawling"
             },
             {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Crawl_1.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Crawl_1"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Crawl_2.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Crawl_2"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Crawl_3.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Crawl_3"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Crawl_4.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Crawl_4"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Crawl_5.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Crawl_5"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Crawl_6.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Crawl_6"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Crawl_7.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Crawl_7"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Dash.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Dash"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Jumping.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Jumping"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Jumping_landing.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Jumping_landing"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Step_1.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Step_1"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Step_2.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Step_2"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Step_3.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Step_3"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Step_4.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Step_4"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Step_5.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Step_5"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Step_6.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Step_6"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Dog_SFX_Step_7.wav"
+                ],
+                "type": "audio",
+                "key": "Dog_SFX_Step_7"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay Music/End_Of_Level_Music.wav"
+                ],
+                "type": "audio",
+                "key": "End_Of_Level_Music"
+            },
+            {
+                "url": [
+                    "assets/audio/End_Of_Level_Music.wav"
+                ],
+                "type": "audio",
+                "key": "End_Of_Level_Music_1"
+            },
+            {
                 "url": "assets/environmental/firehydrant.png",
                 "type": "image",
                 "key": "firehydrant"
@@ -71,6 +204,13 @@
                 "url": "assets/buttons/fullscreen.png",
                 "type": "image",
                 "key": "fullscreen"
+            },
+            {
+                "url": [
+                    "assets/audio/Game_Over_Music.wav"
+                ],
+                "type": "audio",
+                "key": "Game_Over_Music"
             },
             {
                 "url": "assets/ui/greyStar.png",
@@ -93,6 +233,13 @@
                 "key": "Leaderboard"
             },
             {
+                "url": [
+                    "assets/audio/Gameplay Music/Level_Music.wav"
+                ],
+                "type": "audio",
+                "key": "Level_Music"
+            },
+            {
                 "url": "assets/tilemaps/level2.json",
                 "type": "tilemapTiledJSON",
                 "key": "level2"
@@ -109,22 +256,57 @@
             },
             {
                 "url": [
-                    "assets/audio/menu/Menu_Theme.wav"
+                    "assets/audio/menu/Menu Music/Menu_Music.wav"
                 ],
                 "type": "audio",
-                "key": "Menu_Theme"
+                "key": "Menu_Music"
             },
             {
                 "url": [
-                    "assets/audio/menu/Menu_Theme_Orchestral.wav"
+                    "assets/audio/menu/Menu SFX/Menu_SFX_Back.wav"
                 ],
                 "type": "audio",
-                "key": "Menu_Theme_Orchestral"
+                "key": "Menu_SFX_Back"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Menu SFX/Menu_SFX_Click.wav"
+                ],
+                "type": "audio",
+                "key": "Menu_SFX_Click"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Menu SFX/Menu_SFX_Fullscreen.wav"
+                ],
+                "type": "audio",
+                "key": "Menu_SFX_Fullscreen"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Menu SFX/Menu_SFX_Play.wav"
+                ],
+                "type": "audio",
+                "key": "Menu_SFX_Play"
+            },
+            {
+                "url": [
+                    "assets/audio/menu/Menu SFX/Menu_SFX_Volume_Sliders.wav"
+                ],
+                "type": "audio",
+                "key": "Menu_SFX_Volume_Sliders"
             },
             {
                 "url": "assets/environmental/newspaper.png",
                 "type": "image",
                 "key": "newspaper"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay SFX/Newspaper_SFX.wav"
+                ],
+                "type": "audio",
+                "key": "Newspaper_SFX"
             },
             {
                 "url": "assets/buttons/Next.png",
@@ -178,41 +360,6 @@
                 "url": "assets/buttons/Settings Button.png",
                 "type": "image",
                 "key": "Settings Button"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Back.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Back"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Click.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Click"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Fullscreen.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Fullscreen"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Play.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Play"
-            },
-            {
-                "url": [
-                    "assets/audio/menu/Main_Menu_SFX_Volume.wav"
-                ],
-                "type": "audio",
-                "key": "SFX_Volume"
             },
             {
                 "url": "assets/player/Attack.png",
@@ -318,10 +465,10 @@
             },
             {
                 "url": [
-                    "assets/audio/level/success.wav"
+                    "assets/audio/Gameplay Music/Success_Music.wav"
                 ],
                 "type": "audio",
-                "key": "success"
+                "key": "Success_Music"
             },
             {
                 "url": "assets/tilesets/Terrain (16x16).png",
@@ -342,51 +489,16 @@
                 "key": "testLevel"
             },
             {
-                "url": [
-                    "assets/audio/level/theme_1.wav"
-                ],
-                "type": "audio",
-                "key": "theme_1"
-            },
-            {
-                "url": [
-                    "assets/audio/level/theme_1_melody_1.wav"
-                ],
-                "type": "audio",
-                "key": "theme_1_melody_1"
-            },
-            {
-                "url": [
-                    "assets/audio/level/theme_1_melody_2.wav"
-                ],
-                "type": "audio",
-                "key": "theme_1_melody_2"
-            },
-            {
-                "url": [
-                    "assets/audio/level/theme_2.wav"
-                ],
-                "type": "audio",
-                "key": "theme_2"
-            },
-            {
-                "url": [
-                    "assets/audio/level/theme_2_melody_1.wav"
-                ],
-                "type": "audio",
-                "key": "theme_2_melody_1"
-            },
-            {
-                "url": [
-                    "assets/audio/Theme_Song_Orchestral_1.wav"
-                ],
-                "type": "audio",
-                "key": "Theme_Song_Orchestral_1"
-            },
-            {
                 "url": "assets/tilesets/Gray.png",
                 "type": "image",
                 "key": "tilesBackground"
+            },
+            {
+                "url": [
+                    "assets/audio/Gameplay Music/Time_Running_Out_Music.wav"
+                ],
+                "type": "audio",
+                "key": "Time_Running_Out_Music"
             },
             {
                 "url": "assets/buttons/Volume.png",
