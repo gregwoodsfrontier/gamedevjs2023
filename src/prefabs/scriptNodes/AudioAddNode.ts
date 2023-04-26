@@ -23,13 +23,14 @@ export default class AudioAddNode extends ScriptNode {
 	public type: "music"|"sfx" = "music";
 
 	/* START-USER-CODE */
-	private audio?: Phaser.Sound.BaseSound
-
+	private audio?: Phaser.Sound.WebAudioSound
 	// Write your code here.
 	awake() {
-		this.audio = this.scene.sound.add(this.audioKey, {
+		this.audio = (this.scene.sound.add(this.audioKey, {
 			loop: this._loop
-		})
+		}) as Phaser.Sound.WebAudioSound)
+
+		// this.audio.manager.volume = 0.5
 	}
 
 	get _getAudio() {
