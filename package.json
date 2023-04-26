@@ -9,7 +9,7 @@
     "editor": "phasereditor2d-launcher -project . -port 1959",
     "editor-remote": "phasereditor2d-launcher -project . -disable-open-browser -public -port 1959",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "git add dist -f && git commit -m \"Adding dist\" && git subtree push --prefix dist origin gh-pages"
   },
   "devDependencies": {
     "gh-pages": "^5.0.0",
