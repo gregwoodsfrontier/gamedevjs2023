@@ -5,6 +5,7 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class FullScreenButton extends Phaser.GameObjects.Image {
@@ -25,6 +26,8 @@ export default class FullScreenButton extends Phaser.GameObjects.Image {
 		console.log('test');
 
 		const { scale } = this.scene;
+
+        eventsCenter.emit("sfx-fullscreen")
 
         // Check if the game is already in fullscreen mode
         if (!scale.isFullscreen) {

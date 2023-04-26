@@ -39,15 +39,23 @@ export default class Controller extends Phaser.Scene {
 		// menuThemeNode
 		const menuThemeNode = new AudioAddNode(this);
 
+		// fullScreenSFX
+		const fullScreenSFX = new AudioAddNode(this);
+
 		// theme_1_Node (prefab fields)
 		theme_1_Node.audioKey = "theme_1";
 
 		// menuThemeNode (prefab fields)
 		menuThemeNode.audioKey = "Menu_Theme";
 
+		// fullScreenSFX (prefab fields)
+		fullScreenSFX.audioKey = "SFX_Fullscreen";
+		fullScreenSFX._loop = false;
+
 		this.stateMachineNode = stateMachineNode;
 		this.theme_1_Node = theme_1_Node;
 		this.menuThemeNode = menuThemeNode;
+		this.fullScreenSFX = fullScreenSFX;
 
 		this.events.emit("scene-awake");
 	}
@@ -55,6 +63,7 @@ export default class Controller extends Phaser.Scene {
 	private stateMachineNode!: StateMachineNode;
 	private theme_1_Node!: AudioAddNode;
 	private menuThemeNode!: AudioAddNode;
+	private fullScreenSFX!: AudioAddNode;
 
 	/* START-USER-CODE */
 	private levelScene = ["Level1", "Level2", "Level3"]
@@ -65,6 +74,12 @@ export default class Controller extends Phaser.Scene {
 	create() {
 
 		this.editorCreate()
+
+		eventsCenter.on("sfx-fullscreen", () => {
+			if(!this.fullScreenSFX._g_audio?.isPlaying) {
+				this.fullScreenSFX._g_audio?.play()
+			}
+		})
 
 		this.currLevel = this.currLevel % this.levelScene.length
 
@@ -137,13 +152,13 @@ export default class Controller extends Phaser.Scene {
 			eventsCenter.emit("to-gameover")
 			this.scene.stop("UIScreen")
 		} 
-		
+
 	}
 
 	private gameoverOnExit() {
 		// scene transition can only be invoked on the source scene
 		eventsCenter.emit("to-level", this.levelScene[this.currLevel])
-		
+
 	}
 
 	private mainMenuOnExit() {

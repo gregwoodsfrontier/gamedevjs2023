@@ -64,6 +64,21 @@
             "components": [],
             "nestedPrefabs": [],
             "list": []
+        },
+        {
+            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
+            "id": "63fc6151-017a-4326-b8f4-963b98e08459",
+            "unlock": [
+                "audioKey",
+                "_loop"
+            ],
+            "label": "fullScreenSFX",
+            "scope": "CLASS",
+            "audioKey": "SFX_Fullscreen",
+            "_loop": false,
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
         }
     ],
     "plainObjects": [],
