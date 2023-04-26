@@ -39,6 +39,18 @@
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []
+                        },
+                        {
+                            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
+                            "id": "e616632e-af3e-4d12-8ffe-7cd0a7f07157",
+                            "unlock": [
+                                "audioKey"
+                            ],
+                            "label": "audioAddNode",
+                            "audioKey": "Menu_SFX_Click",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
                         }
                     ]
                 }

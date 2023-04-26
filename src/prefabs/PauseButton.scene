@@ -22,7 +22,29 @@
             "texture": {
                 "key": "pause"
             },
-            "list": []
+            "list": [
+                {
+                    "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                    "id": "72337a97-56f6-4d8c-8e2c-17887728f26d",
+                    "label": "onPointerDownScript",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": [
+                        {
+                            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
+                            "id": "5df3c1b0-2621-4441-9454-532e599e701f",
+                            "unlock": [
+                                "audioKey"
+                            ],
+                            "label": "audioAddNode",
+                            "audioKey": "Menu_SFX_Click",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "plainObjects": [],
