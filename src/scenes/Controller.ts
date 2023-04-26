@@ -42,6 +42,10 @@ export default class Controller extends Phaser.Scene {
 		// fullscreenSFX
 		const fullscreenSFX = new AudioAddNode(this);
 
+		// lists
+		const musicGroup = [levelMusic, menuMusic];
+		const sfxGroup = [fullscreenSFX];
+
 		// menuMusic (prefab fields)
 		menuMusic.audioKey = "Menu_Music";
 		menuMusic._loop = true;
@@ -61,6 +65,8 @@ export default class Controller extends Phaser.Scene {
 		this.menuMusic = menuMusic;
 		this.levelMusic = levelMusic;
 		this.fullscreenSFX = fullscreenSFX;
+		this.musicGroup = musicGroup;
+		this.sfxGroup = sfxGroup;
 
 		this.events.emit("scene-awake");
 	}
@@ -69,6 +75,8 @@ export default class Controller extends Phaser.Scene {
 	private menuMusic!: AudioAddNode;
 	private levelMusic!: AudioAddNode;
 	private fullscreenSFX!: AudioAddNode;
+	private musicGroup!: AudioAddNode[];
+	private sfxGroup!: AudioAddNode[];
 
 	/* START-USER-CODE */
 	private levelScene = ["Level1", "Level2", "Level3"]
@@ -80,9 +88,27 @@ export default class Controller extends Phaser.Scene {
 
 		this.editorCreate()
 
-		eventsCenter.on("set-volume", (newVal: number, type: "music"|"sfx") => {
-			console.log(`Current scroll bar value: ${newVal}. Type: ${type}`)
-		})
+		this.initAudioVolume()
+
+		eventsCenter.on("change-music-volume", (newVal: number) => {
+			this.musicGroup.forEach(node => {
+				if(node._getAudio?.volume) {
+					node._getAudio?.setVolume(Phaser.Math.Clamp(newVal, 0.01, 1))
+				}
+			})
+
+			this.registry.set('music-vol', newVal)
+		}, this)
+
+		eventsCenter.on("change-sfx-volume", (newVal: number) => {
+			this.sfxGroup.forEach(node => {
+				if(node._getAudio?.volume) {
+					node._getAudio?.setVolume(Phaser.Math.Clamp(newVal, 0.01, 1))
+				}
+			})
+
+			this.registry.set('sfx-vol', newVal)
+		}, this)
 
 		eventsCenter.on("sfx-fullscreen", () => {
 			if(!this.fullscreenSFX._getAudio?.isPlaying) {
@@ -135,6 +161,15 @@ export default class Controller extends Phaser.Scene {
 		// this.events.on("change-game-state", this.changeState, this)
 		eventsCenter.on("change-game-state", this.changeState, this)
 		this.scene.bringToTop()
+	}
+
+	private initAudioVolume() {
+		// set the volume of both sfx and music volume as 1 and save in local storage
+		// this.musicGroup.forEach(node => {
+		// 	node._getAudio?.manager.volume = 0.5
+		// })
+		this.registry.set('music-vol', 1)
+		this.registry.set('sfx-vol', 1)
 	}
 
 	private changeState(stateKey: string) {

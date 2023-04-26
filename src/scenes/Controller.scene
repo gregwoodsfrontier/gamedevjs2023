@@ -97,5 +97,22 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    }
+    },
+    "lists": [
+        {
+            "id": "fa9c8d9f-932f-4884-9e50-1cf27a42e2d1",
+            "label": "musicGroup",
+            "objectIds": [
+                "4f96349f-ab30-4293-9dcc-f6a09dac9219",
+                "b1b77426-4b87-4b76-b7e5-750d47296e30"
+            ]
+        },
+        {
+            "id": "7958680b-d483-4d06-8b0f-00ca59ce1163",
+            "label": "sfxGroup",
+            "objectIds": [
+                "6b5e903e-37b0-4080-bbcd-2ba1a07ea65e"
+            ]
+        }
+    ]
 }

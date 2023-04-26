@@ -9,6 +9,8 @@ import onValueChangeNode from "../prefabs/scriptNodes/onValueChangeNode";
 import setAudioVolume from "../prefabs/scriptNodes/setAudioVolume";
 import BackToMainButton from "../prefabs/BackToMainButton";
 /* START-USER-IMPORTS */
+import { ScrollBar } from "phaser3-rex-plugins/templates/ui/ui-components";
+import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class Settings extends Phaser.Scene {
@@ -101,6 +103,28 @@ export default class Settings extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+
+		const {musicBar, sfxBar} = this
+
+		musicBar.getScrollBar.setValue(this.registry.get('music-vol'))
+
+		musicBar.getScrollBar.on('valuechange', (newValue: number) => {
+			// 	// when value changes, this should fire an event to Controller Scene
+			eventsCenter.emit('change-music-volume', newValue)
+			// 	console.log(`new value: ${newValue}, old value: ${prevValue}`))
+		})
+
+		sfxBar.getScrollBar.setValue(this.registry.get('sfx-vol'))
+
+		sfxBar.getScrollBar.on('valuechange', (newValue: number) => {
+			// 	// when value changes, this should fire an event to Controller Scene
+			eventsCenter.emit('change-sfx-volume', newValue)
+			// 	console.log(`new value: ${newValue}, old value: ${prevValue}`))
+		})
+
+		// musicBar.getScrollBar.setValue(this.registry.get("music-vol"))
+
+		// sfxBar.getScrollBar.setValue(this.registry.get("music-vol"))
 	}
 
 	/* END-USER-CODE */
