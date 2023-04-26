@@ -25,6 +25,7 @@ export default class setAudioVolume extends ScriptNode {
 
 	// Write your code here.
 	execute(newVal: number) {
+		console.log("set audio is called")
 		eventsCenter.emit("set-volume", newVal, this.gameAudioType)
 	}
 

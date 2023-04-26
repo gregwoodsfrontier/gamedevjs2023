@@ -20,6 +20,7 @@ export default class AudioAddNode extends ScriptNode {
 
 	public audioKey: string = "";
 	public _loop: boolean = true;
+	public type: "music"|"sfx" = "music";
 
 	/* START-USER-CODE */
 	private audio?: Phaser.Sound.BaseSound
@@ -31,7 +32,7 @@ export default class AudioAddNode extends ScriptNode {
 		})
 	}
 
-	get _g_audio() {
+	get _getAudio() {
 		return this.audio
 	}
 

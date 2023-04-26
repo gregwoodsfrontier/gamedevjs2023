@@ -73,6 +73,8 @@ export default class HoriScrollBar extends Phaser.GameObjects.Container {
 		})
 		scene.add.existing(scrollbar)
 		scrollbar.layout()
+
+		// scrollbar.on("valuechange", ())
 		/* END-USER-CTR-CODE */
 	}
 

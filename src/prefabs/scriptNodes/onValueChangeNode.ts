@@ -32,11 +32,6 @@ export default class onValueChangeNode extends OnEventScript {
 			return;
 		}
 
-		if (!this.gameObject.input) {
-
-			this.gameObject.setInteractive();
-		}
-
 		super.awake();
 	}
 
