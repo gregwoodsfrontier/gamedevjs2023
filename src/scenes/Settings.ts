@@ -5,6 +5,8 @@
 
 import Phaser from "phaser";
 import HoriScrollBar from "../prefabs/HoriScrollBar";
+import onValueChangeNode from "../prefabs/scriptNodes/onValueChangeNode";
+import setAudioVolume from "../prefabs/scriptNodes/setAudioVolume";
 import BackToMainButton from "../prefabs/BackToMainButton";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -50,13 +52,25 @@ export default class Settings extends Phaser.Scene {
 		title.text = "Settings\n";
 		title.fontSize = 60;
 
-		// scrollbar_1
-		const scrollbar_1 = new HoriScrollBar(this, 462, 113);
-		this.add.existing(scrollbar_1);
+		// musicBar
+		const musicBar = new HoriScrollBar(this, 462, 113);
+		this.add.existing(musicBar);
 
-		// scrollbar
-		const scrollbar = new HoriScrollBar(this, 462, 170);
-		this.add.existing(scrollbar);
+		// onValueChangeNode_music
+		const onValueChangeNode_music = new onValueChangeNode(musicBar);
+
+		// setAudioVolume_music
+		new setAudioVolume(onValueChangeNode_music);
+
+		// sfxBar
+		const sfxBar = new HoriScrollBar(this, 462, 170);
+		this.add.existing(sfxBar);
+
+		// onValueChangeNode_sfx
+		const onValueChangeNode_sfx = new onValueChangeNode(sfxBar);
+
+		// setAudioVolume_sfx
+		const setAudioVolume_sfx = new setAudioVolume(onValueChangeNode_sfx);
 
 		// backToMainButton
 		const backToMainButton = new BackToMainButton(this, 32, 32);
@@ -64,8 +78,21 @@ export default class Settings extends Phaser.Scene {
 		backToMainButton.scaleX = 2;
 		backToMainButton.scaleY = 2;
 
+		// setAudioVolume_sfx (prefab fields)
+		setAudioVolume_sfx.gameAudioType = "sfx";
+
+		this.onValueChangeNode_music = onValueChangeNode_music;
+		this.musicBar = musicBar;
+		this.onValueChangeNode_sfx = onValueChangeNode_sfx;
+		this.sfxBar = sfxBar;
+
 		this.events.emit("scene-awake");
 	}
+
+	private onValueChangeNode_music!: onValueChangeNode;
+	private musicBar!: HoriScrollBar;
+	private onValueChangeNode_sfx!: onValueChangeNode;
+	private sfxBar!: HoriScrollBar;
 
 	/* START-USER-CODE */
 

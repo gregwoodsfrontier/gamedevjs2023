@@ -79,12 +79,32 @@
                 "x",
                 "y"
             ],
-            "label": "scrollbar_1",
+            "label": "musicBar",
+            "scope": "CLASS",
             "components": [],
             "x": 462,
             "y": 113,
             "nestedPrefabs": [],
-            "list": []
+            "list": [
+                {
+                    "prefabId": "b2c20918-c401-45e9-b40d-9150a0783666",
+                    "id": "43861990-cade-4f21-8d79-b5d837fa7e65",
+                    "label": "onValueChangeNode_music",
+                    "scope": "CLASS",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": [
+                        {
+                            "prefabId": "e2f33a23-bd7c-4dc6-968e-18f5ae683f54",
+                            "id": "8770a143-6865-4640-baf7-78e4efc47a2e",
+                            "label": "setAudioVolume_music",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        }
+                    ]
+                }
+            ]
         },
         {
             "prefabId": "f913a5f0-01da-494d-bb6c-6a866df7b984",
@@ -93,12 +113,36 @@
                 "x",
                 "y"
             ],
-            "label": "scrollbar",
+            "label": "sfxBar",
+            "scope": "CLASS",
             "components": [],
             "x": 462,
             "y": 170,
             "nestedPrefabs": [],
-            "list": []
+            "list": [
+                {
+                    "prefabId": "b2c20918-c401-45e9-b40d-9150a0783666",
+                    "id": "c23aaa06-f925-4d5c-a11e-8dea53a27bf8",
+                    "label": "onValueChangeNode_sfx",
+                    "scope": "CLASS",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": [
+                        {
+                            "prefabId": "e2f33a23-bd7c-4dc6-968e-18f5ae683f54",
+                            "id": "2c4dcd96-864b-4acd-a737-91617ad9ff56",
+                            "unlock": [
+                                "gameAudioType"
+                            ],
+                            "label": "setAudioVolume_sfx",
+                            "gameAudioType": "sfx",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        }
+                    ]
+                }
+            ]
         },
         {
             "prefabId": "2edccdd2-7848-4bb7-883b-e700519cb293",
