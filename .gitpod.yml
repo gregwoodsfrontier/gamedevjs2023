@@ -5,7 +5,10 @@
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
 tasks:
-  - init: npm install && npm run dev
+  - name: Dev Server
+    init: npm install
+    command: npm run dev
+  - name: Run editor
     command: npm run editor-remote
-
+    openMode: split-right
 
