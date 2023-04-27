@@ -9,6 +9,6 @@ tasks:
     init: npm install
     command: npm run dev
   - name: Run editor
-    init: npm run editor-remote
+    command: npm run editor-remote
     openMode: split-right
 
