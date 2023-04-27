@@ -4,7 +4,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import LayerPhysics from "../components/LayerPhysics";
+import LayerPhysics from "../components/LayerPhysics_comp";
 import FireHydrant from "../prefabs/FireHydrant";
 import Goal from "../prefabs/Goal";
 import Newspaper from "../prefabs/Newspaper";

@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import UserComponent from "./UserComponent";
+import UserComponent from "./UserComponent__comp";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */

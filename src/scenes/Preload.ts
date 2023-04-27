@@ -4,7 +4,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import PreloadText from "../components/PreloadText";
+import PreloadText from "../components/PreloadText_comp";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 

@@ -4,7 +4,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import CameraFollow from "../components/CameraFollow";
+import CameraFollow from "../components/CameraFollow_comp";
 import StateMachineNode from "./scriptNodes/StateMachineNode";
 import IdleState from "./actorStates/IdleState";
 import RunState from "./actorStates/RunState";
