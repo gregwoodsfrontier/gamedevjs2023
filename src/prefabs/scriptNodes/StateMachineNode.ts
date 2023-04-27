@@ -3,8 +3,8 @@
 
 /* START OF COMPILED CODE */
 
-import RootScriptNode from "./RootScriptNode";
-import ScriptNode from "./ScriptNode";
+import RootScriptNode from "./base/RootScriptNode";
+import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import { IState } from "../../interfaces/IState";
