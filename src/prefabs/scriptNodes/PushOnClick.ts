@@ -3,12 +3,12 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "../scriptNodes/base/ScriptNode";
+import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class IdleState extends ScriptNode {
+export default class PushOnClick extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
@@ -18,17 +18,23 @@ export default class IdleState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public stateName: string = "idle";
-
 	/* START-USER-CODE */
 
 	// Write your code here.
-	onEnter(sprite: Phaser.Physics.Arcade.Sprite, anims: string) {
-		sprite.setVelocityX(0)
-
-		sprite.play(anims, true)
-
+	awake() {
+		if(this.gameObject) {
+			this.gameObject.setInteractive().on("pointerdown", () => {
+				this.scene.add.tween({
+					targets: this.gameObject,
+					scaleX: "*=0.8",
+					scaleY: "*=0.8",
+					duration: 80,
+					yoyo: true,
+				});
+			});
+		}
 	}
+
 	/* END-USER-CODE */
 }
 

@@ -3,10 +3,10 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "./ScriptNode";
+import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import StateMachineNode from "./StateMachineNode";
+import StateMachineNode from "../scriptNodes/StateMachineNode";
 import { ANIM_PEE_END, ANIM_PEE_MID, ANIM_PEE_START, ANIM_SHIBA_IDLE } from "../../consts/shiba-anims";
 /* END-USER-IMPORTS */
 

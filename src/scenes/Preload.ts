@@ -4,7 +4,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import PreloadText from "../components/PreloadText_comp";
+import PreloadText from "../prefabs/scriptNodes/PreloadText";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -26,13 +26,13 @@ export default class Preload extends Phaser.Scene {
 		progress.text = "0%";
 		progress.setStyle({ "fontSize": "30px" });
 
+		// preloadText
+		new PreloadText(progress);
+
 		// walk0
 		const walk0 = this.add.sprite(340, 110, "Walk", 0);
 		walk0.scaleX = 5;
 		walk0.scaleY = 5;
-
-		// progress (components)
-		new PreloadText(progress);
 
 		this.walk0 = walk0;
 

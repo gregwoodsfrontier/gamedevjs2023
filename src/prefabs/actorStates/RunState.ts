@@ -4,7 +4,7 @@
 /* START OF COMPILED CODE */
 
 
-import ScriptNode from "../scriptNodes/ScriptNode";
+import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import { IRunStateParams } from "../../interfaces/state_params";

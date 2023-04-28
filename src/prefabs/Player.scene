@@ -16,9 +16,7 @@
             "type": "ArcadeSprite",
             "id": "1af02717-4e47-4e8a-a573-d194e27bf28b",
             "label": "sprite_1",
-            "components": [
-                "CameraFollow"
-            ],
+            "components": [],
             "texture": {
                 "key": "shiba_idle",
                 "frame": 0
@@ -102,6 +100,14 @@
                             "list": []
                         }
                     ]
+                },
+                {
+                    "prefabId": "9ddc28d9-5366-400d-ad93-5af2bbdf2ca3",
+                    "id": "2f88b8dd-db62-47e1-be23-cad4ad6534e6",
+                    "label": "camFollow",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
                 }
             ]
         }
