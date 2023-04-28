@@ -19,7 +19,7 @@ export default class StaggerState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public stateName: string = "stagger";
+	public name: string = "stagger";
 	public timer: number = 1000;
 
 	/* START-USER-CODE */
@@ -38,7 +38,7 @@ export default class StaggerState extends ScriptNode {
 		{
 			sprite.setVelocityX(-30).setDragX(0.1)
 		}
-		
+
 		this.scene.time.delayedCall(this.timer, () => {
 			const machine = this.parent as StateMachineNode
 

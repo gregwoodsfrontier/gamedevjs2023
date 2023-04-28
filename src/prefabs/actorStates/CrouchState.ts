@@ -21,7 +21,7 @@ export default class CrouchState extends ScriptNode {
 	}
 
 	public speedMod: number = 0.5;
-	public stateName: string = "crouch";
+	public name: string = "crouch";
 
 	/* START-USER-CODE */
 	private currentSize = {
@@ -37,9 +37,9 @@ export default class CrouchState extends ScriptNode {
 				width: body.width,
 				height: body.height
 			}
-			
+
 			sprite.play(ANIM_CRAWL_IDLE, true)
-			
+
 			sprite.setBodySize(this.currentSize.width , this.currentSize.height / 2, false)
 			sprite.body.offset.y += this.currentSize.height / 2
 		}

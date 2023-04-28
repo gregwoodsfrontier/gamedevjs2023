@@ -18,7 +18,7 @@ export default class DashState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public stateName: string = "dash";
+	public name: string = "dash";
 	public dashMod: number = 5;
 	public drag: number = 0.005;
 

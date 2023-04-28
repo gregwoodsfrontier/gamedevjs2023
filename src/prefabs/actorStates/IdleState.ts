@@ -18,7 +18,7 @@ export default class IdleState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public stateName: string = "idle";
+	public name: string = "idle";
 
 	/* START-USER-CODE */
 
