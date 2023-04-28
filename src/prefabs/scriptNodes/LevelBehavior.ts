@@ -80,7 +80,7 @@ export default class LevelBehavior extends ScriptNode {
 
 		//@ts-ignore
 		scene.physics.add.collider(this.player, this.newspaper, this.handlePlayerNewsPaper)
-		//@ts-ignore
+		
 		scene.physics.add.collider(this.player, this.hydrantList, this.handlePlayerHydrant)
 		//@ts-ignore
 		scene.physics.add.overlap(this.player, this.goal, this.handlePlayerGoal, undefined, this)
@@ -91,9 +91,9 @@ export default class LevelBehavior extends ScriptNode {
 		player.equip(1)
 	}
 
-	private handlePlayerHydrant(player: Player, hydrant: FireHydrant) {
-		player.pee()
-		hydrant.disableBody()
+	private handlePlayerHydrant(player: Phaser.Types.Physics.Arcade.GameObjectWithBody | Phaser.Tilemaps.Tile, hydrant: Phaser.Types.Physics.Arcade.GameObjectWithBody | Phaser.Tilemaps.Tile) {
+		(player as Player).pee();
+		(hydrant as FireHydrant).disableBody();
 	}
 
 	//@ts-ignore

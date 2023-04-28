@@ -26,7 +26,7 @@ export default class IdleState extends ScriptNode {
 	onEnter(sprite: Phaser.Physics.Arcade.Sprite, anims: string) {
 		sprite.setVelocityX(0)
 
-		sprite.play(anims)
+		sprite.play(anims, true)
 
 	}
 	/* END-USER-CODE */

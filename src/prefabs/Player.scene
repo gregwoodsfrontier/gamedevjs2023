@@ -91,6 +91,15 @@
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []
+                        },
+                        {
+                            "prefabId": "fa0bb277-3416-49c7-b46b-be377c54300a",
+                            "id": "65d15d4c-4519-4227-9e9e-a6f5441b4449",
+                            "label": "peeState",
+                            "scope": "CLASS",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
                         }
                     ]
                 }

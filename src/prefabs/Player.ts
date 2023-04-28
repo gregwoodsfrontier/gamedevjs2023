@@ -12,6 +12,7 @@ import JumpState from "./actorStates/JumpState";
 import StaggerState from "./actorStates/StaggerState";
 import DashState from "./actorStates/DashState";
 import CrouchState from "./actorStates/CrouchState";
+import PeeState from "./scriptNodes/PeeState";
 /* START-USER-IMPORTS */
 import { ANIM_SHIBA_IDLE, ANIM_SHIBA_JUMP, ANIM_SHIBA_WALK } from "../consts/shiba-anims";
 /* END-USER-IMPORTS */
@@ -53,6 +54,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		// crouchState
 		const crouchState = new CrouchState(stateMachineNode);
 
+		// peeState
+		const peeState = new PeeState(stateMachineNode);
+
 		// this (components)
 		new CameraFollow(this);
 
@@ -62,6 +66,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.staggerState = staggerState;
 		this.dashState = dashState;
 		this.crouchState = crouchState;
+		this.peeState = peeState;
 		this.stateMachineNode = stateMachineNode;
 
 		/* START-USER-CTR-CODE */
@@ -162,6 +167,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	private staggerState: StaggerState;
 	private dashState: DashState;
 	private crouchState: CrouchState;
+	private peeState: PeeState;
 	private stateMachineNode: StateMachineNode;
 	public runSpeed: number = 150;
 	public jumpSpeed: number = 280;
@@ -210,7 +216,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	pee() {
-		this.stateMachineNode.setState(this.staggerState.stateName)
+		this.stateMachineNode.setState(this.peeState.name)
 	}
 
 	switchStateMachineNetwork() {
