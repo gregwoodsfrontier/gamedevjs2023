@@ -74,18 +74,10 @@
             "list": []
         },
         {
-            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
-            "id": "6b5e903e-37b0-4080-bbcd-2ba1a07ea65e",
-            "unlock": [
-                "audioKey",
-                "_loop",
-                "type"
-            ],
-            "label": "fullscreenSFX",
+            "prefabId": "9c80bbcb-3686-4e07-a21e-aa295086bcc6",
+            "id": "b23154be-11e2-42ca-9043-12137aabf605",
+            "label": "importAllAudio",
             "scope": "CLASS",
-            "audioKey": "Menu_SFX_Fullscreen",
-            "_loop": false,
-            "type": "sfx",
             "components": [],
             "nestedPrefabs": [],
             "list": []
@@ -109,10 +101,7 @@
         },
         {
             "id": "7958680b-d483-4d06-8b0f-00ca59ce1163",
-            "label": "sfxGroup",
-            "objectIds": [
-                "6b5e903e-37b0-4080-bbcd-2ba1a07ea65e"
-            ]
+            "label": "sfxGroup"
         }
     ]
 }

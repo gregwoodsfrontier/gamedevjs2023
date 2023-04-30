@@ -7,6 +7,7 @@ import Phaser from "phaser";
 import FullScreenButton from "../prefabs/FullScreenButton";
 import StateMachineNode from "../prefabs/scriptNodes/StateMachineNode";
 import AudioAddNode from "../prefabs/scriptNodes/AudioAddNode";
+import ImportAllAudio from "../prefabs/scriptNodes/ImportAllAudio";
 /* START-USER-IMPORTS */
 import eventsCenter from "../eventCenter";
 import { PAUSE_GAME, RESUME_GAME } from "../prefabs/scriptNodes/onPauseScreenNode";
@@ -39,12 +40,12 @@ export default class Controller extends Phaser.Scene {
 		// levelMusic
 		const levelMusic = new AudioAddNode(this);
 
-		// fullscreenSFX
-		const fullscreenSFX = new AudioAddNode(this);
+		// importAllAudio
+		const importAllAudio = new ImportAllAudio(this);
 
 		// lists
 		const musicGroup = [levelMusic, menuMusic];
-		const sfxGroup = [fullscreenSFX];
+		const sfxGroup: Array<any> = [];
 
 		// menuMusic (prefab fields)
 		menuMusic.audioKey = "Menu_Music";
@@ -56,15 +57,10 @@ export default class Controller extends Phaser.Scene {
 		levelMusic._loop = true;
 		levelMusic.type = "music";
 
-		// fullscreenSFX (prefab fields)
-		fullscreenSFX.audioKey = "Menu_SFX_Fullscreen";
-		fullscreenSFX._loop = false;
-		fullscreenSFX.type = "sfx";
-
 		this.stateMachineNode = stateMachineNode;
 		this.menuMusic = menuMusic;
 		this.levelMusic = levelMusic;
-		this.fullscreenSFX = fullscreenSFX;
+		this.importAllAudio = importAllAudio;
 		this.musicGroup = musicGroup;
 		this.sfxGroup = sfxGroup;
 
@@ -74,9 +70,9 @@ export default class Controller extends Phaser.Scene {
 	private stateMachineNode!: StateMachineNode;
 	private menuMusic!: AudioAddNode;
 	private levelMusic!: AudioAddNode;
-	private fullscreenSFX!: AudioAddNode;
+	private importAllAudio!: ImportAllAudio;
 	private musicGroup!: AudioAddNode[];
-	private sfxGroup!: AudioAddNode[];
+	private sfxGroup!: Array<any>;
 
 	/* START-USER-CODE */
 	private levelScene = ["Level1", "Level2", "Level3"]
@@ -91,9 +87,9 @@ export default class Controller extends Phaser.Scene {
 		this.initAudioVolume()
 
 		eventsCenter.on("change-music-volume", (newVal: number) => {
-			this.musicGroup.forEach(node => {
-				if(node._getAudio?.volume) {
-					node._getAudio?.setVolume(Phaser.Math.Clamp(newVal, 0.01, 1))
+			this.importAllAudio.MusicAudioList.forEach(node => {
+				if(node.volume) {
+					node.setVolume(Phaser.Math.Clamp(newVal, 0.01, 1))
 				}
 			})
 
@@ -101,20 +97,18 @@ export default class Controller extends Phaser.Scene {
 		}, this)
 
 		eventsCenter.on("change-sfx-volume", (newVal: number) => {
-			this.sfxGroup.forEach(node => {
-				if(node._getAudio?.volume) {
-					node._getAudio?.setVolume(Phaser.Math.Clamp(newVal, 0.01, 1))
+			this.importAllAudio.SFXAudioList.forEach(node => {
+				if(node.volume) {
+					node.setVolume(Phaser.Math.Clamp(newVal, 0.01, 1))
 				}
 			})
 
 			this.registry.set('sfx-vol', newVal)
 		}, this)
 
-		eventsCenter.on("sfx-fullscreen", () => {
-			if(!this.fullscreenSFX._getAudio?.isPlaying) {
-				this.fullscreenSFX._getAudio?.play()
-			}
-		})
+		this.createSFXEvents();
+
+		this.createMusicEvents();
 
 		this.currLevel = this.currLevel % this.levelScene.length
 
@@ -170,6 +164,31 @@ export default class Controller extends Phaser.Scene {
 		// })
 		this.registry.set('music-vol', 1)
 		this.registry.set('sfx-vol', 1)
+	}
+
+	private createSFXEvents() {
+		const eventsKeyCouple = [
+			["sfx-fullscreen", "Fullscreen"],
+			["sfx-click", "Click"],
+			["sfx-back", "Back"],
+			["sfx-play", "Play"],
+			["sfx-volume", "Volume_Sliders"],
+			["sfx-newspaper", "Newspaper"]
+
+		]
+
+		for(let couple of eventsKeyCouple) {
+			eventsCenter.on(couple[0], () => {
+				const sfx = this.importAllAudio.SFXAudioList.filter(audio => audio.key.includes("Fullscreen"))
+				if(!sfx[0].isPlaying) {
+					sfx[0].play()
+				}
+			}, this)
+		}
+	}
+
+	private createMusicEvents() {
+
 	}
 
 	private changeState(stateKey: string) {
