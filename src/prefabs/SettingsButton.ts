@@ -6,6 +6,7 @@
 import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/base/OnPointerDownScript";
 import ChangeStateInController from "./scriptNodes/ChangeStateInController";
+import EmitEventActionScript from "./scriptNodes/base/EmitEventActionScript";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -23,8 +24,18 @@ export default class SettingsButton extends Phaser.GameObjects.Image {
 		// changeStateInController
 		const changeStateInController = new ChangeStateInController(onPointerDownScript);
 
+		// onPointerDownScript_1
+		const onPointerDownScript_1 = new OnPointerDownScript(this);
+
+		// emitEventActionScript
+		const emitEventActionScript = new EmitEventActionScript(onPointerDownScript_1);
+
 		// changeStateInController (prefab fields)
 		changeStateInController.SMState = "settings";
+
+		// emitEventActionScript (prefab fields)
+		emitEventActionScript.eventName = "sfx-click";
+		emitEventActionScript.eventEmitter = "game.events";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.

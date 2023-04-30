@@ -72,7 +72,54 @@
                     "isStroked": true,
                     "width": 128,
                     "height": 128,
-                    "list": []
+                    "list": [
+                        {
+                            "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                            "id": "58e7dbc9-91b3-487d-9e9d-bde0490ea150",
+                            "label": "onPointerDownScript",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": [
+                                {
+                                    "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                                    "id": "7b10da4d-e30d-419b-bbb7-660e2784f806",
+                                    "unlock": [
+                                        "eventName",
+                                        "eventEmitter"
+                                    ],
+                                    "label": "emitSFXClick",
+                                    "eventName": "sfx-click",
+                                    "eventEmitter": "game.events",
+                                    "components": [],
+                                    "nestedPrefabs": [],
+                                    "list": []
+                                }
+                            ]
+                        },
+                        {
+                            "prefabId": "905895ce-40de-4db7-973e-2f60617fadbc",
+                            "id": "03b1a4d5-3d49-4293-b3d4-46311a04b015",
+                            "label": "onPointerUpScript",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": [
+                                {
+                                    "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                                    "id": "f8a86d9d-ba58-4e2d-be2e-5f7614aad8f6",
+                                    "unlock": [
+                                        "eventName",
+                                        "eventEmitter"
+                                    ],
+                                    "label": "emitSFXVolume",
+                                    "eventName": "sfx-volume",
+                                    "eventEmitter": "game.events",
+                                    "components": [],
+                                    "nestedPrefabs": [],
+                                    "list": []
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }

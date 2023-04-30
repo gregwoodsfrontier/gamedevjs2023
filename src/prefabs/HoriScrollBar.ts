@@ -4,6 +4,9 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import OnPointerDownScript from "./scriptNodes/base/OnPointerDownScript";
+import EmitEventActionScript from "./scriptNodes/base/EmitEventActionScript";
+import OnPointerUpScript from "./scriptNodes/base/OnPointerUpScript";
 /* START-USER-IMPORTS */
 import { ScrollBar } from "phaser3-rex-plugins/templates/ui/ui-components";
 /* END-USER-IMPORTS */
@@ -49,6 +52,26 @@ export default class HoriScrollBar extends Phaser.GameObjects.Container {
 		slider.strokeColor = 1895376;
 		this.add(slider);
 
+		// onPointerDownScript
+		const onPointerDownScript = new OnPointerDownScript(slider);
+
+		// emitSFXClick
+		const emitSFXClick = new EmitEventActionScript(onPointerDownScript);
+
+		// onPointerUpScript
+		const onPointerUpScript = new OnPointerUpScript(slider);
+
+		// emitSFXVolume
+		const emitSFXVolume = new EmitEventActionScript(onPointerUpScript);
+
+		// emitSFXClick (prefab fields)
+		emitSFXClick.eventName = "sfx-click";
+		emitSFXClick.eventEmitter = "game.events";
+
+		// emitSFXVolume (prefab fields)
+		emitSFXVolume.eventName = "sfx-volume";
+		emitSFXVolume.eventEmitter = "game.events";
+
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 
@@ -91,5 +114,3 @@ export default class HoriScrollBar extends Phaser.GameObjects.Container {
 }
 
 /* END OF COMPILED CODE */
-
-// You can write more code here

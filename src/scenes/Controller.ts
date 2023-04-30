@@ -6,7 +6,6 @@
 import Phaser from "phaser";
 import FullScreenButton from "../prefabs/FullScreenButton";
 import StateMachineNode from "../prefabs/scriptNodes/StateMachineNode";
-import AudioAddNode from "../prefabs/scriptNodes/AudioAddNode";
 import ImportAllAudio from "../prefabs/scriptNodes/ImportAllAudio";
 /* START-USER-IMPORTS */
 import eventsCenter from "../eventCenter";
@@ -34,32 +33,14 @@ export default class Controller extends Phaser.Scene {
 		// stateMachineNode
 		const stateMachineNode = new StateMachineNode(this);
 
-		// menuMusic
-		const menuMusic = new AudioAddNode(this);
-
-		// levelMusic
-		const levelMusic = new AudioAddNode(this);
-
 		// importAllAudio
 		const importAllAudio = new ImportAllAudio(this);
 
 		// lists
-		const musicGroup = [levelMusic, menuMusic];
+		const musicGroup: Array<any> = [];
 		const sfxGroup: Array<any> = [];
 
-		// menuMusic (prefab fields)
-		menuMusic.audioKey = "Menu_Music";
-		menuMusic._loop = true;
-		menuMusic.type = "music";
-
-		// levelMusic (prefab fields)
-		levelMusic.audioKey = "Level_Music";
-		levelMusic._loop = true;
-		levelMusic.type = "music";
-
 		this.stateMachineNode = stateMachineNode;
-		this.menuMusic = menuMusic;
-		this.levelMusic = levelMusic;
 		this.importAllAudio = importAllAudio;
 		this.musicGroup = musicGroup;
 		this.sfxGroup = sfxGroup;
@@ -68,10 +49,8 @@ export default class Controller extends Phaser.Scene {
 	}
 
 	private stateMachineNode!: StateMachineNode;
-	private menuMusic!: AudioAddNode;
-	private levelMusic!: AudioAddNode;
 	private importAllAudio!: ImportAllAudio;
-	private musicGroup!: AudioAddNode[];
+	private musicGroup!: Array<any>;
 	private sfxGroup!: Array<any>;
 
 	/* START-USER-CODE */
@@ -192,7 +171,7 @@ export default class Controller extends Phaser.Scene {
 						sfx[randomNum].play()
 					}
 				}
-				
+
 			}, this)
 		}
 	}
@@ -208,13 +187,15 @@ export default class Controller extends Phaser.Scene {
 
 	private mainMenuOnEnter() {
 		if(this.stateMachineNode.previousStateName === "level") {
-			this.levelMusic._getAudio?.stop()
+			const levelMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Level"))
+			levelMusic?.stop()
 			this.scene.stop("UIScreen")
 			this.scene.stop(this.levelScene[this.currLevel])		
 		}
 
 		this.scene.launch("MainMenu")
-		this.menuMusic._getAudio?.play()
+		const menuMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Menu"))
+		menuMusic?.play()
 	}
 
 	private gameoverOnEnter() {
@@ -247,13 +228,15 @@ export default class Controller extends Phaser.Scene {
 	}
 
 	private levelOnEnter() {
-		this.menuMusic._getAudio?.stop()
+		const menuMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Menu"))
+		menuMusic?.stop()
 
 		if(this.stateMachineNode.previousStateName === "pause") {
 			return
 		}
 
-		this.levelMusic._getAudio?.play()
+		const levelMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Level"))
+		levelMusic?.play()
 		this.scene.launch("UIScreen")
 		this.scene.launch(this.levelScene[this.currLevel])
 		this.scene.bringToTop("UIScreen")
@@ -266,14 +249,17 @@ export default class Controller extends Phaser.Scene {
 		this.scene.pause(this.levelScene[this.currLevel])
 		this.scene.launch("Pause")
 		this.scene.bringToTop("Pause")
-		this.levelMusic._getAudio?.stop()
+		
+		const levelMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Level"))
+		levelMusic?.stop()
 		eventsCenter.emit(PAUSE_GAME)
 	}
 
 	private pauseOnExit() {
 		this.scene.resume(this.levelScene[this.currLevel])
 		this.scene.stop("Pause")
-		this.levelMusic._getAudio?.play()
+		const levelMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Level"))
+		levelMusic?.play()
 		eventsCenter.emit(RESUME_GAME)
 	}
 
@@ -298,7 +284,9 @@ export default class Controller extends Phaser.Scene {
 	private completeOnEnter() {
 		this.scene.stop("UIScreen")
 		this.scene.stop(this.levelScene[this.currLevel])
-		this.levelMusic._getAudio?.stop()
+		
+		const levelMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Level"))
+		levelMusic?.stop()
 
 		this.time.delayedCall(300, () => {
 			this.scene.launch("CompleteLv")

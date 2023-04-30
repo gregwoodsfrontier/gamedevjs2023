@@ -43,6 +43,29 @@
                             "list": []
                         }
                     ]
+                },
+                {
+                    "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                    "id": "671df718-f605-465a-a96c-28fbcafb81c6",
+                    "label": "onPointerDownScript_1",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": [
+                        {
+                            "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                            "id": "1ef9e3b2-c893-4a5e-ac38-48b8eb915251",
+                            "unlock": [
+                                "eventEmitter",
+                                "eventName"
+                            ],
+                            "label": "emitEventActionScript",
+                            "eventName": "sfx-click",
+                            "eventEmitter": "game.events",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        }
+                    ]
                 }
             ]
         }

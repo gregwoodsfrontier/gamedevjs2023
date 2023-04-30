@@ -40,40 +40,6 @@
             "list": []
         },
         {
-            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
-            "id": "b1b77426-4b87-4b76-b7e5-750d47296e30",
-            "unlock": [
-                "audioKey",
-                "_loop",
-                "type"
-            ],
-            "label": "menuMusic",
-            "scope": "CLASS",
-            "audioKey": "Menu_Music",
-            "_loop": true,
-            "type": "music",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
-            "id": "4f96349f-ab30-4293-9dcc-f6a09dac9219",
-            "unlock": [
-                "audioKey",
-                "_loop",
-                "type"
-            ],
-            "label": "levelMusic",
-            "scope": "CLASS",
-            "audioKey": "Level_Music",
-            "_loop": true,
-            "type": "music",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
             "prefabId": "9c80bbcb-3686-4e07-a21e-aa295086bcc6",
             "id": "b23154be-11e2-42ca-9043-12137aabf605",
             "label": "importAllAudio",
@@ -93,11 +59,7 @@
     "lists": [
         {
             "id": "fa9c8d9f-932f-4884-9e50-1cf27a42e2d1",
-            "label": "musicGroup",
-            "objectIds": [
-                "4f96349f-ab30-4293-9dcc-f6a09dac9219",
-                "b1b77426-4b87-4b76-b7e5-750d47296e30"
-            ]
+            "label": "musicGroup"
         },
         {
             "id": "7958680b-d483-4d06-8b0f-00ca59ce1163",

@@ -47,6 +47,7 @@ export default class ImportAllAudio extends ScriptNode {
 			"Dog_SFX_Dash",
 			"Dog_SFX_Jumping_landing",
 			"Dog_SFX_Jumping",
+			"Level_Music",
 			"End_Of_Level_Music",
 			"End_Of_Level_Music_1",
 			"Game_Over_Music",
@@ -57,7 +58,8 @@ export default class ImportAllAudio extends ScriptNode {
 			"Menu_SFX_Volume_Sliders",
 			"Newspaper_SFX",
 			"Success_Music",
-			"Time_Running_Out_Music"
+			"Time_Running_Out_Music",
+			"Menu_Music"
 		]
 
 		for(let key of allAudioKeys) {
@@ -65,10 +67,14 @@ export default class ImportAllAudio extends ScriptNode {
 			const audioObject = (this.scene.sound.add(key) as Phaser.Sound.WebAudioSound)
 
 			if(key.includes("SFX")) {
-				console.log(audioObject.key)
 				this.SFXAudioList.push(audioObject)
 			}
 			else {
+				if(key.includes("Level_Music") || key.includes("Menu_Music"))
+				{
+					audioObject.setLoop(true)
+				}
+
 				this.MusicAudioList.push(audioObject)
 			}
 			
