@@ -173,16 +173,26 @@ export default class Controller extends Phaser.Scene {
 			["sfx-back", "Back"],
 			["sfx-play", "Play"],
 			["sfx-volume", "Volume_Sliders"],
-			["sfx-newspaper", "Newspaper"]
-
+			["sfx-newspaper", "Newspaper"],
+			["sfx-step", "Step"],
+			["sfx-crawl", "Crawl"]
 		]
 
 		for(let couple of eventsKeyCouple) {
 			eventsCenter.on(couple[0], () => {
 				const sfx = this.importAllAudio.SFXAudioList.filter(audio => audio.key.includes("Fullscreen"))
-				if(!sfx[0].isPlaying) {
-					sfx[0].play()
+				if(sfx.length < 2) {
+					if(!sfx[0].isPlaying) {
+						sfx[0].play()
+					}
 				}
+				else {
+					const randomNum = Phaser.Math.Between(0, sfx.length - 1)
+					if(!sfx[randomNum].isPlaying) {
+						sfx[randomNum].play()
+					}
+				}
+				
 			}, this)
 		}
 	}

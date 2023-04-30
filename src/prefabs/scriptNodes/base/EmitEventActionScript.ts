@@ -6,6 +6,7 @@
 import ScriptNode from "./ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import eventsCenter from "../../../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class EmitEventActionScript extends ScriptNode {
@@ -30,7 +31,8 @@ export default class EmitEventActionScript extends ScriptNode {
 		switch (this.eventEmitter) {
 			case "game.events":
 
-				emitter = this.scene.game.events;
+				// emitter = this.scene.game.events;
+				emitter = eventsCenter
 				break;
 
 			case "scene.events":

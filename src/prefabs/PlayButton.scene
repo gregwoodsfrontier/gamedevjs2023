@@ -45,6 +45,37 @@
                             "list": []
                         }
                     ]
+                },
+                {
+                    "prefabId": "de7773f4-ab3a-4e3b-92c7-b8af17efb069",
+                    "id": "4342c314-d507-4174-a8d4-56f4fa0d7a2f",
+                    "label": "pushOnClick",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                    "id": "3489844c-fb26-4868-84be-a7bf7ca5ba0d",
+                    "label": "onPointerDownScript_1",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": [
+                        {
+                            "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                            "id": "a3c30a2b-a83e-41d3-81e5-032ab2df2bfd",
+                            "unlock": [
+                                "eventEmitter",
+                                "eventName"
+                            ],
+                            "label": "emitEventActionScript",
+                            "eventName": "sfx-play",
+                            "eventEmitter": "game.events",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        }
+                    ]
                 }
             ]
         }
