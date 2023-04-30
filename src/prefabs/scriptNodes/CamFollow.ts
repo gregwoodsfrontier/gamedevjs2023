@@ -3,12 +3,12 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "./ScriptNode";
+import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class OnKeyboardEventScript extends ScriptNode {
+export default class CamFollow extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
@@ -18,21 +18,13 @@ export default class OnKeyboardEventScript extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public eventName: string = "";
-
 	/* START-USER-CODE */
 
-	protected override awake(): void {
-
-		if (!this.eventName) {
-
-			return;
+	// Write your code here.
+	protected awake(): void {
+		if(this.gameObject) {
+			this.scene.cameras.main.startFollow(this.gameObject)
 		}
-
-		this.scene.input.keyboard?.on(this.eventName, () => {
-
-			this.executeChildren();
-		});
 	}
 
 	/* END-USER-CODE */

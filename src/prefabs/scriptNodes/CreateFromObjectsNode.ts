@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "./ScriptNode";
+import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -37,8 +37,7 @@ export default class CreateFromObjectsNode extends ScriptNode {
 		for(let e of spawnPoints) {
 			this.targetList.unshift(e)
 		}
-
-		console.log(this._name, this.targetList)
+		
 	}
 
 	/* END-USER-CODE */

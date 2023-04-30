@@ -1,5 +1,5 @@
 {
-    "id": "7540cbe0-b48c-4d19-915e-51b6def9cc3e",
+    "id": "833ffdd0-ae33-4014-963b-a4493f727b8a",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -8,13 +8,13 @@
         "preloadPackFiles": [],
         "createMethodName": "",
         "compilerOutputLanguage": "TYPE_SCRIPT",
-        "borderWidth": 640,
-        "borderHeight": 360
+        "borderWidth": 1280,
+        "borderHeight": 720
     },
     "displayList": [
         {
             "type": "ScriptNode",
-            "id": "a0ed3002-82cb-4e27-96ea-3f58cf5b7e63",
+            "id": "2f46ab73-479e-4117-962e-ac21409a8a12",
             "label": "scriptnode_1",
             "components": [],
             "list": []
@@ -26,17 +26,5 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    },
-    "prefabProperties": [
-        {
-            "name": "name",
-            "label": "State Name",
-            "tooltip": "The state name that will be used in state machine",
-            "defValue": "jump",
-            "customDefinition": false,
-            "type": {
-                "id": "string"
-            }
-        }
-    ]
+    }
 }

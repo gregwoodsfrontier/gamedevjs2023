@@ -2,7 +2,8 @@
 // You can write more code here
 
 /* START OF COMPILED CODE */
-import ScriptNode from "../scriptNodes/ScriptNode";
+
+import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -17,14 +18,14 @@ export default class JumpState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public stateName: string = "jump";
+	public name: string = "jump";
 
 	/* START-USER-CODE */
 
 	// Write your code here.
 	onEnter(sprite: Phaser.Physics.Arcade.Sprite, jumpSpd: number, animkey: string) {
 		sprite.setVelocityY(-jumpSpd)
-		
+
 		sprite.play(animkey)
 	}
 

@@ -3,32 +3,36 @@
 
 /* START OF COMPILED CODE */
 
+import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class LayerPhysics {
+export default class AddPhysicsToTileLayer extends ScriptNode {
 
-	constructor(gameObject: Phaser.Tilemaps.TilemapLayer) {
-		this.gameObject = gameObject;
-		(gameObject as any)["__LayerPhysics"] = this;
+	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
+		super(parent);
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		this.gameObject.setCollisionByProperty({ collides: true });
 		/* END-USER-CTR-CODE */
 	}
-
-	static getComponent(gameObject: Phaser.Tilemaps.TilemapLayer): LayerPhysics {
-		return (gameObject as any)["__LayerPhysics"];
-	}
-
-	private gameObject: Phaser.Tilemaps.TilemapLayer;
 
 	/* START-USER-CODE */
 
 	// Write your code here.
-	debugPhysics() {
+	awake() {
+		if(this.gameObject && this.gameObject instanceof Phaser.Tilemaps.TilemapLayer)
+		{
+			this.gameObject.setCollisionByProperty({ collides: true });
+		}
+	}
+
+	debugPhysics () {
+		if(!this.gameObject || !(this.gameObject instanceof Phaser.Tilemaps.TilemapLayer)) {
+			return
+		}
+
 		const debugGraphics = this.gameObject.scene.add.graphics().setAlpha(0.75);
 		this.gameObject.renderDebug(debugGraphics, {
 		  tileColor: null, // Color of non-colliding tiles

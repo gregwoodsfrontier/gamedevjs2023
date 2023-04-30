@@ -5,10 +5,10 @@
 
 import Phaser from "phaser";
 import HoriScrollBar from "../prefabs/HoriScrollBar";
-import onValueChangeNode from "../prefabs/scriptNodes/onValueChangeNode";
-import setAudioVolume from "../prefabs/scriptNodes/setAudioVolume";
 import BackToMainButton from "../prefabs/BackToMainButton";
 /* START-USER-IMPORTS */
+import { ScrollBar } from "phaser3-rex-plugins/templates/ui/ui-components";
+import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class Settings extends Phaser.Scene {
@@ -56,21 +56,10 @@ export default class Settings extends Phaser.Scene {
 		const musicBar = new HoriScrollBar(this, 462, 113);
 		this.add.existing(musicBar);
 
-		// onValueChangeNode_music
-		const onValueChangeNode_music = new onValueChangeNode(musicBar);
-
-		// setAudioVolume_music
-		new setAudioVolume(onValueChangeNode_music);
-
 		// sfxBar
 		const sfxBar = new HoriScrollBar(this, 462, 170);
 		this.add.existing(sfxBar);
 
-		// onValueChangeNode_sfx
-		const onValueChangeNode_sfx = new onValueChangeNode(sfxBar);
-
-		// setAudioVolume_sfx
-		const setAudioVolume_sfx = new setAudioVolume(onValueChangeNode_sfx);
 
 		// backToMainButton
 		const backToMainButton = new BackToMainButton(this, 32, 32);
@@ -78,20 +67,14 @@ export default class Settings extends Phaser.Scene {
 		backToMainButton.scaleX = 2;
 		backToMainButton.scaleY = 2;
 
-		// setAudioVolume_sfx (prefab fields)
-		setAudioVolume_sfx.gameAudioType = "sfx";
-
-		this.onValueChangeNode_music = onValueChangeNode_music;
 		this.musicBar = musicBar;
-		this.onValueChangeNode_sfx = onValueChangeNode_sfx;
+
 		this.sfxBar = sfxBar;
 
 		this.events.emit("scene-awake");
 	}
 
-	private onValueChangeNode_music!: onValueChangeNode;
 	private musicBar!: HoriScrollBar;
-	private onValueChangeNode_sfx!: onValueChangeNode;
 	private sfxBar!: HoriScrollBar;
 
 	/* START-USER-CODE */
@@ -101,6 +84,28 @@ export default class Settings extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+
+		const {musicBar, sfxBar} = this
+
+		musicBar.getScrollBar.setValue(this.registry.get('music-vol'))
+
+		musicBar.getScrollBar.on('valuechange', (newValue: number) => {
+			// 	// when value changes, this should fire an event to Controller Scene
+			eventsCenter.emit('change-music-volume', newValue)
+			// 	console.log(`new value: ${newValue}, old value: ${prevValue}`))
+		})
+
+		sfxBar.getScrollBar.setValue(this.registry.get('sfx-vol'))
+
+		sfxBar.getScrollBar.on('valuechange', (newValue: number) => {
+			// 	// when value changes, this should fire an event to Controller Scene
+			eventsCenter.emit('change-sfx-volume', newValue)
+			// 	console.log(`new value: ${newValue}, old value: ${prevValue}`))
+		})
+
+		// musicBar.getScrollBar.setValue(this.registry.get("music-vol"))
+
+		// sfxBar.getScrollBar.setValue(this.registry.get("music-vol"))
 	}
 
 	/* END-USER-CODE */

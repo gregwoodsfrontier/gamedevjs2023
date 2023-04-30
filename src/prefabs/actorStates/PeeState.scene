@@ -1,5 +1,5 @@
 {
-    "id": "7540cbe0-b48c-4d19-915e-51b6def9cc3e",
+    "id": "fa0bb277-3416-49c7-b46b-be377c54300a",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -8,13 +8,13 @@
         "preloadPackFiles": [],
         "createMethodName": "",
         "compilerOutputLanguage": "TYPE_SCRIPT",
-        "borderWidth": 640,
-        "borderHeight": 360
+        "borderWidth": 1280,
+        "borderHeight": 720
     },
     "displayList": [
         {
             "type": "ScriptNode",
-            "id": "a0ed3002-82cb-4e27-96ea-3f58cf5b7e63",
+            "id": "93f95000-1873-45a0-bc25-7b3ad4361587",
             "label": "scriptnode_1",
             "components": [],
             "list": []
@@ -31,8 +31,8 @@
         {
             "name": "name",
             "label": "State Name",
-            "tooltip": "The state name that will be used in state machine",
-            "defValue": "jump",
+            "tooltip": "The state name you plan to put in the state machine",
+            "defValue": "pee",
             "customDefinition": false,
             "type": {
                 "id": "string"

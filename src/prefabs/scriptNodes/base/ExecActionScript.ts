@@ -8,7 +8,7 @@ import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class OnSceneAwakeScript extends ScriptNode {
+export default class ExecActionScript extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
@@ -18,11 +18,16 @@ export default class OnSceneAwakeScript extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
+	public targetAction!: ScriptNode;
+
 	/* START-USER-CODE */
 
-	protected override awake(): void {
-		
-		this.executeChildren();
+	override execute(...args: any[]): void {
+
+		if (this.targetAction) {
+
+			this.targetAction.execute(...args);
+		}
 	}
 
 	/* END-USER-CODE */

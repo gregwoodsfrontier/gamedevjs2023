@@ -3,41 +3,28 @@
 
 /* START OF COMPILED CODE */
 
-import OnEventScript from "./OnEventScript";
 import ScriptNode from "./ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class onValueChangeNode extends OnEventScript {
+export default class StartSceneActionScript extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
-
-		// this (prefab fields)
-		this.eventName = "valuechange";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
 
+	public sceneKey: string = "";
+
 	/* START-USER-CODE */
 
-	// Write your code here.
-	override awake(): void {
+	override execute(...args: any[]): void {
 
-		if (!this.gameObject) {
-
-			return;
-		}
-
-		if (!this.gameObject.input) {
-
-			this.gameObject.setInteractive();
-		}
-
-		super.awake();
+		this.scene.scene.start(this.sceneKey, ...args);
 	}
 
 	/* END-USER-CODE */

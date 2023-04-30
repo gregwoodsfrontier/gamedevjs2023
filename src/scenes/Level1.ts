@@ -5,7 +5,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import LayerPhysics from "../components/LayerPhysics";
+import AddPhysicsToTileLayer from "../prefabs/scriptNodes/AddPhysicsToTileLayer";
 import Newspaper from "../prefabs/Newspaper";
 import Goal from "../prefabs/Goal";
 import FireHydrant from "../prefabs/FireHydrant";
@@ -37,6 +37,9 @@ export default class Level1 extends Phaser.Scene {
 
 		// ground_1
 		const ground_1 = level1map.createLayer("ground", ["Terrain (16x16)"], 0, 0);
+
+		// addPhysicsToTileLayer
+		new AddPhysicsToTileLayer(ground_1);
 
 		// newspaper
 		const newspaper = new Newspaper(this, 399, -23);
@@ -73,9 +76,6 @@ export default class Level1 extends Phaser.Scene {
 		const hydrantList = [fireHydrant];
 		const goalList = [goal];
 		const newspaperList = [newspaper];
-
-		// ground_1 (components)
-		new LayerPhysics(ground_1);
 
 		// levelBehavior (prefab fields)
 		levelBehavior.player = player;

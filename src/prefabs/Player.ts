@@ -4,7 +4,6 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import CameraFollow from "../components/CameraFollow";
 import StateMachineNode from "./scriptNodes/StateMachineNode";
 import IdleState from "./actorStates/IdleState";
 import RunState from "./actorStates/RunState";
@@ -12,6 +11,8 @@ import JumpState from "./actorStates/JumpState";
 import StaggerState from "./actorStates/StaggerState";
 import DashState from "./actorStates/DashState";
 import CrouchState from "./actorStates/CrouchState";
+import PeeState from "./actorStates/PeeState";
+import CamFollow from "./scriptNodes/CamFollow";
 /* START-USER-IMPORTS */
 import { ANIM_SHIBA_IDLE, ANIM_SHIBA_JUMP, ANIM_SHIBA_WALK } from "../consts/shiba-anims";
 /* END-USER-IMPORTS */
@@ -53,8 +54,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		// crouchState
 		const crouchState = new CrouchState(stateMachineNode);
 
-		// this (components)
-		new CameraFollow(this);
+		// peeState
+		const peeState = new PeeState(stateMachineNode);
+
+		// camFollow
+		new CamFollow(this);
 
 		this.idleState = idleState;
 		this.runState = runState;
@@ -62,6 +66,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.staggerState = staggerState;
 		this.dashState = dashState;
 		this.crouchState = crouchState;
+		this.peeState = peeState;
 		this.stateMachineNode = stateMachineNode;
 
 		/* START-USER-CTR-CODE */
@@ -73,13 +78,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		}
 
 		this.stateMachineNode.addState(
-			this.idleState.stateName, {
+			this.idleState.name, {
 				onEnter: () => {
 					this.idleState.onEnter(this, ANIM_SHIBA_IDLE)
 				}
 			}
 		).addState(
-			this.dashState.stateName, {
+			this.dashState.name, {
 				onEnter: () => {
 					this.dashState.onEnter(this, ANIM_SHIBA_WALK, this.runSpeed)
 				},
@@ -91,7 +96,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 				}
 			}
 		).addState(
-			this.runState.stateName, {
+			this.runState.name, {
 				onEnter: () => {
 					this.runState.onEnter(this, ANIM_SHIBA_WALK)
 				},
@@ -108,7 +113,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 				}
 			}
 		).addState(
-			this.crouchState.stateName, {
+			this.crouchState.name, {
 				onEnter: () => {
 					this.crouchState.onEnter(this)
 				},
@@ -126,7 +131,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 				}
 			}
 		).addState(
-			this.jumpState.stateName, {
+			this.jumpState.name, {
 				onEnter: () => {
 					this.jumpState.onEnter(this, this.jumpSpeed, ANIM_SHIBA_JUMP)
 				},
@@ -141,7 +146,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 				}
 			}
 		).addState(
-			this.staggerState.stateName, {
+			this.staggerState.name, {
 				onEnter: () => {
 					this.staggerState.onEnter(this)
 				},
@@ -149,7 +154,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 					this.staggerState.onExit(this)
 				}
 			}
-		).setState(this.idleState.stateName)
+		).setState(this.idleState.name)
 
 		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
 
@@ -162,6 +167,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	private staggerState: StaggerState;
 	private dashState: DashState;
 	private crouchState: CrouchState;
+	private peeState: PeeState;
 	private stateMachineNode: StateMachineNode;
 	public runSpeed: number = 150;
 	public jumpSpeed: number = 280;
@@ -210,7 +216,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	pee() {
-		this.stateMachineNode.setState(this.staggerState.stateName)
+		this.stateMachineNode.setState(this.peeState.name)
 	}
 
 	switchStateMachineNetwork() {
@@ -219,53 +225,53 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 			return 
 		}
 		switch (this.stateMachineNode.currentStateName) {
-			case this.idleState.stateName:
+			case this.idleState.name:
 				if(this.checkShiftKeyJustPress()) {
-					this.stateMachineNode.setState(this.dashState.stateName)
+					this.stateMachineNode.setState(this.dashState.name)
 				}
 
 				if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
 
-					this.stateMachineNode.setState(this.runState.stateName)
+					this.stateMachineNode.setState(this.runState.name)
 				}
 
 				if(this.cursors?.down.isDown) {
-					this.stateMachineNode.setState(this.crouchState.stateName)
+					this.stateMachineNode.setState(this.crouchState.name)
 
 				}
 
 				if(this.checkJumpCondition()) {
-					this.stateMachineNode.setState(this.jumpState.stateName)
+					this.stateMachineNode.setState(this.jumpState.name)
 				}
 				break;
-			case this.runState.stateName:
+			case this.runState.name:
 				if(this.checkJumpCondition())
 				{
-					this.stateMachineNode.setState(this.jumpState.stateName)
+					this.stateMachineNode.setState(this.jumpState.name)
 				}
 				else if(this.cursors?.left.isUp && this.cursors?.right.isUp) {
-					this.stateMachineNode.setState(this.idleState.stateName)
+					this.stateMachineNode.setState(this.idleState.name)
 				}
 				break;
-			case this.jumpState.stateName:
+			case this.jumpState.name:
 				if(this.body.onFloor()) {
 					if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
-						this.stateMachineNode.setState(this.runState.stateName)
+						this.stateMachineNode.setState(this.runState.name)
 					}
 					else if(this.cursors?.left.isUp && this.cursors?.right.isUp) {
-						this.stateMachineNode.setState(this.idleState.stateName)
+						this.stateMachineNode.setState(this.idleState.name)
 					}
 				}
 				break;
-			case this.dashState.stateName:
+			case this.dashState.name:
 				if(Math.abs(this.body.velocity.x) < 5) {
-					this.stateMachineNode.setState(this.idleState.stateName)
+					this.stateMachineNode.setState(this.idleState.name)
 				}
 				break;
-			case this.crouchState.stateName:
+			case this.crouchState.name:
 				if(this.cursors?.down.isUp)
 				{
-					this.stateMachineNode.setState(this.idleState.stateName)
+					this.stateMachineNode.setState(this.idleState.name)
 				}
 				break;
 		}

@@ -4,7 +4,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
+import OnPointerDownScript from "./scriptNodes/base/OnPointerDownScript";
 import ChangeStateInController from "./scriptNodes/ChangeStateInController";
 import AudioAddNode from "./scriptNodes/AudioAddNode";
 /* START-USER-IMPORTS */

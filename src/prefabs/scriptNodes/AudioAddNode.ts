@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "./ScriptNode";
+import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -20,18 +20,20 @@ export default class AudioAddNode extends ScriptNode {
 
 	public audioKey: string = "";
 	public _loop: boolean = true;
+	public type: "music"|"sfx" = "music";
 
 	/* START-USER-CODE */
-	private audio?: Phaser.Sound.BaseSound
-
+	private audio?: Phaser.Sound.WebAudioSound
 	// Write your code here.
 	awake() {
-		this.audio = this.scene.sound.add(this.audioKey, {
+		this.audio = (this.scene.sound.add(this.audioKey, {
 			loop: this._loop
-		})
+		}) as Phaser.Sound.WebAudioSound)
+
+		// this.audio.manager.volume = 0.5
 	}
 
-	get _g_audio() {
+	get _getAudio() {
 		return this.audio
 	}
 

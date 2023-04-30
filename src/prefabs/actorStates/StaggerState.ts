@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "../scriptNodes/ScriptNode";
+import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import StateMachineNode from "../scriptNodes/StateMachineNode";
@@ -19,7 +19,7 @@ export default class StaggerState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public stateName: string = "stagger";
+	public name: string = "stagger";
 	public timer: number = 1000;
 
 	/* START-USER-CODE */
@@ -38,7 +38,7 @@ export default class StaggerState extends ScriptNode {
 		{
 			sprite.setVelocityX(-30).setDragX(0.1)
 		}
-		
+
 		this.scene.time.delayedCall(this.timer, () => {
 			const machine = this.parent as StateMachineNode
 

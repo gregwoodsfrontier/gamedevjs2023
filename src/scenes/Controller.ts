@@ -33,37 +33,50 @@ export default class Controller extends Phaser.Scene {
 		// stateMachineNode
 		const stateMachineNode = new StateMachineNode(this);
 
-		// theme_1_Node
-		const theme_1_Node = new AudioAddNode(this);
+		// menuMusic
+		const menuMusic = new AudioAddNode(this);
 
-		// menuThemeNode
-		const menuThemeNode = new AudioAddNode(this);
+		// levelMusic
+		const levelMusic = new AudioAddNode(this);
 
-		// fullScreenSFX
-		const fullScreenSFX = new AudioAddNode(this);
+		// fullscreenSFX
+		const fullscreenSFX = new AudioAddNode(this);
 
-		// theme_1_Node (prefab fields)
-		theme_1_Node.audioKey = "theme_1";
+		// lists
+		const musicGroup = [levelMusic, menuMusic];
+		const sfxGroup = [fullscreenSFX];
 
-		// menuThemeNode (prefab fields)
-		menuThemeNode.audioKey = "Menu_Theme";
+		// menuMusic (prefab fields)
+		menuMusic.audioKey = "Menu_Music";
+		menuMusic._loop = true;
+		menuMusic.type = "music";
 
-		// fullScreenSFX (prefab fields)
-		fullScreenSFX.audioKey = "SFX_Fullscreen";
-		fullScreenSFX._loop = false;
+		// levelMusic (prefab fields)
+		levelMusic.audioKey = "Level_Music";
+		levelMusic._loop = true;
+		levelMusic.type = "music";
+
+		// fullscreenSFX (prefab fields)
+		fullscreenSFX.audioKey = "Menu_SFX_Fullscreen";
+		fullscreenSFX._loop = false;
+		fullscreenSFX.type = "sfx";
 
 		this.stateMachineNode = stateMachineNode;
-		this.theme_1_Node = theme_1_Node;
-		this.menuThemeNode = menuThemeNode;
-		this.fullScreenSFX = fullScreenSFX;
+		this.menuMusic = menuMusic;
+		this.levelMusic = levelMusic;
+		this.fullscreenSFX = fullscreenSFX;
+		this.musicGroup = musicGroup;
+		this.sfxGroup = sfxGroup;
 
 		this.events.emit("scene-awake");
 	}
 
 	private stateMachineNode!: StateMachineNode;
-	private theme_1_Node!: AudioAddNode;
-	private menuThemeNode!: AudioAddNode;
-	private fullScreenSFX!: AudioAddNode;
+	private menuMusic!: AudioAddNode;
+	private levelMusic!: AudioAddNode;
+	private fullscreenSFX!: AudioAddNode;
+	private musicGroup!: AudioAddNode[];
+	private sfxGroup!: AudioAddNode[];
 
 	/* START-USER-CODE */
 	private levelScene = ["Level1", "Level2", "Level3"]
@@ -75,9 +88,31 @@ export default class Controller extends Phaser.Scene {
 
 		this.editorCreate()
 
+		this.initAudioVolume()
+
+		eventsCenter.on("change-music-volume", (newVal: number) => {
+			this.musicGroup.forEach(node => {
+				if(node._getAudio?.volume) {
+					node._getAudio?.setVolume(Phaser.Math.Clamp(newVal, 0.01, 1))
+				}
+			})
+
+			this.registry.set('music-vol', newVal)
+		}, this)
+
+		eventsCenter.on("change-sfx-volume", (newVal: number) => {
+			this.sfxGroup.forEach(node => {
+				if(node._getAudio?.volume) {
+					node._getAudio?.setVolume(Phaser.Math.Clamp(newVal, 0.01, 1))
+				}
+			})
+
+			this.registry.set('sfx-vol', newVal)
+		}, this)
+
 		eventsCenter.on("sfx-fullscreen", () => {
-			if(!this.fullScreenSFX._g_audio?.isPlaying) {
-				this.fullScreenSFX._g_audio?.play()
+			if(!this.fullscreenSFX._getAudio?.isPlaying) {
+				this.fullscreenSFX._getAudio?.play()
 			}
 		})
 
@@ -128,6 +163,15 @@ export default class Controller extends Phaser.Scene {
 		this.scene.bringToTop()
 	}
 
+	private initAudioVolume() {
+		// set the volume of both sfx and music volume as 1 and save in local storage
+		// this.musicGroup.forEach(node => {
+		// 	node._getAudio?.manager.volume = 0.5
+		// })
+		this.registry.set('music-vol', 1)
+		this.registry.set('sfx-vol', 1)
+	}
+
 	private changeState(stateKey: string) {
 
 		this.stateMachineNode.setState(stateKey)
@@ -135,13 +179,13 @@ export default class Controller extends Phaser.Scene {
 
 	private mainMenuOnEnter() {
 		if(this.stateMachineNode.previousStateName === "level") {
-			this.theme_1_Node._g_audio?.stop()
+			this.levelMusic._getAudio?.stop()
 			this.scene.stop("UIScreen")
 			this.scene.stop(this.levelScene[this.currLevel])		
 		}
 
 		this.scene.launch("MainMenu")
-		this.menuThemeNode._g_audio?.play()
+		this.menuMusic._getAudio?.play()
 	}
 
 	private gameoverOnEnter() {
@@ -163,7 +207,6 @@ export default class Controller extends Phaser.Scene {
 
 	private mainMenuOnExit() {
 		this.scene.stop("MainMenu")
-		console.log(this.scene.manager.dump())
 	}
 
 	private settingsOnEnter() {
@@ -175,13 +218,13 @@ export default class Controller extends Phaser.Scene {
 	}
 
 	private levelOnEnter() {
-		this.menuThemeNode._g_audio?.stop()
+		this.menuMusic._getAudio?.stop()
 
 		if(this.stateMachineNode.previousStateName === "pause") {
 			return
 		}
 
-		this.theme_1_Node._g_audio?.play()
+		this.levelMusic._getAudio?.play()
 		this.scene.launch("UIScreen")
 		this.scene.launch(this.levelScene[this.currLevel])
 		this.scene.bringToTop("UIScreen")
@@ -194,14 +237,14 @@ export default class Controller extends Phaser.Scene {
 		this.scene.pause(this.levelScene[this.currLevel])
 		this.scene.launch("Pause")
 		this.scene.bringToTop("Pause")
-		this.theme_1_Node._g_audio?.stop()
+		this.levelMusic._getAudio?.stop()
 		eventsCenter.emit(PAUSE_GAME)
 	}
 
 	private pauseOnExit() {
 		this.scene.resume(this.levelScene[this.currLevel])
 		this.scene.stop("Pause")
-		this.theme_1_Node._g_audio?.play()
+		this.levelMusic._getAudio?.play()
 		eventsCenter.emit(RESUME_GAME)
 	}
 
@@ -226,7 +269,7 @@ export default class Controller extends Phaser.Scene {
 	private completeOnEnter() {
 		this.scene.stop("UIScreen")
 		this.scene.stop(this.levelScene[this.currLevel])
-		this.theme_1_Node._g_audio?.stop()
+		this.levelMusic._getAudio?.stop()
 
 		this.time.delayedCall(300, () => {
 			this.scene.launch("CompleteLv")

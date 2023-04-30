@@ -3,8 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-
-import ScriptNode from "../scriptNodes/ScriptNode";
+import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import { IRunStateParams } from "../../interfaces/state_params";
@@ -20,7 +19,7 @@ export default class RunState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public stateName: string = "run";
+	public name: string = "run";
 	public dashModifier: number = 1;
 
 	/* START-USER-CODE */

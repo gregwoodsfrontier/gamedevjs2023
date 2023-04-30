@@ -3,12 +3,12 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "./ScriptNode";
+import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class StartSceneActionScript extends ScriptNode {
+export default class PushOnClick extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
@@ -18,13 +18,21 @@ export default class StartSceneActionScript extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public sceneKey: string = "";
-
 	/* START-USER-CODE */
 
-	override execute(): void {
-
-		this.scene.scene.start(this.sceneKey);
+	// Write your code here.
+	awake() {
+		if(this.gameObject) {
+			this.gameObject.setInteractive().on("pointerdown", () => {
+				this.scene.add.tween({
+					targets: this.gameObject,
+					scaleX: "*=0.8",
+					scaleY: "*=0.8",
+					duration: 80,
+					yoyo: true,
+				});
+			});
+		}
 	}
 
 	/* END-USER-CODE */

@@ -41,41 +41,51 @@
         },
         {
             "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
-            "id": "11614a5c-fb7f-4b55-b09d-aa0d39a3380e",
-            "unlock": [
-                "audioKey"
-            ],
-            "label": "theme_1_Node",
-            "scope": "CLASS",
-            "audioKey": "theme_1",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
-            "id": "699bb636-106b-4d5b-9862-8362f2e06a56",
-            "unlock": [
-                "audioKey"
-            ],
-            "label": "menuThemeNode",
-            "scope": "CLASS",
-            "audioKey": "Menu_Theme",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
-            "id": "63fc6151-017a-4326-b8f4-963b98e08459",
+            "id": "b1b77426-4b87-4b76-b7e5-750d47296e30",
             "unlock": [
                 "audioKey",
-                "_loop"
+                "_loop",
+                "type"
             ],
-            "label": "fullScreenSFX",
+            "label": "menuMusic",
             "scope": "CLASS",
-            "audioKey": "SFX_Fullscreen",
+            "audioKey": "Menu_Music",
+            "_loop": true,
+            "type": "music",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
+            "id": "4f96349f-ab30-4293-9dcc-f6a09dac9219",
+            "unlock": [
+                "audioKey",
+                "_loop",
+                "type"
+            ],
+            "label": "levelMusic",
+            "scope": "CLASS",
+            "audioKey": "Level_Music",
+            "_loop": true,
+            "type": "music",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
+            "id": "6b5e903e-37b0-4080-bbcd-2ba1a07ea65e",
+            "unlock": [
+                "audioKey",
+                "_loop",
+                "type"
+            ],
+            "label": "fullscreenSFX",
+            "scope": "CLASS",
+            "audioKey": "Menu_SFX_Fullscreen",
             "_loop": false,
+            "type": "sfx",
             "components": [],
             "nestedPrefabs": [],
             "list": []
@@ -87,5 +97,22 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    }
+    },
+    "lists": [
+        {
+            "id": "fa9c8d9f-932f-4884-9e50-1cf27a42e2d1",
+            "label": "musicGroup",
+            "objectIds": [
+                "4f96349f-ab30-4293-9dcc-f6a09dac9219",
+                "b1b77426-4b87-4b76-b7e5-750d47296e30"
+            ]
+        },
+        {
+            "id": "7958680b-d483-4d06-8b0f-00ca59ce1163",
+            "label": "sfxGroup",
+            "objectIds": [
+                "6b5e903e-37b0-4080-bbcd-2ba1a07ea65e"
+            ]
+        }
+    ]
 }

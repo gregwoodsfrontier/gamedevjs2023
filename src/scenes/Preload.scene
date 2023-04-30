@@ -17,16 +17,23 @@
             "type": "Text",
             "id": "2ce42443-5227-4c9b-b498-e81f9a21cde3",
             "label": "progress",
-            "components": [
-                "PreloadText"
-            ],
+            "components": [],
             "x": 320,
             "y": 300,
             "originX": 0.5,
             "originY": 0.5,
             "text": "0%",
             "fontSize": "30px",
-            "list": []
+            "list": [
+                {
+                    "prefabId": "165187df-832f-4a0c-b7e0-63e856152702",
+                    "id": "2a09a3fc-89b6-4f20-889d-27f5648aed0f",
+                    "label": "preloadText",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
         },
         {
             "type": "Sprite",

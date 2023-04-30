@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "../scriptNodes/ScriptNode";
+import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -18,7 +18,7 @@ export default class IdleState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public stateName: string = "idle";
+	public name: string = "idle";
 
 	/* START-USER-CODE */
 
@@ -26,7 +26,7 @@ export default class IdleState extends ScriptNode {
 	onEnter(sprite: Phaser.Physics.Arcade.Sprite, anims: string) {
 		sprite.setVelocityX(0)
 
-		sprite.play(anims)
+		sprite.play(anims, true)
 
 	}
 	/* END-USER-CODE */

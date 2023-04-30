@@ -29,9 +29,9 @@
     },
     "prefabProperties": [
         {
-            "name": "stateName",
-            "label": "stateName",
-            "tooltip": "stateName",
+            "name": "name",
+            "label": "State Name",
+            "tooltip": "The state name that will be used in state machine",
             "defValue": "stagger",
             "customDefinition": false,
             "type": {

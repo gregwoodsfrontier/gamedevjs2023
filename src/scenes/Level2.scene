@@ -31,10 +31,17 @@
             "type": "TilemapLayer",
             "id": "64ce86c3-dec8-4e0a-b87b-49b2ebd3ac9b",
             "label": "ground_1",
-            "components": [
-                "LayerPhysics"
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "833ffdd0-ae33-4014-963b-a4493f727b8a",
+                    "id": "9f009937-aef8-4d14-be6a-ff1dd3c04945",
+                    "label": "addPhysicsToTileLayer",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
             ],
-            "list": [],
             "tilemapId": "d714e9c1-7166-4119-8290-44f13bcc6715",
             "layerName": "ground",
             "tilesets": [

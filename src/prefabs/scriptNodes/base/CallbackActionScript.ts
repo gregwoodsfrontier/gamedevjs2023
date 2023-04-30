@@ -8,22 +8,26 @@ import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class OnEventScript extends ScriptNode {
+export default class CallbackActionScript extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
 
 		/* START-USER-CTR-CODE */
+		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
 
-	public eventName: string = "";
+	public callback!: (...args: any[]) => void;
 
 	/* START-USER-CODE */
 
-	awake() {
+	execute(...args: any[]) {
 
-		this.gameObject?.on(this.eventName, this.executeChildren, this);
+		if (this.callback) {
+
+			this.callback(...args);
+		}
 	}
 
 	/* END-USER-CODE */
