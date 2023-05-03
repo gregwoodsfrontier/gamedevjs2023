@@ -11,6 +11,7 @@ import Newspaper from "../prefabs/Newspaper";
 import Player from "../prefabs/Player";
 import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
 import CreateFromObjectsNode from "../prefabs/scriptNodes/CreateFromObjectsNode";
+import TiledCollisionData from "../prefabs/scriptNodes/TiledCollisionData";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -78,6 +79,9 @@ export default class Level3 extends Phaser.Scene {
 		// hydrantNode
 		const hydrantNode = new CreateFromObjectsNode(this);
 
+		// tiledCollisionData
+		const tiledCollisionData = new TiledCollisionData(this);
+
 		// lists
 		const hydrantList = [fireHydrant];
 		const paperList = [newspaper];
@@ -111,7 +115,14 @@ export default class Level3 extends Phaser.Scene {
 		hydrantNode.targetList = hydrantList;
 		hydrantNode.tilemapSrce = level3;
 
+		// tiledCollisionData (prefab fields)
+		tiledCollisionData.layer = ground_1;
+		tiledCollisionData.player = player_1;
+		tiledCollisionData.paperList = paperList;
+
+		this.ground_1 = ground_1;
 		this.player_1 = player_1;
+		this.tiledCollisionData = tiledCollisionData;
 		this.level3 = level3;
 		this.hydrantList = hydrantList;
 		this.paperList = paperList;
@@ -120,7 +131,9 @@ export default class Level3 extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
+	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private player_1!: Player;
+	private tiledCollisionData!: TiledCollisionData;
 	private level3!: Phaser.Tilemaps.Tilemap;
 	private hydrantList!: FireHydrant[];
 	private paperList!: Newspaper[];
@@ -135,6 +148,8 @@ export default class Level3 extends Phaser.Scene {
 		this.editorCreate();
 
 		this.setCamWorldBounds(this.level3)
+
+		
 	}
 
 	private setCamWorldBounds(map: Phaser.Tilemaps.Tilemap) {

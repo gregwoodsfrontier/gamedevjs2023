@@ -112,6 +112,7 @@ export default class Level2 extends Phaser.Scene {
 		paperNode.targetList = paperList;
 		paperNode.tilemapSrce = level2;
 
+		this.ground_1 = ground_1;
 		this.player_1 = player_1;
 		this.level2 = level2;
 		this.hydrantList = hydrantList;
@@ -121,6 +122,7 @@ export default class Level2 extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
+	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private player_1!: Player;
 	private level2!: Phaser.Tilemaps.Tilemap;
 	private hydrantList!: FireHydrant[];

@@ -80,7 +80,7 @@ export default class Controller extends Phaser.Scene {
 
 	/* START-USER-CODE */
 	private levelScene = ["Level1", "Level2", "Level3"]
-	private currLevel = 0
+	private currLevel = 2
 
 	// Write your code here
 

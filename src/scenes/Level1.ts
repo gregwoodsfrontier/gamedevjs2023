@@ -105,6 +105,7 @@ export default class Level1 extends Phaser.Scene {
 		houseNode.targetList = goalList;
 		houseNode.tilemapSrce = level1map;
 
+		this.ground_1 = ground_1;
 		this.level1map = level1map;
 		this.hydrantList = hydrantList;
 		this.goalList = goalList;
@@ -113,6 +114,7 @@ export default class Level1 extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
+	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private level1map!: Phaser.Tilemaps.Tilemap;
 	private hydrantList!: FireHydrant[];
 	private goalList!: Goal[];

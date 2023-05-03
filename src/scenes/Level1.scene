@@ -29,6 +29,7 @@
             "type": "TilemapLayer",
             "id": "6e63bfb2-4150-4057-bd2c-3a0a39a07bea",
             "label": "ground_1",
+            "scope": "CLASS",
             "components": [],
             "list": [
                 {
