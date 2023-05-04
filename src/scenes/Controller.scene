@@ -47,6 +47,21 @@
             "components": [],
             "nestedPrefabs": [],
             "list": []
+        },
+        {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "c2e092ff-b656-490f-b102-70521772f85b",
+            "unlock": [
+                "eventName",
+                "audioKey"
+            ],
+            "label": "onAudioGameOver",
+            "scope": "CLASS",
+            "eventName": "sfx-gameover",
+            "audioKey": "Game_Over_Music",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
         }
     ],
     "plainObjects": [],

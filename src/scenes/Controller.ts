@@ -7,6 +7,7 @@ import Phaser from "phaser";
 import FullScreenButton from "../prefabs/FullScreenButton";
 import StateMachineNode from "../prefabs/scriptNodes/StateMachineNode";
 import ImportAllAudio from "../prefabs/scriptNodes/ImportAllAudio";
+import OnAudioEvent from "../prefabs/scriptNodes/OnAudioEvent";
 /* START-USER-IMPORTS */
 import eventsCenter from "../eventCenter";
 import { PAUSE_GAME, RESUME_GAME } from "../prefabs/scriptNodes/onPauseScreenNode";
@@ -36,12 +37,20 @@ export default class Controller extends Phaser.Scene {
 		// importAllAudio
 		const importAllAudio = new ImportAllAudio(this);
 
+		// onAudioGameOver
+		const onAudioGameOver = new OnAudioEvent(this);
+
 		// lists
 		const musicGroup: Array<any> = [];
 		const sfxGroup: Array<any> = [];
 
+		// onAudioGameOver (prefab fields)
+		onAudioGameOver.eventName = "sfx-gameover";
+		onAudioGameOver.audioKey = "Game_Over_Music";
+
 		this.stateMachineNode = stateMachineNode;
 		this.importAllAudio = importAllAudio;
+		this.onAudioGameOver = onAudioGameOver;
 		this.musicGroup = musicGroup;
 		this.sfxGroup = sfxGroup;
 
@@ -50,6 +59,7 @@ export default class Controller extends Phaser.Scene {
 
 	private stateMachineNode!: StateMachineNode;
 	private importAllAudio!: ImportAllAudio;
+	private onAudioGameOver!: OnAudioEvent;
 	private musicGroup!: Array<any>;
 	private sfxGroup!: Array<any>;
 
@@ -249,7 +259,7 @@ export default class Controller extends Phaser.Scene {
 		this.scene.pause(this.levelScene[this.currLevel])
 		this.scene.launch("Pause")
 		this.scene.bringToTop("Pause")
-		
+
 		const levelMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Level"))
 		levelMusic?.stop()
 		eventsCenter.emit(PAUSE_GAME)
@@ -284,7 +294,7 @@ export default class Controller extends Phaser.Scene {
 	private completeOnEnter() {
 		this.scene.stop("UIScreen")
 		this.scene.stop(this.levelScene[this.currLevel])
-		
+
 		const levelMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Level"))
 		levelMusic?.stop()
 
