@@ -23,12 +23,16 @@ export default class OnMultipleAudioEvent extends OnEventScript {
 		/* END-USER-CTR-CODE */
 	}
 
-	public audioKeyList: string[] = [];
+	public audioKeyPrefix: string = "";
 
 	/* START-USER-CODE */
+	public audioKeyList = []
 
 	// Write your code here.
 	override awake(): void {
+		this.audioKeyList = this.scene.sound.getAll(this.audioKeyPrefix)
+
+		if(this.audioKeyList.length === 0) { return }
 
 		super.awake();
 	}

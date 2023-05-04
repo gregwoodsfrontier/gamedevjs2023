@@ -164,6 +164,99 @@
                     "list": []
                 }
             ]
+        },
+        {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "51f51563-0ba1-472d-b96e-276bfe5373e9",
+            "unlock": [
+                "eventName",
+                "audioKey"
+            ],
+            "label": "onAudioVolume",
+            "eventName": "sfx-volume",
+            "audioKey": "Menu_SFX_Volume_Sliders",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "3837290c-1933-45ba-bde3-23fa71033c20",
+                    "label": "audioPlayNode_3",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "prefabId": "d2a15d16-be2d-4a4e-96ac-661c0bf918e7",
+            "id": "5e444d78-1a4b-4070-8ef7-d0cf36cd0aae",
+            "unlock": [
+                "eventName",
+                "audioKeyList",
+                "audioKeyPrefix"
+            ],
+            "label": "onMultipleAudioStep",
+            "eventName": "sfx-step",
+            "audioKeyPrefix": "Dog_SFX_Step_",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "a116ff27-2db9-41d2-9fe6-0f49abe882e8",
+                    "label": "audioPlayNode_4",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "prefabId": "d2a15d16-be2d-4a4e-96ac-661c0bf918e7",
+            "id": "f69c2bfc-6d41-468c-ad8d-1abe18634b03",
+            "unlock": [
+                "audioKeyPrefix",
+                "eventName"
+            ],
+            "label": "onMultipleAudioCrawl",
+            "eventName": "sfx-crawl",
+            "audioKeyPrefix": "Dog_SFX_Crawl_",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "7febe192-0751-4a91-a3ba-acc9ab3f4cd5",
+                    "label": "audioPlayNode_5",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "312619df-3939-48ea-af47-c4504cfdbb08",
+            "unlock": [
+                "eventName",
+                "audioKey"
+            ],
+            "label": "onAudioNewspaper",
+            "eventName": "sfx-newspaper",
+            "audioKey": "Newspaper_SFX",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "a1491034-36c2-4565-b00f-cec6ce0a2217",
+                    "label": "audioPlayNode_6",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
         }
     ],
     "plainObjects": [],
@@ -176,16 +269,33 @@
     "lists": [
         {
             "id": "fa9c8d9f-932f-4884-9e50-1cf27a42e2d1",
-            "label": "musicGroup"
+            "label": "musicGroup",
+            "objectIds": [
+                "c2e092ff-b656-490f-b102-70521772f85b"
+            ]
         },
         {
             "id": "7958680b-d483-4d06-8b0f-00ca59ce1163",
-            "label": "sfxGroup"
+            "label": "sfxGroup",
+            "objectIds": [
+                "d70b8883-5c08-4ef1-ae33-8874822b923f",
+                "312619df-3939-48ea-af47-c4504cfdbb08",
+                "f69c2bfc-6d41-468c-ad8d-1abe18634b03",
+                "5e444d78-1a4b-4070-8ef7-d0cf36cd0aae",
+                "51f51563-0ba1-472d-b96e-276bfe5373e9",
+                "2d82ca13-1e2e-4cc0-ae6a-f4b7f018fb4e",
+                "5bd06b0b-4c42-4752-820c-d80f8806042c",
+                "3e0e7c81-6176-44e8-be4b-a1b688f5cd01"
+            ]
         },
         {
             "id": "27206f9a-7a34-4f59-b0c1-d908a106e661",
             "label": "audioEvents",
             "objectIds": [
+                "312619df-3939-48ea-af47-c4504cfdbb08",
+                "f69c2bfc-6d41-468c-ad8d-1abe18634b03",
+                "5e444d78-1a4b-4070-8ef7-d0cf36cd0aae",
+                "51f51563-0ba1-472d-b96e-276bfe5373e9",
                 "2d82ca13-1e2e-4cc0-ae6a-f4b7f018fb4e",
                 "5bd06b0b-4c42-4752-820c-d80f8806042c",
                 "3e0e7c81-6176-44e8-be4b-a1b688f5cd01",

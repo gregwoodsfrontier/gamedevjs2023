@@ -36,14 +36,13 @@
     },
     "prefabProperties": [
         {
-            "name": "audioKeyList",
-            "label": "Audio Key List",
-            "tooltip": "The audio key group that you wish the event to play.",
-            "defValue": "[]",
+            "name": "audioKeyPrefix",
+            "label": "Audio Key Prefix",
+            "tooltip": "Prefix of the audio key in order to get the whole list",
+            "defValue": "",
             "customDefinition": false,
             "type": {
-                "id": "expression",
-                "expressionType": "string[]"
+                "id": "string"
             }
         }
     ]
