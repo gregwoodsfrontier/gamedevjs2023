@@ -9,6 +9,7 @@ tasks:
     init: npm install
     command: npm run dev
   - name: Run editor
+    init: npm i -g phasereditor2d-launcher
     command: npm run editor-remote
     openMode: split-right
 
