@@ -5,10 +5,10 @@
 
 import Phaser from "phaser";
 import FullScreenButton from "../prefabs/FullScreenButton";
-import StateMachineNode from "../prefabs/scriptNodes/StateMachineNode";
-import ImportAllAudio from "../prefabs/scriptNodes/ImportAllAudio";
 import OnAudioEvent from "../prefabs/scriptNodes/OnAudioEvent";
 import AudioPlayNode from "../prefabs/scriptNodes/AudioPlayNode";
+import StateMachineNode from "../prefabs/scriptNodes/StateMachineNode";
+import ImportAllAudio from "../prefabs/scriptNodes/ImportAllAudio";
 /* START-USER-IMPORTS */
 import eventsCenter from "../eventCenter";
 import { PAUSE_GAME, RESUME_GAME } from "../prefabs/scriptNodes/onPauseScreenNode";
@@ -32,40 +32,82 @@ export default class Controller extends Phaser.Scene {
 		fullScreenButton.scaleX = 0.5;
 		fullScreenButton.scaleY = 0.5;
 
-		// stateMachineNode
-		const stateMachineNode = new StateMachineNode(this);
-
-		// importAllAudio
-		const importAllAudio = new ImportAllAudio(this);
-
 		// onAudioGameOver
 		const onAudioGameOver = new OnAudioEvent(this);
 
 		// playGameOverMusicNode
 		new AudioPlayNode(onAudioGameOver);
 
+		// stateMachineNode
+		const stateMachineNode = new StateMachineNode(this);
+
+		// importAllAudio
+		const importAllAudio = new ImportAllAudio(this);
+
+		// onAudioFullScreen
+		const onAudioFullScreen = new OnAudioEvent(this);
+
+		// playFullscreenSFX
+		new AudioPlayNode(onAudioFullScreen);
+
+		// onAudioClick
+		const onAudioClick = new OnAudioEvent(this);
+
+		// audioPlayNode_2
+		new AudioPlayNode(onAudioClick);
+
+		// onAudioBack
+		const onAudioBack = new OnAudioEvent(this);
+
+		// audioPlayNode_1
+		new AudioPlayNode(onAudioBack);
+
+		// onAudioPlay
+		const onAudioPlay = new OnAudioEvent(this);
+
+		// audioPlayNode
+		new AudioPlayNode(onAudioPlay);
+
 		// lists
 		const musicGroup: Array<any> = [];
 		const sfxGroup: Array<any> = [];
+		const audioEvents = [onAudioPlay, onAudioBack, onAudioClick, onAudioFullScreen, onAudioGameOver];
 
 		// onAudioGameOver (prefab fields)
 		onAudioGameOver.eventName = "sfx-gameover";
 		onAudioGameOver.audioKey = "Game_Over_Music";
 
+		// onAudioFullScreen (prefab fields)
+		onAudioFullScreen.eventName = "sfx-fullscreen";
+		onAudioFullScreen.audioKey = "Menu_SFX_Fullscreen";
+
+		// onAudioClick (prefab fields)
+		onAudioClick.eventName = "sfx-click";
+		onAudioClick.audioKey = "Menu_SFX_Click";
+
+		// onAudioBack (prefab fields)
+		onAudioBack.eventName = "sfx-back";
+		onAudioBack.audioKey = "Menu_SFX_Back";
+
+		// onAudioPlay (prefab fields)
+		onAudioPlay.eventName = "sfx-play";
+		onAudioPlay.eventEmitter = "game.events";
+		onAudioPlay.audioKey = "Menu_SFX_Play";
+
 		this.stateMachineNode = stateMachineNode;
 		this.importAllAudio = importAllAudio;
-		this.onAudioGameOver = onAudioGameOver;
 		this.musicGroup = musicGroup;
 		this.sfxGroup = sfxGroup;
+		this.audioEvents = audioEvents;
 
 		this.events.emit("scene-awake");
 	}
 
 	private stateMachineNode!: StateMachineNode;
 	private importAllAudio!: ImportAllAudio;
-	private onAudioGameOver!: OnAudioEvent;
 	private musicGroup!: Array<any>;
 	private sfxGroup!: Array<any>;
+	private audioEvents!: OnAudioEvent[];
 
 	/* START-USER-CODE */
 	private levelScene = ["Level1", "Level2", "Level3"]
@@ -152,19 +194,17 @@ export default class Controller extends Phaser.Scene {
 
 	private initAudioVolume() {
 		// set the volume of both sfx and music volume as 1 and save in local storage
-		// this.musicGroup.forEach(node => {
-		// 	node._getAudio?.manager.volume = 0.5
-		// })
+
 		this.registry.set('music-vol', 1)
 		this.registry.set('sfx-vol', 1)
 	}
 
 	private createSFXEvents() {
 		const eventsKeyCouple = [
-			["sfx-fullscreen", "Fullscreen"],
-			["sfx-click", "Click"],
-			["sfx-back", "Back"],
-			["sfx-play", "Play"],
+			// ["sfx-fullscreen", "Fullscreen"],
+			// ["sfx-click", "Click"],
+			// ["sfx-back", "Back"],
+			// ["sfx-play", "Play"],
 			["sfx-volume", "Volume_Sliders"],
 			["sfx-newspaper", "Newspaper"],
 			["sfx-step", "Step"],
@@ -251,7 +291,7 @@ export default class Controller extends Phaser.Scene {
 
 		const levelMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Level"))
 		levelMusic?.play()
-		
+
 		this.scene.launch("UIScreen")
 		this.scene.launch(this.levelScene[this.currLevel])
 		this.scene.bringToTop("UIScreen")

@@ -31,6 +31,29 @@
             "list": []
         },
         {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "c2e092ff-b656-490f-b102-70521772f85b",
+            "unlock": [
+                "eventName",
+                "audioKey"
+            ],
+            "label": "onAudioGameOver",
+            "eventName": "sfx-gameover",
+            "audioKey": "Game_Over_Music",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "580179ad-8fdb-4a4c-8d35-453fb67e1ea4",
+                    "label": "playGameOverMusicNode",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
             "prefabId": "7ebcc666-227f-47b9-ae7e-e51a0f0f18cb",
             "id": "79e584af-1ae0-4f81-a7ab-8156853aca23",
             "label": "stateMachineNode",
@@ -50,22 +73,92 @@
         },
         {
             "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
-            "id": "c2e092ff-b656-490f-b102-70521772f85b",
+            "id": "d70b8883-5c08-4ef1-ae33-8874822b923f",
             "unlock": [
                 "eventName",
                 "audioKey"
             ],
-            "label": "onAudioGameOver",
-            "scope": "CLASS",
-            "eventName": "sfx-gameover",
-            "audioKey": "Game_Over_Music",
+            "label": "onAudioFullScreen",
+            "eventName": "sfx-fullscreen",
+            "audioKey": "Menu_SFX_Fullscreen",
             "components": [],
             "nestedPrefabs": [],
             "list": [
                 {
                     "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
-                    "id": "580179ad-8fdb-4a4c-8d35-453fb67e1ea4",
-                    "label": "playGameOverMusicNode",
+                    "id": "632aef62-f70e-4618-9dc5-e1dfc91b2802",
+                    "label": "playFullscreenSFX",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "3e0e7c81-6176-44e8-be4b-a1b688f5cd01",
+            "unlock": [
+                "eventName",
+                "audioKey"
+            ],
+            "label": "onAudioClick",
+            "eventName": "sfx-click",
+            "audioKey": "Menu_SFX_Click",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "88f232a4-8837-4304-80f8-1b955a6d909f",
+                    "label": "audioPlayNode_2",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "5bd06b0b-4c42-4752-820c-d80f8806042c",
+            "unlock": [
+                "eventName",
+                "audioKey"
+            ],
+            "label": "onAudioBack",
+            "eventName": "sfx-back",
+            "audioKey": "Menu_SFX_Back",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "90593b07-0b4d-47a2-b4fc-f199a5bf24da",
+                    "label": "audioPlayNode_1",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "2d82ca13-1e2e-4cc0-ae6a-f4b7f018fb4e",
+            "unlock": [
+                "eventName",
+                "eventEmitter",
+                "audioKey"
+            ],
+            "label": "onAudioPlay",
+            "eventName": "sfx-play",
+            "eventEmitter": "game.events",
+            "audioKey": "Menu_SFX_Play",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "39bcbe87-da69-4e58-91c8-cf98ac2cf5df",
+                    "label": "audioPlayNode",
                     "components": [],
                     "nestedPrefabs": [],
                     "list": []
@@ -88,6 +181,17 @@
         {
             "id": "7958680b-d483-4d06-8b0f-00ca59ce1163",
             "label": "sfxGroup"
+        },
+        {
+            "id": "27206f9a-7a34-4f59-b0c1-d908a106e661",
+            "label": "audioEvents",
+            "objectIds": [
+                "2d82ca13-1e2e-4cc0-ae6a-f4b7f018fb4e",
+                "5bd06b0b-4c42-4752-820c-d80f8806042c",
+                "3e0e7c81-6176-44e8-be4b-a1b688f5cd01",
+                "d70b8883-5c08-4ef1-ae33-8874822b923f",
+                "c2e092ff-b656-490f-b102-70521772f85b"
+            ]
         }
     ]
 }
