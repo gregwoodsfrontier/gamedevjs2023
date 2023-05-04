@@ -29,6 +29,10 @@ export default class OnAudioEvent extends OnEventScript {
 	/* START-USER-CODE */
 
 	// Write your code here.
+	override awake(): void {
+
+		super.awake();
+	}
 
 	/* END-USER-CODE */
 }

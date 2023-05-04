@@ -8,6 +8,7 @@ import FullScreenButton from "../prefabs/FullScreenButton";
 import StateMachineNode from "../prefabs/scriptNodes/StateMachineNode";
 import ImportAllAudio from "../prefabs/scriptNodes/ImportAllAudio";
 import OnAudioEvent from "../prefabs/scriptNodes/OnAudioEvent";
+import AudioPlayNode from "../prefabs/scriptNodes/AudioPlayNode";
 /* START-USER-IMPORTS */
 import eventsCenter from "../eventCenter";
 import { PAUSE_GAME, RESUME_GAME } from "../prefabs/scriptNodes/onPauseScreenNode";
@@ -39,6 +40,9 @@ export default class Controller extends Phaser.Scene {
 
 		// onAudioGameOver
 		const onAudioGameOver = new OnAudioEvent(this);
+
+		// playGameOverMusicNode
+		new AudioPlayNode(onAudioGameOver);
 
 		// lists
 		const musicGroup: Array<any> = [];

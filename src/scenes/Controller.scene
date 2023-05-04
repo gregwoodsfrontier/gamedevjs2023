@@ -61,7 +61,16 @@
             "audioKey": "Game_Over_Music",
             "components": [],
             "nestedPrefabs": [],
-            "list": []
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "580179ad-8fdb-4a4c-8d35-453fb67e1ea4",
+                    "label": "playGameOverMusicNode",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
         }
     ],
     "plainObjects": [],

@@ -39,8 +39,8 @@
             "name": "audioKeyList",
             "label": "Audio Key List",
             "tooltip": "The audio key group that you wish the event to play.",
-            "defValue": "",
-            "customDefinition": true,
+            "defValue": "[]",
+            "customDefinition": false,
             "type": {
                 "id": "expression",
                 "expressionType": "string[]"

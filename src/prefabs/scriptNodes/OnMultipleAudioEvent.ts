@@ -21,14 +21,17 @@ export default class OnMultipleAudioEvent extends OnEventScript {
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
-
-		// custom definition props
-		this.audioKeyList;
 	}
+
+	public audioKeyList: string[] = [];
 
 	/* START-USER-CODE */
 
 	// Write your code here.
+	override awake(): void {
+
+		super.awake();
+	}
 
 	/* END-USER-CODE */
 }
