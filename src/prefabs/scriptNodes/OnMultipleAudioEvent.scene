@@ -1,0 +1,50 @@
+{
+    "id": "d2a15d16-be2d-4a4e-96ac-661c0bf918e7",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "prefabId": "437c7d1d-12e5-4251-8d72-3ee5abae49d2",
+            "id": "42a4582d-bd20-47e6-880b-d0f1a232bbc7",
+            "unlock": [
+                "eventEmitter",
+                "eventName"
+            ],
+            "label": "onEventScript",
+            "eventName": "",
+            "eventEmitter": "game.events",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "audioKeyList",
+            "label": "Audio Key List",
+            "tooltip": "The audio key group that you wish the event to play.",
+            "defValue": "",
+            "customDefinition": true,
+            "type": {
+                "id": "expression",
+                "expressionType": "string[]"
+            }
+        }
+    ]
+}
