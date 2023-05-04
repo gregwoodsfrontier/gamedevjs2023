@@ -254,9 +254,6 @@ export default class Controller extends Phaser.Scene {
 		this.scene.launch("UIScreen")
 		this.scene.launch(this.levelScene[this.currLevel])
 		this.scene.bringToTop("UIScreen")
-
-		this.scene.manager.dump()
-
 	}
 
 	private pauseOnEnter() {
