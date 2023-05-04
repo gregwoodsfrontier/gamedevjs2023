@@ -251,6 +251,7 @@ export default class Controller extends Phaser.Scene {
 
 		const levelMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Level"))
 		levelMusic?.play()
+		
 		this.scene.launch("UIScreen")
 		this.scene.launch(this.levelScene[this.currLevel])
 		this.scene.bringToTop("UIScreen")
