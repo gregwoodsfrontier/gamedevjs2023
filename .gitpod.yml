@@ -14,3 +14,14 @@ tasks:
     command: npm run editor-remote
     openMode: split-right
 
+# Ports to expose on workspace startup
+ports:
+  - port: 1959
+    onOpen: open-browser
+    name: Remote Phaser Editor
+    description: The workspace for Phaser Editor
+  - port: 5173
+    onOpen: open-browser
+    name: Test build
+    description: Testing the build in the current branch
+
