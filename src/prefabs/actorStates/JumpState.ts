@@ -6,6 +6,7 @@
 import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import eventsCenter from "../../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class JumpState extends ScriptNode {
@@ -27,6 +28,8 @@ export default class JumpState extends ScriptNode {
 		sprite.setVelocityY(-jumpSpd)
 
 		sprite.play(animkey)
+
+		eventsCenter.emit("sfx-jump")
 	}
 
 	onUpdate(sprite: Phaser.Physics.Arcade.Sprite, isLeft: boolean | undefined, isRight: boolean | undefined, hasJetPack: boolean, speed: number) {

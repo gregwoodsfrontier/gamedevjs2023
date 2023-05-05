@@ -15,6 +15,7 @@ import PeeState from "./actorStates/PeeState";
 import CamFollow from "./scriptNodes/CamFollow";
 /* START-USER-IMPORTS */
 import { ANIM_SHIBA_IDLE, ANIM_SHIBA_JUMP, ANIM_SHIBA_WALK } from "../consts/shiba-anims";
+import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
 export default interface Player {
@@ -259,6 +260,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 						this.stateMachineNode.setState(this.runState.name)
 					}
 					else if(this.cursors?.left.isUp && this.cursors?.right.isUp) {
+						eventsCenter.emit("sfx-jumpland")
 						this.stateMachineNode.setState(this.idleState.name)
 					}
 				}
