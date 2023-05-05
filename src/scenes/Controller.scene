@@ -257,6 +257,121 @@
                     "list": []
                 }
             ]
+        },
+        {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "1e66538e-210c-452b-a41d-babc32b1813f",
+            "unlock": [
+                "eventName",
+                "audioKey"
+            ],
+            "label": "onAudioDash",
+            "eventName": "sfx-dash",
+            "audioKey": "Dog_SFX_Dash",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "a8aceed8-9f6a-42d9-aa6e-74c7ccd67b28",
+                    "label": "audioPlayNode_7",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "3e5c05b2-ec61-4f33-882f-e05ad267631f",
+            "unlock": [
+                "eventName",
+                "audioKey"
+            ],
+            "label": "onAudioJump",
+            "eventName": "sfx-jump",
+            "audioKey": "Dog_SFX_Jumping",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "87312aa3-3aab-4185-82fd-87169cd0d9c7",
+                    "label": "audioPlayNode_8",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "04ad1611-75b8-4340-8a1f-fb8258985998",
+            "unlock": [
+                "eventName",
+                "audioKey"
+            ],
+            "label": "onAudioJumpLand",
+            "eventName": "sfx-jumpland",
+            "audioKey": "Dog_SFX_Jumping_landing",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "2c67c41e-a5c5-4d3e-ba5a-60d0517d66fe",
+                    "label": "audioPlayNode_9",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "prefabId": "d2a15d16-be2d-4a4e-96ac-661c0bf918e7",
+            "id": "2ef618a3-959a-455d-b9be-10d948835273",
+            "unlock": [
+                "eventName",
+                "audioKeyPrefix"
+            ],
+            "label": "onMultipleAudioEndLv",
+            "eventName": "sfx-endlevel",
+            "audioKeyPrefix": "End_Of_Level_Music",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "7d558806-fd13-4e8c-a79d-ed4b7f0e3d0d",
+                    "label": "audioPlayNode_11",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "ce3180bf-2558-49e9-b98e-4f9684fb11f3",
+            "unlock": [
+                "eventName",
+                "audioKey"
+            ],
+            "label": "onAudioGameover",
+            "eventName": "sfx-gameover",
+            "audioKey": "Game_Over_Music",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
+                    "id": "c8ed45ad-be74-457f-8604-44e9c58d8825",
+                    "label": "audioPlayNode_10",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
         }
     ],
     "plainObjects": [],
@@ -271,7 +386,9 @@
             "id": "fa9c8d9f-932f-4884-9e50-1cf27a42e2d1",
             "label": "musicGroup",
             "objectIds": [
-                "c2e092ff-b656-490f-b102-70521772f85b"
+                "c2e092ff-b656-490f-b102-70521772f85b",
+                "2ef618a3-959a-455d-b9be-10d948835273",
+                "ce3180bf-2558-49e9-b98e-4f9684fb11f3"
             ]
         },
         {
@@ -285,7 +402,10 @@
                 "51f51563-0ba1-472d-b96e-276bfe5373e9",
                 "2d82ca13-1e2e-4cc0-ae6a-f4b7f018fb4e",
                 "5bd06b0b-4c42-4752-820c-d80f8806042c",
-                "3e0e7c81-6176-44e8-be4b-a1b688f5cd01"
+                "3e0e7c81-6176-44e8-be4b-a1b688f5cd01",
+                "1e66538e-210c-452b-a41d-babc32b1813f",
+                "04ad1611-75b8-4340-8a1f-fb8258985998",
+                "3e5c05b2-ec61-4f33-882f-e05ad267631f"
             ]
         },
         {
@@ -300,7 +420,12 @@
                 "5bd06b0b-4c42-4752-820c-d80f8806042c",
                 "3e0e7c81-6176-44e8-be4b-a1b688f5cd01",
                 "d70b8883-5c08-4ef1-ae33-8874822b923f",
-                "c2e092ff-b656-490f-b102-70521772f85b"
+                "c2e092ff-b656-490f-b102-70521772f85b",
+                "1e66538e-210c-452b-a41d-babc32b1813f",
+                "04ad1611-75b8-4340-8a1f-fb8258985998",
+                "3e5c05b2-ec61-4f33-882f-e05ad267631f",
+                "2ef618a3-959a-455d-b9be-10d948835273",
+                "ce3180bf-2558-49e9-b98e-4f9684fb11f3"
             ]
         }
     ]

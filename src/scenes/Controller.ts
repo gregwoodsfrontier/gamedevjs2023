@@ -93,10 +93,40 @@ export default class Controller extends Phaser.Scene {
 		// audioPlayNode_6
 		new AudioPlayNode(onAudioNewspaper);
 
+		// onAudioDash
+		const onAudioDash = new OnAudioEvent(this);
+
+		// audioPlayNode_7
+		new AudioPlayNode(onAudioDash);
+
+		// onAudioJump
+		const onAudioJump = new OnAudioEvent(this);
+
+		// audioPlayNode_8
+		new AudioPlayNode(onAudioJump);
+
+		// onAudioJumpLand
+		const onAudioJumpLand = new OnAudioEvent(this);
+
+		// audioPlayNode_9
+		new AudioPlayNode(onAudioJumpLand);
+
+		// onMultipleAudioEndLv
+		const onMultipleAudioEndLv = new OnMultipleAudioEvent(this);
+
+		// audioPlayNode_11
+		new AudioPlayNode(onMultipleAudioEndLv);
+
+		// onAudioGameover
+		const onAudioGameover = new OnAudioEvent(this);
+
+		// audioPlayNode_10
+		new AudioPlayNode(onAudioGameover);
+
 		// lists
-		const musicGroup = [onAudioGameOver];
-		const sfxGroup = [onAudioFullScreen, onAudioNewspaper, onMultipleAudioCrawl, onMultipleAudioStep, onAudioVolume, onAudioPlay, onAudioBack, onAudioClick];
-		const audioEvents = [onAudioNewspaper, onMultipleAudioCrawl, onMultipleAudioStep, onAudioVolume, onAudioPlay, onAudioBack, onAudioClick, onAudioFullScreen, onAudioGameOver];
+		const musicGroup = [onAudioGameOver, onMultipleAudioEndLv, onAudioGameover];
+		const sfxGroup = [onAudioFullScreen, onAudioNewspaper, onMultipleAudioCrawl, onMultipleAudioStep, onAudioVolume, onAudioPlay, onAudioBack, onAudioClick, onAudioDash, onAudioJumpLand, onAudioJump];
+		const audioEvents = [onAudioNewspaper, onMultipleAudioCrawl, onMultipleAudioStep, onAudioVolume, onAudioPlay, onAudioBack, onAudioClick, onAudioFullScreen, onAudioGameOver, onAudioDash, onAudioJumpLand, onAudioJump, onMultipleAudioEndLv, onAudioGameover];
 
 		// onAudioGameOver (prefab fields)
 		onAudioGameOver.eventName = "sfx-gameover";
@@ -135,6 +165,26 @@ export default class Controller extends Phaser.Scene {
 		onAudioNewspaper.eventName = "sfx-newspaper";
 		onAudioNewspaper.audioKey = "Newspaper_SFX";
 
+		// onAudioDash (prefab fields)
+		onAudioDash.eventName = "sfx-dash";
+		onAudioDash.audioKey = "Dog_SFX_Dash";
+
+		// onAudioJump (prefab fields)
+		onAudioJump.eventName = "sfx-jump";
+		onAudioJump.audioKey = "Dog_SFX_Jumping";
+
+		// onAudioJumpLand (prefab fields)
+		onAudioJumpLand.eventName = "sfx-jumpland";
+		onAudioJumpLand.audioKey = "Dog_SFX_Jumping_landing";
+
+		// onMultipleAudioEndLv (prefab fields)
+		onMultipleAudioEndLv.eventName = "sfx-endlevel";
+		onMultipleAudioEndLv.audioKeyPrefix = "End_Of_Level_Music";
+
+		// onAudioGameover (prefab fields)
+		onAudioGameover.eventName = "sfx-gameover";
+		onAudioGameover.audioKey = "Game_Over_Music";
+
 		this.stateMachineNode = stateMachineNode;
 		this.importAllAudio = importAllAudio;
 		this.musicGroup = musicGroup;
@@ -146,7 +196,7 @@ export default class Controller extends Phaser.Scene {
 
 	private stateMachineNode!: StateMachineNode;
 	private importAllAudio!: ImportAllAudio;
-	private musicGroup!: OnAudioEvent[];
+	private musicGroup!: Array<OnAudioEvent|OnMultipleAudioEvent>;
 	private sfxGroup!: Array<OnAudioEvent|OnMultipleAudioEvent>;
 	private audioEvents!: Array<OnAudioEvent|OnMultipleAudioEvent>;
 
@@ -259,9 +309,11 @@ export default class Controller extends Phaser.Scene {
 		if(stateMachineNode.previousStateName === "level")
 		{
 			eventsCenter.emit("to-gameover")
+
 			this.scene.stop("UIScreen")
 		} 
 
+		eventsCenter.emit("sfx-gameover")
 	}
 
 	private gameoverOnExit() {
@@ -338,8 +390,10 @@ export default class Controller extends Phaser.Scene {
 		this.scene.stop("UIScreen")
 		this.scene.stop(this.levelScene[this.currLevel])
 
-		const levelMusic = this.importAllAudio.MusicAudioList.find(audio => audio.key.includes("Level"))
+		const levelMusic = this.scene.scene.sound.get("Level_Music")
 		levelMusic?.stop()
+
+		eventsCenter.emit("sfx-endlevel")
 
 		this.time.delayedCall(300, () => {
 			this.scene.launch("CompleteLv")

@@ -85,6 +85,7 @@ export default class LevelBehavior extends ScriptNode {
 	}
 
 	private handlePlayerNewsPaper(player: Player, newspaper: Newspaper) {
+		eventsCenter.emit("sfx-newspaper")
 		newspaper.disableBody(true, true)
 		player.equip(1)
 	}

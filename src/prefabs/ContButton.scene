@@ -17,8 +17,6 @@
             "id": "102958c0-137b-4564-b625-74093718bba5",
             "label": "container_1",
             "components": [],
-            "x": 0,
-            "y": 0,
             "list": [
                 {
                     "type": "Image",
@@ -28,8 +26,6 @@
                     "texture": {
                         "key": "Continue"
                     },
-                    "x": 0,
-                    "y": 0,
                     "scaleX": 0.7,
                     "scaleY": 0.7,
                     "list": [
@@ -48,6 +44,20 @@
                                     ],
                                     "label": "toLevel",
                                     "SMState": "level",
+                                    "components": [],
+                                    "nestedPrefabs": [],
+                                    "list": []
+                                },
+                                {
+                                    "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                                    "id": "0d448add-9e8c-47ae-9f6a-4f117a1d59f1",
+                                    "unlock": [
+                                        "eventEmitter",
+                                        "eventName"
+                                    ],
+                                    "label": "emitEventActionScript",
+                                    "eventName": "sfx-play",
+                                    "eventEmitter": "game.events",
                                     "components": [],
                                     "nestedPrefabs": [],
                                     "list": []

@@ -45,7 +45,31 @@
                     "scaleY": 0.33391345579244713,
                     "angle": -90,
                     "isFilled": true,
-                    "list": []
+                    "list": [
+                        {
+                            "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                            "id": "b9f24082-ef4a-485b-880a-684f21804af7",
+                            "label": "onPointerDownScript_2",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": [
+                                {
+                                    "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                                    "id": "59ad0c02-1003-4167-8935-f65ae13d7c2d",
+                                    "unlock": [
+                                        "eventEmitter",
+                                        "eventName"
+                                    ],
+                                    "label": "emitEventActionScript_1",
+                                    "eventName": "sfx-click",
+                                    "eventEmitter": "game.events",
+                                    "components": [],
+                                    "nestedPrefabs": [],
+                                    "list": []
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     "type": "Triangle",
@@ -57,7 +81,31 @@
                     "scaleY": -0.33391345579244713,
                     "angle": -90,
                     "isFilled": true,
-                    "list": []
+                    "list": [
+                        {
+                            "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                            "id": "5b160b32-ce39-4c97-806a-9e90d289e679",
+                            "label": "onPointerDownScript_1",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": [
+                                {
+                                    "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                                    "id": "5ba58897-9552-458e-b49a-d89754850ffe",
+                                    "unlock": [
+                                        "eventName",
+                                        "eventEmitter"
+                                    ],
+                                    "label": "emitEventActionScript",
+                                    "eventName": "sfx-click",
+                                    "eventEmitter": "game.events",
+                                    "components": [],
+                                    "nestedPrefabs": [],
+                                    "list": []
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     "type": "Rectangle",

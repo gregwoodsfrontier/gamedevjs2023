@@ -25,6 +25,7 @@ export default class AudioPlayNode extends ScriptNode {
 
 	// Write your code here.
 	execute(): void {
+		console.log('block level reached')
 		if((this.parent as OnAudioEvent).audioKey)
 		{
 			const audio = (this.parent as OnAudioEvent).audioKey
@@ -34,15 +35,14 @@ export default class AudioPlayNode extends ScriptNode {
 				sound.play()
 			}
 		}
-		else if ((this.parent as OnMultipleAudioEvent).audioKeyList)
+		else if ((this.parent as OnMultipleAudioEvent).audioKeyPrefix)
 		{
-			const audioList = (this.parent as OnMultipleAudioEvent).audioKeyList
+			const audioKeyPrefix = (this.parent as OnMultipleAudioEvent).audioKeyPrefix
 
 			// push every audio sound that is "get" by the sound manager
-			const soundList = []
-			for(let key of audioList) {
-				soundList.push((this.scene.sound.get(key)) as Phaser.Sound.WebAudioSound)
-			}
+			const soundList = (this.scene.sound.getAll(audioKeyPrefix)) as Phaser.Sound.WebAudioSound[]
+
+			if(soundList.length < 1) { return }
 
 			const ran = Phaser.Math.Between(0, soundList.length - 1)
 

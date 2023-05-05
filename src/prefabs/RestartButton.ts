@@ -6,7 +6,7 @@
 import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/base/OnPointerDownScript";
 import ChangeStateInController from "./scriptNodes/ChangeStateInController";
-import AudioAddNode from "./scriptNodes/AudioAddNode";
+import EmitEventActionScript from "./scriptNodes/base/EmitEventActionScript";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -21,14 +21,15 @@ export default class RestartButton extends Phaser.GameObjects.Image {
 		// changeStateInController
 		const changeStateInController = new ChangeStateInController(onPointerDownScript);
 
-		// audioAddNode
-		const audioAddNode = new AudioAddNode(onPointerDownScript);
+		// emitEventActionScript
+		const emitEventActionScript = new EmitEventActionScript(onPointerDownScript);
 
 		// changeStateInController (prefab fields)
 		changeStateInController.SMState = "restart";
 
-		// audioAddNode (prefab fields)
-		audioAddNode.audioKey = "Menu_SFX_Click";
+		// emitEventActionScript (prefab fields)
+		emitEventActionScript.eventName = "sfx-play";
+		emitEventActionScript.eventEmitter = "game.events";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.

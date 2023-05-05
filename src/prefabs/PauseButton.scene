@@ -31,13 +31,15 @@
                     "nestedPrefabs": [],
                     "list": [
                         {
-                            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
-                            "id": "5df3c1b0-2621-4441-9454-532e599e701f",
+                            "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                            "id": "8d2f4e33-6539-488e-9654-e9f140a17988",
                             "unlock": [
-                                "audioKey"
+                                "eventName",
+                                "eventEmitter"
                             ],
-                            "label": "audioAddNode",
-                            "audioKey": "Menu_SFX_Click",
+                            "label": "emitEventActionScript",
+                            "eventName": "sfx-click",
+                            "eventEmitter": "game.events",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []

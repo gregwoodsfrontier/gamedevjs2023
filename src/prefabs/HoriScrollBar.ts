@@ -34,6 +34,12 @@ export default class HoriScrollBar extends Phaser.GameObjects.Container {
 		leftButton.isFilled = true;
 		this.add(leftButton);
 
+		// onPointerDownScript_2
+		const onPointerDownScript_2 = new OnPointerDownScript(leftButton);
+
+		// emitEventActionScript_1
+		const emitEventActionScript_1 = new EmitEventActionScript(onPointerDownScript_2);
+
 		// rightButton
 		const rightButton = scene.add.triangle(110, 0, 0, 128, 64, 0, 128, 128);
 		rightButton.scaleX = 0.29048739001338675;
@@ -41,6 +47,12 @@ export default class HoriScrollBar extends Phaser.GameObjects.Container {
 		rightButton.angle = -90;
 		rightButton.isFilled = true;
 		this.add(rightButton);
+
+		// onPointerDownScript_1
+		const onPointerDownScript_1 = new OnPointerDownScript(rightButton);
+
+		// emitEventActionScript
+		const emitEventActionScript = new EmitEventActionScript(onPointerDownScript_1);
 
 		// slider
 		const slider = scene.add.rectangle(0, 0, 128, 128);
@@ -63,6 +75,14 @@ export default class HoriScrollBar extends Phaser.GameObjects.Container {
 
 		// emitSFXVolume
 		const emitSFXVolume = new EmitEventActionScript(onPointerUpScript);
+
+		// emitEventActionScript_1 (prefab fields)
+		emitEventActionScript_1.eventName = "sfx-click";
+		emitEventActionScript_1.eventEmitter = "game.events";
+
+		// emitEventActionScript (prefab fields)
+		emitEventActionScript.eventName = "sfx-click";
+		emitEventActionScript.eventEmitter = "game.events";
 
 		// emitSFXClick (prefab fields)
 		emitSFXClick.eventName = "sfx-click";

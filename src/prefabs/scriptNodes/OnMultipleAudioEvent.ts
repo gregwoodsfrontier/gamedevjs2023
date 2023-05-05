@@ -26,13 +26,15 @@ export default class OnMultipleAudioEvent extends OnEventScript {
 	public audioKeyPrefix: string = "";
 
 	/* START-USER-CODE */
-	public audioKeyList = []
+	// public audioKeyList = []
 
 	// Write your code here.
 	override awake(): void {
-		this.audioKeyList = this.scene.sound.getAll(this.audioKeyPrefix)
+		// this.audioKeyList = this.scene.sound.getAll(this.audioKeyPrefix)
 
-		if(this.audioKeyList.length === 0) { return }
+		// console.log('audio key list', this.audioKeyList)
+
+		// if(this.audioKeyList.length === 0) { return }
 
 		super.awake();
 	}

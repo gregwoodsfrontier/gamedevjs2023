@@ -41,13 +41,15 @@
                             "list": []
                         },
                         {
-                            "prefabId": "493567a1-b55f-4937-b510-8f94e8021fbd",
-                            "id": "e616632e-af3e-4d12-8ffe-7cd0a7f07157",
+                            "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                            "id": "f14d924f-d6f4-4745-9bdc-963686223173",
                             "unlock": [
-                                "audioKey"
+                                "eventName",
+                                "eventEmitter"
                             ],
-                            "label": "audioAddNode",
-                            "audioKey": "Menu_SFX_Click",
+                            "label": "emitEventActionScript",
+                            "eventName": "sfx-play",
+                            "eventEmitter": "game.events",
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []

@@ -5,7 +5,7 @@
 
 import Phaser from "phaser";
 import OnPointerDownScript from "./scriptNodes/base/OnPointerDownScript";
-import AudioAddNode from "./scriptNodes/AudioAddNode";
+import EmitEventActionScript from "./scriptNodes/base/EmitEventActionScript";
 /* START-USER-IMPORTS */
 import eventsCenter from "../eventCenter";
 import { PAUSE_GAME, RESUME_GAME } from "./scriptNodes/onPauseScreenNode";
@@ -19,11 +19,12 @@ export default class PauseButton extends Phaser.GameObjects.Image {
 		// onPointerDownScript
 		const onPointerDownScript = new OnPointerDownScript(this);
 
-		// audioAddNode
-		const audioAddNode = new AudioAddNode(onPointerDownScript);
+		// emitEventActionScript
+		const emitEventActionScript = new EmitEventActionScript(onPointerDownScript);
 
-		// audioAddNode (prefab fields)
-		audioAddNode.audioKey = "Menu_SFX_Click";
+		// emitEventActionScript (prefab fields)
+		emitEventActionScript.eventName = "sfx-click";
+		emitEventActionScript.eventEmitter = "game.events";
 
 		/* START-USER-CTR-CODE */
 		this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this)
