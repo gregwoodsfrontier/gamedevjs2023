@@ -25,7 +25,7 @@ export default class AudioPlayNode extends ScriptNode {
 
 	// Write your code here.
 	execute(): void {
-		console.log('block level reached')
+		
 		if((this.parent as OnAudioEvent).audioKey)
 		{
 			const audio = (this.parent as OnAudioEvent).audioKey
