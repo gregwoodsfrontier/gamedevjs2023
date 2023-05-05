@@ -9,7 +9,8 @@ tasks:
     init: npm install
     command: npm run dev
   - name: Run editor
-    init: npm i -g phasereditor2d-launcher
+    before: npm i -g phasereditor2d-launcher
+    init: phasereditor2d-launcher -lickey $PHASEREDITOR2D_LICKEY
     command: npm run editor-remote
     openMode: split-right
 
