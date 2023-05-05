@@ -40,15 +40,18 @@ export default class AudioPlayNode extends ScriptNode {
 			const audioKeyPrefix = (this.parent as OnMultipleAudioEvent).audioKeyPrefix
 
 			// push every audio sound that is "get" by the sound manager
-			const soundList = (this.scene.sound.getAll(audioKeyPrefix)) as Phaser.Sound.WebAudioSound[]
+			//@ts-ignore
+			const soundList = (this.scene.sound.getAll()) as Phaser.Sound.WebAudioSound[]
 
-			if(soundList.length < 1) { return }
+			const filterSoundList = soundList.filter(sd => sd.key.includes(audioKeyPrefix))
 
-			const ran = Phaser.Math.Between(0, soundList.length - 1)
+			if(filterSoundList.length < 1) { return }
 
-			if(!soundList[ran].isPlaying)
+			const ran = Phaser.Math.Between(0, filterSoundList.length - 1)
+
+			if(!filterSoundList[ran].isPlaying)
 			{
-				soundList[ran].play()
+				filterSoundList[ran].play()
 			}
 		}
 		else {
