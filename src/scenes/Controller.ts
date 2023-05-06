@@ -418,7 +418,9 @@ export default class Controller extends Phaser.Scene {
 	private completeOnExit() {
 		this.scene.stop("CompleteLv")
 		// add function to increase level count to load next level
-		this.currLevel = Phaser.Math.Clamp(this.currLevel + 1, 0, this.levelScene.length - 1)
+		const maxLvNum = this.levelScene.length - 1
+		this.currLevel = this.currLevel + 1 > maxLvNum ? 0 : this.currLevel + 1
+		// console.info("currlevel: ", this.currLevel)
 		
 		eventsCenter.emit('sfx-endlevel-end')
 	}
