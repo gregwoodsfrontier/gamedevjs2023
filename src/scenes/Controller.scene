@@ -31,29 +31,6 @@
             "list": []
         },
         {
-            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
-            "id": "c2e092ff-b656-490f-b102-70521772f85b",
-            "unlock": [
-                "eventName",
-                "audioKey"
-            ],
-            "label": "onAudioGameOver",
-            "eventName": "sfx-gameover",
-            "audioKey": "Game_Over_Music",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": [
-                {
-                    "prefabId": "7e5c4aa3-7790-4b0c-bf7a-11482256cc8a",
-                    "id": "580179ad-8fdb-4a4c-8d35-453fb67e1ea4",
-                    "label": "playGameOverMusicNode",
-                    "components": [],
-                    "nestedPrefabs": [],
-                    "list": []
-                }
-            ]
-        },
-        {
             "prefabId": "7ebcc666-227f-47b9-ae7e-e51a0f0f18cb",
             "id": "79e584af-1ae0-4f81-a7ab-8156853aca23",
             "label": "stateMachineNode",
@@ -372,6 +349,52 @@
                     "list": []
                 }
             ]
+        },
+        {
+            "prefabId": "0c643e08-5a69-4047-9d02-565085277527",
+            "id": "4614ca6e-5f24-4ff1-98a0-cc01b0d22018",
+            "unlock": [
+                "eventName",
+                "audioKey"
+            ],
+            "label": "onGameOverEnd",
+            "eventName": "sfx-gameover-end",
+            "audioKey": "Game_Over_Music",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "b891ed74-7a8e-47a2-a373-bf73cd1ced24",
+                    "id": "cf83aa24-54b3-4325-8d70-29a0894a5c0f",
+                    "label": "audioEndNode_1",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "prefabId": "d2a15d16-be2d-4a4e-96ac-661c0bf918e7",
+            "id": "2e1f4dc8-ad15-4a22-9233-bbfeacc19541",
+            "unlock": [
+                "audioKeyPrefix",
+                "eventName"
+            ],
+            "label": "onCompleteEnd",
+            "eventName": "sfx-endlevel-end",
+            "audioKeyPrefix": "End_",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": [
+                {
+                    "prefabId": "b891ed74-7a8e-47a2-a373-bf73cd1ced24",
+                    "id": "a63e7808-4767-4cb5-846a-2f8034981e26",
+                    "label": "audioEndNode",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
         }
     ],
     "plainObjects": [],
@@ -386,7 +409,6 @@
             "id": "fa9c8d9f-932f-4884-9e50-1cf27a42e2d1",
             "label": "musicGroup",
             "objectIds": [
-                "c2e092ff-b656-490f-b102-70521772f85b",
                 "2ef618a3-959a-455d-b9be-10d948835273",
                 "ce3180bf-2558-49e9-b98e-4f9684fb11f3"
             ]
@@ -420,7 +442,6 @@
                 "5bd06b0b-4c42-4752-820c-d80f8806042c",
                 "3e0e7c81-6176-44e8-be4b-a1b688f5cd01",
                 "d70b8883-5c08-4ef1-ae33-8874822b923f",
-                "c2e092ff-b656-490f-b102-70521772f85b",
                 "1e66538e-210c-452b-a41d-babc32b1813f",
                 "04ad1611-75b8-4340-8a1f-fb8258985998",
                 "3e5c05b2-ec61-4f33-882f-e05ad267631f",

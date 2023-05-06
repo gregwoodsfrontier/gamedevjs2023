@@ -5,11 +5,12 @@
 
 import Phaser from "phaser";
 import FullScreenButton from "../prefabs/FullScreenButton";
-import OnAudioEvent from "../prefabs/scriptNodes/OnAudioEvent";
-import AudioPlayNode from "../prefabs/scriptNodes/AudioPlayNode";
 import StateMachineNode from "../prefabs/scriptNodes/StateMachineNode";
 import ImportAllAudio from "../prefabs/scriptNodes/ImportAllAudio";
+import OnAudioEvent from "../prefabs/scriptNodes/OnAudioEvent";
+import AudioPlayNode from "../prefabs/scriptNodes/AudioPlayNode";
 import OnMultipleAudioEvent from "../prefabs/scriptNodes/OnMultipleAudioEvent";
+import AudioEndNode from "../prefabs/scriptNodes/AudioEndNode";
 /* START-USER-IMPORTS */
 import eventsCenter from "../eventCenter";
 import { PAUSE_GAME, RESUME_GAME } from "../prefabs/scriptNodes/onPauseScreenNode";
@@ -32,12 +33,6 @@ export default class Controller extends Phaser.Scene {
 		this.add.existing(fullScreenButton);
 		fullScreenButton.scaleX = 0.5;
 		fullScreenButton.scaleY = 0.5;
-
-		// onAudioGameOver
-		const onAudioGameOver = new OnAudioEvent(this);
-
-		// playGameOverMusicNode
-		new AudioPlayNode(onAudioGameOver);
 
 		// stateMachineNode
 		const stateMachineNode = new StateMachineNode(this);
@@ -123,14 +118,22 @@ export default class Controller extends Phaser.Scene {
 		// audioPlayNode_10
 		new AudioPlayNode(onAudioGameover);
 
-		// lists
-		const musicGroup = [onAudioGameOver, onMultipleAudioEndLv, onAudioGameover];
-		const sfxGroup = [onAudioFullScreen, onAudioNewspaper, onMultipleAudioCrawl, onMultipleAudioStep, onAudioVolume, onAudioPlay, onAudioBack, onAudioClick, onAudioDash, onAudioJumpLand, onAudioJump];
-		const audioEvents = [onAudioNewspaper, onMultipleAudioCrawl, onMultipleAudioStep, onAudioVolume, onAudioPlay, onAudioBack, onAudioClick, onAudioFullScreen, onAudioGameOver, onAudioDash, onAudioJumpLand, onAudioJump, onMultipleAudioEndLv, onAudioGameover];
+		// onGameOverEnd
+		const onGameOverEnd = new OnAudioEvent(this);
 
-		// onAudioGameOver (prefab fields)
-		onAudioGameOver.eventName = "sfx-gameover";
-		onAudioGameOver.audioKey = "Game_Over_Music";
+		// audioEndNode_1
+		new AudioEndNode(onGameOverEnd);
+
+		// onCompleteEnd
+		const onCompleteEnd = new OnMultipleAudioEvent(this);
+
+		// audioEndNode
+		new AudioEndNode(onCompleteEnd);
+
+		// lists
+		const musicGroup = [onMultipleAudioEndLv, onAudioGameover];
+		const sfxGroup = [onAudioFullScreen, onAudioNewspaper, onMultipleAudioCrawl, onMultipleAudioStep, onAudioVolume, onAudioPlay, onAudioBack, onAudioClick, onAudioDash, onAudioJumpLand, onAudioJump];
+		const audioEvents = [onAudioNewspaper, onMultipleAudioCrawl, onMultipleAudioStep, onAudioVolume, onAudioPlay, onAudioBack, onAudioClick, onAudioFullScreen, onAudioDash, onAudioJumpLand, onAudioJump, onMultipleAudioEndLv, onAudioGameover];
 
 		// onAudioFullScreen (prefab fields)
 		onAudioFullScreen.eventName = "sfx-fullscreen";
@@ -185,6 +188,14 @@ export default class Controller extends Phaser.Scene {
 		onAudioGameover.eventName = "sfx-gameover";
 		onAudioGameover.audioKey = "Game_Over_Music";
 
+		// onGameOverEnd (prefab fields)
+		onGameOverEnd.eventName = "sfx-gameover-end";
+		onGameOverEnd.audioKey = "Game_Over_Music";
+
+		// onCompleteEnd (prefab fields)
+		onCompleteEnd.eventName = "sfx-endlevel-end";
+		onCompleteEnd.audioKeyPrefix = "End_";
+
 		this.stateMachineNode = stateMachineNode;
 		this.importAllAudio = importAllAudio;
 		this.musicGroup = musicGroup;
@@ -196,7 +207,7 @@ export default class Controller extends Phaser.Scene {
 
 	private stateMachineNode!: StateMachineNode;
 	private importAllAudio!: ImportAllAudio;
-	private musicGroup!: Array<OnAudioEvent|OnMultipleAudioEvent>;
+	private musicGroup!: Array<OnMultipleAudioEvent|OnAudioEvent>;
 	private sfxGroup!: Array<OnAudioEvent|OnMultipleAudioEvent>;
 	private audioEvents!: Array<OnAudioEvent|OnMultipleAudioEvent>;
 
@@ -319,6 +330,7 @@ export default class Controller extends Phaser.Scene {
 	private gameoverOnExit() {
 		// scene transition can only be invoked on the source scene
 		eventsCenter.emit("to-level", this.levelScene[this.currLevel])
+		eventsCenter.emit('sfx-gameover-end')
 
 	}
 
@@ -372,6 +384,9 @@ export default class Controller extends Phaser.Scene {
 		this.scene.stop("UIScreen")
 		this.scene.pause(this.levelScene[this.currLevel])
 
+		const levelMusic = this.scene.scene.sound.get("Level_Music")
+		levelMusic?.stop()
+
 		const fx = this.cameras.main.postFX.addWipe()
 
 		this.scene.transition({
@@ -404,7 +419,8 @@ export default class Controller extends Phaser.Scene {
 		this.scene.stop("CompleteLv")
 		// add function to increase level count to load next level
 		this.currLevel = Phaser.Math.Clamp(this.currLevel + 1, 0, this.levelScene.length - 1)
-		console.log(`current level is ${this.currLevel}`)
+		
+		eventsCenter.emit('sfx-endlevel-end')
 	}
 
 	/* END-USER-CODE */
