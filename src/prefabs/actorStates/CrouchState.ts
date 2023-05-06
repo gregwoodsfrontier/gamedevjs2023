@@ -8,6 +8,7 @@ import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import { IRunStateParams } from "../../interfaces/state_params";
 import { ANIM_CRAWL_GO, ANIM_CRAWL_IDLE } from "../../consts/shiba-anims";
+import eventsCenter from "../../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class CrouchState extends ScriptNode {
@@ -63,6 +64,8 @@ export default class CrouchState extends ScriptNode {
 			sprite.setVelocityX(0)
 			sprite.play(ANIM_CRAWL_IDLE, true)
 		}
+
+		eventsCenter.emit("sfx-crawl")
 	}
 
 	onExit(sprite: Phaser.Physics.Arcade.Sprite) {

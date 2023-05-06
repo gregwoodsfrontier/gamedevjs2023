@@ -1,0 +1,42 @@
+{
+    "id": "b891ed74-7a8e-47a2-a373-bf73cd1ced24",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "type": "ScriptNode",
+            "id": "c4cfd45d-4b87-47f4-9c26-216a0da512b8",
+            "label": "scriptnode_1",
+            "components": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "audioKey",
+            "label": "Audio Key",
+            "tooltip": "Property 1",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "audio-key"
+            }
+        }
+    ]
+}

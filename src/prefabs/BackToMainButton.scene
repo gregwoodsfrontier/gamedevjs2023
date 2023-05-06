@@ -39,6 +39,20 @@
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []
+                        },
+                        {
+                            "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                            "id": "a1cb4d8f-13a3-4270-99da-adc6d835f72a",
+                            "unlock": [
+                                "eventEmitter",
+                                "eventName"
+                            ],
+                            "label": "emitEventActionScript",
+                            "eventName": "sfx-back",
+                            "eventEmitter": "game.events",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
                         }
                     ]
                 }

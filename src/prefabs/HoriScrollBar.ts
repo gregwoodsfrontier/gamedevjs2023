@@ -4,6 +4,9 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import OnPointerDownScript from "./scriptNodes/base/OnPointerDownScript";
+import EmitEventActionScript from "./scriptNodes/base/EmitEventActionScript";
+import OnPointerUpScript from "./scriptNodes/base/OnPointerUpScript";
 /* START-USER-IMPORTS */
 import { ScrollBar } from "phaser3-rex-plugins/templates/ui/ui-components";
 /* END-USER-IMPORTS */
@@ -31,6 +34,12 @@ export default class HoriScrollBar extends Phaser.GameObjects.Container {
 		leftButton.isFilled = true;
 		this.add(leftButton);
 
+		// onPointerDownScript_2
+		const onPointerDownScript_2 = new OnPointerDownScript(leftButton);
+
+		// emitEventActionScript_1
+		const emitEventActionScript_1 = new EmitEventActionScript(onPointerDownScript_2);
+
 		// rightButton
 		const rightButton = scene.add.triangle(110, 0, 0, 128, 64, 0, 128, 128);
 		rightButton.scaleX = 0.29048739001338675;
@@ -38,6 +47,12 @@ export default class HoriScrollBar extends Phaser.GameObjects.Container {
 		rightButton.angle = -90;
 		rightButton.isFilled = true;
 		this.add(rightButton);
+
+		// onPointerDownScript_1
+		const onPointerDownScript_1 = new OnPointerDownScript(rightButton);
+
+		// emitEventActionScript
+		const emitEventActionScript = new EmitEventActionScript(onPointerDownScript_1);
 
 		// slider
 		const slider = scene.add.rectangle(0, 0, 128, 128);
@@ -48,6 +63,34 @@ export default class HoriScrollBar extends Phaser.GameObjects.Container {
 		slider.isStroked = true;
 		slider.strokeColor = 1895376;
 		this.add(slider);
+
+		// onPointerDownScript
+		const onPointerDownScript = new OnPointerDownScript(slider);
+
+		// emitSFXClick
+		const emitSFXClick = new EmitEventActionScript(onPointerDownScript);
+
+		// onPointerUpScript
+		const onPointerUpScript = new OnPointerUpScript(slider);
+
+		// emitSFXVolume
+		const emitSFXVolume = new EmitEventActionScript(onPointerUpScript);
+
+		// emitEventActionScript_1 (prefab fields)
+		emitEventActionScript_1.eventName = "sfx-click";
+		emitEventActionScript_1.eventEmitter = "game.events";
+
+		// emitEventActionScript (prefab fields)
+		emitEventActionScript.eventName = "sfx-click";
+		emitEventActionScript.eventEmitter = "game.events";
+
+		// emitSFXClick (prefab fields)
+		emitSFXClick.eventName = "sfx-click";
+		emitSFXClick.eventEmitter = "game.events";
+
+		// emitSFXVolume (prefab fields)
+		emitSFXVolume.eventName = "sfx-volume";
+		emitSFXVolume.eventEmitter = "game.events";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -91,5 +134,3 @@ export default class HoriScrollBar extends Phaser.GameObjects.Container {
 }
 
 /* END OF COMPILED CODE */
-
-// You can write more code here

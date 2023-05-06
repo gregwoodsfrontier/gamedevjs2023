@@ -7,6 +7,7 @@ import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import { IRunStateParams } from "../../interfaces/state_params";
+import eventsCenter from "../../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class RunState extends ScriptNode {
@@ -46,6 +47,8 @@ export default class RunState extends ScriptNode {
 		{
 			sprite.setVelocityX(0)
 		}
+
+		eventsCenter.emit("sfx-step")
 	}
 
 	onExit(sprite: Phaser.Physics.Arcade.Sprite) {
