@@ -201,6 +201,11 @@
                 "key": "firehydrant"
             },
             {
+                "url": "assets/environmental/FireHydrantUsed.png",
+                "type": "image",
+                "key": "FireHydrantUsed"
+            },
+            {
                 "url": "assets/buttons/fullscreen.png",
                 "type": "image",
                 "key": "fullscreen"
