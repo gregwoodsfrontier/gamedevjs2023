@@ -4,8 +4,9 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
+import OnPointerDownScript from "./scriptNodes/base/OnPointerDownScript";
 import ChangeStateInController from "./scriptNodes/ChangeStateInController";
+import EmitEventActionScript from "./scriptNodes/base/EmitEventActionScript";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -20,8 +21,15 @@ export default class BackToMainButton extends Phaser.GameObjects.Image {
 		// changeStateInController
 		const changeStateInController = new ChangeStateInController(onPointerDownScript);
 
+		// emitEventActionScript
+		const emitEventActionScript = new EmitEventActionScript(onPointerDownScript);
+
 		// changeStateInController (prefab fields)
 		changeStateInController.SMState = "main-menu";
+
+		// emitEventActionScript (prefab fields)
+		emitEventActionScript.eventName = "sfx-back";
+		emitEventActionScript.eventEmitter = "game.events";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.

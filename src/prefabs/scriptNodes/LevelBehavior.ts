@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "./ScriptNode";
+import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 import ChangeStateInController from "./ChangeStateInController";
 /* START-USER-IMPORTS */
@@ -44,9 +44,7 @@ export default class LevelBehavior extends ScriptNode {
 	awake() {
 		const {scene} = this
 
-		//  passing the total width and height from the level scene to create the camera bounds
-		// scene.events.once("setup-cam-bounds", this.setupCameraBounds, this)
-		// scene.events.once("setup-world-bounds", this.setupWorldBounds, this)
+		this.player.setDepth(2)
 
 		eventsCenter.once("to-gameover", () => {
 			scene.scene.transition({
@@ -80,20 +78,21 @@ export default class LevelBehavior extends ScriptNode {
 
 		//@ts-ignore
 		scene.physics.add.collider(this.player, this.newspaper, this.handlePlayerNewsPaper)
-		//@ts-ignore
+		
 		scene.physics.add.collider(this.player, this.hydrantList, this.handlePlayerHydrant)
 		//@ts-ignore
 		scene.physics.add.overlap(this.player, this.goal, this.handlePlayerGoal, undefined, this)
 	}
 
 	private handlePlayerNewsPaper(player: Player, newspaper: Newspaper) {
+		eventsCenter.emit("sfx-newspaper")
 		newspaper.disableBody(true, true)
 		player.equip(1)
 	}
 
-	private handlePlayerHydrant(player: Player, hydrant: FireHydrant) {
-		player.pee()
-		hydrant.disableBody()
+	private handlePlayerHydrant(player: Phaser.Types.Physics.Arcade.GameObjectWithBody | Phaser.Tilemaps.Tile, hydrant: Phaser.Types.Physics.Arcade.GameObjectWithBody | Phaser.Tilemaps.Tile) {
+		(player as Player).pee();
+		(hydrant as FireHydrant).disableBody();
 	}
 
 	//@ts-ignore

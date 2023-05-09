@@ -8,22 +8,26 @@ import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class OnEventScript extends ScriptNode {
+export default class ExecActionScript extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
 
 		/* START-USER-CTR-CODE */
+		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
 
-	public eventName: string = "";
+	public targetAction!: ScriptNode;
 
 	/* START-USER-CODE */
 
-	awake() {
+	override execute(...args: any[]): void {
 
-		this.gameObject?.on(this.eventName, this.executeChildren, this);
+		if (this.targetAction) {
+
+			this.targetAction.execute(...args);
+		}
 	}
 
 	/* END-USER-CODE */

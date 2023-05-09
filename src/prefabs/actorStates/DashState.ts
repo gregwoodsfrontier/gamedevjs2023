@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "../scriptNodes/ScriptNode";
+import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -18,7 +18,7 @@ export default class DashState extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public stateName: string = "dash";
+	public name: string = "dash";
 	public dashMod: number = 5;
 	public drag: number = 0.005;
 

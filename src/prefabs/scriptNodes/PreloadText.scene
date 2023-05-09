@@ -1,5 +1,5 @@
 {
-    "id": "e29bc630-dabe-4a8c-97e0-45ccb875b877",
+    "id": "165187df-832f-4a0c-b7e0-63e856152702",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -8,13 +8,13 @@
         "preloadPackFiles": [],
         "createMethodName": "",
         "compilerOutputLanguage": "TYPE_SCRIPT",
-        "borderWidth": 1280,
-        "borderHeight": 720
+        "borderWidth": 640,
+        "borderHeight": 360
     },
     "displayList": [
         {
             "type": "ScriptNode",
-            "id": "96b59bda-a578-4a52-9a56-8edc8558e9ea",
+            "id": "623a8716-cb80-4c7f-aa74-ebf254c07a74",
             "label": "scriptnode_1",
             "components": [],
             "list": []
@@ -26,18 +26,5 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    },
-    "prefabProperties": [
-        {
-            "name": "callback",
-            "label": "Callback",
-            "tooltip": "Callback",
-            "defValue": "",
-            "customDefinition": false,
-            "type": {
-                "id": "expression",
-                "expressionType": "() => void"
-            }
-        }
-    ]
+    }
 }

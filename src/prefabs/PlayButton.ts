@@ -4,8 +4,10 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
+import OnPointerDownScript from "./scriptNodes/base/OnPointerDownScript";
 import ChangeStateInController from "./scriptNodes/ChangeStateInController";
+import EmitEventActionScript from "./scriptNodes/base/EmitEventActionScript";
+import PushOnClick from "./scriptNodes/PushOnClick";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -23,8 +25,18 @@ export default class PlayButton extends Phaser.GameObjects.Image {
 		// changeStateInController
 		const changeStateInController = new ChangeStateInController(onPointerDownScript);
 
+		// emitEventActionScript
+		const emitEventActionScript = new EmitEventActionScript(onPointerDownScript);
+
+		// pushOnClick
+		new PushOnClick(this);
+
 		// changeStateInController (prefab fields)
 		changeStateInController.SMState = "level";
+
+		// emitEventActionScript (prefab fields)
+		emitEventActionScript.eventName = "sfx-play";
+		emitEventActionScript.eventEmitter = "game.events";
 
 		/* START-USER-CTR-CODE */
 

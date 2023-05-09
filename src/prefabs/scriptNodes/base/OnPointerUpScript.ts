@@ -3,32 +3,28 @@
 
 /* START OF COMPILED CODE */
 
+import OnEventScript from "./OnEventScript";
 import ScriptNode from "./ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class CallbackActionScript extends ScriptNode {
+export default class OnPointerUpScript extends OnEventScript {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
+
+		// this (prefab fields)
+		this.eventName = "pointerup";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
 
-	public callback!: () => void;
-
 	/* START-USER-CODE */
 
-	execute() {
-
-		if (this.callback) {
-
-			this.callback();
-		}
-	}
+	// Write your code here.
 
 	/* END-USER-CODE */
 }

@@ -39,6 +39,20 @@
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []
+                        },
+                        {
+                            "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                            "id": "f14d924f-d6f4-4745-9bdc-963686223173",
+                            "unlock": [
+                                "eventName",
+                                "eventEmitter"
+                            ],
+                            "label": "emitEventActionScript",
+                            "eventName": "sfx-play",
+                            "eventEmitter": "game.events",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
                         }
                     ]
                 }

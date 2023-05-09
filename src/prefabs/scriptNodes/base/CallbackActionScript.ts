@@ -8,7 +8,7 @@ import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class OnKeyboardEventScript extends ScriptNode {
+export default class CallbackActionScript extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
@@ -18,21 +18,16 @@ export default class OnKeyboardEventScript extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public eventName: string = "";
+	public callback!: (...args: any[]) => void;
 
 	/* START-USER-CODE */
 
-	protected override awake(): void {
+	execute(...args: any[]) {
 
-		if (!this.eventName) {
+		if (this.callback) {
 
-			return;
+			this.callback(...args);
 		}
-
-		this.scene.input.keyboard?.on(this.eventName, () => {
-
-			this.executeChildren();
-		});
 	}
 
 	/* END-USER-CODE */

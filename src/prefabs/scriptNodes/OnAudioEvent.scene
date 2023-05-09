@@ -1,0 +1,59 @@
+{
+    "id": "0c643e08-5a69-4047-9d02-565085277527",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "prefabId": "437c7d1d-12e5-4251-8d72-3ee5abae49d2",
+            "id": "c4f8496c-d7ed-4d7d-b768-30f72f2db794",
+            "unlock": [
+                "eventName",
+                "eventEmitter"
+            ],
+            "label": "onEventScript",
+            "eventName": "",
+            "eventEmitter": "game.events",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "audioKey",
+            "label": "Audio Key",
+            "tooltip": "The key of the audio you want to play",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "audio-key"
+            }
+        },
+        {
+            "name": "isLoop",
+            "label": "Loop?",
+            "tooltip": "True if it is going to play forever",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
+}

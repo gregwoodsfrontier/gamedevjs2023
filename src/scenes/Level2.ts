@@ -5,7 +5,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import LayerPhysics from "../components/LayerPhysics";
+import AddPhysicsToTileLayer from "../prefabs/scriptNodes/AddPhysicsToTileLayer";
 import FireHydrant from "../prefabs/FireHydrant";
 import Goal from "../prefabs/Goal";
 import Newspaper from "../prefabs/Newspaper";
@@ -42,6 +42,9 @@ export default class Level2 extends Phaser.Scene {
 
 		// ground_1
 		const ground_1 = level2.createLayer("ground", ["Terrain (16x16)"], 0, 0);
+
+		// addPhysicsToTileLayer
+		new AddPhysicsToTileLayer(ground_1);
 
 		// fireHydrant
 		const fireHydrant = new FireHydrant(this, -44, 141);
@@ -81,9 +84,6 @@ export default class Level2 extends Phaser.Scene {
 		const paperList = [newspaper];
 		const houseList = [goal];
 
-		// ground_1 (components)
-		new LayerPhysics(ground_1);
-
 		// levelBehavior (prefab fields)
 		levelBehavior.player = player_1;
 		levelBehavior.groundLayer = ground_1;
@@ -112,6 +112,7 @@ export default class Level2 extends Phaser.Scene {
 		paperNode.targetList = paperList;
 		paperNode.tilemapSrce = level2;
 
+		this.ground_1 = ground_1;
 		this.player_1 = player_1;
 		this.level2 = level2;
 		this.hydrantList = hydrantList;
@@ -121,6 +122,7 @@ export default class Level2 extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
+	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private player_1!: Player;
 	private level2!: Phaser.Tilemaps.Tilemap;
 	private hydrantList!: FireHydrant[];

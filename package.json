@@ -11,10 +11,11 @@
     "deploy": "git add dist -f && git commit -m \"Adding dist\" && git subtree push --prefix dist origin gh-pages"
   },
   "devDependencies": {
+    "@types/node": "^20.1.0",
     "gh-pages": "^5.0.0",
     "phaser-asset-pack-hashing": "^1.0.5",
     "phaser3-rex-plugins": "^1.60.0",
-    "phasereditor2d-launcher": "^3.60.0",
+    "phasereditor2d-launcher": "^3.60.3",
     "typescript": "^5.0.4",
     "vite": "^4.2.1"
   },

@@ -4,13 +4,14 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import LayerPhysics from "../components/LayerPhysics";
+import AddPhysicsToTileLayer from "../prefabs/scriptNodes/AddPhysicsToTileLayer";
 import FireHydrant from "../prefabs/FireHydrant";
 import Goal from "../prefabs/Goal";
 import Newspaper from "../prefabs/Newspaper";
 import Player from "../prefabs/Player";
 import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
 import CreateFromObjectsNode from "../prefabs/scriptNodes/CreateFromObjectsNode";
+import TiledCollisionData from "../prefabs/scriptNodes/TiledCollisionData";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -41,6 +42,9 @@ export default class Level3 extends Phaser.Scene {
 
 		// ground_1
 		const ground_1 = level3.createLayer("ground", ["Terrain (16x16)"], 0, 0);
+
+		// addPhysicsToTileLayer
+		new AddPhysicsToTileLayer(ground_1);
 
 		// fireHydrant
 		const fireHydrant = new FireHydrant(this, -44, 141);
@@ -75,13 +79,13 @@ export default class Level3 extends Phaser.Scene {
 		// hydrantNode
 		const hydrantNode = new CreateFromObjectsNode(this);
 
+		// tiledCollisionData
+		const tiledCollisionData = new TiledCollisionData(this);
+
 		// lists
 		const hydrantList = [fireHydrant];
 		const paperList = [newspaper];
 		const houseList = [goal];
-
-		// ground_1 (components)
-		new LayerPhysics(ground_1);
 
 		// levelBehavior (prefab fields)
 		levelBehavior.player = player_1;
@@ -111,7 +115,14 @@ export default class Level3 extends Phaser.Scene {
 		hydrantNode.targetList = hydrantList;
 		hydrantNode.tilemapSrce = level3;
 
+		// tiledCollisionData (prefab fields)
+		tiledCollisionData.layer = ground_1;
+		tiledCollisionData.player = player_1;
+		tiledCollisionData.paperList = paperList;
+
+		this.ground_1 = ground_1;
 		this.player_1 = player_1;
+		this.tiledCollisionData = tiledCollisionData;
 		this.level3 = level3;
 		this.hydrantList = hydrantList;
 		this.paperList = paperList;
@@ -120,7 +131,9 @@ export default class Level3 extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
+	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private player_1!: Player;
+	private tiledCollisionData!: TiledCollisionData;
 	private level3!: Phaser.Tilemaps.Tilemap;
 	private hydrantList!: FireHydrant[];
 	private paperList!: Newspaper[];
@@ -135,6 +148,8 @@ export default class Level3 extends Phaser.Scene {
 		this.editorCreate();
 
 		this.setCamWorldBounds(this.level3)
+
+		
 	}
 
 	private setCamWorldBounds(map: Phaser.Tilemaps.Tilemap) {

@@ -3,19 +3,15 @@
 
 /* START OF COMPILED CODE */
 
-import OnEventScript from "./OnEventScript";
-import ScriptNode from "./ScriptNode";
+import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class onValueChangeNode extends OnEventScript {
+export default class CamFollow extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
-
-		// this (prefab fields)
-		this.eventName = "valuechange";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -25,14 +21,10 @@ export default class onValueChangeNode extends OnEventScript {
 	/* START-USER-CODE */
 
 	// Write your code here.
-	override awake(): void {
-
-		if (!this.gameObject) {
-
-			return;
+	protected awake(): void {
+		if(this.gameObject) {
+			this.scene.cameras.main.startFollow(this.gameObject)
 		}
-
-		super.awake();
 	}
 
 	/* END-USER-CODE */

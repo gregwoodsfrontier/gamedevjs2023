@@ -41,6 +41,18 @@
                             "components": [],
                             "nestedPrefabs": [],
                             "list": []
+                        },
+                        {
+                            "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                            "id": "6c7c9615-fc18-44a2-92c9-0abcb9ed5636",
+                            "unlock": [
+                                "eventName"
+                            ],
+                            "label": "emitEventActionScript",
+                            "eventName": "sfx-click",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
                         }
                     ]
                 }

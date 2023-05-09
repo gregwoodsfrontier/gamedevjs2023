@@ -3,13 +3,12 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "./ScriptNode";
+import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import eventsCenter from "../../eventCenter";
 /* END-USER-IMPORTS */
 
-export default class setAudioVolume extends ScriptNode {
+export default class PreloadText extends ScriptNode {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
@@ -19,14 +18,19 @@ export default class setAudioVolume extends ScriptNode {
 		/* END-USER-CTR-CODE */
 	}
 
-	public gameAudioType: "music"|"sfx" = "music";
-
 	/* START-USER-CODE */
 
 	// Write your code here.
-	execute(newVal: number) {
-		console.log("set audio is called")
-		eventsCenter.emit("set-volume", newVal, this.gameAudioType)
+	awake() {
+
+		if(this.gameObject) {
+			this.scene.load.on(Phaser.Loader.Events.PROGRESS, (p: number) => {
+				if(this.gameObject && this.gameObject instanceof Phaser.GameObjects.Text) {
+					this.gameObject.text = Math.floor(p * 100) + "%";
+				}
+			});
+		}
+		
 	}
 
 	/* END-USER-CODE */

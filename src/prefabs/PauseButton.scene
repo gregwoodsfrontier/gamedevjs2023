@@ -22,7 +22,31 @@
             "texture": {
                 "key": "pause"
             },
-            "list": []
+            "list": [
+                {
+                    "prefabId": "a06ed60b-79f1-4444-bf35-89046f71f954",
+                    "id": "72337a97-56f6-4d8c-8e2c-17887728f26d",
+                    "label": "onPointerDownScript",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": [
+                        {
+                            "prefabId": "757fdd95-b5cc-4c5b-adef-a26b5965d851",
+                            "id": "8d2f4e33-6539-488e-9654-e9f140a17988",
+                            "unlock": [
+                                "eventName",
+                                "eventEmitter"
+                            ],
+                            "label": "emitEventActionScript",
+                            "eventName": "sfx-click",
+                            "eventEmitter": "game.events",
+                            "components": [],
+                            "nestedPrefabs": [],
+                            "list": []
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "plainObjects": [],

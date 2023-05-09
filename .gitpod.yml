@@ -9,6 +9,19 @@ tasks:
     init: npm install
     command: npm run dev
   - name: Run editor
+    before: npm i -g phasereditor2d-launcher
+    init: phasereditor2d-launcher -lickey $PHASEREDITOR2D_LICKEY
     command: npm run editor-remote
     openMode: split-right
+
+# Ports to expose on workspace startup
+ports:
+  - port: 1959
+    onOpen: open-browser
+    name: Remote Phaser Editor
+    description: The workspace for Phaser Editor
+  - port: 5173
+    onOpen: open-browser
+    name: Test build
+    description: Testing the build in the current branch
 

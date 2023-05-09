@@ -4,7 +4,6 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import CameraFollow from "../components/CameraFollow";
 import StateMachineNode from "./scriptNodes/StateMachineNode";
 import IdleState from "./actorStates/IdleState";
 import RunState from "./actorStates/RunState";
@@ -12,13 +11,16 @@ import JumpState from "./actorStates/JumpState";
 import StaggerState from "./actorStates/StaggerState";
 import DashState from "./actorStates/DashState";
 import CrouchState from "./actorStates/CrouchState";
+import PeeState from "./actorStates/PeeState";
+import CamFollow from "./scriptNodes/CamFollow";
 /* START-USER-IMPORTS */
 import { ANIM_SHIBA_IDLE, ANIM_SHIBA_JUMP, ANIM_SHIBA_WALK } from "../consts/shiba-anims";
+import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
 export default interface Player {
 
-	 body: Phaser.Physics.Arcade.Body;
+	body: Phaser.Physics.Arcade.Body;
 }
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
@@ -53,8 +55,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		// crouchState
 		const crouchState = new CrouchState(stateMachineNode);
 
-		// this (components)
-		new CameraFollow(this);
+		// peeState
+		const peeState = new PeeState(stateMachineNode);
+
+		// camFollow
+		new CamFollow(this);
 
 		this.idleState = idleState;
 		this.runState = runState;
@@ -62,94 +67,103 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		this.staggerState = staggerState;
 		this.dashState = dashState;
 		this.crouchState = crouchState;
+		this.peeState = peeState;
 		this.stateMachineNode = stateMachineNode;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		if(scene) {
-			if(scene.input.keyboard) {
+		if (scene) {
+			if (scene.input.keyboard) {
 				this.cursors = scene.input.keyboard.createCursorKeys()
+				this.wasdKeys = {
+					up: scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W),
+					down: scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
+					left: scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
+					right: scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D),
+					space: scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
+					shift: this.cursors.shift
+				}
 			}
 		}
 
 		this.stateMachineNode.addState(
-			this.idleState.stateName, {
-				onEnter: () => {
-					this.idleState.onEnter(this, ANIM_SHIBA_IDLE)
-				}
+			this.idleState.name, {
+			onEnter: () => {
+				this.idleState.onEnter(this, ANIM_SHIBA_IDLE)
 			}
+		}
 		).addState(
-			this.dashState.stateName, {
-				onEnter: () => {
-					this.dashState.onEnter(this, ANIM_SHIBA_WALK, this.runSpeed)
-				},
-				// onUpdate: () => {
-				// 	this.dashState.onUpdate()
-				// },
-				onExit: () => {
-					this.dashState.onExit(this)
-				}
+			this.dashState.name, {
+			onEnter: () => {
+				this.dashState.onEnter(this, ANIM_SHIBA_WALK, this.runSpeed)
+			},
+			// onUpdate: () => {
+			// 	this.dashState.onUpdate()
+			// },
+			onExit: () => {
+				this.dashState.onExit(this)
 			}
+		}
 		).addState(
-			this.runState.stateName, {
-				onEnter: () => {
-					this.runState.onEnter(this, ANIM_SHIBA_WALK)
-				},
-				onUpdate: () => {
-					this.runState.onUpdate({
-						sprite: this, 
-						isLeft: this.cursors?.left.isDown, 
-						isRight: this.cursors?.right.isDown, 
-						speed: this.runSpeed
-					})
-				},
-				onExit: () => {
-					this.runState.onExit(this)
-				}
+			this.runState.name, {
+			onEnter: () => {
+				this.runState.onEnter(this, ANIM_SHIBA_WALK)
+			},
+			onUpdate: () => {
+				this.runState.onUpdate({
+					sprite: this,
+					isLeft: this.cursors?.left.isDown || this.wasdKeys?.left.isDown,
+					isRight: this.cursors?.right.isDown || this.wasdKeys?.right.isDown,
+					speed: this.runSpeed
+				})
+			},
+			onExit: () => {
+				this.runState.onExit(this)
 			}
+		}
 		).addState(
-			this.crouchState.stateName, {
-				onEnter: () => {
-					this.crouchState.onEnter(this)
-				},
-				onUpdate: () => {
-					this.crouchState.onUpdate({
-						sprite: this, 
-						isLeft: this.cursors?.left.isDown, 
-						isRight: this.cursors?.right.isDown, 
-						speed: this.runSpeed
-					}
-					)
-				},
-				onExit: () => {
-					this.crouchState.onExit(this)
+			this.crouchState.name, {
+			onEnter: () => {
+				this.crouchState.onEnter(this)
+			},
+			onUpdate: () => {
+				this.crouchState.onUpdate({
+					sprite: this,
+					isLeft: this.cursors?.left.isDown || this.wasdKeys?.left.isDown,
+					isRight: this.cursors?.right.isDown || this.wasdKeys?.right.isDown,
+					speed: this.runSpeed
 				}
+				)
+			},
+			onExit: () => {
+				this.crouchState.onExit(this)
 			}
+		}
 		).addState(
-			this.jumpState.stateName, {
-				onEnter: () => {
-					this.jumpState.onEnter(this, this.jumpSpeed, ANIM_SHIBA_JUMP)
-				},
-				onUpdate: () => {
-					this.jumpState.onUpdate(
-						this, 
-						this.cursors?.left.isDown, 
-						this.cursors?.right.isDown, 
-						this.hasJetPack,
-						this.runSpeed
-					)
-				}
+			this.jumpState.name, {
+			onEnter: () => {
+				this.jumpState.onEnter(this, this.jumpSpeed, ANIM_SHIBA_JUMP)
+			},
+			onUpdate: () => {
+				this.jumpState.onUpdate(
+					this,
+					this.cursors?.left.isDown || this.wasdKeys?.left.isDown,
+					this.cursors?.right.isDown || this.wasdKeys?.right.isDown,
+					this.hasJetPack,
+					this.runSpeed
+				)
 			}
+		}
 		).addState(
-			this.staggerState.stateName, {
-				onEnter: () => {
-					this.staggerState.onEnter(this)
-				},
-				onExit: () => {
-					this.staggerState.onExit(this)
-				}
+			this.staggerState.name, {
+			onEnter: () => {
+				this.staggerState.onEnter(this)
+			},
+			onExit: () => {
+				this.staggerState.onExit(this)
 			}
-		).setState(this.idleState.stateName)
+		}
+		).setState(this.idleState.name)
 
 		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
 
@@ -162,6 +176,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	private staggerState: StaggerState;
 	private dashState: DashState;
 	private crouchState: CrouchState;
+	private peeState: PeeState;
 	private stateMachineNode: StateMachineNode;
 	public runSpeed: number = 150;
 	public jumpSpeed: number = 280;
@@ -171,23 +186,23 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 	/* START-USER-CODE */
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
+	private wasdKeys?: Phaser.Types.Input.Keyboard.CursorKeys;
 	private inventory = [] as number[]
 
 	// Write your code here.
 
-	checkJumpCondition()
-	{
-		return this.cursors && Phaser.Input.Keyboard.JustDown(this.cursors.up) && this.body.onFloor()
+	checkJumpCondition() {
+		return (this.cursors && Phaser.Input.Keyboard.JustDown(this.cursors.up) || this.wasdKeys && Phaser.Input.Keyboard.JustDown(this.wasdKeys.up)) && this.body.onFloor()
 	}
 
 	checkShiftKeyJustPress() {
-		if(!this.cursors?.shift) { return }
+		if (!this.cursors?.shift) { return }
 
 		return Phaser.Input.Keyboard.JustDown(this.cursors?.shift)
 	}
 
 	checkKeyJustPress(key?: Phaser.Input.Keyboard.Key) {
-		if(!key) { return }
+		if (!key) { return }
 
 		return Phaser.Input.Keyboard.JustDown(key)
 	}
@@ -210,62 +225,61 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	pee() {
-		this.stateMachineNode.setState(this.staggerState.stateName)
+		this.stateMachineNode.setState(this.peeState.name)
 	}
 
 	switchStateMachineNetwork() {
-		if(!this.body) {
+		if (!this.body) {
 			// console.error(`player body is undefined`)
-			return 
+			return
 		}
 		switch (this.stateMachineNode.currentStateName) {
-			case this.idleState.stateName:
-				if(this.checkShiftKeyJustPress()) {
-					this.stateMachineNode.setState(this.dashState.stateName)
+			case this.idleState.name:
+				if (this.checkShiftKeyJustPress()) {
+					this.stateMachineNode.setState(this.dashState.name)
 				}
 
-				if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
-
-					this.stateMachineNode.setState(this.runState.stateName)
+				if (this.cursors?.left.isDown || this.cursors?.right.isDown || this.wasdKeys?.left.isDown || this.wasdKeys?.right.isDown) {
+					this.stateMachineNode.setState(this.runState.name)
 				}
 
-				if(this.cursors?.down.isDown) {
-					this.stateMachineNode.setState(this.crouchState.stateName)
+				if (this.cursors?.down.isDown || this.wasdKeys?.down.isDown) {
+					this.stateMachineNode.setState(this.crouchState.name)
 
 				}
 
-				if(this.checkJumpCondition()) {
-					this.stateMachineNode.setState(this.jumpState.stateName)
+				if (this.checkJumpCondition()) {
+					this.stateMachineNode.setState(this.jumpState.name)
 				}
 				break;
-			case this.runState.stateName:
-				if(this.checkJumpCondition())
-				{
-					this.stateMachineNode.setState(this.jumpState.stateName)
-				}
-				else if(this.cursors?.left.isUp && this.cursors?.right.isUp) {
-					this.stateMachineNode.setState(this.idleState.stateName)
+			case this.runState.name:
+				if (this.checkJumpCondition() || this.wasdKeys?.up.isDown && this.body.onFloor()) {
+					this.stateMachineNode.setState(this.jumpState.name);
+				} else if (this.cursors?.down.isDown || this.wasdKeys?.down.isDown) {
+					this.stateMachineNode.setState(this.crouchState.name);
+				} else if (this.cursors?.left.isUp && this.cursors?.right.isUp && this.wasdKeys?.left.isUp && this.wasdKeys?.right.isUp) {
+					this.stateMachineNode.setState(this.idleState.name);
 				}
 				break;
-			case this.jumpState.stateName:
-				if(this.body.onFloor()) {
-					if(this.cursors?.left.isDown || this.cursors?.right.isDown) {
-						this.stateMachineNode.setState(this.runState.stateName)
+			case this.jumpState.name:
+				if (this.body.onFloor()) {
+					if (this.cursors?.left.isDown || this.cursors?.right.isDown || this.wasdKeys?.left.isUp || this.wasdKeys?.right.isUp) {
+						this.stateMachineNode.setState(this.runState.name)
 					}
-					else if(this.cursors?.left.isUp && this.cursors?.right.isUp) {
-						this.stateMachineNode.setState(this.idleState.stateName)
+					else if (this.cursors?.left.isUp && this.cursors?.right.isUp || this.wasdKeys?.left.isUp && this.wasdKeys?.right.isUp) {
+						eventsCenter.emit("sfx-jumpland")
+						this.stateMachineNode.setState(this.idleState.name)
 					}
 				}
 				break;
-			case this.dashState.stateName:
-				if(Math.abs(this.body.velocity.x) < 5) {
-					this.stateMachineNode.setState(this.idleState.stateName)
+			case this.dashState.name:
+				if (Math.abs(this.body.velocity.x) < 5) {
+					this.stateMachineNode.setState(this.idleState.name)
 				}
 				break;
-			case this.crouchState.stateName:
-				if(this.cursors?.down.isUp)
-				{
-					this.stateMachineNode.setState(this.idleState.stateName)
+			case this.crouchState.name:
+				if (this.cursors?.down.isUp && this.wasdKeys?.down.isUp) {
+					this.stateMachineNode.setState(this.idleState.name)
 				}
 				break;
 		}

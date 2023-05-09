@@ -3,11 +3,12 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "../scriptNodes/ScriptNode";
+import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import { IRunStateParams } from "../../interfaces/state_params";
 import { ANIM_CRAWL_GO, ANIM_CRAWL_IDLE } from "../../consts/shiba-anims";
+import eventsCenter from "../../eventCenter";
 /* END-USER-IMPORTS */
 
 export default class CrouchState extends ScriptNode {
@@ -21,7 +22,7 @@ export default class CrouchState extends ScriptNode {
 	}
 
 	public speedMod: number = 0.5;
-	public stateName: string = "crouch";
+	public name: string = "crouch";
 
 	/* START-USER-CODE */
 	private currentSize = {
@@ -37,9 +38,9 @@ export default class CrouchState extends ScriptNode {
 				width: body.width,
 				height: body.height
 			}
-			
+
 			sprite.play(ANIM_CRAWL_IDLE, true)
-			
+
 			sprite.setBodySize(this.currentSize.width , this.currentSize.height / 2, false)
 			sprite.body.offset.y += this.currentSize.height / 2
 		}
@@ -63,6 +64,8 @@ export default class CrouchState extends ScriptNode {
 			sprite.setVelocityX(0)
 			sprite.play(ANIM_CRAWL_IDLE, true)
 		}
+
+		eventsCenter.emit("sfx-crawl")
 	}
 
 	onExit(sprite: Phaser.Physics.Arcade.Sprite) {

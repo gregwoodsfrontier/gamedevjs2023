@@ -1,5 +1,5 @@
 {
-    "id": "e2f33a23-bd7c-4dc6-968e-18f5ae683f54",
+    "id": "9ddc28d9-5366-400d-ad93-5af2bbdf2ca3",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -8,13 +8,13 @@
         "preloadPackFiles": [],
         "createMethodName": "",
         "compilerOutputLanguage": "TYPE_SCRIPT",
-        "borderWidth": 640,
-        "borderHeight": 360
+        "borderWidth": 1280,
+        "borderHeight": 720
     },
     "displayList": [
         {
             "type": "ScriptNode",
-            "id": "765b40f0-e9f2-43f7-9c35-7fe8cc8cbd45",
+            "id": "35c0209a-091b-4964-921d-e7d51f93aa05",
             "label": "scriptnode_1",
             "components": [],
             "list": []
@@ -26,21 +26,5 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    },
-    "prefabProperties": [
-        {
-            "name": "gameAudioType",
-            "label": "Game Audio Type",
-            "tooltip": "The tpye of the audio. Music or SFX ",
-            "defValue": "music",
-            "customDefinition": false,
-            "type": {
-                "id": "option",
-                "options": [
-                    "music",
-                    "sfx"
-                ]
-            }
-        }
-    ]
+    }
 }

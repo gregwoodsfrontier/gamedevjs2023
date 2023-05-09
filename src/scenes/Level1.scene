@@ -29,10 +29,18 @@
             "type": "TilemapLayer",
             "id": "6e63bfb2-4150-4057-bd2c-3a0a39a07bea",
             "label": "ground_1",
-            "components": [
-                "LayerPhysics"
+            "scope": "CLASS",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "833ffdd0-ae33-4014-963b-a4493f727b8a",
+                    "id": "f8c66043-7263-4098-a743-d748b4d3d956",
+                    "label": "addPhysicsToTileLayer",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
             ],
-            "list": [],
             "tilemapId": "ed3a68cc-fc9a-4ff7-ba19-34c6e4cfa439",
             "layerName": "ground",
             "tilesets": [

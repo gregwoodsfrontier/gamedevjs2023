@@ -1,5 +1,5 @@
 {
-    "id": "23b8f1c7-9348-4ce0-a6cd-82998c9cc812",
+    "id": "9c80bbcb-3686-4e07-a21e-aa295086bcc6",
     "sceneType": "PREFAB",
     "settings": {
         "exportClass": true,
@@ -14,7 +14,7 @@
     "displayList": [
         {
             "type": "ScriptNode",
-            "id": "c53ebbfa-4527-4877-ac3c-6dba9003fe20",
+            "id": "de3a12cf-402a-4266-be86-ba5bfec3b30b",
             "label": "scriptnode_1",
             "components": [],
             "list": []
@@ -26,17 +26,5 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    },
-    "prefabProperties": [
-        {
-            "name": "eventName",
-            "label": "Event Name",
-            "tooltip": "Event name",
-            "defValue": "",
-            "customDefinition": false,
-            "type": {
-                "id": "string"
-            }
-        }
-    ]
+    }
 }

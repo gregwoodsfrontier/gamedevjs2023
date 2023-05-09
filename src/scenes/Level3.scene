@@ -31,10 +31,18 @@
             "type": "TilemapLayer",
             "id": "0533b21a-4d31-442d-b3c0-a95384c0bcad",
             "label": "ground_1",
-            "components": [
-                "LayerPhysics"
+            "scope": "CLASS",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "833ffdd0-ae33-4014-963b-a4493f727b8a",
+                    "id": "6d61671d-3524-4019-8ae7-f1c1fdd1db4e",
+                    "label": "addPhysicsToTileLayer",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                }
             ],
-            "list": [],
             "tilemapId": "307260c3-0d77-446a-88a6-ccd968febdc6",
             "layerName": "ground",
             "tilesets": [
@@ -185,6 +193,24 @@
             "textureKey": "firehydrant",
             "targetList": "hydrantList",
             "tilemapSrce": "level3",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "e055eab4-2f94-42dd-8ad4-998a3f517834",
+            "id": "f983edc8-349f-49df-b91c-c951828cac47",
+            "unlock": [
+                "layer",
+                "tileset",
+                "player",
+                "paperList"
+            ],
+            "label": "tiledCollisionData",
+            "scope": "CLASS",
+            "layer": "ground_1",
+            "player": "player_1",
+            "paperList": "paperList",
             "components": [],
             "nestedPrefabs": [],
             "list": []

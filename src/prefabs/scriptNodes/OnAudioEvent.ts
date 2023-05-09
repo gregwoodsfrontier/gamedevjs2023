@@ -3,26 +3,35 @@
 
 /* START OF COMPILED CODE */
 
-import ScriptNode from "./ScriptNode";
+import OnEventScript from "./base/OnEventScript";
+import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class OnSceneAwakeScript extends ScriptNode {
+export default class OnAudioEvent extends OnEventScript {
 
 	constructor(parent: ScriptNode | Phaser.GameObjects.GameObject | Phaser.Scene) {
 		super(parent);
+
+		// this (prefab fields)
+		this.eventName = "";
+		this.eventEmitter = "game.events";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
 
+	public audioKey: string = "";
+	public isLoop: boolean = false;
+
 	/* START-USER-CODE */
 
-	protected override awake(): void {
-		
-		this.executeChildren();
+	// Write your code here.
+	override awake(): void {
+
+		super.awake();
 	}
 
 	/* END-USER-CODE */

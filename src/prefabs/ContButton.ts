@@ -4,8 +4,9 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import OnPointerDownScript from "./scriptNodes/OnPointerDownScript";
+import OnPointerDownScript from "./scriptNodes/base/OnPointerDownScript";
 import ChangeStateInController from "./scriptNodes/ChangeStateInController";
+import EmitEventActionScript from "./scriptNodes/base/EmitEventActionScript";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -26,8 +27,15 @@ export default class ContButton extends Phaser.GameObjects.Container {
 		// toLevel
 		const toLevel = new ChangeStateInController(onPointerDownScript);
 
+		// emitEventActionScript
+		const emitEventActionScript = new EmitEventActionScript(onPointerDownScript);
+
 		// toLevel (prefab fields)
 		toLevel.SMState = "level";
+
+		// emitEventActionScript (prefab fields)
+		emitEventActionScript.eventName = "sfx-play";
+		emitEventActionScript.eventEmitter = "game.events";
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
