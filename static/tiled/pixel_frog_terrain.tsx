@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.10" tiledversion="1.10.1" name="Terrain (16x16)" tilewidth="16" tileheight="16" tilecount="242" columns="22">
- <image source="../assets/tilesets/Terrain (16x16).png" trans="ffffff" width="352" height="176"/>
+ <image source="D:/gamedevjs2023/static/assets/tilesets/Terrain (16x16).png" trans="ffffff" width="352" height="176"/>
  <tile id="0">
   <properties>
    <property name="collides" type="bool" value="true"/>
@@ -29,6 +29,16 @@
  <tile id="8">
   <properties>
    <property name="collides" type="bool" value="true"/>
+  </properties>
+ </tile>
+ <tile id="9">
+  <properties>
+   <property name="collides" type="bool" value="false"/>
+  </properties>
+ </tile>
+ <tile id="10">
+  <properties>
+   <property name="collides" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="12">
@@ -97,12 +107,22 @@
  </tile>
  <tile id="29">
   <properties>
-   <property name="collides" type="bool" value="true"/>
+   <property name="collides" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="30">
   <properties>
    <property name="collides" type="bool" value="true"/>
+  </properties>
+ </tile>
+ <tile id="31">
+  <properties>
+   <property name="collides" type="bool" value="false"/>
+  </properties>
+ </tile>
+ <tile id="32">
+  <properties>
+   <property name="collides" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="34">

@@ -5,7 +5,7 @@
  </editorsettings>
  <tileset firstgid="1" source="pixel_frog_terrain.tsx"/>
  <tileset firstgid="243" name="Clouds V2-2" tilewidth="16" tileheight="16" tilecount="64" columns="8">
-  <image source="../assets/tilesets/Clouds_V2-2.png" width="128" height="128"/>
+  <image source="D:/gamedevjs2023/static/assets/tilesets/Clouds_V2-2.png" width="128" height="128"/>
  </tileset>
  <layer id="7" name="background" width="100" height="23" visible="0">
   <data encoding="base64">
@@ -20,11 +20,11 @@
  <objectgroup id="8" name="Objects">
   <object id="4" x="1552" y="32" width="48" height="48"/>
   <object id="8" name="House" type="House" x="1552" y="32" width="48" height="48"/>
-  <object id="9" name="FireHydrant" x="992" y="240" width="32" height="32"/>
-  <object id="16" name="FireHydrant" type="FireHydrant" x="1088" y="240" width="32" height="32"/>
-  <object id="19" name="FireHydrant" type="FireHydrant" x="1184" y="240" width="32" height="32"/>
-  <object id="20" name="FireHydrant" type="FireHydrant" x="1280" y="240" width="32" height="32"/>
-  <object id="24" name="FireHydrant" type="FireHydrant" x="1376" y="240" width="32" height="32"/>
+  <object id="9" name="FireHydrant" x="992" y="238" width="32" height="32"/>
+  <object id="16" name="FireHydrant" type="FireHydrant" x="1088" y="238" width="32" height="32"/>
+  <object id="19" name="FireHydrant" type="FireHydrant" x="1184" y="238" width="32" height="32"/>
+  <object id="20" name="FireHydrant" type="FireHydrant" x="1280" y="238" width="32" height="32"/>
+  <object id="24" name="FireHydrant" type="FireHydrant" x="1376" y="238" width="32" height="32"/>
   <object id="27" name="Newspaper" type="Newspaper" x="240" y="16" width="16" height="15.3333"/>
  </objectgroup>
 </map>
