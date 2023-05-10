@@ -78,7 +78,7 @@ export default class LevelBehavior extends ScriptNode {
 
 		//@ts-ignore
 		scene.physics.add.collider(this.player, this.newspaper, this.handlePlayerNewsPaper)
-		
+
 		scene.physics.add.collider(this.player, this.hydrantList, this.handlePlayerHydrant)
 		//@ts-ignore
 		scene.physics.add.overlap(this.player, this.goal, this.handlePlayerGoal, undefined, this)

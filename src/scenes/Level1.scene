@@ -191,6 +191,22 @@
             "components": [],
             "nestedPrefabs": [],
             "list": []
+        },
+        {
+            "prefabId": "cfa3c219-3350-483b-895e-a5877a587b39",
+            "id": "465bed7d-e263-40e3-b649-652d8ee02c7b",
+            "unlock": [
+                "layer",
+                "cordX",
+                "cordY",
+                "getPlayer"
+            ],
+            "label": "checkTopTile",
+            "layer": "ground_1",
+            "getPlayer": "player",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
         }
     ],
     "plainObjects": [

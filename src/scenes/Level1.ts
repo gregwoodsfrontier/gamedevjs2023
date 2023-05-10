@@ -12,6 +12,7 @@ import FireHydrant from "../prefabs/FireHydrant";
 import Player from "../prefabs/Player";
 import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
 import CreateFromObjectsNode from "../prefabs/scriptNodes/CreateFromObjectsNode";
+import CheckTopTile from "../prefabs/scriptNodes/CheckTopTile";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -72,6 +73,9 @@ export default class Level1 extends Phaser.Scene {
 		// houseNode
 		const houseNode = new CreateFromObjectsNode(this);
 
+		// checkTopTile
+		const checkTopTile = new CheckTopTile(this);
+
 		// lists
 		const hydrantList = [fireHydrant];
 		const goalList = [goal];
@@ -104,6 +108,10 @@ export default class Level1 extends Phaser.Scene {
 		houseNode.textureKey = "house2";
 		houseNode.targetList = goalList;
 		houseNode.tilemapSrce = level1map;
+
+		// checkTopTile (prefab fields)
+		checkTopTile.layer = ground_1;
+		checkTopTile.getPlayer = player;
 
 		this.ground_1 = ground_1;
 		this.level1map = level1map;
