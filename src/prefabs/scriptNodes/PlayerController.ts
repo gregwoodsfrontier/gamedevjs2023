@@ -73,6 +73,7 @@ export default class PlayerController extends ScriptNode {
 	private idleState: IdleState;
 	private stateMachineNode: StateMachineNode;
 	private inputManager: InputManager;
+	public sprite!: Phaser.GameObjects.GameObject;
 
 	/* START-USER-CODE */
 

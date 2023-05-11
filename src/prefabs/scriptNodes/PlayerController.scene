@@ -109,5 +109,18 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    }
+    },
+    "prefabProperties": [
+        {
+            "name": "sprite",
+            "label": "sprite",
+            "tooltip": "sprite",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.GameObject"
+            }
+        }
+    ]
 }
