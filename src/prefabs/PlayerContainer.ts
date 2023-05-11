@@ -19,7 +19,7 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		this.add(player_1);
 
 		// detectionBox
-		const detectionBox = scene.add.rectangle(-4, -6, 32, 8);
+		const detectionBox = scene.add.rectangle(-4, -3, 32, 2);
 		detectionBox.isFilled = true;
 		detectionBox.fillAlpha = 0.3;
 		this.add(detectionBox);
@@ -34,14 +34,20 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
+		this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this);
 		/* END-USER-CTR-CODE */
 	}
 
-	public detectionBox: Phaser.GameObjects.Rectangle;
+	private detectionBox: Phaser.GameObjects.Rectangle;
 
 	/* START-USER-CODE */
 
 	// Write your code here.
+	start() {
+		// emit event to send the shape to the CheckTopTile node
+		console.log("player container awake")
+		this.scene.events.emit("detectionBox", this.detectionBox)
+	}
 
 	/* END-USER-CODE */
 }

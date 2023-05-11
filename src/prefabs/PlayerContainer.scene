@@ -36,14 +36,14 @@
                     "type": "Rectangle",
                     "id": "b575c337-dd58-431c-b418-1006161db1ab",
                     "label": "detectionBox",
-                    "scope": "NESTED_PREFAB",
+                    "scope": "CLASS",
                     "components": [],
                     "x": -4,
-                    "y": -6,
+                    "y": -3,
                     "isFilled": true,
                     "fillAlpha": 0.3,
                     "width": 32,
-                    "height": 8,
+                    "height": 2,
                     "list": []
                 },
                 {

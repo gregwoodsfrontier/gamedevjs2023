@@ -6,7 +6,6 @@
 import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 import ChangeStateInController from "./ChangeStateInController";
-import CheckTopTile from "./CheckTopTile";
 /* START-USER-IMPORTS */
 import Player from "../Player";
 import FireHydrant from "../FireHydrant";
@@ -23,14 +22,10 @@ export default class LevelBehavior extends ScriptNode {
 		// toCompleteLv
 		const toCompleteLv = new ChangeStateInController(this);
 
-		// checkTopTile
-		const checkTopTile = new CheckTopTile(this);
-
 		// toCompleteLv (prefab fields)
 		toCompleteLv.SMState = "complete";
 
 		this.toCompleteLv = toCompleteLv;
-		this.checkTopTile = checkTopTile;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -38,7 +33,6 @@ export default class LevelBehavior extends ScriptNode {
 	}
 
 	private toCompleteLv: ChangeStateInController;
-	public checkTopTile: CheckTopTile;
 	public player!: Player;
 	public groundLayer!: Phaser.Tilemaps.TilemapLayer | null;
 	public hydrantList!: FireHydrant[];

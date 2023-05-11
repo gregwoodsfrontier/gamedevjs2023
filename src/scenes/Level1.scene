@@ -199,11 +199,12 @@
                 "layer",
                 "cordX",
                 "cordY",
-                "getPlayer"
+                "getPlayer",
+                "rectangle"
             ],
             "label": "checkTopTile",
             "layer": "ground_1",
-            "getPlayer": "player",
+            "rectangle": "",
             "components": [],
             "nestedPrefabs": [],
             "list": []

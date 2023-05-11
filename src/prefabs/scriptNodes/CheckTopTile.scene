@@ -38,17 +38,6 @@
                 "id": "object-var",
                 "expressionType": "Phaser.Tilemaps.TilemapLayer"
             }
-        },
-        {
-            "name": "rectangle",
-            "label": "Rectangle",
-            "tooltip": "Rectangle shape for detecting tile existance on its corner",
-            "defValue": "",
-            "customDefinition": false,
-            "type": {
-                "id": "object-var",
-                "expressionType": "Phaser.GameObjects.Rectangle"
-            }
         }
     ]
 }
