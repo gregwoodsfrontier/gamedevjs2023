@@ -20,17 +20,62 @@ export default class CheckTopTile extends ScriptNode {
 	}
 
 	public layer!: Phaser.Tilemaps.TilemapLayer;
-	public getPlayer!: Player;
+	public rectangle!: Phaser.GameObjects.Rectangle;
 
 	/* START-USER-CODE */
 
 	// Write your code here.
 	protected update(): void {
-		// console.warn(`cordX: ${this.getPlayer.x}`)
-		if(this.layer?.hasTileAtWorldXY(this.getPlayer.x + 16, this.getPlayer.y + 5))
-		{
-			console.warn('tile is detected')
+		const conditions = [
+			this.checkTileOnBottomLeft(),
+			this.checkTileOnBottomRight(),
+			this.checkTileOnTopLeft(),
+			this.checkTileOnTopRight()
+		]
+
+		if(conditions.includes(true)) {
+			console.log(" tile is detected. Do something. ")
 		}
+	}
+
+	private checkTileOnTopLeft() {
+		if(!this.layer || !this.rectangle.getTopLeft()) { return }
+
+		const {x, y} = this.rectangle.getTopLeft()
+
+		if (!x || !y) { return }
+		
+		return this.layer.hasTileAtWorldXY(x, y)
+	}
+	
+	private checkTileOnTopRight() {
+		if(!this.layer || !this.rectangle.getTopRight()) { return }
+
+		const {x, y} = this.rectangle.getTopRight()
+
+		if (!x || !y) { return }
+		
+		return this.layer.hasTileAtWorldXY(x, y)
+	}
+
+	private checkTileOnBottomLeft() {
+		if(!this.layer || !this.rectangle.getBottomLeft()) { return }
+
+		const {x, y} = this.rectangle.getBottomLeft()
+
+		if (!x || !y) { return }
+		
+		return this.layer.hasTileAtWorldXY(x, y)
+	}
+	
+	private checkTileOnBottomRight() {
+		if(!this.layer || !this.rectangle.getBottomRight()) { return }
+
+		const {x, y} = this.rectangle.getBottomRight()
+
+		if (!x || !y) { return }
+		
+		return this.layer.hasTileAtWorldXY(x, y)
 	}
 
 	/* END-USER-CODE */

@@ -40,14 +40,14 @@
             }
         },
         {
-            "name": "getPlayer",
-            "label": "getPlayer",
-            "tooltip": "Property 1",
+            "name": "rectangle",
+            "label": "Rectangle",
+            "tooltip": "Rectangle shape for detecting tile existance on its corner",
             "defValue": "",
             "customDefinition": false,
             "type": {
                 "id": "object-var",
-                "expressionType": "Player"
+                "expressionType": "Phaser.GameObjects.Rectangle"
             }
         }
     ]
