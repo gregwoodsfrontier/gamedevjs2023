@@ -90,6 +90,15 @@
                             "list": []
                         }
                     ]
+                },
+                {
+                    "prefabId": "8eb30763-c902-473f-807a-89643ed20009",
+                    "id": "cb04dd31-93bd-4f46-9e6d-b2093bff3c54",
+                    "label": "inputManager",
+                    "scope": "CLASS",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
                 }
             ]
         }

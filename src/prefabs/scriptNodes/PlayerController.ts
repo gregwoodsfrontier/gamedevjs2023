@@ -13,6 +13,7 @@ import StaggerState from "../actorStates/StaggerState";
 import JumpState from "../actorStates/JumpState";
 import RunState from "../actorStates/RunState";
 import IdleState from "../actorStates/IdleState";
+import InputManager from "./InputManager";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -45,6 +46,9 @@ export default class PlayerController extends ScriptNode {
 		// idleState
 		const idleState = new IdleState(stateMachineNode);
 
+		// inputManager
+		const inputManager = new InputManager(this);
+
 		this.peeState = peeState;
 		this.crouchState = crouchState;
 		this.dashState = dashState;
@@ -53,6 +57,7 @@ export default class PlayerController extends ScriptNode {
 		this.runState = runState;
 		this.idleState = idleState;
 		this.stateMachineNode = stateMachineNode;
+		this.inputManager = inputManager;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -67,10 +72,18 @@ export default class PlayerController extends ScriptNode {
 	private runState: RunState;
 	private idleState: IdleState;
 	private stateMachineNode: StateMachineNode;
+	private inputManager: InputManager;
 
 	/* START-USER-CODE */
 
+	// inventory can be accessable from the data manager
+	private inventory = [] as number[]
+
 	// Write your code here.
+	awake() {
+
+	}
+
 
 	/* END-USER-CODE */
 }
