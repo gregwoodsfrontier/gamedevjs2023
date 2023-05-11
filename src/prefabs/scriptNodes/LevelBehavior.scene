@@ -30,6 +30,15 @@
                     "components": [],
                     "nestedPrefabs": [],
                     "list": []
+                },
+                {
+                    "prefabId": "cfa3c219-3350-483b-895e-a5877a587b39",
+                    "id": "85bc03e4-6827-41b4-ac6c-a49d9ee60fdf",
+                    "label": "checkTopTile",
+                    "scope": "NESTED_PREFAB",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
                 }
             ]
         }
