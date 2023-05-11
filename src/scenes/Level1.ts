@@ -9,7 +9,7 @@ import AddPhysicsToTileLayer from "../prefabs/scriptNodes/AddPhysicsToTileLayer"
 import Newspaper from "../prefabs/Newspaper";
 import Goal from "../prefabs/Goal";
 import FireHydrant from "../prefabs/FireHydrant";
-import Player from "../prefabs/Player";
+import PlayerContainer from "../prefabs/PlayerContainer";
 import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
 import CreateFromObjectsNode from "../prefabs/scriptNodes/CreateFromObjectsNode";
 import CheckTopTile from "../prefabs/scriptNodes/CheckTopTile";
@@ -58,7 +58,7 @@ export default class Level1 extends Phaser.Scene {
 		fireHydrant.body.enable = false;
 
 		// player
-		const player = new Player(this, 63, 151);
+		const player = new PlayerContainer(this, 63, 151);
 		this.add.existing(player);
 
 		// levelBehavior
