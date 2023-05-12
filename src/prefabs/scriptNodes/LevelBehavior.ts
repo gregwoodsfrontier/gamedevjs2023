@@ -7,7 +7,8 @@ import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 import ChangeStateInController from "./ChangeStateInController";
 /* START-USER-IMPORTS */
-import Player from "../Player";
+// import Player from "../Player";
+import PlayerContainer from "../PlayerContainer";
 import FireHydrant from "../FireHydrant";
 import Newspaper from "../Newspaper";
 import Goal from "../Goal";
@@ -33,7 +34,7 @@ export default class LevelBehavior extends ScriptNode {
 	}
 
 	private toCompleteLv: ChangeStateInController;
-	public player!: Player;
+	public player!: PlayerContainer;
 	public groundLayer!: Phaser.Tilemaps.TilemapLayer | null;
 	public hydrantList!: FireHydrant[];
 	public goal!: Goal[];
@@ -65,7 +66,7 @@ export default class LevelBehavior extends ScriptNode {
 		{
 			scene.physics.add.collider(this.newspaper, this.groundLayer)
 			scene.physics.add.collider(this.hydrantList, this.groundLayer)
-			scene.physics.add.collider(this.player, this.groundLayer)
+			scene.physics.add.collider(this.player.sprite, this.groundLayer)
 			scene.physics.add.collider(this.goal, this.groundLayer)
 
 			// debug info

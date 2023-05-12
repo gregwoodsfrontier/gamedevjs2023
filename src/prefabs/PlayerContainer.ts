@@ -5,7 +5,6 @@
 
 import Phaser from "phaser";
 import Player from "./Player";
-import PlayerController from "./scriptNodes/PlayerController";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -14,9 +13,9 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 	constructor(scene: Phaser.Scene, x?: number, y?: number) {
 		super(scene, x ?? 0, y ?? 0);
 
-		// player_1
-		const player_1 = new Player(scene, 0, 0);
-		this.add(player_1);
+		// sprite
+		const sprite = new Player(scene, 0, 0);
+		this.add(sprite);
 
 		// detectionBox
 		const detectionBox = scene.add.rectangle(-4, -3, 32, 2);
@@ -24,12 +23,7 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		detectionBox.fillAlpha = 0.3;
 		this.add(detectionBox);
 
-		// playerController
-		const playerController = new PlayerController(this);
-
-		// playerController (prefab fields)
-		playerController.sprite = player_1;
-
+		this.sprite = sprite;
 		this.detectionBox = detectionBox;
 
 		/* START-USER-CTR-CODE */
@@ -38,15 +32,21 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		/* END-USER-CTR-CODE */
 	}
 
+	private sprite: Player;
 	private detectionBox: Phaser.GameObjects.Rectangle;
 
 	/* START-USER-CODE */
 
 	// Write your code here.
 	start() {
-		// emit event to send the shape to the CheckTopTile node
-		console.log("player container awake")
 		this.scene.events.emit("detectionBox", this.detectionBox)
+	}
+
+	update() {
+		// updates container position to match with the sprite velocity
+		this.x += this.sprite.body.velocity.x
+
+		this.y += this.sprite.body.velocity.y
 	}
 
 	/* END-USER-CODE */

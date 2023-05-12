@@ -16,16 +16,7 @@ export default class IdleState extends ScriptNode {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		/* END-USER-CTR-CODE */
-	}
-
-	public name: string = "idle";
-	public anims: string = "shiba-idle";
-
-	/* START-USER-CODE */
-
-	// Write your code here.
-	awake() {
+		console.warn("idle state awake")
 		if(!this.checkParentIfStateMachine()) {
 			return
 		}
@@ -35,7 +26,16 @@ export default class IdleState extends ScriptNode {
 				this.onEnter(this.gameObject as Phaser.Physics.Arcade.Sprite)
 			}
 		})
+
+		/* END-USER-CTR-CODE */
 	}
+
+	public name: string = "idle";
+	public anims: string = "shiba-idle";
+
+	/* START-USER-CODE */
+
+	// Write your code here.
 
 	onEnter(sprite: Phaser.Physics.Arcade.Sprite) {
 		sprite.setVelocityX(0)

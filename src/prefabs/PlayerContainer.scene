@@ -25,7 +25,8 @@
                         "x",
                         "y"
                     ],
-                    "label": "player_1",
+                    "label": "sprite",
+                    "scope": "CLASS",
                     "components": [],
                     "x": 0,
                     "y": 0,
@@ -44,19 +45,6 @@
                     "fillAlpha": 0.3,
                     "width": 32,
                     "height": 2,
-                    "list": []
-                },
-                {
-                    "prefabId": "1eabd787-04a2-4783-af08-4ad66875cc78",
-                    "id": "24129a95-24ea-489a-97ac-cbca13a00bf5",
-                    "unlock": [
-                        "player",
-                        "sprite"
-                    ],
-                    "label": "playerController",
-                    "sprite": "player_1",
-                    "components": [],
-                    "nestedPrefabs": [],
                     "list": []
                 }
             ]

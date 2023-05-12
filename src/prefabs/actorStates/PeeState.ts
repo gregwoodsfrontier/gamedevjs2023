@@ -17,16 +17,6 @@ export default class PeeState extends ScriptNode {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		/* END-USER-CTR-CODE */
-	}
-
-	public name: string = "pee";
-
-	/* START-USER-CODE */
-
-	// Write your code here.
-	awake() {
-
 		if(!this.checkParentIfStateMachine()) {
 			return
 		}
@@ -37,7 +27,14 @@ export default class PeeState extends ScriptNode {
 			}
 		})
 
+		/* END-USER-CTR-CODE */
 	}
+
+	public name: string = "pee";
+
+	/* START-USER-CODE */
+
+	// Write your code here.
 
 	onEnter(sprite: Phaser.Physics.Arcade.Sprite) {
 		sprite.once("animationcomplete-pee-mid", () => {

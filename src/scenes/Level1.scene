@@ -204,7 +204,6 @@
             ],
             "label": "checkTopTile",
             "layer": "ground_1",
-            "rectangle": "",
             "components": [],
             "nestedPrefabs": [],
             "list": []

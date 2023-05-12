@@ -111,7 +111,6 @@ export default class Level1 extends Phaser.Scene {
 
 		// checkTopTile (prefab fields)
 		checkTopTile.layer = ground_1;
-		checkTopTile.rectangle;
 
 		this.ground_1 = ground_1;
 		this.level1map = level1map;
