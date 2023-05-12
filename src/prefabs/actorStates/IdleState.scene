@@ -38,6 +38,16 @@
             "type": {
                 "id": "string"
             }
+        },
+        {
+            "name": "anims",
+            "label": "Anim Key",
+            "tooltip": "Animation Key",
+            "defValue": "shiba-idle",
+            "customDefinition": false,
+            "type": {
+                "id": "animation-key"
+            }
         }
     ]
 }

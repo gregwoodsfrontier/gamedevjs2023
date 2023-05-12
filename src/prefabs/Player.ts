@@ -87,12 +87,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		}
 
 		this.stateMachineNode.addState(
-			this.idleState.name, {
-			onEnter: () => {
-				this.idleState.onEnter(this, ANIM_SHIBA_IDLE)
-			}
-		}
-		).addState(
 			this.dashState.name, {
 			onEnter: () => {
 				this.dashState.onEnter(this, ANIM_SHIBA_WALK, this.runSpeed)

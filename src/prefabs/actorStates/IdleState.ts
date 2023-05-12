@@ -6,6 +6,7 @@
 import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import StateMachineNode from "../scriptNodes/StateMachineNode";
 /* END-USER-IMPORTS */
 
 export default class IdleState extends ScriptNode {
@@ -19,16 +20,34 @@ export default class IdleState extends ScriptNode {
 	}
 
 	public name: string = "idle";
+	public anims: string = "shiba-idle";
 
 	/* START-USER-CODE */
 
 	// Write your code here.
-	onEnter(sprite: Phaser.Physics.Arcade.Sprite, anims: string) {
+	awake() {
+		if(!this.checkParentIfStateMachine()) {
+			return
+		}
+
+		(this.parent as StateMachineNode).addState(this.name, {
+			onEnter: () => {
+				this.onEnter(this.gameObject as Phaser.Physics.Arcade.Sprite)
+			}
+		})
+	}
+
+	onEnter(sprite: Phaser.Physics.Arcade.Sprite) {
 		sprite.setVelocityX(0)
 
-		sprite.play(anims, true)
+		sprite.play(this.anims, true)
 
 	}
+
+	private checkParentIfStateMachine(){
+		return this.parent instanceof StateMachineNode
+	}
+
 	/* END-USER-CODE */
 }
 
