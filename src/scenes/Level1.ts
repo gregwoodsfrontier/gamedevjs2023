@@ -9,10 +9,9 @@ import AddPhysicsToTileLayer from "../prefabs/scriptNodes/AddPhysicsToTileLayer"
 import Newspaper from "../prefabs/Newspaper";
 import Goal from "../prefabs/Goal";
 import FireHydrant from "../prefabs/FireHydrant";
-import PlayerContainer from "../prefabs/PlayerContainer";
-import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
+import Player from "../prefabs/Player";
 import CreateFromObjectsNode from "../prefabs/scriptNodes/CreateFromObjectsNode";
-import CheckTopTile from "../prefabs/scriptNodes/CheckTopTile";
+import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -58,11 +57,8 @@ export default class Level1 extends Phaser.Scene {
 		fireHydrant.body.enable = false;
 
 		// player
-		const player = new PlayerContainer(this, 63, 151);
+		const player = new Player(this, 143, 152);
 		this.add.existing(player);
-
-		// levelBehavior
-		const levelBehavior = new LevelBehavior(this);
 
 		// fireHydrantNode
 		const fireHydrantNode = new CreateFromObjectsNode(this);
@@ -73,20 +69,13 @@ export default class Level1 extends Phaser.Scene {
 		// houseNode
 		const houseNode = new CreateFromObjectsNode(this);
 
-		// checkTopTile
-		const checkTopTile = new CheckTopTile(this);
+		// levelBehavior
+		const levelBehavior = new LevelBehavior(this);
 
 		// lists
 		const hydrantList = [fireHydrant];
 		const goalList = [goal];
 		const newspaperList = [newspaper];
-
-		// levelBehavior (prefab fields)
-		levelBehavior.player = player;
-		levelBehavior.groundLayer = ground_1;
-		levelBehavior.hydrantList = hydrantList;
-		levelBehavior.goal = goalList;
-		levelBehavior.newspaper = newspaperList;
 
 		// fireHydrantNode (prefab fields)
 		fireHydrantNode._name = "FireHydrant";
@@ -109,10 +98,15 @@ export default class Level1 extends Phaser.Scene {
 		houseNode.targetList = goalList;
 		houseNode.tilemapSrce = level1map;
 
-		// checkTopTile (prefab fields)
-		checkTopTile.layer = ground_1;
+		// levelBehavior (prefab fields)
+		levelBehavior.player = player;
+		levelBehavior.groundLayer = ground_1;
+		levelBehavior.hydrantList = hydrantList;
+		levelBehavior.goal = goalList;
+		levelBehavior.newspaper = newspaperList;
 
 		this.ground_1 = ground_1;
+		this.player = player;
 		this.level1map = level1map;
 		this.hydrantList = hydrantList;
 		this.goalList = goalList;
@@ -122,6 +116,7 @@ export default class Level1 extends Phaser.Scene {
 	}
 
 	private ground_1!: Phaser.Tilemaps.TilemapLayer;
+	private player!: Player;
 	private level1map!: Phaser.Tilemaps.Tilemap;
 	private hydrantList!: FireHydrant[];
 	private goalList!: Goal[];

@@ -7,8 +7,7 @@ import ScriptNode from "./base/ScriptNode";
 import Phaser from "phaser";
 import ChangeStateInController from "./ChangeStateInController";
 /* START-USER-IMPORTS */
-// import Player from "../Player";
-import PlayerContainer from "../PlayerContainer";
+import Player from "../Player";
 import FireHydrant from "../FireHydrant";
 import Newspaper from "../Newspaper";
 import Goal from "../Goal";
@@ -34,11 +33,12 @@ export default class LevelBehavior extends ScriptNode {
 	}
 
 	private toCompleteLv: ChangeStateInController;
-	public player!: PlayerContainer;
+	public player!: Player;
 	public groundLayer!: Phaser.Tilemaps.TilemapLayer | null;
 	public hydrantList!: FireHydrant[];
 	public goal!: Goal[];
 	public newspaper!: Newspaper[];
+	public pDetectBox!: Phaser.GameObjects.GameObject;
 
 	/* START-USER-CODE */
 
@@ -66,9 +66,15 @@ export default class LevelBehavior extends ScriptNode {
 		{
 			scene.physics.add.collider(this.newspaper, this.groundLayer)
 			scene.physics.add.collider(this.hydrantList, this.groundLayer)
-			scene.physics.add.collider(this.player.sprite, this.groundLayer)
+			scene.physics.add.collider(this.player, this.groundLayer)
 			scene.physics.add.collider(this.goal, this.groundLayer)
 
+			if(this.pDetectBox) {
+				scene.physics.add.overlap(this.pDetectBox, this.groundLayer, () => {
+					console.warn('detection box overlap with ground layer')
+				})
+			}
+			
 			// debug info
 			// this.groundLayer.renderDebug(scene.add.graphics().setAlpha(0.75), {
 			// 	tileColor: null, // Color of non-colliding tiles

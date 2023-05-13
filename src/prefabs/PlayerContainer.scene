@@ -26,7 +26,7 @@
                         "y"
                     ],
                     "label": "sprite",
-                    "scope": "CLASS",
+                    "scope": "NESTED_PREFAB",
                     "components": [],
                     "x": 0,
                     "y": 0,

@@ -28,25 +28,37 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		this.scene.events.once(Phaser.Scenes.Events.UPDATE, this.start, this);
+		this.scene.physics.world.enable(this);
+		(this.body as Phaser.Physics.Arcade.Body).setAllowGravity(false).setSize(12, 12)
+
+
+		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
 		/* END-USER-CTR-CODE */
 	}
 
-	private sprite: Player;
+	public sprite: Player;
 	private detectionBox: Phaser.GameObjects.Rectangle;
 
 	/* START-USER-CODE */
 
 	// Write your code here.
-	start() {
-		this.scene.events.emit("detectionBox", this.detectionBox)
-	}
+	update(): void {
+		const cursors = this.sprite._getCursors
+		const WASDKeys = this.sprite._getWASD
 
-	update() {
-		// updates container position to match with the sprite velocity
-		this.x += this.sprite.body.velocity.x
+		const isLeft = cursors?.left.isDown || WASDKeys?.left.isDown
+		const isRight = cursors?.right.isDown || WASDKeys?.right.isDown
 
-		this.y += this.sprite.body.velocity.y
+		if(isLeft) {
+			(this.body as Phaser.Physics.Arcade.Body).setVelocityX(-this.sprite.runSpeed)
+		}
+		else if (isRight) {
+			(this.body as Phaser.Physics.Arcade.Body).setVelocityX(this.sprite.runSpeed)
+		}
+		else
+		{
+			(this.body as Phaser.Physics.Arcade.Body).setVelocityX(0)
+		}
 	}
 
 	/* END-USER-CODE */

@@ -20,7 +20,7 @@ import eventsCenter from "../eventCenter";
 
 export default interface Player {
 
-	body: Phaser.Physics.Arcade.Body;
+	 body: Phaser.Physics.Arcade.Body;
 }
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
@@ -88,34 +88,18 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 		this.stateMachineNode.addState(
 			this.dashState.name, {
-			onEnter: () => {
-				this.dashState.onEnter(this, ANIM_SHIBA_WALK, this.runSpeed)
-			},
-			// onUpdate: () => {
-			// 	this.dashState.onUpdate()
-			// },
-			onExit: () => {
-				this.dashState.onExit(this)
+				onEnter: () => {
+					this.dashState.onEnter(this, ANIM_SHIBA_WALK, this.runSpeed)
+				},
+				// onUpdate: () => {
+				// 	this.dashState.onUpdate()
+				// },
+				onExit: () => {
+					this.dashState.onExit(this)
+				}
 			}
-		}
-		).addState(
-			this.runState.name, {
-			onEnter: () => {
-				this.runState.onEnter(this, ANIM_SHIBA_WALK)
-			},
-			onUpdate: () => {
-				this.runState.onUpdate({
-					sprite: this,
-					isLeft: this.cursors?.left.isDown || this.wasdKeys?.left.isDown,
-					isRight: this.cursors?.right.isDown || this.wasdKeys?.right.isDown,
-					speed: this.runSpeed
-				})
-			},
-			onExit: () => {
-				this.runState.onExit(this)
-			}
-		}
-		).addState(
+		)
+		.addState(
 			this.crouchState.name, {
 			onEnter: () => {
 				this.crouchState.onEnter(this)
@@ -184,6 +168,14 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 	private inventory = [] as number[]
 
 	// Write your code here.
+
+	get _getCursors() {
+		return this.cursors
+	}
+
+	get _getWASD() {
+		return this.wasdKeys
+	}
 
 	checkJumpCondition() {
 		return (this.cursors && Phaser.Input.Keyboard.JustDown(this.cursors.up) || this.wasdKeys && Phaser.Input.Keyboard.JustDown(this.wasdKeys.up)) && this.body.onFloor()

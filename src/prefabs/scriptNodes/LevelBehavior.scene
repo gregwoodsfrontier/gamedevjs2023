@@ -96,6 +96,17 @@
                 "id": "object-var",
                 "expressionType": "Newspaper[]"
             }
+        },
+        {
+            "name": "pDetectBox",
+            "label": "Player Detection Box",
+            "tooltip": "The player Detection Box for detecting top tiles",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.GameObject"
+            }
         }
     ]
 }

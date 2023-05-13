@@ -97,36 +97,17 @@
             "list": []
         },
         {
-            "prefabId": "14f30e60-0d84-4e05-874e-2edc2141e731",
-            "id": "e50c72d7-46e1-482c-b619-dcca1506e56c",
+            "prefabId": "e8cbef27-0122-44ad-a3de-0e0b260351e8",
+            "id": "f7d2a0ae-1529-4508-a025-20a33cb619d1",
             "unlock": [
                 "x",
                 "y"
             ],
             "label": "player",
+            "scope": "CLASS",
             "components": [],
-            "x": 63,
-            "y": 151,
-            "nestedPrefabs": [],
-            "list": []
-        },
-        {
-            "prefabId": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
-            "id": "82c81ec7-c63f-4b02-a993-e9dff42a9757",
-            "unlock": [
-                "hydrantList",
-                "goal",
-                "newspaper",
-                "groundLayer",
-                "player"
-            ],
-            "label": "levelBehavior",
-            "player": "player",
-            "groundLayer": "ground_1",
-            "hydrantList": "hydrantList",
-            "goal": "goalList",
-            "newspaper": "newspaperList",
-            "components": [],
+            "x": 143,
+            "y": 152,
             "nestedPrefabs": [],
             "list": []
         },
@@ -193,17 +174,21 @@
             "list": []
         },
         {
-            "prefabId": "cfa3c219-3350-483b-895e-a5877a587b39",
-            "id": "465bed7d-e263-40e3-b649-652d8ee02c7b",
+            "prefabId": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
+            "id": "82c81ec7-c63f-4b02-a993-e9dff42a9757",
             "unlock": [
-                "layer",
-                "cordX",
-                "cordY",
-                "getPlayer",
-                "rectangle"
+                "hydrantList",
+                "goal",
+                "newspaper",
+                "groundLayer",
+                "player"
             ],
-            "label": "checkTopTile",
-            "layer": "ground_1",
+            "label": "levelBehavior",
+            "player": "player",
+            "groundLayer": "ground_1",
+            "hydrantList": "hydrantList",
+            "goal": "goalList",
+            "newspaper": "newspaperList",
             "components": [],
             "nestedPrefabs": [],
             "list": []

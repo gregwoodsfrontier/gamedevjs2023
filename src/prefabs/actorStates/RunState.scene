@@ -47,6 +47,16 @@
             "type": {
                 "id": "number"
             }
+        },
+        {
+            "name": "anims",
+            "label": "Anims Key",
+            "tooltip": "The animation key ",
+            "defValue": "shiba-walk",
+            "customDefinition": false,
+            "type": {
+                "id": "animation-key"
+            }
         }
     ]
 }

@@ -16,7 +16,6 @@ export default class IdleState extends ScriptNode {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		console.warn("idle state awake")
 		if(!this.checkParentIfStateMachine()) {
 			return
 		}
