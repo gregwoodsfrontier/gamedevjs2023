@@ -10,8 +10,10 @@ import Newspaper from "../prefabs/Newspaper";
 import Goal from "../prefabs/Goal";
 import FireHydrant from "../prefabs/FireHydrant";
 import Player from "../prefabs/Player";
-import CreateFromObjectsNode from "../prefabs/scriptNodes/CreateFromObjectsNode";
+import TunnelZone from "../prefabs/TunnelZone";
+import PlayerContainer from "../prefabs/PlayerContainer";
 import LevelBehavior from "../prefabs/scriptNodes/LevelBehavior";
+import CreateFromObjectsNode from "../prefabs/scriptNodes/CreateFromObjectsNode";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -60,6 +62,21 @@ export default class Level1 extends Phaser.Scene {
 		const player = new Player(this, 143, 152);
 		this.add.existing(player);
 
+		// tunnel_1
+		const tunnel_1 = new TunnelZone(this, 384, 208);
+		this.add.existing(tunnel_1);
+
+		// tunnelZone
+		const tunnelZone = new TunnelZone(this, 688, 176);
+		this.add.existing(tunnelZone);
+
+		// playerContainer
+		const playerContainer = new PlayerContainer(this, 54, 151);
+		this.add.existing(playerContainer);
+
+		// levelBehavior
+		const levelBehavior = new LevelBehavior(this);
+
 		// fireHydrantNode
 		const fireHydrantNode = new CreateFromObjectsNode(this);
 
@@ -69,13 +86,18 @@ export default class Level1 extends Phaser.Scene {
 		// houseNode
 		const houseNode = new CreateFromObjectsNode(this);
 
-		// levelBehavior
-		const levelBehavior = new LevelBehavior(this);
-
 		// lists
 		const hydrantList = [fireHydrant];
 		const goalList = [goal];
 		const newspaperList = [newspaper];
+		const tunnelList = [tunnel_1, tunnelZone];
+
+		// levelBehavior (prefab fields)
+		levelBehavior.player = player;
+		levelBehavior.groundLayer = ground_1;
+		levelBehavior.hydrantList = hydrantList;
+		levelBehavior.goal = goalList;
+		levelBehavior.newspaper = newspaperList;
 
 		// fireHydrantNode (prefab fields)
 		fireHydrantNode._name = "FireHydrant";
@@ -98,29 +120,26 @@ export default class Level1 extends Phaser.Scene {
 		houseNode.targetList = goalList;
 		houseNode.tilemapSrce = level1map;
 
-		// levelBehavior (prefab fields)
-		levelBehavior.player = player;
-		levelBehavior.groundLayer = ground_1;
-		levelBehavior.hydrantList = hydrantList;
-		levelBehavior.goal = goalList;
-		levelBehavior.newspaper = newspaperList;
-
 		this.ground_1 = ground_1;
 		this.player = player;
+		this.playerContainer = playerContainer;
 		this.level1map = level1map;
 		this.hydrantList = hydrantList;
 		this.goalList = goalList;
 		this.newspaperList = newspaperList;
+		this.tunnelList = tunnelList;
 
 		this.events.emit("scene-awake");
 	}
 
 	private ground_1!: Phaser.Tilemaps.TilemapLayer;
 	private player!: Player;
+	public playerContainer!: PlayerContainer;
 	private level1map!: Phaser.Tilemaps.Tilemap;
 	private hydrantList!: FireHydrant[];
 	private goalList!: Goal[];
 	private newspaperList!: Newspaper[];
+	private tunnelList!: TunnelZone[];
 
 	/* START-USER-CODE */
 

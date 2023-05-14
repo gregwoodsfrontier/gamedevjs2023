@@ -46,6 +46,40 @@
                     "width": 32,
                     "height": 2,
                     "list": []
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "f9b2555b-b9eb-4ef8-802a-3425034012be",
+                    "label": "attack_box",
+                    "components": [],
+                    "x": 24,
+                    "y": 10,
+                    "scaleX": 0.15787080101651232,
+                    "scaleY": 0.1863834170233853,
+                    "isFilled": true,
+                    "fillColor": "#2ac337",
+                    "fillAlpha": 0.5,
+                    "width": 128,
+                    "height": 128,
+                    "list": []
+                },
+                {
+                    "prefabId": "059e1956-b064-42d0-af9d-de40a3172a89",
+                    "id": "ea00d41e-2ccb-4142-8f93-76d093c78f3f",
+                    "label": "arrowCursors",
+                    "scope": "CLASS",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "babefedd-3dd0-413e-a1b6-03f1e443baa7",
+                    "id": "6923cd69-eece-403f-ac89-92aca8d3437a",
+                    "label": "wASDCursors",
+                    "scope": "CLASS",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
                 }
             ]
         }

@@ -112,6 +112,69 @@
             "list": []
         },
         {
+            "prefabId": "96f75ed7-281a-42bd-b908-1c42cc63df71",
+            "id": "8100883b-bb84-403e-b6a9-1f6fa43d8fe4",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "tunnel_1",
+            "components": [],
+            "x": 384,
+            "y": 208,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "96f75ed7-281a-42bd-b908-1c42cc63df71",
+            "id": "c8ef8a75-a5a8-4538-8596-de0d2e6c4ab2",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "tunnelZone",
+            "components": [],
+            "x": 688,
+            "y": 176,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "14f30e60-0d84-4e05-874e-2edc2141e731",
+            "id": "24638e45-2918-4b28-bdc4-2f4574eaccaf",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "playerContainer",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 54,
+            "y": 151,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
+            "id": "82c81ec7-c63f-4b02-a993-e9dff42a9757",
+            "unlock": [
+                "hydrantList",
+                "goal",
+                "newspaper",
+                "groundLayer",
+                "player"
+            ],
+            "label": "levelBehavior",
+            "player": "player",
+            "groundLayer": "ground_1",
+            "hydrantList": "hydrantList",
+            "goal": "goalList",
+            "newspaper": "newspaperList",
+            "components": [],
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
             "prefabId": "6021ddc5-0feb-4e44-a400-708976bed53c",
             "id": "db887937-1d2c-4782-a712-35b5871dbc39",
             "unlock": [
@@ -172,26 +235,6 @@
             "components": [],
             "nestedPrefabs": [],
             "list": []
-        },
-        {
-            "prefabId": "fd7bee3e-9fdb-47c0-917a-ac8d93255ed3",
-            "id": "82c81ec7-c63f-4b02-a993-e9dff42a9757",
-            "unlock": [
-                "hydrantList",
-                "goal",
-                "newspaper",
-                "groundLayer",
-                "player"
-            ],
-            "label": "levelBehavior",
-            "player": "player",
-            "groundLayer": "ground_1",
-            "hydrantList": "hydrantList",
-            "goal": "goalList",
-            "newspaper": "newspaperList",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
         }
     ],
     "plainObjects": [
@@ -238,6 +281,14 @@
             "label": "newspaperList",
             "objectIds": [
                 "cfa55d4e-8803-41c3-b0a7-9dec19d935d4"
+            ]
+        },
+        {
+            "id": "54edac95-319d-41da-8d95-a3525dc5c264",
+            "label": "tunnelList",
+            "objectIds": [
+                "8100883b-bb84-403e-b6a9-1f6fa43d8fe4",
+                "c8ef8a75-a5a8-4538-8596-de0d2e6c4ab2"
             ]
         }
     ]

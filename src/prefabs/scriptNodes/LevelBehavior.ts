@@ -12,6 +12,8 @@ import FireHydrant from "../FireHydrant";
 import Newspaper from "../Newspaper";
 import Goal from "../Goal";
 import eventsCenter from "../../eventCenter";
+import PlayerContainer from "../PlayerContainer";
+import Level1 from "../../scenes/Level1";
 /* END-USER-IMPORTS */
 
 export default class LevelBehavior extends ScriptNode {
@@ -61,9 +63,17 @@ export default class LevelBehavior extends ScriptNode {
 	start() {
 		const {scene} = this
 
+		const levelScene = (this.scene.scene.get("Level1") as Level1)
+		console.log(levelScene)
+
 		// setting up all the colliders here
 		if(this.groundLayer)
 		{
+			if(levelScene.playerContainer) {
+				console.warn('player container is defined')
+				scene.physics.add.collider(levelScene.playerContainer as PlayerContainer, this.groundLayer)
+			}
+
 			scene.physics.add.collider(this.newspaper, this.groundLayer)
 			scene.physics.add.collider(this.hydrantList, this.groundLayer)
 			scene.physics.add.collider(this.player, this.groundLayer)
