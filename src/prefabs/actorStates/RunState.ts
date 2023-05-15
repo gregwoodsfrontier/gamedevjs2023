@@ -65,11 +65,11 @@ export default class RunState extends ScriptNode {
 
 		if(isLeft) {
 			_player.flipX = true
-			// _player.setVelocityX(-_player.runSpeed)
+			_player.setVelocityX(-_player.runSpeed)
 		}
 		else if (isRight) {
 			_player.flipX = false
-			// _player.setVelocityX(_player.runSpeed)
+			_player.setVelocityX(_player.runSpeed)
 		}
 		else
 		{

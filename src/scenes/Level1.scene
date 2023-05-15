@@ -149,8 +149,8 @@
             "label": "playerContainer",
             "scope": "PUBLIC",
             "components": [],
-            "x": 54,
-            "y": 151,
+            "x": 509,
+            "y": 174,
             "nestedPrefabs": [],
             "list": []
         },
@@ -289,7 +289,8 @@
             "objectIds": [
                 "8100883b-bb84-403e-b6a9-1f6fa43d8fe4",
                 "c8ef8a75-a5a8-4538-8596-de0d2e6c4ab2"
-            ]
+            ],
+            "scope": "PUBLIC"
         }
     ]
 }

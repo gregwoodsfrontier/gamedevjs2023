@@ -64,14 +64,19 @@ export default class LevelBehavior extends ScriptNode {
 		const {scene} = this
 
 		const levelScene = (this.scene.scene.get("Level1") as Level1)
-		console.log(levelScene)
 
 		// setting up all the colliders here
 		if(this.groundLayer)
 		{
+			// using the player container as checking
 			if(levelScene.playerContainer) {
-				console.warn('player container is defined')
 				scene.physics.add.collider(levelScene.playerContainer as PlayerContainer, this.groundLayer)
+			}
+
+			if(levelScene.tunnelList) {
+				scene.physics.add.overlap(this.player, levelScene.tunnelList, (player, tunnel) => {
+					console.info('player overlaps with tunnel list')
+				})
 			}
 
 			scene.physics.add.collider(this.newspaper, this.groundLayer)

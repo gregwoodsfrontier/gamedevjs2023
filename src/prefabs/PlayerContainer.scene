@@ -26,7 +26,7 @@
                         "y"
                     ],
                     "label": "sprite",
-                    "scope": "NESTED_PREFAB",
+                    "scope": "PUBLIC",
                     "components": [],
                     "x": 0,
                     "y": 0,

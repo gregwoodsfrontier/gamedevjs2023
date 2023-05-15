@@ -71,7 +71,7 @@ export default class Level1 extends Phaser.Scene {
 		this.add.existing(tunnelZone);
 
 		// playerContainer
-		const playerContainer = new PlayerContainer(this, 54, 151);
+		const playerContainer = new PlayerContainer(this, 509, 174);
 		this.add.existing(playerContainer);
 
 		// levelBehavior
@@ -139,7 +139,7 @@ export default class Level1 extends Phaser.Scene {
 	private hydrantList!: FireHydrant[];
 	private goalList!: Goal[];
 	private newspaperList!: Newspaper[];
-	private tunnelList!: TunnelZone[];
+	public tunnelList!: TunnelZone[];
 
 	/* START-USER-CODE */
 
@@ -148,6 +148,14 @@ export default class Level1 extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+
+		for(let tunnel of this.tunnelList) {
+			// const zone = this.add.zone(tunnel.x, tunnel.y, tunnel.width, tunnel.height)
+			this.physics.add.existing(tunnel, true)
+
+			// zone.body.enable = true
+			// (zone.body as Phaser.Physics.Arcade.Body).moves = false
+		}	
 
 		this.setCamWorldBounds(this.level1map)
 	}
