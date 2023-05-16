@@ -5,8 +5,10 @@
 
 import Phaser from "phaser";
 import Player from "./Player";
-import ArrowCursors from "./ArrowCursors";
-import WASDCursors from "./WASDCursors";
+import ArrowCursors from "./scriptNodes/ArrowCursors";
+import WASDCursors from "./scriptNodes/WASDCursors";
+import ArcadePhyBody from "./scriptNodes/ArcadePhyBody";
+import CamFollow from "./scriptNodes/CamFollow";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -40,6 +42,17 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		// wASDCursors
 		const wASDCursors = new WASDCursors(this);
 
+		// arcadePhyBody
+		const arcadePhyBody = new ArcadePhyBody(this);
+
+		// camFollow_1
+		new CamFollow(this);
+
+		// arcadePhyBody (prefab fields)
+		arcadePhyBody.bodyWidth = 22;
+		arcadePhyBody.bodyHeight = 20;
+		arcadePhyBody.offsetY = 5;
+
 		this.sprite = sprite;
 		this.detectionBox = detectionBox;
 		this.arrowCursors = arrowCursors;
@@ -47,7 +60,7 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
-		this.scene.events.once("scene-awake", this.awake, this);
+		// this.scene.events.once("scene-awake", this.awake, this);
 
 		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
 		/* END-USER-CTR-CODE */
@@ -62,13 +75,7 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 
 	// Write your code here.
 	awake() {
-		this.scene.physics.world.enable(this);
-		(this.body as Phaser.Physics.Arcade.Body)
-		.setAllowGravity(true)
-		.setSize(this.sprite.body.width, this.sprite.body.height)
-		.setOffset(this.sprite.body.offset.x - this.sprite.body.width - 2, this.sprite.body.offset.y - this.sprite.body.height - 3)
 
-		this.scene.physics.world.disable(this.sprite)
 	}
 
 	update(): void {

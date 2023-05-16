@@ -1,0 +1,86 @@
+{
+    "id": "43e39da4-efb8-46fb-bcc1-0928e0ec9a3c",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 640,
+        "borderHeight": 360
+    },
+    "displayList": [
+        {
+            "type": "ScriptNode",
+            "id": "bfb6cfe5-4773-438d-846e-9213fc42a51f",
+            "label": "scriptnode_1",
+            "components": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "allowGrav",
+            "label": "Allow Gravity",
+            "tooltip": "Let gravity affect this body ?",
+            "defValue": true,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "bodyWidth",
+            "label": "Body Width",
+            "tooltip": "The width of physics body",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "number"
+            }
+        },
+        {
+            "name": "bodyHeight",
+            "label": "Body Height",
+            "tooltip": "The height of physics body",
+            "defValue": "0",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "number"
+            }
+        },
+        {
+            "name": "offsetX",
+            "label": "Offset X",
+            "tooltip": "The x-offset of the physics body",
+            "defValue": "0",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "number"
+            }
+        },
+        {
+            "name": "offsetY",
+            "label": "Offset Y",
+            "tooltip": "The y-offset of the physics body",
+            "defValue": "0",
+            "customDefinition": false,
+            "type": {
+                "id": "expression",
+                "expressionType": "number"
+            }
+        }
+    ]
+}

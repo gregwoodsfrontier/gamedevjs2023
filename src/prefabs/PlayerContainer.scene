@@ -80,6 +80,30 @@
                     "components": [],
                     "nestedPrefabs": [],
                     "list": []
+                },
+                {
+                    "prefabId": "43e39da4-efb8-46fb-bcc1-0928e0ec9a3c",
+                    "id": "6bb19634-d40d-4582-aa06-f432d777a0b9",
+                    "unlock": [
+                        "bodyWidth",
+                        "bodyHeight",
+                        "offsetY"
+                    ],
+                    "label": "arcadePhyBody",
+                    "bodyWidth": "22",
+                    "bodyHeight": "20",
+                    "offsetY": "5",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "9ddc28d9-5366-400d-ad93-5af2bbdf2ca3",
+                    "id": "f8b62f5c-2302-4a99-b180-7d792459cd9b",
+                    "label": "camFollow_1",
+                    "components": [],
+                    "nestedPrefabs": [],
+                    "list": []
                 }
             ]
         }

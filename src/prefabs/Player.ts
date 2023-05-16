@@ -12,7 +12,6 @@ import StaggerState from "./actorStates/StaggerState";
 import DashState from "./actorStates/DashState";
 import CrouchState from "./actorStates/CrouchState";
 import PeeState from "./actorStates/PeeState";
-import CamFollow from "./scriptNodes/CamFollow";
 /* START-USER-IMPORTS */
 import { ANIM_SHIBA_IDLE, ANIM_SHIBA_JUMP, ANIM_SHIBA_WALK } from "../consts/shiba-anims";
 import eventsCenter from "../eventCenter";
@@ -57,9 +56,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
 		// peeState
 		const peeState = new PeeState(stateMachineNode);
-
-		// camFollow
-		new CamFollow(this);
 
 		this.idleState = idleState;
 		this.runState = runState;
