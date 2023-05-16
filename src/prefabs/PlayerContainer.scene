@@ -37,7 +37,6 @@
                     "type": "Rectangle",
                     "id": "b575c337-dd58-431c-b418-1006161db1ab",
                     "label": "detectionBox",
-                    "scope": "CLASS",
                     "components": [],
                     "x": -4,
                     "y": -3,
@@ -114,5 +113,57 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    }
+    },
+    "prefabProperties": [
+        {
+            "name": "runSpeed",
+            "label": "RunSpeed",
+            "tooltip": "The run speed of dog",
+            "defValue": 150,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "jumpSpeed",
+            "label": "Jump Speed",
+            "tooltip": "Initial velocity when the dog jump",
+            "defValue": 280,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "dashMod",
+            "label": "Dash Modifier",
+            "tooltip": "Multiplier to run speed when dashing",
+            "defValue": 5,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "drag",
+            "label": "Drag X",
+            "tooltip": "The x-drag when the dog dashes",
+            "defValue": 0.005,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "dashLim",
+            "label": "Dash Cutoff Limit",
+            "tooltip": "When the velocity is under this limit, resets that to 0",
+            "defValue": 5,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
 }

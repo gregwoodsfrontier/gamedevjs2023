@@ -141,26 +141,6 @@
             "type": {
                 "id": "boolean"
             }
-        },
-        {
-            "name": "dashSpd",
-            "label": "dashSpd",
-            "tooltip": "The dashing speed of the player",
-            "defValue": 10,
-            "customDefinition": false,
-            "type": {
-                "id": "number"
-            }
-        },
-        {
-            "name": "dashTime",
-            "label": "dashTime",
-            "tooltip": "The dashing period it lasts",
-            "defValue": 1000,
-            "customDefinition": false,
-            "type": {
-                "id": "number"
-            }
         }
     ]
 }

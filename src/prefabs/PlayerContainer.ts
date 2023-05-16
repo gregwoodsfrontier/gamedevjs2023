@@ -54,7 +54,6 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		arcadePhyBody.offsetY = 5;
 
 		this.sprite = sprite;
-		this.detectionBox = detectionBox;
 		this.arrowCursors = arrowCursors;
 		this.wASDCursors = wASDCursors;
 
@@ -67,9 +66,13 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 	}
 
 	public sprite: Player;
-	private detectionBox: Phaser.GameObjects.Rectangle;
 	private arrowCursors: ArrowCursors;
 	private wASDCursors: WASDCursors;
+	public runSpeed: number = 150;
+	public jumpSpeed: number = 280;
+	public dashMod: number = 5;
+	public drag: number = 0.005;
+	public dashLim: number = 5;
 
 	/* START-USER-CODE */
 
