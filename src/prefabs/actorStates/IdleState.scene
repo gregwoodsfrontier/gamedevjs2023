@@ -16,9 +16,7 @@
             "type": "ScriptNode",
             "id": "f82bcb98-0bb5-4c9d-9e13-7b50c5d85d7b",
             "label": "IdleState",
-            "scope": "CLASS",
-            "components": [],
-            "list": []
+            "scope": "CLASS"
         }
     ],
     "plainObjects": [],
@@ -26,7 +24,7 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 4
     },
     "prefabProperties": [
         {

@@ -22,7 +22,8 @@ export default class IdleState extends ScriptNode {
 		}
 
 		(this.parent as StateMachineNode).addState(this.name, {
-			onEnter: this._onEnter
+			onEnter: this._onEnter,
+			onUpdate: this._onUpdate
 		})
 
 		/* END-USER-CTR-CODE */
@@ -43,8 +44,20 @@ export default class IdleState extends ScriptNode {
 		}
 
 		const container = this.gameObject as PlayerContainer
-		
+
+		container._getPhysicsContainer.setVelocityX(0)
+
+		container.sprite_1.play(this.anims)
 	}
+
+	_onUpdate() {
+
+	}
+
+	// check dash
+	// check run
+	// check jump
+	// check crouch
 
 	private checkParentIfStateMachine(){
 		return this.parent instanceof StateMachineNode

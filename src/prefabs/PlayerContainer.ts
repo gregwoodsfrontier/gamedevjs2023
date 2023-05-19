@@ -4,12 +4,12 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import Player from "./Player";
-import WASDCursors from "./scriptNodes/WASDCursors";
 import CamFollow from "./scriptNodes/CamFollow";
 import StateMachineNode from "./scriptNodes/StateMachineNode";
 import IdleState from "./actorStates/IdleState";
+import RunState from "./actorStates/RunState";
 import ArrowCursors from "./scriptNodes/ArrowCursors";
+import WASDCursors from "./scriptNodes/WASDCursors";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -18,9 +18,9 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 	constructor(scene: Phaser.Scene, x?: number, y?: number) {
 		super(scene, x ?? 0, y ?? 0);
 
-		// sprite
-		const sprite = new Player(scene, 5, 0);
-		this.add(sprite);
+		// sprite_1
+		const sprite_1 = scene.add.sprite(5, 0, "shiba_idle", 0);
+		this.add(sprite_1);
 
 		// attack_box
 		const attack_box = scene.add.rectangle(26, 12, 128, 128);
@@ -39,9 +39,6 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		matterBody.fillAlpha = 0.2;
 		this.add(matterBody);
 
-		// wASDCursors
-		const wASDCursors = new WASDCursors(this);
-
 		// camFollow_1
 		new CamFollow(this);
 
@@ -51,20 +48,27 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		// idleState
 		const idleState = new IdleState(stateMachineNode_1);
 
+		// runState
+		const runState = new RunState(stateMachineNode_1);
+
 		// arrowCursors
 		const arrowCursors = new ArrowCursors(this);
+
+		// wASDCursors
+		const wASDCursors = new WASDCursors(this);
 
 		// stateMachineNode_1 (prefab fields)
 		stateMachineNode_1.id = "player";
 		stateMachineNode_1.contextProp = this;
 
-		this.sprite = sprite;
+		this.sprite_1 = sprite_1;
 		this.attack_box = attack_box;
 		this.matterBody = matterBody;
-		this.wASDCursors = wASDCursors;
 		this.idleState = idleState;
+		this.runState = runState;
 		this.stateMachineNode_1 = stateMachineNode_1;
 		this.arrowCursors = arrowCursors;
+		this.wASDCursors = wASDCursors;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -74,13 +78,14 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		/* END-USER-CTR-CODE */
 	}
 
-	private sprite: Player;
+	public sprite_1: Phaser.GameObjects.Sprite;
 	private attack_box: Phaser.GameObjects.Rectangle;
 	private matterBody: Phaser.GameObjects.Rectangle;
-	private wASDCursors: WASDCursors;
 	private idleState: IdleState;
+	private runState: RunState;
 	private stateMachineNode_1: StateMachineNode;
 	private arrowCursors: ArrowCursors;
+	private wASDCursors: WASDCursors;
 	public runSpeed: number = 150;
 	public jumpSpeed: number = 280;
 	public dashMod: number = 5;
@@ -88,13 +93,15 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 	public dashLim: number = 5;
 
 	/* START-USER-CODE */
-	private physicsContainer?: Phaser.GameObjects.GameObject
-
+	// private physicsContainer?: Phaser.Types.Physics.Matter.MatterBody
+	private physicsContainer?: any
 	// Write your code here.
 	awake() {
 		this.defineBody()
+	}
 
-		this.physicsContainer = this.scene.matter.add.gameObject(this)
+	get _getPhysicsContainer() {
+		return this.physicsContainer
 	}
 
 	//** Defines the size of the physics body first */
@@ -102,6 +109,16 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		const { width, height } = this.matterBody
 
 		this.setSize(width, height)
+
+		this.physicsContainer = this.scene.matter.add.gameObject(this);
+
+		if(typeof this.physicsContainer.setFrictionAir === 'function') {
+			this.physicsContainer.setFrictionAir(0.001)
+		}
+
+		if(typeof this.physicsContainer.setBounce === 'function') {
+			this.physicsContainer.setBounce(1)
+		}
 	}
 
 	update(): void {

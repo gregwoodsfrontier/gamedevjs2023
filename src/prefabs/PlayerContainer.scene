@@ -18,16 +18,15 @@
             "label": "player",
             "list": [
                 {
-                    "prefabId": "e8cbef27-0122-44ad-a3de-0e0b260351e8",
-                    "id": "54c2b44e-f44e-4ce1-b04a-bf6473b23f0e",
-                    "unlock": [
-                        "x",
-                        "y"
-                    ],
-                    "label": "sprite",
-                    "scope": "CLASS",
-                    "x": 5,
-                    "y": 0
+                    "type": "Sprite",
+                    "id": "2aa78ebb-077f-4618-97a6-918f9e9eba40",
+                    "label": "sprite_1",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "shiba_idle",
+                        "frame": 0
+                    },
+                    "x": 5
                 },
                 {
                     "type": "Rectangle",
@@ -59,12 +58,6 @@
                     "height": 16
                 },
                 {
-                    "prefabId": "babefedd-3dd0-413e-a1b6-03f1e443baa7",
-                    "id": "6923cd69-eece-403f-ac89-92aca8d3437a",
-                    "label": "wASDCursors",
-                    "scope": "CLASS"
-                },
-                {
                     "prefabId": "9ddc28d9-5366-400d-ad93-5af2bbdf2ca3",
                     "id": "f8b62f5c-2302-4a99-b180-7d792459cd9b",
                     "label": "camFollow_1"
@@ -83,7 +76,16 @@
                         {
                             "prefabId": "41375022-6151-4754-be50-99cc65b78f7f",
                             "id": "029af657-8140-4dbe-9600-c01857304f74",
+                            "unlock": [
+                                "spriteRef"
+                            ],
                             "label": "idleState",
+                            "scope": "CLASS"
+                        },
+                        {
+                            "prefabId": "edc90b8d-3414-4a7e-8c2b-43f593bef1f1",
+                            "id": "7a1ab58a-3478-4181-ad8b-e6699f729667",
+                            "label": "runState",
                             "scope": "CLASS"
                         }
                     ]
@@ -92,6 +94,12 @@
                     "prefabId": "059e1956-b064-42d0-af9d-de40a3172a89",
                     "id": "ea00d41e-2ccb-4142-8f93-76d093c78f3f",
                     "label": "arrowCursors",
+                    "scope": "CLASS"
+                },
+                {
+                    "prefabId": "babefedd-3dd0-413e-a1b6-03f1e443baa7",
+                    "id": "6923cd69-eece-403f-ac89-92aca8d3437a",
+                    "label": "wASDCursors",
                     "scope": "CLASS"
                 }
             ]

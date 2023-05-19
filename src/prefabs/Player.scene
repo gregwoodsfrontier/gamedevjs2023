@@ -13,15 +13,43 @@
     },
     "displayList": [
         {
-            "type": "Sprite",
-            "id": "1af02717-4e47-4e8a-a573-d194e27bf28b",
-            "label": "sprite_1",
-            "components": [],
-            "texture": {
-                "key": "shiba_idle",
-                "frame": 0
-            },
-            "list": []
+            "type": "Container",
+            "id": "71912ada-c4a1-4ff4-b920-66d82d19a39a",
+            "label": "container_1",
+            "x": null,
+            "y": null,
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "1af02717-4e47-4e8a-a573-d194e27bf28b",
+                    "label": "sprite_1",
+                    "texture": {
+                        "key": "shiba_idle",
+                        "frame": 0
+                    },
+                    "x": null,
+                    "y": null
+                },
+                {
+                    "prefabId": "7ebcc666-227f-47b9-ae7e-e51a0f0f18cb",
+                    "id": "8d040e7a-542a-4c32-822c-0c0a1b499389",
+                    "label": "stateMachineNode",
+                    "list": [
+                        {
+                            "prefabId": "41375022-6151-4754-be50-99cc65b78f7f",
+                            "id": "37222d22-0a70-443b-91bb-7767655ca26c",
+                            "label": "idleState",
+                            "scope": "CLASS"
+                        },
+                        {
+                            "prefabId": "edc90b8d-3414-4a7e-8c2b-43f593bef1f1",
+                            "id": "9baa2b9b-7a14-4906-b415-0599cd070fb0",
+                            "label": "runState",
+                            "scope": "CLASS"
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "plainObjects": [],
@@ -29,7 +57,7 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 4
     },
     "prefabProperties": [
         {

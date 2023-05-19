@@ -4,15 +4,33 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import StateMachineNode from "./scriptNodes/StateMachineNode";
+import IdleState from "./actorStates/IdleState";
+import RunState from "./actorStates/RunState";
 /* START-USER-IMPORTS */
-import { ANIM_SHIBA_IDLE, ANIM_SHIBA_JUMP, ANIM_SHIBA_WALK } from "../consts/shiba-anims";
 import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
-export default class Player extends Phaser.GameObjects.Sprite {
+export default class Player extends Phaser.GameObjects.Container {
 
-	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "shiba_idle", frame ?? 0);
+	constructor(scene: Phaser.Scene, x?: number, y?: number) {
+		super(scene, x ?? NaN, y ?? NaN);
+
+		// sprite_1
+		const sprite_1 = scene.add.sprite(NaN, NaN, "shiba_idle", 0);
+		this.add(sprite_1);
+
+		// stateMachineNode
+		const stateMachineNode = new StateMachineNode(this);
+
+		// idleState
+		const idleState = new IdleState(stateMachineNode);
+
+		// runState
+		const runState = new RunState(stateMachineNode);
+
+		this.idleState = idleState;
+		this.runState = runState;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -29,6 +47,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
 				}
 			}
 		}
+
+		this.matterSprite = scene.matter.add.gameObject(this) as Phaser.Physics.Matter.Sprite
 
 		// this.stateMachineNode.addState(
 		// 	this.dashState.name, {
@@ -92,11 +112,14 @@ export default class Player extends Phaser.GameObjects.Sprite {
 		/* END-USER-CTR-CODE */
 	}
 
+	private idleState: IdleState;
+	private runState: RunState;
 	public runSpeed: number = 150;
 	public jumpSpeed: number = 280;
 	public hasJetPack: boolean = true;
 
 	/* START-USER-CODE */
+	private matterSprite: Phaser.Physics.Matter.Sprite
 	private cursors?: Phaser.Types.Input.Keyboard.CursorKeys
 	private wasdKeys?: Phaser.Types.Input.Keyboard.CursorKeys;
 	private inventory = [] as number[]
@@ -111,9 +134,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
 		return this.wasdKeys
 	}
 
-	checkJumpCondition() {
-		return (this.cursors && Phaser.Input.Keyboard.JustDown(this.cursors.up) || this.wasdKeys && Phaser.Input.Keyboard.JustDown(this.wasdKeys.up)) && this.body.onFloor()
-	}
+	// checkJumpCondition() {
+	// 	return (this.cursors && Phaser.Input.Keyboard.JustDown(this.cursors.up) || this.wasdKeys && Phaser.Input.Keyboard.JustDown(this.wasdKeys.up)) && this.body.onFloor()
+	// }
 
 	checkShiftKeyJustPress() {
 		if (!this.cursors?.shift) { return }
@@ -144,70 +167,70 @@ export default class Player extends Phaser.GameObjects.Sprite {
 		console.log('Dog item bag : ', this.inventory)
 	}
 
-	pee() {
-		this.stateMachineNode.setState(this.peeState.name)
-	}
+	// pee() {
+	// 	this.stateMachineNode.setState(this.peeState.name)
+	// }
 
-	switchStateMachineNetwork() {
-		if (!this.body) {
-			// console.error(`player body is undefined`)
-			return
-		}
-		switch (this.stateMachineNode.currentStateName) {
-			case this.idleState.name:
-				if (this.checkShiftKeyJustPress()) {
-					this.stateMachineNode.setState(this.dashState.name)
-				}
+	// switchStateMachineNetwork() {
+	// 	if (!this.body) {
+	// 		// console.error(`player body is undefined`)
+	// 		return
+	// 	}
+	// 	switch (this.stateMachineNode.currentStateName) {
+	// 		case this.idleState.name:
+	// 			if (this.checkShiftKeyJustPress()) {
+	// 				this.stateMachineNode.setState(this.dashState.name)
+	// 			}
 
-				if (this.cursors?.left.isDown || this.cursors?.right.isDown || this.wasdKeys?.left.isDown || this.wasdKeys?.right.isDown) {
-					this.stateMachineNode.setState(this.runState.name)
-				}
+	// 			if (this.cursors?.left.isDown || this.cursors?.right.isDown || this.wasdKeys?.left.isDown || this.wasdKeys?.right.isDown) {
+	// 				this.stateMachineNode.setState(this.runState.name)
+	// 			}
 
-				if (this.cursors?.down.isDown || this.wasdKeys?.down.isDown) {
-					this.stateMachineNode.setState(this.crouchState.name)
+	// 			if (this.cursors?.down.isDown || this.wasdKeys?.down.isDown) {
+	// 				this.stateMachineNode.setState(this.crouchState.name)
 
-				}
+	// 			}
 
-				if (this.checkJumpCondition()) {
-					this.stateMachineNode.setState(this.jumpState.name)
-				}
-				break;
-			case this.runState.name:
-				if (this.checkJumpCondition() || this.wasdKeys?.up.isDown && this.body.onFloor()) {
-					this.stateMachineNode.setState(this.jumpState.name);
-				} else if (this.cursors?.down.isDown || this.wasdKeys?.down.isDown) {
-					this.stateMachineNode.setState(this.crouchState.name);
-				} else if (this.cursors?.left.isUp && this.cursors?.right.isUp && this.wasdKeys?.left.isUp && this.wasdKeys?.right.isUp) {
-					this.stateMachineNode.setState(this.idleState.name);
-				}
-				break;
-			case this.jumpState.name:
-				if (this.body.onFloor()) {
-					if (this.cursors?.left.isDown || this.cursors?.right.isDown || this.wasdKeys?.left.isUp || this.wasdKeys?.right.isUp) {
-						this.stateMachineNode.setState(this.runState.name)
-					}
-					else if (this.cursors?.left.isUp && this.cursors?.right.isUp || this.wasdKeys?.left.isUp && this.wasdKeys?.right.isUp) {
-						eventsCenter.emit("sfx-jumpland")
-						this.stateMachineNode.setState(this.idleState.name)
-					}
-				}
-				break;
-			case this.dashState.name:
-				if (Math.abs(this.body.velocity.x) < 5) {
-					this.stateMachineNode.setState(this.idleState.name)
-				}
-				break;
-			case this.crouchState.name:
-				if (this.cursors?.down.isUp && this.wasdKeys?.down.isUp) {
-					this.stateMachineNode.setState(this.idleState.name)
-				}
-				break;
-		}
-	}
+	// 			if (this.checkJumpCondition()) {
+	// 				this.stateMachineNode.setState(this.jumpState.name)
+	// 			}
+	// 			break;
+	// 		case this.runState.name:
+	// 			if (this.checkJumpCondition() || this.wasdKeys?.up.isDown && this.body.onFloor()) {
+	// 				this.stateMachineNode.setState(this.jumpState.name);
+	// 			} else if (this.cursors?.down.isDown || this.wasdKeys?.down.isDown) {
+	// 				this.stateMachineNode.setState(this.crouchState.name);
+	// 			} else if (this.cursors?.left.isUp && this.cursors?.right.isUp && this.wasdKeys?.left.isUp && this.wasdKeys?.right.isUp) {
+	// 				this.stateMachineNode.setState(this.idleState.name);
+	// 			}
+	// 			break;
+	// 		case this.jumpState.name:
+	// 			if (this.body.onFloor()) {
+	// 				if (this.cursors?.left.isDown || this.cursors?.right.isDown || this.wasdKeys?.left.isUp || this.wasdKeys?.right.isUp) {
+	// 					this.stateMachineNode.setState(this.runState.name)
+	// 				}
+	// 				else if (this.cursors?.left.isUp && this.cursors?.right.isUp || this.wasdKeys?.left.isUp && this.wasdKeys?.right.isUp) {
+	// 					eventsCenter.emit("sfx-jumpland")
+	// 					this.stateMachineNode.setState(this.idleState.name)
+	// 				}
+	// 			}
+	// 			break;
+	// 		case this.dashState.name:
+	// 			if (Math.abs(this.body.velocity.x) < 5) {
+	// 				this.stateMachineNode.setState(this.idleState.name)
+	// 			}
+	// 			break;
+	// 		case this.crouchState.name:
+	// 			if (this.cursors?.down.isUp && this.wasdKeys?.down.isUp) {
+	// 				this.stateMachineNode.setState(this.idleState.name)
+	// 			}
+	// 			break;
+	// 	}
+	// }
 
 	// let the update handle all the state transition logic
 	update(): void {
-		this.switchStateMachineNetwork()
+		// this.switchStateMachineNetwork()
 	}
 
 	/* END-USER-CODE */

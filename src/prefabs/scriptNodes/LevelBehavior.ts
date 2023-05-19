@@ -45,8 +45,12 @@ export default class LevelBehavior extends ScriptNode {
 	/* START-USER-CODE */
 
 	awake() {
-		const {scene} = this
+		const {scene, groundLayer} = this
 
+		if(groundLayer) {
+			scene.matter.world.convertTilemapLayer(groundLayer)
+		}
+		
 		this.player.setDepth(2)
 
 		eventsCenter.once("to-gameover", () => {
