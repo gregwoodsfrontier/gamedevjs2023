@@ -30,12 +30,56 @@
                 },
                 {
                     "type": "Rectangle",
+                    "id": "6267bddd-1275-41ed-8d0e-e4bb7e61b869",
+                    "label": "top_sensor",
+                    "scope": "METHOD",
+                    "x": 1,
+                    "scaleX": 1.47,
+                    "scaleY": 0.31,
+                    "isFilled": true,
+                    "fillColor": "#e5db31",
+                    "fillAlpha": 0.5,
+                    "width": 16,
+                    "height": 8
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "54b08f12-4537-4155-9e8c-9acf80d3f797",
+                    "label": "left_sensor",
+                    "scope": "CLASS",
+                    "x": -15,
+                    "y": 14,
+                    "scaleX": 0.2,
+                    "scaleY": 2.6,
+                    "isFilled": true,
+                    "fillColor": "#e5db31",
+                    "fillAlpha": 0.5,
+                    "width": 16,
+                    "height": 8
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "db732368-797e-4587-bd73-178e40e5f110",
+                    "label": "right_sensor",
+                    "scope": "METHOD",
+                    "x": 17,
+                    "y": 14,
+                    "scaleX": 0.2,
+                    "scaleY": 2.6,
+                    "isFilled": true,
+                    "fillColor": "#e5db31",
+                    "fillAlpha": 0.5,
+                    "width": 16,
+                    "height": 8
+                },
+                {
+                    "type": "Rectangle",
                     "id": "f9b2555b-b9eb-4ef8-802a-3425034012be",
                     "label": "attack_box",
                     "scope": "CLASS",
-                    "x": 26,
-                    "y": 12,
-                    "scaleX": 0.15787080101651232,
+                    "x": 24,
+                    "y": 13,
+                    "scaleX": 0.10596916561747083,
                     "scaleY": 0.1863834170233853,
                     "isFilled": true,
                     "fillColor": "#2ac337",
@@ -49,18 +93,28 @@
                     "label": "matterBody",
                     "scope": "CLASS",
                     "x": 1,
-                    "y": 14,
+                    "y": 13,
                     "scaleX": 1.5906812024234105,
-                    "scaleY": 1.309669464397548,
+                    "scaleY": 1.3928274317334661,
                     "isFilled": true,
                     "fillAlpha": 0.2,
                     "width": 16,
                     "height": 16
                 },
                 {
-                    "prefabId": "9ddc28d9-5366-400d-ad93-5af2bbdf2ca3",
-                    "id": "f8b62f5c-2302-4a99-b180-7d792459cd9b",
-                    "label": "camFollow_1"
+                    "type": "Rectangle",
+                    "id": "e80956f4-615d-4994-8d30-dd5070cd6391",
+                    "label": "ground_sensor",
+                    "scope": "CLASS",
+                    "x": 1,
+                    "y": 26,
+                    "scaleX": 1.47,
+                    "scaleY": 0.31,
+                    "isFilled": true,
+                    "fillColor": "#e5db31",
+                    "fillAlpha": 0.5,
+                    "width": 16,
+                    "height": 8
                 },
                 {
                     "prefabId": "7ebcc666-227f-47b9-ae7e-e51a0f0f18cb",
@@ -101,6 +155,11 @@
                     "id": "6923cd69-eece-403f-ac89-92aca8d3437a",
                     "label": "wASDCursors",
                     "scope": "CLASS"
+                },
+                {
+                    "prefabId": "9ddc28d9-5366-400d-ad93-5af2bbdf2ca3",
+                    "id": "f8b62f5c-2302-4a99-b180-7d792459cd9b",
+                    "label": "camFollow_1"
                 }
             ]
         }
