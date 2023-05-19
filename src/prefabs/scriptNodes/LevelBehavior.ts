@@ -63,7 +63,9 @@ export default class LevelBehavior extends ScriptNode {
 	start() {
 		const {scene} = this
 
-		const levelScene = (this.scene.scene.get("Level1") as Level1)
+		const levelKey = this.scene.registry.get("level-key")
+
+		const levelScene = (this.scene.scene.get(levelKey) as Level1)
 
 		// setting up all the colliders here
 		if(this.groundLayer)

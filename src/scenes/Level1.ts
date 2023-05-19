@@ -151,7 +151,7 @@ export default class Level1 extends Phaser.Scene {
 
 		for(let tunnel of this.tunnelList) {
 			// const zone = this.add.zone(tunnel.x, tunnel.y, tunnel.width, tunnel.height)
-			this.physics.add.existing(tunnel, true)
+			this.matter.add.existing(tunnel, true)
 
 			// zone.body.enable = true
 			// (zone.body as Phaser.Physics.Arcade.Body).moves = false
@@ -163,7 +163,7 @@ export default class Level1 extends Phaser.Scene {
 	private setCamWorldBounds(map: Phaser.Tilemaps.Tilemap) {
 		this.cameras.main.setBounds(0, 0, map.width * 16, map.height * 16)
 
-		this.physics.world.setBounds(0, 0, map.width * 16, map.width * 16)
+		this.matter.world.setBounds(0, 0, map.width * 16, map.width * 16)
 	}
 
 	/* END-USER-CODE */

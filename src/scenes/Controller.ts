@@ -285,6 +285,8 @@ export default class Controller extends Phaser.Scene {
 		// (add a in restart transition state)
 		// Level complete
 
+		this.registry.set("level-key", "")
+
 		eventsCenter.on("change-game-state", this.changeState, this)
 		this.scene.bringToTop()
 	}
@@ -359,6 +361,7 @@ export default class Controller extends Phaser.Scene {
 
 		this.scene.launch("UIScreen")
 		this.scene.launch(this.levelScene[this.currLevel])
+		this.registry.set("level-key", this.levelScene[this.currLevel])
 		this.scene.bringToTop("UIScreen")
 	}
 
