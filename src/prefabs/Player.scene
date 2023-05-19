@@ -13,7 +13,7 @@
     },
     "displayList": [
         {
-            "type": "ArcadeSprite",
+            "type": "Sprite",
             "id": "1af02717-4e47-4e8a-a573-d194e27bf28b",
             "label": "sprite_1",
             "components": [],
@@ -21,87 +21,7 @@
                 "key": "shiba_idle",
                 "frame": 0
             },
-            "collideWorldBounds": true,
-            "useDamping": true,
-            "body.width": 22,
-            "body.height": 20,
-            "body.offset.x": 13,
-            "body.offset.y": 28,
-            "list": [
-                {
-                    "prefabId": "7ebcc666-227f-47b9-ae7e-e51a0f0f18cb",
-                    "id": "88d458da-2f39-4548-b32f-17da3349710b",
-                    "label": "stateMachineNode",
-                    "scope": "CLASS",
-                    "components": [],
-                    "nestedPrefabs": [],
-                    "list": [
-                        {
-                            "prefabId": "41375022-6151-4754-be50-99cc65b78f7f",
-                            "id": "04dc4418-8e01-4e23-a48e-2e8bfb92c640",
-                            "label": "idleState",
-                            "scope": "CLASS",
-                            "components": [],
-                            "nestedPrefabs": [],
-                            "list": []
-                        },
-                        {
-                            "prefabId": "edc90b8d-3414-4a7e-8c2b-43f593bef1f1",
-                            "id": "7f4aad85-14ca-46fc-9255-9192ea369164",
-                            "label": "runState",
-                            "scope": "CLASS",
-                            "components": [],
-                            "nestedPrefabs": [],
-                            "list": []
-                        },
-                        {
-                            "prefabId": "7540cbe0-b48c-4d19-915e-51b6def9cc3e",
-                            "id": "7817c4e8-6429-47ee-8fac-2709b1848314",
-                            "label": "jumpState",
-                            "scope": "CLASS",
-                            "components": [],
-                            "nestedPrefabs": [],
-                            "list": []
-                        },
-                        {
-                            "prefabId": "60d51a75-cbe9-4392-90a5-3182604f735c",
-                            "id": "6f508915-b271-46d8-aeb3-1058fdad0eed",
-                            "label": "staggerState",
-                            "scope": "CLASS",
-                            "components": [],
-                            "nestedPrefabs": [],
-                            "list": []
-                        },
-                        {
-                            "prefabId": "afeae31e-cef1-4736-aea9-113b4205c72c",
-                            "id": "3a459406-f727-49b8-97e3-a0d5b2268c9d",
-                            "label": "dashState",
-                            "scope": "CLASS",
-                            "components": [],
-                            "nestedPrefabs": [],
-                            "list": []
-                        },
-                        {
-                            "prefabId": "85c931bc-20a2-4256-84d6-08c1e07d1a01",
-                            "id": "f630134e-9e27-499d-bf5f-72c171898cec",
-                            "label": "crouchState",
-                            "scope": "CLASS",
-                            "components": [],
-                            "nestedPrefabs": [],
-                            "list": []
-                        },
-                        {
-                            "prefabId": "fa0bb277-3416-49c7-b46b-be377c54300a",
-                            "id": "65d15d4c-4519-4227-9e9e-a6f5441b4449",
-                            "label": "peeState",
-                            "scope": "CLASS",
-                            "components": [],
-                            "nestedPrefabs": [],
-                            "list": []
-                        }
-                    ]
-                }
-            ]
+            "list": []
         }
     ],
     "plainObjects": [],

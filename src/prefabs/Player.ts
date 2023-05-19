@@ -4,67 +4,15 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import StateMachineNode from "./scriptNodes/StateMachineNode";
-import IdleState from "./actorStates/IdleState";
-import RunState from "./actorStates/RunState";
-import JumpState from "./actorStates/JumpState";
-import StaggerState from "./actorStates/StaggerState";
-import DashState from "./actorStates/DashState";
-import CrouchState from "./actorStates/CrouchState";
-import PeeState from "./actorStates/PeeState";
 /* START-USER-IMPORTS */
 import { ANIM_SHIBA_IDLE, ANIM_SHIBA_JUMP, ANIM_SHIBA_WALK } from "../consts/shiba-anims";
 import eventsCenter from "../eventCenter";
 /* END-USER-IMPORTS */
 
-export default interface Player {
-
-	 body: Phaser.Physics.Arcade.Body;
-}
-
-export default class Player extends Phaser.Physics.Arcade.Sprite {
+export default class Player extends Phaser.GameObjects.Sprite {
 
 	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
 		super(scene, x ?? 0, y ?? 0, texture || "shiba_idle", frame ?? 0);
-
-		scene.physics.add.existing(this, false);
-		this.body.useDamping = true;
-		this.body.collideWorldBounds = true;
-		this.body.setOffset(13, 28);
-		this.body.setSize(22, 20, false);
-
-		// stateMachineNode
-		const stateMachineNode = new StateMachineNode(this);
-
-		// idleState
-		const idleState = new IdleState(stateMachineNode);
-
-		// runState
-		const runState = new RunState(stateMachineNode);
-
-		// jumpState
-		const jumpState = new JumpState(stateMachineNode);
-
-		// staggerState
-		const staggerState = new StaggerState(stateMachineNode);
-
-		// dashState
-		const dashState = new DashState(stateMachineNode);
-
-		// crouchState
-		const crouchState = new CrouchState(stateMachineNode);
-
-		// peeState
-		const peeState = new PeeState(stateMachineNode);
-
-		this.idleState = idleState;
-		this.runState = runState;
-		this.jumpState = jumpState;
-		this.staggerState = staggerState;
-		this.dashState = dashState;
-		this.crouchState = crouchState;
-		this.peeState = peeState;
-		this.stateMachineNode = stateMachineNode;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -144,14 +92,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 		/* END-USER-CTR-CODE */
 	}
 
-	private idleState: IdleState;
-	private runState: RunState;
-	private jumpState: JumpState;
-	private staggerState: StaggerState;
-	private dashState: DashState;
-	private crouchState: CrouchState;
-	private peeState: PeeState;
-	private stateMachineNode: StateMachineNode;
 	public runSpeed: number = 150;
 	public jumpSpeed: number = 280;
 	public hasJetPack: boolean = true;

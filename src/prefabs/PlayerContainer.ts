@@ -5,10 +5,17 @@
 
 import Phaser from "phaser";
 import Player from "./Player";
-import ArrowCursors from "./scriptNodes/ArrowCursors";
 import WASDCursors from "./scriptNodes/WASDCursors";
-import ArcadePhyBody from "./scriptNodes/ArcadePhyBody";
 import CamFollow from "./scriptNodes/CamFollow";
+import StateMachineNode from "./scriptNodes/StateMachineNode";
+import IdleState from "./actorStates/IdleState";
+import RunState from "./actorStates/RunState";
+import JumpState from "./actorStates/JumpState";
+import StaggerState from "./actorStates/StaggerState";
+import DashState from "./actorStates/DashState";
+import CrouchState from "./actorStates/CrouchState";
+import PeeState from "./actorStates/PeeState";
+import ArrowCursors from "./scriptNodes/ArrowCursors";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -18,17 +25,11 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		super(scene, x ?? 0, y ?? 0);
 
 		// sprite
-		const sprite = new Player(scene, 0, 0);
+		const sprite = new Player(scene, 5, 0);
 		this.add(sprite);
 
-		// detectionBox
-		const detectionBox = scene.add.rectangle(-4, -3, 32, 2);
-		detectionBox.isFilled = true;
-		detectionBox.fillAlpha = 0.3;
-		this.add(detectionBox);
-
 		// attack_box
-		const attack_box = scene.add.rectangle(24, 10, 128, 128);
+		const attack_box = scene.add.rectangle(26, 12, 128, 128);
 		attack_box.scaleX = 0.15787080101651232;
 		attack_box.scaleY = 0.1863834170233853;
 		attack_box.isFilled = true;
@@ -36,26 +37,58 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		attack_box.fillAlpha = 0.5;
 		this.add(attack_box);
 
-		// arrowCursors
-		const arrowCursors = new ArrowCursors(this);
+		// matterBody
+		const matterBody = scene.add.rectangle(1, 14, 16, 16);
+		matterBody.scaleX = 1.5906812024234105;
+		matterBody.scaleY = 1.309669464397548;
+		matterBody.isFilled = true;
+		matterBody.fillAlpha = 0.2;
+		this.add(matterBody);
 
 		// wASDCursors
 		const wASDCursors = new WASDCursors(this);
 
-		// arcadePhyBody
-		const arcadePhyBody = new ArcadePhyBody(this);
-
 		// camFollow_1
 		new CamFollow(this);
 
-		// arcadePhyBody (prefab fields)
-		arcadePhyBody.bodyWidth = 22;
-		arcadePhyBody.bodyHeight = 20;
-		arcadePhyBody.offsetY = 5;
+		// stateMachineNode_1
+		const stateMachineNode_1 = new StateMachineNode(this);
+
+		// idleState
+		const idleState = new IdleState(stateMachineNode_1);
+
+		// runState
+		const runState = new RunState(stateMachineNode_1);
+
+		// jumpState
+		const jumpState = new JumpState(stateMachineNode_1);
+
+		// staggerState
+		const staggerState = new StaggerState(stateMachineNode_1);
+
+		// dashState
+		const dashState = new DashState(stateMachineNode_1);
+
+		// crouchState
+		const crouchState = new CrouchState(stateMachineNode_1);
+
+		// peeState
+		const peeState = new PeeState(stateMachineNode_1);
+
+		// arrowCursors
+		const arrowCursors = new ArrowCursors(this);
 
 		this.sprite = sprite;
-		this.arrowCursors = arrowCursors;
 		this.wASDCursors = wASDCursors;
+		this.idleState = idleState;
+		this.runState = runState;
+		this.jumpState = jumpState;
+		this.staggerState = staggerState;
+		this.dashState = dashState;
+		this.crouchState = crouchState;
+		this.peeState = peeState;
+		this.stateMachineNode_1 = stateMachineNode_1;
+		this.arrowCursors = arrowCursors;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
@@ -66,8 +99,16 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 	}
 
 	public sprite: Player;
-	private arrowCursors: ArrowCursors;
 	private wASDCursors: WASDCursors;
+	private idleState: IdleState;
+	private runState: RunState;
+	private jumpState: JumpState;
+	private staggerState: StaggerState;
+	private dashState: DashState;
+	private crouchState: CrouchState;
+	private peeState: PeeState;
+	private stateMachineNode_1: StateMachineNode;
+	private arrowCursors: ArrowCursors;
 	public runSpeed: number = 150;
 	public jumpSpeed: number = 280;
 	public dashMod: number = 5;

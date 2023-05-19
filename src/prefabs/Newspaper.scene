@@ -13,16 +13,39 @@
     },
     "displayList": [
         {
-            "type": "ArcadeImage",
-            "id": "4c94fe45-43d6-40ae-a502-a90bc5578b24",
-            "label": "newspaper",
+            "type": "Container",
+            "id": "3a211cb6-b21a-46dc-b164-4909dc2bacd4",
+            "label": "container_1",
             "components": [],
-            "texture": {
-                "key": "newspaper"
-            },
-            "body.width": 16,
-            "body.height": 16,
-            "list": []
+            "y": -1,
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "4c94fe45-43d6-40ae-a502-a90bc5578b24",
+                    "label": "newspaper",
+                    "components": [],
+                    "texture": {
+                        "key": "newspaper"
+                    },
+                    "y": 1,
+                    "list": []
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "94d3f953-df22-411d-bef1-507c299b38d9",
+                    "label": "matterBody",
+                    "scope": "CLASS",
+                    "components": [],
+                    "y": 1,
+                    "scaleX": 0.75,
+                    "scaleY": 0.75,
+                    "isFilled": true,
+                    "fillAlpha": 0.3,
+                    "width": 16,
+                    "height": 16,
+                    "list": []
+                }
+            ]
         }
     ],
     "plainObjects": [],

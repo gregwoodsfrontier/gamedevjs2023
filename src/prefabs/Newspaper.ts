@@ -7,23 +7,31 @@ import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default interface Newspaper {
+export default class Newspaper extends Phaser.GameObjects.Container {
 
-	 body: Phaser.Physics.Arcade.Body;
-}
+	constructor(scene: Phaser.Scene, x?: number, y?: number) {
+		super(scene, x ?? 0, y ?? -1);
 
-export default class Newspaper extends Phaser.Physics.Arcade.Image {
+		// newspaper
+		const newspaper = scene.add.sprite(0, 1, "newspaper");
+		this.add(newspaper);
 
-	constructor(scene: Phaser.Scene, x?: number, y?: number, texture?: string, frame?: number | string) {
-		super(scene, x ?? 0, y ?? 0, texture || "newspaper", frame);
+		// matterBody
+		const matterBody = scene.add.rectangle(0, 1, 16, 16);
+		matterBody.scaleX = 0.75;
+		matterBody.scaleY = 0.75;
+		matterBody.isFilled = true;
+		matterBody.fillAlpha = 0.3;
+		this.add(matterBody);
 
-		scene.physics.add.existing(this, false);
-		this.body.setSize(16, 16, false);
+		this.matterBody = matterBody;
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
+
+	private matterBody: Phaser.GameObjects.Rectangle;
 
 	/* START-USER-CODE */
 
