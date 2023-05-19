@@ -30,62 +30,62 @@ export default class Player extends Phaser.GameObjects.Sprite {
 			}
 		}
 
-		this.stateMachineNode.addState(
-			this.dashState.name, {
-				onEnter: () => {
-					this.dashState.onEnter(this, ANIM_SHIBA_WALK, this.runSpeed)
-				},
-				// onUpdate: () => {
-				// 	this.dashState.onUpdate()
-				// },
-				onExit: () => {
-					this.dashState.onExit(this)
-				}
-			}
-		)
-		.addState(
-			this.crouchState.name, {
-			onEnter: () => {
-				this.crouchState.onEnter(this)
-			},
-			onUpdate: () => {
-				this.crouchState.onUpdate({
-					sprite: this,
-					isLeft: this.cursors?.left.isDown || this.wasdKeys?.left.isDown,
-					isRight: this.cursors?.right.isDown || this.wasdKeys?.right.isDown,
-					speed: this.runSpeed
-				}
-				)
-			},
-			onExit: () => {
-				this.crouchState.onExit(this)
-			}
-		}
-		).addState(
-			this.jumpState.name, {
-			onEnter: () => {
-				this.jumpState.onEnter(this, this.jumpSpeed, ANIM_SHIBA_JUMP)
-			},
-			onUpdate: () => {
-				this.jumpState.onUpdate(
-					this,
-					this.cursors?.left.isDown || this.wasdKeys?.left.isDown,
-					this.cursors?.right.isDown || this.wasdKeys?.right.isDown,
-					this.hasJetPack,
-					this.runSpeed
-				)
-			}
-		}
-		).addState(
-			this.staggerState.name, {
-			onEnter: () => {
-				this.staggerState.onEnter(this)
-			},
-			onExit: () => {
-				this.staggerState.onExit(this)
-			}
-		}
-		).setState(this.idleState.name)
+		// this.stateMachineNode.addState(
+		// 	this.dashState.name, {
+		// 		onEnter: () => {
+		// 			this.dashState.onEnter(this, ANIM_SHIBA_WALK, this.runSpeed)
+		// 		},
+		// 		// onUpdate: () => {
+		// 		// 	this.dashState.onUpdate()
+		// 		// },
+		// 		onExit: () => {
+		// 			this.dashState.onExit(this)
+		// 		}
+		// 	}
+		// )
+		// .addState(
+		// 	this.crouchState.name, {
+		// 	onEnter: () => {
+		// 		this.crouchState.onEnter(this)
+		// 	},
+		// 	onUpdate: () => {
+		// 		this.crouchState.onUpdate({
+		// 			sprite: this,
+		// 			isLeft: this.cursors?.left.isDown || this.wasdKeys?.left.isDown,
+		// 			isRight: this.cursors?.right.isDown || this.wasdKeys?.right.isDown,
+		// 			speed: this.runSpeed
+		// 		}
+		// 		)
+		// 	},
+		// 	onExit: () => {
+		// 		this.crouchState.onExit(this)
+		// 	}
+		// }
+		// ).addState(
+		// 	this.jumpState.name, {
+		// 	onEnter: () => {
+		// 		this.jumpState.onEnter(this, this.jumpSpeed, ANIM_SHIBA_JUMP)
+		// 	},
+		// 	onUpdate: () => {
+		// 		this.jumpState.onUpdate(
+		// 			this,
+		// 			this.cursors?.left.isDown || this.wasdKeys?.left.isDown,
+		// 			this.cursors?.right.isDown || this.wasdKeys?.right.isDown,
+		// 			this.hasJetPack,
+		// 			this.runSpeed
+		// 		)
+		// 	}
+		// }
+		// ).addState(
+		// 	this.staggerState.name, {
+		// 	onEnter: () => {
+		// 		this.staggerState.onEnter(this)
+		// 	},
+		// 	onExit: () => {
+		// 		this.staggerState.onExit(this)
+		// 	}
+		// }
+		// ).setState(this.idleState.name)
 
 		this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this);
 

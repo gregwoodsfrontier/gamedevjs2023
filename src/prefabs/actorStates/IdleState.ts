@@ -7,6 +7,7 @@ import ScriptNode from "../scriptNodes/base/ScriptNode";
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import StateMachineNode from "../scriptNodes/StateMachineNode";
+import PlayerContainer from "../PlayerContainer";
 /* END-USER-IMPORTS */
 
 export default class IdleState extends ScriptNode {
@@ -21,9 +22,7 @@ export default class IdleState extends ScriptNode {
 		}
 
 		(this.parent as StateMachineNode).addState(this.name, {
-			onEnter: () => {
-				this.onEnter(this.gameObject as Phaser.Physics.Arcade.Sprite)
-			}
+			onEnter: this._onEnter
 		})
 
 		/* END-USER-CTR-CODE */
@@ -36,11 +35,15 @@ export default class IdleState extends ScriptNode {
 
 	// Write your code here.
 
-	onEnter(sprite: Phaser.Physics.Arcade.Sprite) {
-		sprite.setVelocityX(0)
+	_onEnter() {
+		if(!(this.gameObject instanceof PlayerContainer))
+		{
+			console.warn('root game object is not instance of container')
+			return
+		}
 
-		sprite.play(this.anims, true)
-
+		const container = this.gameObject as PlayerContainer
+		
 	}
 
 	private checkParentIfStateMachine(){

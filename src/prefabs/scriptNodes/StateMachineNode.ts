@@ -22,9 +22,10 @@ export default class StateMachineNode extends RootScriptNode {
 	}
 
 	public id: string = "";
+	public contextProp!: object;
 
 	/* START-USER-CODE */
-	private context?: object
+	// private context?: object
 	private states = new Map<string, IState>()
 
 	private previousState?: IState
@@ -33,9 +34,9 @@ export default class StateMachineNode extends RootScriptNode {
 	private changeStateQueue: string[] = []
 
 	// Write your code here.
-	set contextSetter (_context: object) {
-		this.context = _context
-	}
+	// set contextSetter (_context: object) {
+	// 	this.context = _context
+	// }
 
 	get previousStateName()
 	{
@@ -69,7 +70,8 @@ export default class StateMachineNode extends RootScriptNode {
 
 	addState(name: string, config?: { onEnter?: () => void, onUpdate?: () => void, onExit?: () => void })
 	{
-		const context = this.context
+		// const context = this.context
+		const context = this.contextProp
 
 		this.states.set(name, {
 			name,

@@ -9,12 +9,6 @@ import WASDCursors from "./scriptNodes/WASDCursors";
 import CamFollow from "./scriptNodes/CamFollow";
 import StateMachineNode from "./scriptNodes/StateMachineNode";
 import IdleState from "./actorStates/IdleState";
-import RunState from "./actorStates/RunState";
-import JumpState from "./actorStates/JumpState";
-import StaggerState from "./actorStates/StaggerState";
-import DashState from "./actorStates/DashState";
-import CrouchState from "./actorStates/CrouchState";
-import PeeState from "./actorStates/PeeState";
 import ArrowCursors from "./scriptNodes/ArrowCursors";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -57,36 +51,18 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		// idleState
 		const idleState = new IdleState(stateMachineNode_1);
 
-		// runState
-		const runState = new RunState(stateMachineNode_1);
-
-		// jumpState
-		const jumpState = new JumpState(stateMachineNode_1);
-
-		// staggerState
-		const staggerState = new StaggerState(stateMachineNode_1);
-
-		// dashState
-		const dashState = new DashState(stateMachineNode_1);
-
-		// crouchState
-		const crouchState = new CrouchState(stateMachineNode_1);
-
-		// peeState
-		const peeState = new PeeState(stateMachineNode_1);
-
 		// arrowCursors
 		const arrowCursors = new ArrowCursors(this);
 
+		// stateMachineNode_1 (prefab fields)
+		stateMachineNode_1.id = "player";
+		stateMachineNode_1.contextProp = this;
+
 		this.sprite = sprite;
+		this.attack_box = attack_box;
+		this.matterBody = matterBody;
 		this.wASDCursors = wASDCursors;
 		this.idleState = idleState;
-		this.runState = runState;
-		this.jumpState = jumpState;
-		this.staggerState = staggerState;
-		this.dashState = dashState;
-		this.crouchState = crouchState;
-		this.peeState = peeState;
 		this.stateMachineNode_1 = stateMachineNode_1;
 		this.arrowCursors = arrowCursors;
 
@@ -98,15 +74,11 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 		/* END-USER-CTR-CODE */
 	}
 
-	public sprite: Player;
+	private sprite: Player;
+	private attack_box: Phaser.GameObjects.Rectangle;
+	private matterBody: Phaser.GameObjects.Rectangle;
 	private wASDCursors: WASDCursors;
 	private idleState: IdleState;
-	private runState: RunState;
-	private jumpState: JumpState;
-	private staggerState: StaggerState;
-	private dashState: DashState;
-	private crouchState: CrouchState;
-	private peeState: PeeState;
 	private stateMachineNode_1: StateMachineNode;
 	private arrowCursors: ArrowCursors;
 	public runSpeed: number = 150;
@@ -116,10 +88,20 @@ export default class PlayerContainer extends Phaser.GameObjects.Container {
 	public dashLim: number = 5;
 
 	/* START-USER-CODE */
+	private physicsContainer?: Phaser.GameObjects.GameObject
 
 	// Write your code here.
 	awake() {
+		this.defineBody()
 
+		this.physicsContainer = this.scene.matter.add.gameObject(this)
+	}
+
+	//** Defines the size of the physics body first */
+	private defineBody() {
+		const { width, height } = this.matterBody
+
+		this.setSize(width, height)
 	}
 
 	update(): void {

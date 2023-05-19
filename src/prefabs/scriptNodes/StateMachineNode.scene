@@ -19,10 +19,7 @@
                 "x",
                 "y"
             ],
-            "label": "stateMachineNode",
-            "components": [],
-            "nestedPrefabs": [],
-            "list": []
+            "label": "stateMachineNode"
         }
     ],
     "plainObjects": [],
@@ -30,7 +27,7 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 4
     },
     "prefabProperties": [
         {
@@ -41,6 +38,17 @@
             "customDefinition": false,
             "type": {
                 "id": "string"
+            }
+        },
+        {
+            "name": "contextProp",
+            "label": "Context Prop",
+            "tooltip": "The context to pass to",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "object"
             }
         }
     ]
