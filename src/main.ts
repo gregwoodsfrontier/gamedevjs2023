@@ -39,8 +39,8 @@ const game = new Phaser.Game({
         autoCenter: Phaser.Scale.Center.CENTER_BOTH
     },
 	physics: {
-    	default: "arcade",
-    	arcade: {
+    	default: "matter",
+    	matter: {
             debug: true,
     	    gravity: { y: 600 }
     	}
